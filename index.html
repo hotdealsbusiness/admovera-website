@@ -1,540 +1,521 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AdMovera | E-Commerce & Marketplace Growth Strategy</title>
-  <!-- React & Tailwind CDN -->
-  <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
-  <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
-  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <style>
-    body { font-family: 'Plus Jakarta Sans', sans-serif; scroll-behavior: smooth; }
-  </style>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Ahmed Abdel Hameed - Professional Portfolio</title>
+    <style>
+        :root {
+            --primary-color: #1a73e8;
+            --secondary-color: #0d47a1;
+            --bg-color: #f8f9fa;
+            --card-bg: #ffffff;
+            --text-color: #333333;
+            --text-muted: #666666;
+            --border-radius: 12px;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 950px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .top-bar {
+            height: 6px;
+            background: linear-gradient(90deg, #1a73e8 0%, #00d2ff 100%);
+            width: 100%;
+        }
+
+        header {
+            background: var(--card-bg);
+            padding: 40px 30px;
+            border-radius: var(--border-radius);
+            margin-top: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            text-align: center;
+        }
+
+        .tag {
+            background-color: #e8f0fe;
+            color: var(--primary-color);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+
+        h1 {
+            margin: 10px 0 5px;
+            color: #111111;
+            font-size: 2.2rem;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .description {
+            max-width: 750px;
+            margin: 0 auto;
+            color: var(--text-muted);
+            font-size: 1rem;
+        }
+
+        .platforms-section {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            margin: 25px 0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+            text-align: center;
+        }
+
+        .platforms-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+        }
+
+        .platforms-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+            gap: 15px;
+        }
+
+        .platform-card {
+            background: #ffffff;
+            border: 1px solid #e1e8ed;
+            border-radius: 10px;
+            padding: 15px 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .platform-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(26, 115, 232, 0.12);
+            border-color: var(--primary-color);
+        }
+
+        .platform-card svg {
+            height: 35px;
+            width: auto;
+            max-width: 110px;
+        }
+
+        .platform-card span {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-color);
+        }
+
+        .pillars-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .pillar-card {
+            background: var(--card-bg);
+            padding: 20px;
+            border-radius: var(--border-radius);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+            border: 1px solid #eef2f5;
+            transition: transform 0.2s;
+        }
+
+        .pillar-card:hover {
+            transform: translateY(-4px);
+        }
+
+        .pillar-title {
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        .section-card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 30px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .section-title {
+            font-size: 1.3rem;
+            color: var(--secondary-color);
+            margin-bottom: 5px;
+            font-weight: 700;
+        }
+
+        .section-subtitle {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+        }
+
+        ul.feature-list {
+            list-style-type: disc;
+            padding-left: 20px;
+            margin: 0;
+        }
+
+        ul.feature-list li {
+            margin-bottom: 12px;
+            color: #444;
+        }
+
+        .ops-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .ops-item {
+            background: #f4f8ff;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .ops-item h4 {
+            margin: 0 0 5px;
+            color: var(--primary-color);
+        }
+
+        .ops-item p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin: 0;
+        }
+
+        .portfolio-action-card {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            text-align: center;
+            margin: 30px 0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+            border: 1px solid #e1e8ed;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .drive-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background-color: var(--primary-color);
+            color: #ffffff !important;
+            padding: 14px 32px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 30px;
+            text-decoration: none;
+            box-shadow: 0 4px 12px rgba(26, 115, 232, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .drive-btn:visited,
+        .drive-btn:hover,
+        .drive-btn:active {
+            color: #ffffff !important;
+        }
+
+        .drive-btn:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(13, 71, 161, 0.4);
+        }
+
+        .drive-btn svg {
+            width: 22px;
+            height: 22px;
+        }
+
+        .contact-card {
+            background: linear-gradient(135deg, #0d47a1 0%, #1a73e8 100%);
+            color: white;
+            padding: 35px 20px;
+            border-radius: var(--border-radius);
+            text-align: center;
+            margin-top: 25px;
+        }
+
+        .contact-card h2 {
+            margin-top: 0;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+            font-size: 1.05rem;
+        }
+
+        .contact-info a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
-<body class="bg-slate-950 text-slate-100 antialiased selection:bg-sky-500 selection:text-white">
-  <div id="root"></div>
+<body>
 
-  <script type="text/babel">
-    const { useState } = React;
+    <div class="top-bar"></div>
 
-    function App() {
-      const [price, setPrice] = useState(45);
-      const [cogs, setCogs] = useState(14);
-      const [fbaFee, setFbaFee] = useState(8.5);
-      const [adSpendPerUnit, setAdSpendPerUnit] = useState(7);
-      const [monthlyUnits, setMonthlyUnits] = useState(1200);
-      const [bookingOpen, setBookingOpen] = useState(false);
-      const [activeCategory, setActiveCategory] = useState('All');
-      const [searchQuery, setSearchQuery] = useState('');
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <span class="tag">Professional Portfolio &amp; Growth Strategy</span>
+            <h1>Ahmed Abdel Hameed</h1>
+            <div class="subtitle">E-Commerce &amp; Digital Marketplace Consultant Portfolio</div>
+            <p class="description">
+                Comprehensive showcase of rapid growth acceleration, data analytics, full-cycle operations management, 
+                and professional training across global e-commerce platforms.
+            </p>
+        </header>
 
-      // Social Links
-      const linkedinUrl = "https://www.linkedin.com/in/admovera";
-      const facebookUrl = "https://www.facebook.com/aa.elhameed";
-
-      const totalCostPerUnit = Number(cogs) + Number(fbaFee) + Number(adSpendPerUnit);
-      const profitPerUnit = Number(price) - totalCostPerUnit;
-      const netMargin = price > 0 ? ((profitPerUnit / price) * 100).toFixed(1) : 0;
-      const totalMonthlyProfit = profitPerUnit * monthlyUnits;
-      const roas = adSpendPerUnit > 0 ? (price / adSpendPerUnit).toFixed(2) : '0';
-
-      const services = [
-        {
-          title: "Amazon Search & Algorithm Strategy",
-          desc: "Comprehensive organic indexing optimization for A9/A10 & COSMO intent architectures to drive non-branded search dominance.",
-          tag: "Algorithm Engine"
-        },
-        {
-          title: "PPC & TACOS Optimization",
-          desc: "Structuring targeted Amazon Sponsored Ads, SBV, and DSP campaigns to maximize ROAS while maintaining healthy ad spend leverage.",
-          tag: "Performance Ads"
-        },
-        {
-          title: "Multi-Channel Store Operations",
-          desc: "Full-lifecycle management across Amazon, Noon, eBay, Walmart, and Shopify with catalog compliance and inventory protection.",
-          tag: "Marketplaces"
-        },
-        {
-          title: "High-Converting Listing Assets",
-          desc: "Mobile-first titles, persuasive bullet hierarchy, A+ Premium visual content, and backend search terms integration.",
-          tag: "Conversion Labs"
-        }
-      ];
-
-      const articles = [
-        {
-          title: "Understanding Amazon COSMO & Rufus AI Search Dynamics",
-          cat: "Amazon SEO",
-          read: "5 min read",
-          desc: "How intent graphs and semantic search are replacing pure exact-match backend keywords in 2026."
-        },
-        {
-          title: "Balancing ACOS vs TACOS for Sustainable Scale",
-          cat: "PPC Strategy",
-          read: "7 min read",
-          desc: "Why aggressive PPC bids without organic conversion tracking burn margin and how to audit ad efficiency."
-        },
-        {
-          title: "Expanding Store Operations: Amazon to Noon & Shopify",
-          cat: "Multi-Channel",
-          read: "6 min read",
-          desc: "Key operational differences and catalog mapping strategies when diversifying beyond single marketplace dependencies."
-        }
-      ];
-
-      const filtered = articles.filter(a => {
-        const matchesCat = activeCategory === 'All' || a.cat === activeCategory;
-        const matchesQuery = a.title.toLowerCase().includes(searchQuery.toLowerCase()) || a.desc.toLowerCase().includes(searchQuery.toLowerCase());
-        return matchesCat && matchesQuery;
-      });
-
-      return (
-        <div class="min-h-screen flex flex-col bg-slate-950 text-slate-100">
-          {/* Header */}
-          <header class="border-b border-slate-800 bg-slate-900/80 backdrop-blur-md sticky top-0 z-40">
-            <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-              <div class="flex items-center space-x-3">
-                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-sky-600 to-blue-500 flex items-center justify-center font-bold text-lg text-white shadow-lg shadow-sky-500/20">
-                  AM
-                </div>
-                <div>
-                  <span class="text-xl font-bold tracking-tight block leading-none">AdMovera</span>
-                  <span class="text-[10px] uppercase tracking-widest text-sky-400 font-semibold">Consulting Firm</span>
-                </div>
-              </div>
-
-              <nav class="hidden md:flex space-x-8 text-sm font-medium text-slate-300">
-                <a href="#services" class="hover:text-sky-400 transition">Services</a>
-                <a href="#calculator" class="hover:text-sky-400 transition">ROI Calculator</a>
-                <a href="#insights" class="hover:text-sky-400 transition">Insights</a>
-                <a href="#about-us" class="hover:text-sky-400 transition">About Us</a>
-                <a href="#privacy-policy" class="hover:text-sky-400 transition">Privacy Policy</a>
-                <a href="#about" class="hover:text-sky-400 transition">Consultant</a>
-              </nav>
-
-              <div class="flex items-center space-x-4">
-                {/* Social Icons Header */}
-                <div class="hidden sm:flex items-center space-x-3 border-r border-slate-800 pr-4">
-                  <a href={linkedinUrl} target="_blank" rel="noreferrer" class="p-2 bg-slate-800/80 hover:bg-sky-600/20 hover:text-sky-400 rounded-lg text-slate-300 transition" title="LinkedIn Profile">
-                    <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.25V10.9H6.46M7.86 6.72a1.63 1.63 0 1 0 0 3.26 1.63 1.63 0 0 0 0-3.26Z"/></svg>
-                  </a>
-                  <a href={facebookUrl} target="_blank" rel="noreferrer" class="p-2 bg-slate-800/80 hover:bg-sky-600/20 hover:text-sky-400 rounded-lg text-slate-300 transition" title="Facebook Profile">
-                    <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H7.5v-3H10V9.5C10 7.01 11.49 5.65 13.78 5.65c1.1 0 2.25.2 2.25.2v2.47h-1.27c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.45 3h-2.33v6.8c4.56-.93 8-4.96 8-9.8z"/></svg>
-                  </a>
+        <!-- Platforms Section -->
+        <div class="platforms-section">
+            <div class="platforms-title">Supported Global Platforms &amp; Marketplaces</div>
+            <div class="platforms-grid">
+                
+                <!-- Amazon -->
+                <div class="platform-card">
+                    <svg viewBox="0 0 200 60" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M43.8 28.2c0 3.5-.6 6.3-1.8 8.4-1.2 2.1-3 3.1-5.3 3.1-1.6 0-2.9-.5-3.9-1.5s-1.5-2.5-1.5-4.5c0-2.3.8-4 2.3-5.2 1.5-1.2 3.7-1.8 6.5-1.8h3.7v1.5zm8.5 13.9V18.8h-8.1v3.1c-1.3-1.3-2.8-2.2-4.5-2.8-1.7-.6-3.6-.9-5.6-.9-4 0-7.3 1.3-9.8 3.8-2.5 2.5-3.8 5.9-3.8 10.1 0 4.1 1.2 7.4 3.7 9.9 2.5 2.5 5.8 3.7 9.9 3.7 2.1 0 4-.3 5.7-.9 1.7-.6 3.1-1.5 4.3-2.7v2.9h8.2z" fill="#000"/>
+                        <path d="M12.5 48.5C28 54 48.5 55 65.5 46.5c2.5-1.2.2-3.8-2.2-2.5-15 8-34 7.5-48.5 2.5-2.2-.8-4.5 0-2.3 2z" fill="#FF9900"/>
+                        <path d="M68.5 42.5c-1.5-.8-8.5 0-11.5.8-1 .3-.8 1.5.2 1.5 3.5 0 10.5.2 12-1 .5-.3.3-1-.7-1.3z" fill="#FF9900"/>
+                        <text x="75" y="38" font-family="Segoe UI, sans-serif" font-weight="bold" font-size="28" fill="#000">amazon</text>
+                    </svg>
+                    <span>Amazon</span>
                 </div>
 
-                <button 
-                  onClick={() => setBookingOpen(true)}
-                  class="bg-sky-500 hover:bg-sky-400 text-slate-950 font-bold px-5 py-2.5 rounded-xl text-sm transition shadow-md shadow-sky-500/10">
-                  Book Consultation
-                </button>
-              </div>
-            </div>
-          </header>
-
-          {/* Hero */}
-          <section class="py-24 px-6 relative overflow-hidden bg-gradient-to-b from-slate-900 via-slate-950 to-slate-950 border-b border-slate-800">
-            <div class="max-w-4xl mx-auto text-center relative z-10">
-              <span class="inline-block bg-sky-500/10 border border-sky-500/20 text-sky-400 text-xs font-bold px-4 py-1.5 rounded-full mb-6">
-                Independent E-Commerce & Marketplace Practice
-              </span>
-              <h1 class="text-4xl sm:text-6xl font-extrabold text-white tracking-tight leading-tight mb-6">
-                Engineering Marketplace Dominance & Profitability
-              </h1>
-              <p class="text-slate-400 text-lg sm:text-xl max-w-3xl mx-auto mb-10 leading-relaxed font-normal">
-                Your ultimate hub for actionable strategies, in-depth guides, and modern insights in E-Commerce, Digital Marketing, and Online Marketplaces.
-                <br/><br/>
-                Whether you are a beginner taking your first steps online, an established business owner looking to scale, or a marketing enthusiast aiming to stay ahead of the curve, AdMovera is built for you.
-              </p>
-              <div class="flex flex-wrap justify-center gap-4">
-                <button 
-                  onClick={() => setBookingOpen(true)}
-                  class="bg-sky-500 hover:bg-sky-400 text-slate-950 font-bold px-8 py-4 rounded-xl text-sm transition shadow-lg shadow-sky-500/20">
-                  Request Portfolio Audit
-                </button>
-                <a 
-                  href="#calculator"
-                  class="bg-slate-900 hover:bg-slate-800 border border-slate-700 text-white font-semibold px-8 py-4 rounded-xl text-sm transition">
-                  Calculate Unit Economics
-                </a>
-              </div>
-            </div>
-          </section>
-
-          {/* Services */}
-          <section id="services" class="py-20 px-6 max-w-7xl mx-auto">
-            <div class="text-center mb-16">
-              <h2 class="text-3xl font-bold text-white mb-3">Specialized Consultancy Modules</h2>
-              <p class="text-slate-400">Data-driven strategies built for high-margin e-commerce execution.</p>
-            </div>
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {services.map((s, i) => (
-                <div key={i} class="bg-slate-900/60 border border-slate-800 p-6 rounded-2xl hover:border-slate-700 transition">
-                  <span class="text-xs font-bold text-sky-400 bg-sky-500/10 border border-sky-500/20 px-3 py-1 rounded-md inline-block mb-4">
-                    {s.tag}
-                  </span>
-                  <h3 class="font-bold text-lg text-white mb-2">{s.title}</h3>
-                  <p class="text-slate-400 text-sm leading-relaxed">{s.desc}</p>
-                </div>
-              ))}
-            </div>
-          </section>
-
-          {/* ROI Calculator */}
-          <section id="calculator" class="py-20 px-6 bg-slate-900/40 border-y border-slate-800">
-            <div class="max-w-5xl mx-auto">
-              <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold text-white mb-3">Interactive Unit Economics Calculator</h2>
-                <p class="text-slate-400">Simulate selling prices, marketplace fees, and PPC ad spend live.</p>
-              </div>
-
-              <div class="grid md:grid-cols-2 gap-8 bg-slate-900 border border-slate-800 p-8 rounded-3xl shadow-xl">
-                <div class="space-y-5">
-                  <div>
-                    <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2">Selling Price ($)</label>
-                    <input type="number" value={price} onChange={e => setPrice(e.target.value)} class="w-full bg-slate-950 border border-slate-800 rounded-xl p-3 text-white font-bold focus:border-sky-500 focus:outline-none" />
-                  </div>
-                  <div>
-                    <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2">Product COGS ($)</label>
-                    <input type="number" value={cogs} onChange={e => setCogs(e.target.value)} class="w-full bg-slate-950 border border-slate-800 rounded-xl p-3 text-white font-bold focus:border-sky-500 focus:outline-none" />
-                  </div>
-                  <div>
-                    <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2">Platform / FBA Fees ($)</label>
-                    <input type="number" value={fbaFee} onChange={e => setFbaFee(e.target.value)} class="w-full bg-slate-950 border border-slate-800 rounded-xl p-3 text-white font-bold focus:border-sky-500 focus:outline-none" />
-                  </div>
-                  <div>
-                    <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2">Target PPC Ad Spend / Unit ($)</label>
-                    <input type="number" value={adSpendPerUnit} onChange={e => setAdSpendPerUnit(e.target.value)} class="w-full bg-slate-950 border border-slate-800 rounded-xl p-3 text-white font-bold focus:border-sky-500 focus:outline-none" />
-                  </div>
-                  <div>
-                    <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2">Estimated Monthly Volume (Units)</label>
-                    <input type="number" value={monthlyUnits} onChange={e => setMonthlyUnits(e.target.value)} class="w-full bg-slate-950 border border-slate-800 rounded-xl p-3 text-white font-bold focus:border-sky-500 focus:outline-none" />
-                  </div>
+                <!-- eBay -->
+                <div class="platform-card">
+                    <svg viewBox="0 0 120 50" xmlns="http://www.w3.org/2000/svg">
+                        <text x="5" y="38" font-family="Arial, sans-serif" font-weight="bold" font-size="40" fill="#E53238">e</text>
+                        <text x="26" y="38" font-family="Arial, sans-serif" font-weight="bold" font-size="40" fill="#0064D2">b</text>
+                        <text x="50" y="38" font-family="Arial, sans-serif" font-weight="bold" font-size="40" fill="#F5AF02">a</text>
+                        <text x="72" y="38" font-family="Arial, sans-serif" font-weight="bold" font-size="40" fill="#86B817">y</text>
+                    </svg>
+                    <span>eBay</span>
                 </div>
 
-                <div class="bg-slate-950 border border-slate-800 rounded-2xl p-6 flex flex-col justify-between">
-                  <div>
-                    <h3 class="text-xs font-bold text-sky-400 uppercase tracking-widest mb-6">Financial Projections</h3>
-                    <div class="space-y-4 text-sm">
-                      <div class="flex justify-between border-b border-slate-800 pb-3">
-                        <span class="text-slate-400">Total Unit Cost</span>
-                        <span class="font-bold text-white">${totalCostPerUnit.toFixed(2)}</span>
-                      </div>
-                      <div class="flex justify-between border-b border-slate-800 pb-3">
-                        <span class="text-slate-400">Net Profit / Unit</span>
-                        <span class={`font-bold ${profitPerUnit >= 0 ? 'text-emerald-400' : 'text-rose-400'}`}>${profitPerUnit.toFixed(2)}</span>
-                      </div>
-                      <div class="flex justify-between border-b border-slate-800 pb-3">
-                        <span class="text-slate-400">Net Margin</span>
-                        <span class="font-bold text-sky-400">{netMargin}%</span>
-                      </div>
-                      <div class="flex justify-between border-b border-slate-800 pb-3">
-                        <span class="text-slate-400">Target ROAS</span>
-                        <span class="font-bold text-sky-400">{roas}x</span>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="pt-6 border-t border-slate-800 text-center">
-                    <span class="text-xs uppercase tracking-wider text-slate-400 block mb-1">Projected Monthly Net Profit</span>
-                    <span class={`text-4xl font-extrabold ${totalMonthlyProfit >= 0 ? 'text-emerald-400' : 'text-rose-400'}`}>
-                      ${totalMonthlyProfit.toLocaleString()}
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          {/* Insights */}
-          <section id="insights" class="py-20 px-6 max-w-7xl mx-auto">
-            <div class="text-center mb-12">
-              <h2 class="text-3xl font-bold text-white mb-3">Consulting Insights & Case Notes</h2>
-              <p class="text-slate-400">Analysis on search algorithms, ad leverage, and marketplace growth.</p>
-            </div>
-
-            <div class="flex flex-col sm:flex-row justify-between items-center gap-4 mb-8">
-              <input 
-                type="text" 
-                placeholder="Search articles..." 
-                value={searchQuery}
-                onChange={e => setSearchQuery(e.target.value)}
-                class="w-full sm:w-72 bg-slate-900 border border-slate-800 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-sky-500"
-              />
-              <div class="flex space-x-2">
-                {['All', 'Amazon SEO', 'PPC Strategy', 'Multi-Channel'].map(cat => (
-                  <button 
-                    key={cat}
-                    onClick={() => setActiveCategory(cat)}
-                    class={`px-3.5 py-1.5 rounded-lg text-xs font-semibold transition ${activeCategory === cat ? 'bg-sky-500 text-slate-950' : 'bg-slate-900 text-slate-400 hover:text-white'}`}>
-                    {cat}
-                  </button>
-                ))}
-              </div>
-            </div>
-
-            <div class="grid md:grid-cols-3 gap-6">
-              {filtered.map((item, idx) => (
-                <div key={idx} class="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 flex flex-col justify-between">
-                  <div>
-                    <div class="flex justify-between text-xs text-slate-500 mb-3">
-                      <span>{item.cat}</span>
-                      <span>{item.read}</span>
-                    </div>
-                    <h3 class="font-bold text-white text-base mb-2">{item.title}</h3>
-                    <p class="text-slate-400 text-sm leading-relaxed mb-4">{item.desc}</p>
-                  </div>
-                  <span class="text-xs font-semibold text-sky-400 hover:text-sky-300 cursor-pointer">Read Full Article &rarr;</span>
-                </div>
-              ))}
-            </div>
-          </section>
-
-          {/* About Us Page Content */}
-          <section id="about-us" class="py-20 px-6 bg-slate-900/40 border-t border-slate-800">
-            <div class="max-w-5xl mx-auto space-y-16">
-              
-              {/* Banner */}
-              <div class="overflow-hidden rounded-3xl border border-slate-800 shadow-2xl">
-                <a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgOmB0Us0BKed6hPZvik7GJYQBDgAdjQ_gXYJQZ6P5GutMLVXbBNCDAwIjPaXgyuKAaH4koQycd3MOo3YxdQRU3aWe2Ksn49VF8jB9XuEsvLwtgqMhxkViS_MDboSO8ebs5mpK9qpEjaGFwq_Sl6ErclricBRL-1Y3as-rshudd3sEuPAZiO4OPKLak2XU/s1169/Admover-%20about%20us.jpg" target="_blank">
-                  <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgOmB0Us0BKed6hPZvik7GJYQBDgAdjQ_gXYJQZ6P5GutMLVXbBNCDAwIjPaXgyuKAaH4koQycd3MOo3YxdQRU3aWe2Ksn49VF8jB9XuEsvLwtgqMhxkViS_MDboSO8ebs5mpK9qpEjaGFwq_Sl6ErclricBRL-1Y3as-rshudd3sEuPAZiO4OPKLak2XU/s1600/Admover-%20about%20us.jpg" alt="Admovera About Us" class="w-full object-cover hover:scale-105 transition duration-500" />
-                </a>
-              </div>
-
-              {/* Welcome Card */}
-              <div class="bg-slate-900 border-t-4 border-t-sky-500 border-x border-b border-slate-800 p-8 sm:p-10 rounded-3xl text-center space-y-4 shadow-xl">
-                <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Welcome to <span class="text-sky-400">Admovera</span>!</h2>
-                <p class="text-slate-300 leading-relaxed max-w-3xl mx-auto text-base sm:text-lg">
-                  Building a successful online brand goes far beyond launching a website or putting products online. We are dedicated to guiding businesses with the best insights, strategies, and guides on Digital Marketing, SEO, Growth Hacking, and E-commerce Marketplace optimization to help them scale successfully.
-                </p>
-                <div class="pt-4 border-t border-slate-800/80">
-                  <p class="text-sky-400 font-semibold text-base sm:text-lg">
-                    We built Admovera to be a reliable roadmap, helping anyone doing business online build, grow, and scale with clear, practical guidance.
-                  </p>
-                </div>
-              </div>
-
-              {/* Challenges Section */}
-              <div class="bg-slate-900/80 border border-slate-800 p-8 sm:p-10 rounded-3xl space-y-6">
-                <div>
-                  <h3 class="text-2xl font-bold text-white mb-2">The Challenges of Selling Online Today</h3>
-                  <p class="text-slate-400 text-sm sm:text-base">Running an online business takes way more than just listing products and waiting for sales. Most online sellers face these exact roadblocks:</p>
+                <!-- Noon -->
+                <div class="platform-card">
+                    <svg viewBox="0 0 140 50" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="140" height="50" rx="8" fill="#FEEE00"/>
+                        <text x="70" y="34" font-family="Arial, sans-serif" font-weight="900" font-size="28" fill="#000000" text-anchor="middle">noon</text>
+                    </svg>
+                    <span>Noon</span>
                 </div>
 
-                <div class="grid sm:grid-cols-2 gap-4">
-                  <div class="bg-slate-950/80 p-5 rounded-2xl border-l-4 border-sky-500 border-y border-r border-slate-800">
-                    <h4 class="font-bold text-sky-400 text-base mb-1">1. Getting Lost in the Noise</h4>
-                    <p class="text-slate-400 text-sm">Struggling to rank on search engines or marketplace results, leaving products unseen.</p>
-                  </div>
-                  <div class="bg-slate-950/80 p-5 rounded-2xl border-l-4 border-sky-500 border-y border-r border-slate-800">
-                    <h4 class="font-bold text-sky-400 text-base mb-1">2. Low Conversions</h4>
-                    <p class="text-slate-400 text-sm">Getting visitors to your store, but failing to turn those clicks into paying customers.</p>
-                  </div>
-                  <div class="bg-slate-950/80 p-5 rounded-2xl border-l-4 border-sky-500 border-y border-r border-slate-800">
-                    <h4 class="font-bold text-sky-400 text-base mb-1">3. Operational Bottlenecks</h4>
-                    <p class="text-slate-400 text-sm">Dealing with messy inventory, pricing errors, and scaling headaches that eat up your time.</p>
-                  </div>
-                  <div class="bg-slate-950/80 p-5 rounded-2xl border-l-4 border-sky-500 border-y border-r border-slate-800">
-                    <h4 class="font-bold text-sky-400 text-base mb-1">4. Keeping Up with Rules</h4>
-                    <p class="text-slate-400 text-sm">Fearing account health issues or sudden policy changes that put your business at risk.</p>
-                  </div>
+                <!-- Newegg -->
+                <div class="platform-card">
+                    <svg viewBox="0 0 150 50" xmlns="http://www.w3.org/2000/svg">
+                        <ellipse cx="25" cy="25" rx="18" ry="12" fill="#C6893F"/>
+                        <ellipse cx="22" cy="22" rx="18" ry="12" fill="#D8A24A"/>
+                        <ellipse cx="19" cy="19" rx="18" ry="12" fill="#EBB95B"/>
+                        <text x="45" y="33" font-family="Impact, Arial Black, sans-serif" font-size="24" fill="#1C3A70">newegg</text>
+                    </svg>
+                    <span>Newegg</span>
                 </div>
 
-                <p class="text-sky-400 font-semibold text-center pt-2">
-                  Admovera breaks down these challenges with actionable guides and proven frameworks.
-                </p>
-              </div>
-
-              {/* Mission & Vision */}
-              <div class="bg-slate-900/80 border border-slate-800 p-8 sm:p-10 rounded-3xl space-y-6">
-                <h3 class="text-2xl font-bold text-white mb-4">Mission and Vision</h3>
-                <div class="grid sm:grid-cols-2 gap-6">
-                  <div class="bg-slate-950/90 p-6 rounded-2xl border border-slate-800 space-y-2">
-                    <h4 class="font-bold text-sky-400 text-lg">Our Mission</h4>
-                    <p class="text-slate-300 text-sm leading-relaxed">
-                      To simplify e-commerce for every online seller by providing the insights, tools, and strategies needed to build a sustainable online business.
-                    </p>
-                  </div>
-                  <div class="bg-slate-950/90 p-6 rounded-2xl border border-slate-800 space-y-2">
-                    <h4 class="font-bold text-sky-400 text-lg">Our Vision</h4>
-                    <p class="text-slate-300 text-sm leading-relaxed">
-                      To be a trusted educational hub for digital entrepreneurs and businesses expanding across global markets.
-                    </p>
-                  </div>
+                <!-- Shopify -->
+                <div class="platform-card">
+                    <svg viewBox="0 0 160 50" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M28.5 12c-.3 0-.5.2-.6.4l-1.5 12.2c-.1.3 0 .6.2.8.2.2.5.3.8.2l4.8-.8 2.7 13.5c.1.5.5.8 1 .8h.2c.5-.1.9-.5 dark:.9-1l1.5-16.7L28.5 12z" fill="#95BF47"/>
+                        <path d="M28.5 12l-8.5 2.6c-.4.1-.7.5-.6 1l2.8 17.8 8.8-1.5L28.5 12z" fill="#5E8E3E"/>
+                        <text x="42" y="34" font-family="Segoe UI, Arial, sans-serif" font-weight="bold" font-size="24" fill="#95BF47">shopify</text>
+                    </svg>
+                    <span>Shopify</span>
                 </div>
-              </div>
 
-              {/* Framework & Approach */}
-              <div class="bg-slate-900/80 border border-slate-800 p-8 sm:p-10 rounded-3xl space-y-6">
-                <h3 class="text-2xl font-bold text-white mb-2">Our Framework & Approach</h3>
-                <p class="text-sky-400 font-semibold text-sm sm:text-base mb-6">How We Help You Grow:</p>
-
-                <div class="space-y-6">
-                  {[
-                    { title: "Building a Strong Foundation", desc: "From getting noticed on search engines to creating a frictionless checkout, we focus on what actually drives sales at every step." },
-                    { title: "Working with the Algorithms", desc: "Whether it's search engines or online marketplaces, we show you how to structure your product data so algorithms highlight your listings organically." },
-                    { title: "Streamlining Backend Operations", desc: "Growth requires stability. We share insights on inventory syncing, smart pricing logic, and clean catalog management to keep your store running smoothly." },
-                    { title: "Focusing on Customer Retention", desc: "A one-time sale is great, but a repeat customer keeps your business alive. We highlight strategies that build long-term trust and recurring revenue." }
-                  ].map((item, idx) => (
-                    <div key={idx} class="flex items-start space-x-4 bg-slate-950/60 p-5 rounded-2xl border border-slate-800">
-                      <div class="w-10 h-10 rounded-full bg-sky-500 text-slate-950 font-bold flex items-center justify-center shrink-0 text-base shadow-md shadow-sky-500/20">
-                        {idx + 1}
-                      </div>
-                      <div>
-                        <h4 class="font-bold text-white text-base mb-1">{item.title}</h4>
-                        <p class="text-slate-400 text-sm leading-relaxed">{item.desc}</p>
-                      </div>
-                    </div>
-                  ))}
+                <!-- Walmart -->
+                <div class="platform-card">
+                    <svg viewBox="0 0 170 50" xmlns="http://www.w3.org/2000/svg">
+                        <g fill="#FFC220">
+                            <rect x="18" y="10" width="4" height="10" rx="2" transform="rotate(0 20 15)"/>
+                            <rect x="18" y="10" width="4" height="10" rx="2" transform="rotate(60 20 15)"/>
+                            <rect x="18" y="10" width="4" height="10" rx="2" transform="rotate(120 20 15)"/>
+                            <rect x="18" y="10" width="4" height="10" rx="2" transform="rotate(180 20 15)"/>
+                            <rect x="18" y="10" width="4" height="10" rx="2" transform="rotate(240 20 15)"/>
+                            <rect x="18" y="10" width="4" height="10" rx="2" transform="rotate(300 20 15)"/>
+                        </g>
+                        <text x="38" y="33" font-family="Arial, sans-serif" font-weight="bold" font-size="22" fill="#0071CE">Walmart</text>
+                    </svg>
+                    <span>Walmart</span>
                 </div>
-              </div>
+
+                <!-- Wix -->
+                <div class="platform-card">
+                    <svg viewBox="0 0 140 50" xmlns="http://www.w3.org/2000/svg">
+                        <text x="70" y="36" font-family="Arial Black, Impact, sans-serif" font-weight="900" font-size="34" fill="#000000" text-anchor="middle" letter-spacing="-1">WiX</text>
+                    </svg>
+                    <span>Wix</span>
+                </div>
+
+                <!-- Ecwid -->
+                <div class="platform-card">
+                    <svg viewBox="0 0 150 50" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M18 12h14v6H24v7h7v6h-7v7h8v6H18V12z" fill="#0083CA"/>
+                        <text x="38" y="36" font-family="Arial, sans-serif" font-weight="bold" font-size="28" fill="#0083CA">ecwid</text>
+                    </svg>
+                    <span>Ecwid</span>
+                </div>
 
             </div>
-          </section>
-
-          {/* Privacy Policy Section */}
-          <section id="privacy-policy" class="py-20 px-6 bg-slate-950 border-t border-slate-800">
-            <div class="max-w-5xl mx-auto space-y-10">
-              <div class="border-b border-slate-800 pb-6">
-                <span class="text-xs font-bold uppercase tracking-widest text-sky-400 block mb-2">Legal & Trust</span>
-                <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Privacy Policy</h2>
-                <p class="text-slate-400 text-sm mt-2">Last updated: September 2026</p>
-              </div>
-
-              <div class="space-y-8 text-slate-300 leading-relaxed text-sm sm:text-base">
-                <div class="bg-slate-900/60 border border-slate-800 p-6 sm:p-8 rounded-2xl space-y-3">
-                  <h3 class="text-xl font-bold text-white">1. Introduction</h3>
-                  <p class="text-slate-400">
-                    At <strong>AdMovera</strong>, accessible from our online platforms, we prioritize the privacy of our visitors and clients. This Privacy Policy outlines the types of information collected and recorded by AdMovera and how we utilize it to improve our e-commerce consultancy and strategic advisory services.
-                  </p>
-                </div>
-
-                <div class="bg-slate-900/60 border border-slate-800 p-6 sm:p-8 rounded-2xl space-y-3">
-                  <h3 class="text-xl font-bold text-white">2. Information We Collect</h3>
-                  <p class="text-slate-400">
-                    When you interact with our platform, request a consultation, or utilize our ROI tools, we may ask for specific personal details, including:
-                  </p>
-                  <ul class="list-disc list-inside text-slate-400 space-y-2 pt-2">
-                    <li><strong class="text-slate-200">Contact Information:</strong> Name, professional email address, and communication preferences provided through consultation inquiry forms.</li>
-                    <li><strong class="text-slate-200">Business & Marketplace Details:</strong> Platform metrics, seller profile context, and operational parameters voluntarily provided for audit purposes.</li>
-                    <li><strong class="text-slate-200">Technical Log Data:</strong> Browser type, Internet Protocol (IP) addresses, ISP, date/time stamps, referring/exit pages, and click counts for performance analytics.</li>
-                  </ul>
-                </div>
-
-                <div class="bg-slate-900/60 border border-slate-800 p-6 sm:p-8 rounded-2xl space-y-3">
-                  <h3 class="text-xl font-bold text-white">3. How We Use Your Information</h3>
-                  <p class="text-slate-400">We utilize the information collected in several ways, including to:</p>
-                  <ul class="list-disc list-inside text-slate-400 space-y-2 pt-2">
-                    <li>Provide, operate, and maintain our consultancy tools and interactive calculators.</li>
-                    <li>Deliver tailored e-commerce marketplace optimization strategies and account audits.</li>
-                    <li>Communicate directly regarding booked advisory sessions and respond to inquiries.</li>
-                    <li>Analyze user engagement to enhance overall platform functionality and content relevance.</li>
-                    <li>Ensure security, prevent fraudulent activity, and comply with marketplace standards.</li>
-                  </ul>
-                </div>
-
-                <div class="bg-slate-900/60 border border-slate-800 p-6 sm:p-8 rounded-2xl space-y-3">
-                  <h3 class="text-xl font-bold text-white">4. Cookies and Web Technologies</h3>
-                  <p class="text-slate-400">
-                    AdMovera uses standard 'cookies' and localized storage technologies to store information regarding visitor preferences, pages accessed, and user interaction. This data allows us to optimize user experiences by customizing web content based on visitor browser preferences and technical requirements.
-                  </p>
-                </div>
-
-                <div class="bg-slate-900/60 border border-slate-800 p-6 sm:p-8 rounded-2xl space-y-3">
-                  <h3 class="text-xl font-bold text-white">5. Data Protection & Confidentiality</h3>
-                  <p class="text-slate-400">
-                    We maintain strict data protection and confidentiality standards. AdMovera does not sell, rent, or trade client metrics, seller account data, or contact lists to third-party advertisers or brokers under any circumstances.
-                  </p>
-                </div>
-
-                <div class="bg-slate-900/60 border border-slate-800 p-6 sm:p-8 rounded-2xl space-y-3">
-                  <h3 class="text-xl font-bold text-white">6. Contact & Data Requests</h3>
-                  <p class="text-slate-400">
-                    If you have additional questions regarding our Privacy Policy or wish to request data removal, please contact our team directly through our consultation scheduling channel or connect via our official social platforms.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          {/* About Consultant */}
-          <section id="about" class="py-20 px-6 bg-slate-900/60 border-t border-slate-800">
-            <div class="max-w-3xl mx-auto text-center">
-              <h2 class="text-3xl font-bold text-white mb-4">About Ahmed Abdelhameed</h2>
-              <p class="text-slate-400 leading-relaxed text-base mb-8">
-                Independent E-Commerce & Marketplace Consultant with 20 years of commercial sales experience and 10 dedicated years managing multi-channel store lifecycles. Specializing in search indexing optimization (Amazon A9/A10 & COSMO), PPC management, listing creation, and catalog operations for sellers worldwide.
-              </p>
-              
-              {/* Social Buttons in About Section */}
-              <div class="flex justify-center items-center space-x-4 mb-8">
-                <a href={linkedinUrl} target="_blank" rel="noreferrer" class="flex items-center space-x-2 bg-slate-800 hover:bg-sky-600 hover:text-white px-5 py-2.5 rounded-xl text-xs font-semibold transition border border-slate-700">
-                  <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.25V10.9H6.46M7.86 6.72a1.63 1.63 0 1 0 0 3.26 1.63 1.63 0 0 0 0-3.26Z"/></svg>
-                  <span>Connect on LinkedIn</span>
-                </a>
-                <a href={facebookUrl} target="_blank" rel="noreferrer" class="flex items-center space-x-2 bg-slate-800 hover:bg-sky-600 hover:text-white px-5 py-2.5 rounded-xl text-xs font-semibold transition border border-slate-700">
-                  <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H7.5v-3H10V9.5C10 7.01 11.49 5.65 13.78 5.65c1.1 0 2.25.2 2.25.2v2.47h-1.27c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.45 3h-2.33v6.8c4.56-.93 8-4.96 8-9.8z"/></svg>
-                  <span>Follow on Facebook</span>
-                </a>
-              </div>
-
-              <button 
-                onClick={() => setBookingOpen(true)}
-                class="bg-sky-500 hover:bg-sky-400 text-slate-950 font-bold px-8 py-3.5 rounded-xl text-sm transition">
-                Book Private Consultation
-              </button>
-            </div>
-          </section>
-
-          {/* Footer */}
-          <footer class="py-8 text-center text-xs text-slate-500 border-t border-slate-800 flex flex-col items-center justify-center space-y-4">
-            <div class="flex space-x-6 text-slate-400">
-              <a href={linkedinUrl} target="_blank" rel="noreferrer" class="hover:text-sky-400 transition">LinkedIn</a>
-              <a href={facebookUrl} target="_blank" rel="noreferrer" class="hover:text-sky-400 transition">Facebook</a>
-              <a href="#privacy-policy" class="hover:text-sky-400 transition">Privacy Policy</a>
-            </div>
-            <p>&copy; {new Date().getFullYear()} AdMovera. All rights reserved. | E-Commerce Strategy & Advisory</p>
-          </footer>
-
-          {/* Modal */}
-          {bookingOpen && (
-            <div class="fixed inset-0 bg-slate-950/80 backdrop-blur-md flex items-center justify-center p-4 z-50">
-              <div class="bg-slate-900 border border-slate-800 rounded-2xl max-w-md w-full p-6 shadow-2xl">
-                <div class="flex justify-between items-center mb-6">
-                  <h3 class="font-bold text-white text-lg">Schedule Strategic Consultation</h3>
-                  <button onClick={() => setBookingOpen(false)} class="text-slate-400 hover:text-white font-bold">&times;</button>
-                </div>
-                <form onSubmit={e => { e.preventDefault(); alert('Consultation inquiry sent successfully!'); setBookingOpen(false); }} class="space-y-4">
-                  <div>
-                    <label class="block text-xs font-semibold uppercase text-slate-400 mb-1">Full Name</label>
-                    <input type="text" required class="w-full bg-slate-950 border border-slate-800 rounded-xl p-3 text-sm text-white focus:outline-none focus:border-sky-500" placeholder="Ahmed Abdelhameed" />
-                  </div>
-                  <div>
-                    <label class="block text-xs font-semibold uppercase text-slate-400 mb-1">Work Email</label>
-                    <input type="email" required class="w-full bg-slate-950 border border-slate-800 rounded-xl p-3 text-sm text-white focus:outline-none focus:border-sky-500" placeholder="name@company.com" />
-                  </div>
-                  <div>
-                    <label class="block text-xs font-semibold uppercase text-slate-400 mb-1">Primary Marketplace</label>
-                    <select class="w-full bg-slate-950 border border-slate-800 rounded-xl p-3 text-sm text-white focus:outline-none focus:border-sky-500">
-                      <option>Amazon</option>
-                      <option>Noon</option>
-                      <option>Shopify / D2C</option>
-                      <option>eBay / Walmart</option>
-                    </select>
-                  </div>
-                  <button type="submit" class="w-full bg-sky-500 hover:bg-sky-400 text-slate-950 font-bold py-3.5 rounded-xl text-sm transition">
-                    Send Inquiry
-                  </button>
-                </form>
-              </div>
-            </div>
-          )}
         </div>
-      );
-    }
 
-    ReactDOM.createRoot(document.getElementById('root')).render(<App />);
-  </script>
+        <!-- Core Pillars -->
+        <div class="pillars-grid">
+            <div class="pillar-card">
+                <div class="pillar-title">1. Growth Hacking</div>
+                <p>Innovative marketing strategies, comprehensive store SEO optimization, and targeted Google paid campaigns.</p>
+            </div>
+            <div class="pillar-card">
+                <div class="pillar-title">2. Data-Driven Insights</div>
+                <p>Leveraging advanced data analytics to maximize sales performance and make precise marketing decisions.</p>
+            </div>
+            <div class="pillar-card">
+                <div class="pillar-title">3. Managing Operation</div>
+                <p>End-to-end operations management from shipping and collections to customer support and account dispute resolution.</p>
+            </div>
+            <div class="pillar-card">
+                <div class="pillar-title">4. Training</div>
+                <p>Empowering teams and sellers professionally on smart selling mechanics and leveraging platform potentials to their fullest.</p>
+            </div>
+        </div>
+
+        <!-- Section 1 -->
+        <div class="section-card">
+            <div class="section-title">1. Growth Hacking &amp; SEO Optimization</div>
+            <div class="section-subtitle">Store Growth Engineering &amp; Search Visibility across global platforms</div>
+            <ul class="feature-list">
+                <li><strong>Keyword Engineering:</strong> Implementing advanced SEO strategies across major marketplaces and independent Shopify stores to dominate organic search results.</li>
+                <li><strong>Smart Ad Integration:</strong> Bridging marketplace products with highly-targeted paid search campaigns on Google Ads to capture high-intent buyers.</li>
+                <li><strong>Conversion Rate Optimization (CRO):</strong> Restructuring product offers and listing pages to drive checkout rates and maximize net profits.</li>
+            </ul>
+        </div>
+
+        <!-- Section 2 -->
+        <div class="section-card">
+            <div class="section-title">2. Data-Driven Insights</div>
+            <div class="section-subtitle">Advanced Data Analysis and Performance Dashboards serving as the backbone of Growth Hacking techniques</div>
+            <ul class="feature-list">
+                <li><strong>Core Growth Catalyst:</strong> Transforming raw metrics into profitable strategies.</li>
+                <li><strong>Sales Cycle Evolution:</strong> Analyzing consumer behavior, peak hours, and customer retention rates to multiply Return on Ad Spend (ROAS).</li>
+                <li><strong>Performance Dashboards:</strong> Monitoring real-time inventory and sales movement through accurate indicators to spot opportunities and fix gaps instantly.</li>
+            </ul>
+        </div>
+
+        <!-- Section 3 -->
+        <div class="section-card">
+            <div class="section-title">3. Operations &amp; Account Health</div>
+            <div class="section-subtitle">Professional Operations and Customer Service Management:</div>
+            
+            <div class="ops-grid">
+                <div class="ops-item">
+                    <h4>Shipping &amp; Delivery</h4>
+                    <p>Tracking full order lifecycle from purchase confirmation to final delivery.</p>
+                </div>
+                <div class="ops-item">
+                    <h4>Financial Collection</h4>
+                    <p>Monitoring cash flows & payment reconciliations with platforms.</p>
+                </div>
+                <div class="ops-item">
+                    <h4>Inventory Tracking</h4>
+                    <p>Planning stock levels to avoid stockouts and reduce storage costs.</p>
+                </div>
+            </div>
+
+            <ul class="feature-list" style="margin-top: 20px;">
+                <li><strong>Effective Customer Support:</strong> Prompt handling of queries and shipping complaints to elevate Customer Satisfaction scores.</li>
+                <li><strong>Account Health Management:</strong> Immediate action on platform warnings, invalid negative feedback removal, and protecting account health from suspension.</li>
+                <li><strong>Returns &amp; Claims Management:</strong> Disciplined return policies, damage reduction, and efficient reimbursement collections.</li>
+            </ul>
+        </div>
+
+        <!-- Section 4 -->
+        <div class="section-card">
+            <div class="section-title">4. Professional Training &amp; Enablement</div>
+            <div class="section-subtitle">Professional Training and Career Development Sessions:</div>
+            <ul class="feature-list">
+                <li><strong>Team &amp; Seller Coaching:</strong> Integrated training programs for teams and new sellers to master e-commerce secrets across all supported platforms.</li>
+                <li><strong>Profitable Selling Strategies:</strong> Detailed explanations of marketplace algorithms, profitable product research, and common store management mistakes to avoid.</li>
+                <li><strong>Operational Empowerment:</strong> Transferring practical expertise to ensure teams can independently run accounts and achieve revenue growth targets.</li>
+            </ul>
+        </div>
+
+        <!-- Action Cards: View Full Portfolio & Project Showcase -->
+        <div class="portfolio-action-card">
+            <a href="https://drive.google.com/file/d/12RygbneF_PKRfOQHAbSkz55597WedMnC/view" target="_blank" class="drive-btn">
+                <svg viewBox="0 0 24 24">
+                    <path fill="#ffffff" d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM17 13l-5 5-5-5h3V9h4v4h3z"/>
+                </svg>
+                View Full Portfolio
+            </a>
+            
+            <a href="https://drive.google.com/file/d/1NjKqNc6hTZGyIckfbftPDtzaeq0lPZE6/view?usp=sharing" target="_blank" class="drive-btn">
+                <svg viewBox="0 0 24 24">
+                    <path fill="#ffffff" d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM17 13l-5 5-5-5h3V9h4v4h3z"/>
+                </svg>
+                Project Showcase
+            </a>
+        </div>
+
+        <!-- Contact / Footer -->
+        <div class="contact-card">
+            <span class="tag" style="background: rgba(255,255,255,0.2); color: white;">Let's Connect</span>
+            <h2>Ready for Your Next Digital Success!</h2>
+            <p>Get in touch to maximize your e-commerce store revenue and streamline operations with data-driven strategies and proven expertise.</p>
+            
+            <div class="contact-info">
+                <div>📧 Email: <a href="mailto:b2rstore@outlook.com">b2rstore@outlook.com</a></div>
+                <div>📞 Phone / WhatsApp: <a href="tel:+201066551707">+20 1066551707</a></div>
+            </div>
+        </div>
+
+    </div>
+
 </body>
 </html>
