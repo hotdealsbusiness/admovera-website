@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>Ahmed Abdel Hameed - Professional Portfolio</title>
+    <title>Ahmed Abdel Hameed - Consultant & Portfolio</title>
     <style>
         :root {
             --primary-color: #1a73e8;
@@ -36,11 +36,39 @@
             width: 100%;
         }
 
+        /* Navigation Tabs Styling */
+        .nav-tabs-container {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 25px 0 10px 0;
+        }
+
+        .nav-tab {
+            background-color: var(--card-bg);
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+            padding: 10px 25px;
+            border-radius: 30px;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        }
+
+        .nav-tab:hover, .nav-tab.active {
+            background-color: var(--primary-color);
+            color: #ffffff;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(26, 115, 232, 0.3);
+        }
+
         header {
             background: var(--card-bg);
             padding: 40px 30px;
             border-radius: var(--border-radius);
-            margin-top: 20px;
+            margin-top: 15px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.05);
             text-align: center;
         }
@@ -74,6 +102,14 @@
             margin: 0 auto;
             color: var(--text-muted);
             font-size: 1rem;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
         }
 
         .platforms-section {
@@ -302,205 +338,228 @@
     <div class="top-bar"></div>
 
     <div class="container">
+        
+        <!-- Navigation Switcher Tabs -->
+        <div class="nav-tabs-container">
+            <button class="nav-tab active" onclick="switchTab('consultant')">Consultant</button>
+            <button class="nav-tab" onclick="switchTab('portfolio')">Portfolio</button>
+        </div>
+
         <!-- Header -->
         <header>
-            <span class="tag">Professional Portfolio &amp; Growth Strategy</span>
+            <span class="tag">Professional E-Commerce Expertise</span>
             <h1>Ahmed Abdel Hameed</h1>
-            <div class="subtitle">E-Commerce &amp; Digital Marketplace Consultant Portfolio</div>
+            <div class="subtitle">Independent E-Commerce Consultant &amp; Strategist</div>
             <p class="description">
-                Comprehensive showcase of rapid growth acceleration, data analytics, full-cycle operations management, 
-                and professional training across global e-commerce platforms.
+                Bringing 20 years of sales experience, including 10 years in e-commerce, managing multi-channel store lifecycles 
+                across Amazon, Noon, Walmart, eBay, Newegg, and Shopify.
             </p>
         </header>
 
-        <!-- Platforms Section -->
-        <div class="platforms-section">
-            <div class="platforms-title">Supported Global Platforms &amp; Marketplaces</div>
-            <div class="platforms-grid">
+        <!-- TAB 1: CONSULTANT SECTION (Main Content) -->
+        <div id="consultant-tab" class="tab-content active">
+
+            <!-- Platforms Section -->
+            <div class="platforms-section">
+                <div class="platforms-title">Supported Global Platforms &amp; Marketplaces</div>
+                <div class="platforms-grid">
+                    
+                    <!-- Amazon -->
+                    <div class="platform-card">
+                        <svg viewBox="0 0 200 60" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M43.8 28.2c0 3.5-.6 6.3-1.8 8.4-1.2 2.1-3 3.1-5.3 3.1-1.6 0-2.9-.5-3.9-1.5s-1.5-2.5-1.5-4.5c0-2.3.8-4 2.3-5.2 1.5-1.2 3.7-1.8 6.5-1.8h3.7v1.5zm8.5 13.9V18.8h-8.1v3.1c-1.3-1.3-2.8-2.2-4.5-2.8-1.7-.6-3.6-.9-5.6-.9-4 0-7.3 1.3-9.8 3.8-2.5 2.5-3.8 5.9-3.8 10.1 0 4.1 1.2 7.4 3.7 9.9 2.5 2.5 5.8 3.7 9.9 3.7 2.1 0 4-.3 5.7-.9 1.7-.6 3.1-1.5 4.3-2.7v2.9h8.2z" fill="#000"/>
+                            <path d="M12.5 48.5C28 54 48.5 55 65.5 46.5c2.5-1.2.2-3.8-2.2-2.5-15 8-34 7.5-48.5 2.5-2.2-.8-4.5 0-2.3 2z" fill="#FF9900"/>
+                            <path d="M68.5 42.5c-1.5-.8-8.5 0-11.5.8-1 .3-.8 1.5.2 1.5 3.5 0 10.5.2 12-1 .5-.3.3-1-.7-1.3z" fill="#FF9900"/>
+                            <text x="75" y="38" font-family="Segoe UI, sans-serif" font-weight="bold" font-size="28" fill="#000">amazon</text>
+                        </svg>
+                        <span>Amazon</span>
+                    </div>
+
+                    <!-- eBay -->
+                    <div class="platform-card">
+                        <svg viewBox="0 0 120 50" xmlns="http://www.w3.org/2000/svg">
+                            <text x="5" y="38" font-family="Arial, sans-serif" font-weight="bold" font-size="40" fill="#E53238">e</text>
+                            <text x="26" y="38" font-family="Arial, sans-serif" font-weight="bold" font-size="40" fill="#0064D2">b</text>
+                            <text x="50" y="38" font-family="Arial, sans-serif" font-weight="bold" font-size="40" fill="#F5AF02">a</text>
+                            <text x="72" y="38" font-family="Arial, sans-serif" font-weight="bold" font-size="40" fill="#86B817">y</text>
+                        </svg>
+                        <span>eBay</span>
+                    </div>
+
+                    <!-- Noon -->
+                    <div class="platform-card">
+                        <svg viewBox="0 0 140 50" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="140" height="50" rx="8" fill="#FEEE00"/>
+                            <text x="70" y="34" font-family="Arial, sans-serif" font-weight="900" font-size="28" fill="#000000" text-anchor="middle">noon</text>
+                        </svg>
+                        <span>Noon</span>
+                    </div>
+
+                    <!-- Newegg -->
+                    <div class="platform-card">
+                        <svg viewBox="0 0 150 50" xmlns="http://www.w3.org/2000/svg">
+                            <ellipse cx="25" cy="25" rx="18" ry="12" fill="#C6893F"/>
+                            <ellipse cx="22" cy="22" rx="18" ry="12" fill="#D8A24A"/>
+                            <ellipse cx="19" cy="19" rx="18" ry="12" fill="#EBB95B"/>
+                            <text x="45" y="33" font-family="Impact, Arial Black, sans-serif" font-size="24" fill="#1C3A70">newegg</text>
+                        </svg>
+                        <span>Newegg</span>
+                    </div>
+
+                    <!-- Shopify -->
+                    <div class="platform-card">
+                        <svg viewBox="0 0 160 50" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M28.5 12c-.3 0-.5.2-.6.4l-1.5 12.2c-.1.3 0 .6.2.8.2.2.5.3.8.2l4.8-.8 2.7 13.5c.1.5.5.8 1 .8h.2c.5-.1.9-.5.9-1l1.5-16.7L28.5 12z" fill="#95BF47"/>
+                            <path d="M28.5 12l-8.5 2.6c-.4.1-.7.5-.6 1l2.8 17.8 8.8-1.5L28.5 12z" fill="#5E8E3E"/>
+                            <text x="42" y="34" font-family="Segoe UI, Arial, sans-serif" font-weight="bold" font-size="24" fill="#95BF47">shopify</text>
+                        </svg>
+                        <span>Shopify</span>
+                    </div>
+
+                    <!-- Walmart -->
+                    <div class="platform-card">
+                        <svg viewBox="0 0 170 50" xmlns="http://www.w3.org/2000/svg">
+                            <g fill="#FFC220">
+                                <rect x="18" y="10" width="4" height="10" rx="2" transform="rotate(0 20 15)"/>
+                                <rect x="18" y="10" width="4" height="10" rx="2" transform="rotate(60 20 15)"/>
+                                <rect x="18" y="10" width="4" height="10" rx="2" transform="rotate(120 20 15)"/>
+                                <rect x="18" y="10" width="4" height="10" rx="2" transform="rotate(180 20 15)"/>
+                                <rect x="18" y="10" width="4" height="10" rx="2" transform="rotate(240 20 15)"/>
+                                <rect x="18" y="10" width="4" height="10" rx="2" transform="rotate(300 20 15)"/>
+                            </g>
+                            <text x="38" y="33" font-family="Arial, sans-serif" font-weight="bold" font-size="22" fill="#0071CE">Walmart</text>
+                        </svg>
+                        <span>Walmart</span>
+                    </div>
+
+                    <!-- Wix -->
+                    <div class="platform-card">
+                        <svg viewBox="0 0 140 50" xmlns="http://www.w3.org/2000/svg">
+                            <text x="70" y="36" font-family="Arial Black, Impact, sans-serif" font-weight="900" font-size="34" fill="#000000" text-anchor="middle" letter-spacing="-1">WiX</text>
+                        </svg>
+                        <span>Wix</span>
+                    </div>
+
+                    <!-- Ecwid -->
+                    <div class="platform-card">
+                        <svg viewBox="0 0 150 50" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M18 12h14v6H24v7h7v6h-7v7h8v6H18V12z" fill="#0083CA"/>
+                            <text x="38" y="36" font-family="Arial, sans-serif" font-weight="bold" font-size="28" fill="#0083CA">ecwid</text>
+                        </svg>
+                        <span>Ecwid</span>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Core Pillars -->
+            <div class="pillars-grid">
+                <div class="pillar-card">
+                    <div class="pillar-title">1. Growth Hacking</div>
+                    <p>Innovative marketing strategies, comprehensive store SEO optimization, and targeted Google paid campaigns.</p>
+                </div>
+                <div class="pillar-card">
+                    <div class="pillar-title">2. Data-Driven Insights</div>
+                    <p>Leveraging advanced data analytics to maximize sales performance and make precise marketing decisions.</p>
+                </div>
+                <div class="pillar-card">
+                    <div class="pillar-title">3. Managing Operation</div>
+                    <p>End-to-end operations management from shipping and collections to customer support and account dispute resolution.</p>
+                </div>
+                <div class="pillar-card">
+                    <div class="pillar-title">4. Training</div>
+                    <p>Empowering teams and sellers professionally on smart selling mechanics and leveraging platform potentials to their fullest.</p>
+                </div>
+            </div>
+
+            <!-- Section 1 -->
+            <div class="section-card">
+                <div class="section-title">1. Growth Hacking &amp; SEO Optimization</div>
+                <div class="section-subtitle">Store Growth Engineering &amp; Search Visibility across global platforms</div>
+                <ul class="feature-list">
+                    <li><strong>Keyword Engineering:</strong> Implementing advanced SEO strategies across major marketplaces and independent Shopify stores to dominate organic search results.</li>
+                    <li><strong>Smart Ad Integration:</strong> Bridging marketplace products with highly-targeted paid search campaigns on Google Ads to capture high-intent buyers.</li>
+                    <li><strong>Conversion Rate Optimization (CRO):</strong> Restructuring product offers and listing pages to drive checkout rates and maximize net profits.</li>
+                </ul>
+            </div>
+
+            <!-- Section 2 -->
+            <div class="section-card">
+                <div class="section-title">2. Data-Driven Insights</div>
+                <div class="section-subtitle">Advanced Data Analysis and Performance Dashboards serving as the backbone of Growth Hacking techniques</div>
+                <ul class="feature-list">
+                    <li><strong>Core Growth Catalyst:</strong> Transforming raw metrics into profitable strategies.</li>
+                    <li><strong>Sales Cycle Evolution:</strong> Analyzing consumer behavior, peak hours, and customer retention rates to multiply Return on Ad Spend (ROAS).</li>
+                    <li><strong>Performance Dashboards:</strong> Monitoring real-time inventory and sales movement through accurate indicators to spot opportunities and fix gaps instantly.</li>
+                </ul>
+            </div>
+
+            <!-- Section 3 -->
+            <div class="section-card">
+                <div class="section-title">3. Operations &amp; Account Health</div>
+                <div class="section-subtitle">Professional Operations and Customer Service Management:</div>
                 
-                <!-- Amazon -->
-                <div class="platform-card">
-                    <svg viewBox="0 0 200 60" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M43.8 28.2c0 3.5-.6 6.3-1.8 8.4-1.2 2.1-3 3.1-5.3 3.1-1.6 0-2.9-.5-3.9-1.5s-1.5-2.5-1.5-4.5c0-2.3.8-4 2.3-5.2 1.5-1.2 3.7-1.8 6.5-1.8h3.7v1.5zm8.5 13.9V18.8h-8.1v3.1c-1.3-1.3-2.8-2.2-4.5-2.8-1.7-.6-3.6-.9-5.6-.9-4 0-7.3 1.3-9.8 3.8-2.5 2.5-3.8 5.9-3.8 10.1 0 4.1 1.2 7.4 3.7 9.9 2.5 2.5 5.8 3.7 9.9 3.7 2.1 0 4-.3 5.7-.9 1.7-.6 3.1-1.5 4.3-2.7v2.9h8.2z" fill="#000"/>
-                        <path d="M12.5 48.5C28 54 48.5 55 65.5 46.5c2.5-1.2.2-3.8-2.2-2.5-15 8-34 7.5-48.5 2.5-2.2-.8-4.5 0-2.3 2z" fill="#FF9900"/>
-                        <path d="M68.5 42.5c-1.5-.8-8.5 0-11.5.8-1 .3-.8 1.5.2 1.5 3.5 0 10.5.2 12-1 .5-.3.3-1-.7-1.3z" fill="#FF9900"/>
-                        <text x="75" y="38" font-family="Segoe UI, sans-serif" font-weight="bold" font-size="28" fill="#000">amazon</text>
-                    </svg>
-                    <span>Amazon</span>
+                <div class="ops-grid">
+                    <div class="ops-item">
+                        <h4>Shipping &amp; Delivery</h4>
+                        <p>Tracking full order lifecycle from purchase confirmation to final delivery.</p>
+                    </div>
+                    <div class="ops-item">
+                        <h4>Financial Collection</h4>
+                        <p>Monitoring cash flows & payment reconciliations with platforms.</p>
+                    </div>
+                    <div class="ops-item">
+                        <h4>Inventory Tracking</h4>
+                        <p>Planning stock levels to avoid stockouts and reduce storage costs.</p>
+                    </div>
                 </div>
 
-                <!-- eBay -->
-                <div class="platform-card">
-                    <svg viewBox="0 0 120 50" xmlns="http://www.w3.org/2000/svg">
-                        <text x="5" y="38" font-family="Arial, sans-serif" font-weight="bold" font-size="40" fill="#E53238">e</text>
-                        <text x="26" y="38" font-family="Arial, sans-serif" font-weight="bold" font-size="40" fill="#0064D2">b</text>
-                        <text x="50" y="38" font-family="Arial, sans-serif" font-weight="bold" font-size="40" fill="#F5AF02">a</text>
-                        <text x="72" y="38" font-family="Arial, sans-serif" font-weight="bold" font-size="40" fill="#86B817">y</text>
-                    </svg>
-                    <span>eBay</span>
-                </div>
-
-                <!-- Noon -->
-                <div class="platform-card">
-                    <svg viewBox="0 0 140 50" xmlns="http://www.w3.org/2000/svg">
-                        <rect width="140" height="50" rx="8" fill="#FEEE00"/>
-                        <text x="70" y="34" font-family="Arial, sans-serif" font-weight="900" font-size="28" fill="#000000" text-anchor="middle">noon</text>
-                    </svg>
-                    <span>Noon</span>
-                </div>
-
-                <!-- Newegg -->
-                <div class="platform-card">
-                    <svg viewBox="0 0 150 50" xmlns="http://www.w3.org/2000/svg">
-                        <ellipse cx="25" cy="25" rx="18" ry="12" fill="#C6893F"/>
-                        <ellipse cx="22" cy="22" rx="18" ry="12" fill="#D8A24A"/>
-                        <ellipse cx="19" cy="19" rx="18" ry="12" fill="#EBB95B"/>
-                        <text x="45" y="33" font-family="Impact, Arial Black, sans-serif" font-size="24" fill="#1C3A70">newegg</text>
-                    </svg>
-                    <span>Newegg</span>
-                </div>
-
-                <!-- Shopify -->
-                <div class="platform-card">
-                    <svg viewBox="0 0 160 50" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M28.5 12c-.3 0-.5.2-.6.4l-1.5 12.2c-.1.3 0 .6.2.8.2.2.5.3.8.2l4.8-.8 2.7 13.5c.1.5.5.8 1 .8h.2c.5-.1.9-.5 dark:.9-1l1.5-16.7L28.5 12z" fill="#95BF47"/>
-                        <path d="M28.5 12l-8.5 2.6c-.4.1-.7.5-.6 1l2.8 17.8 8.8-1.5L28.5 12z" fill="#5E8E3E"/>
-                        <text x="42" y="34" font-family="Segoe UI, Arial, sans-serif" font-weight="bold" font-size="24" fill="#95BF47">shopify</text>
-                    </svg>
-                    <span>Shopify</span>
-                </div>
-
-                <!-- Walmart -->
-                <div class="platform-card">
-                    <svg viewBox="0 0 170 50" xmlns="http://www.w3.org/2000/svg">
-                        <g fill="#FFC220">
-                            <rect x="18" y="10" width="4" height="10" rx="2" transform="rotate(0 20 15)"/>
-                            <rect x="18" y="10" width="4" height="10" rx="2" transform="rotate(60 20 15)"/>
-                            <rect x="18" y="10" width="4" height="10" rx="2" transform="rotate(120 20 15)"/>
-                            <rect x="18" y="10" width="4" height="10" rx="2" transform="rotate(180 20 15)"/>
-                            <rect x="18" y="10" width="4" height="10" rx="2" transform="rotate(240 20 15)"/>
-                            <rect x="18" y="10" width="4" height="10" rx="2" transform="rotate(300 20 15)"/>
-                        </g>
-                        <text x="38" y="33" font-family="Arial, sans-serif" font-weight="bold" font-size="22" fill="#0071CE">Walmart</text>
-                    </svg>
-                    <span>Walmart</span>
-                </div>
-
-                <!-- Wix -->
-                <div class="platform-card">
-                    <svg viewBox="0 0 140 50" xmlns="http://www.w3.org/2000/svg">
-                        <text x="70" y="36" font-family="Arial Black, Impact, sans-serif" font-weight="900" font-size="34" fill="#000000" text-anchor="middle" letter-spacing="-1">WiX</text>
-                    </svg>
-                    <span>Wix</span>
-                </div>
-
-                <!-- Ecwid -->
-                <div class="platform-card">
-                    <svg viewBox="0 0 150 50" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M18 12h14v6H24v7h7v6h-7v7h8v6H18V12z" fill="#0083CA"/>
-                        <text x="38" y="36" font-family="Arial, sans-serif" font-weight="bold" font-size="28" fill="#0083CA">ecwid</text>
-                    </svg>
-                    <span>Ecwid</span>
-                </div>
-
-            </div>
-        </div>
-
-        <!-- Core Pillars -->
-        <div class="pillars-grid">
-            <div class="pillar-card">
-                <div class="pillar-title">1. Growth Hacking</div>
-                <p>Innovative marketing strategies, comprehensive store SEO optimization, and targeted Google paid campaigns.</p>
-            </div>
-            <div class="pillar-card">
-                <div class="pillar-title">2. Data-Driven Insights</div>
-                <p>Leveraging advanced data analytics to maximize sales performance and make precise marketing decisions.</p>
-            </div>
-            <div class="pillar-card">
-                <div class="pillar-title">3. Managing Operation</div>
-                <p>End-to-end operations management from shipping and collections to customer support and account dispute resolution.</p>
-            </div>
-            <div class="pillar-card">
-                <div class="pillar-title">4. Training</div>
-                <p>Empowering teams and sellers professionally on smart selling mechanics and leveraging platform potentials to their fullest.</p>
-            </div>
-        </div>
-
-        <!-- Section 1 -->
-        <div class="section-card">
-            <div class="section-title">1. Growth Hacking &amp; SEO Optimization</div>
-            <div class="section-subtitle">Store Growth Engineering &amp; Search Visibility across global platforms</div>
-            <ul class="feature-list">
-                <li><strong>Keyword Engineering:</strong> Implementing advanced SEO strategies across major marketplaces and independent Shopify stores to dominate organic search results.</li>
-                <li><strong>Smart Ad Integration:</strong> Bridging marketplace products with highly-targeted paid search campaigns on Google Ads to capture high-intent buyers.</li>
-                <li><strong>Conversion Rate Optimization (CRO):</strong> Restructuring product offers and listing pages to drive checkout rates and maximize net profits.</li>
-            </ul>
-        </div>
-
-        <!-- Section 2 -->
-        <div class="section-card">
-            <div class="section-title">2. Data-Driven Insights</div>
-            <div class="section-subtitle">Advanced Data Analysis and Performance Dashboards serving as the backbone of Growth Hacking techniques</div>
-            <ul class="feature-list">
-                <li><strong>Core Growth Catalyst:</strong> Transforming raw metrics into profitable strategies.</li>
-                <li><strong>Sales Cycle Evolution:</strong> Analyzing consumer behavior, peak hours, and customer retention rates to multiply Return on Ad Spend (ROAS).</li>
-                <li><strong>Performance Dashboards:</strong> Monitoring real-time inventory and sales movement through accurate indicators to spot opportunities and fix gaps instantly.</li>
-            </ul>
-        </div>
-
-        <!-- Section 3 -->
-        <div class="section-card">
-            <div class="section-title">3. Operations &amp; Account Health</div>
-            <div class="section-subtitle">Professional Operations and Customer Service Management:</div>
-            
-            <div class="ops-grid">
-                <div class="ops-item">
-                    <h4>Shipping &amp; Delivery</h4>
-                    <p>Tracking full order lifecycle from purchase confirmation to final delivery.</p>
-                </div>
-                <div class="ops-item">
-                    <h4>Financial Collection</h4>
-                    <p>Monitoring cash flows & payment reconciliations with platforms.</p>
-                </div>
-                <div class="ops-item">
-                    <h4>Inventory Tracking</h4>
-                    <p>Planning stock levels to avoid stockouts and reduce storage costs.</p>
-                </div>
+                <ul class="feature-list" style="margin-top: 20px;">
+                    <li><strong>Effective Customer Support:</strong> Prompt handling of queries and shipping complaints to elevate Customer Satisfaction scores.</li>
+                    <li><strong>Account Health Management:</strong> Immediate action on platform warnings, invalid negative feedback removal, and protecting account health from suspension.</li>
+                    <li><strong>Returns &amp; Claims Management:</strong> Disciplined return policies, damage reduction, and efficient reimbursement collections.</li>
+                </ul>
             </div>
 
-            <ul class="feature-list" style="margin-top: 20px;">
-                <li><strong>Effective Customer Support:</strong> Prompt handling of queries and shipping complaints to elevate Customer Satisfaction scores.</li>
-                <li><strong>Account Health Management:</strong> Immediate action on platform warnings, invalid negative feedback removal, and protecting account health from suspension.</li>
-                <li><strong>Returns &amp; Claims Management:</strong> Disciplined return policies, damage reduction, and efficient reimbursement collections.</li>
-            </ul>
+            <!-- Section 4 -->
+            <div class="section-card">
+                <div class="section-title">4. Professional Training &amp; Enablement</div>
+                <div class="section-subtitle">Professional Training and Career Development Sessions:</div>
+                <ul class="feature-list">
+                    <li><strong>Team &amp; Seller Coaching:</strong> Integrated training programs for teams and new sellers to master e-commerce secrets across all supported platforms.</li>
+                    <li><strong>Profitable Selling Strategies:</strong> Detailed explanations of marketplace algorithms, profitable product research, and common store management mistakes to avoid.</li>
+                    <li><strong>Operational Empowerment:</strong> Transferring practical expertise to ensure teams can independently run accounts and achieve revenue growth targets.</li>
+                </ul>
+            </div>
+
         </div>
 
-        <!-- Section 4 -->
-        <div class="section-card">
-            <div class="section-title">4. Professional Training &amp; Enablement</div>
-            <div class="section-subtitle">Professional Training and Career Development Sessions:</div>
-            <ul class="feature-list">
-                <li><strong>Team &amp; Seller Coaching:</strong> Integrated training programs for teams and new sellers to master e-commerce secrets across all supported platforms.</li>
-                <li><strong>Profitable Selling Strategies:</strong> Detailed explanations of marketplace algorithms, profitable product research, and common store management mistakes to avoid.</li>
-                <li><strong>Operational Empowerment:</strong> Transferring practical expertise to ensure teams can independently run accounts and achieve revenue growth targets.</li>
-            </ul>
-        </div>
+        <!-- TAB 2: PORTFOLIO SECTION -->
+        <div id="portfolio-tab" class="tab-content">
+            <div class="section-card" style="text-align: center; border-left-color: var(--secondary-color);">
+                <div class="section-title" style="font-size: 1.6rem;">Professional Project Portfolio &amp; Showcases</div>
+                <div class="section-subtitle">Explore direct documentation, verified case studies, and live project credentials</div>
+                <p style="color: var(--text-muted); max-width: 650px; margin: 0 auto 25px auto;">
+                    Access comprehensive records detailing successful marketplace launches, listing optimizations, and structured campaign performance across major global platforms.
+                </p>
+            </div>
 
-        <!-- Action Cards: View Full Portfolio & Project Showcase -->
-        <div class="portfolio-action-card">
-            <a href="https://drive.google.com/file/d/12RygbneF_PKRfOQHAbSkz55597WedMnC/view" target="_blank" class="drive-btn">
-                <svg viewBox="0 0 24 24">
-                    <path fill="#ffffff" d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM17 13l-5 5-5-5h3V9h4v4h3z"/>
-                </svg>
-                View Full Portfolio
-            </a>
-            
-            <a href="https://drive.google.com/file/d/1NjKqNc6hTZGyIckfbftPDtzaeq0lPZE6/view?usp=sharing" target="_blank" class="drive-btn">
-                <svg viewBox="0 0 24 24">
-                    <path fill="#ffffff" d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM17 13l-5 5-5-5h3V9h4v4h3z"/>
-                </svg>
-                Project Showcase
-            </a>
+            <!-- Action Cards: View Full Portfolio & Project Showcase -->
+            <div class="portfolio-action-card">
+                <a href="https://drive.google.com/file/d/12RygbneF_PKRfOQHAbSkz55597WedMnC/view" target="_blank" class="drive-btn">
+                    <svg viewBox="0 0 24 24">
+                        <path fill="#ffffff" d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM17 13l-5 5-5-5h3V9h4v4h3z"/>
+                    </svg>
+                    View Full Portfolio
+                </a>
+                
+                <a href="https://drive.google.com/file/d/1NjKqNc6hTZGyIckfbftPDtzaeq0lPZE6/view?usp=sharing" target="_blank" class="drive-btn">
+                    <svg viewBox="0 0 24 24">
+                        <path fill="#ffffff" d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM17 13l-5 5-5-5h3V9h4v4h3z"/>
+                    </svg>
+                    Project Showcase
+                </a>
+            </div>
         </div>
 
         <!-- Contact / Footer -->
@@ -516,6 +575,29 @@
         </div>
 
     </div>
+
+    <!-- Tab Switching Script -->
+    <script>
+        function switchTab(tabName) {
+            // Hide all tabs
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            // Remove active class from all buttons
+            document.querySelectorAll('.nav-tab').forEach(btn => {
+                btn.classList.remove('active');
+            });
+
+            // Show selected tab and activate button
+            if (tabName === 'consultant') {
+                document.getElementById('consultant-tab').classList.add('active');
+                event.currentTarget.classList.add('active');
+            } else if (tabName === 'portfolio') {
+                document.getElementById('portfolio-tab').classList.add('active');
+                event.currentTarget.classList.add('active');
+            }
+        }
+    </script>
 
 </body>
 </html>
