@@ -36,9 +36,19 @@
     function App() {
       const [activeTab, setActiveTab] = useState('consultant');
       const [bookingOpen, setBookingOpen] = useState(false);
+      const [formSubmitted, setFormSubmitted] = useState(false);
 
       const linkedinUrl = "https://www.linkedin.com/in/ahmed-abdel-hameed-b2rstore/";
       const facebookUrl = "https://www.facebook.com/b2rstore";
+
+      const handleFormSubmit = (e) => {
+        e.preventDefault();
+        setFormSubmitted(true);
+        setTimeout(() => {
+          setFormSubmitted(false);
+          setBookingOpen(false);
+        }, 2000);
+      };
 
       return (
         <div class="min-h-screen flex flex-col justify-between">
@@ -132,244 +142,138 @@
 
                   <div class="bg-slate-900/60 backdrop-blur border border-slate-800/80 rounded-3xl p-6 space-y-4 hover:border-sky-500/40 transition">
                     <div class="w-12 h-12 rounded-2xl bg-sky-500/10 flex items-center justify-center text-sky-400 font-bold">02</div>
-                    <h3 class="text-lg font-bold text-white">Data-Driven Insights</h3>
-                    <p class="text-xs text-slate-400 leading-relaxed">Rigorous Return on Ad Spend (ROAS) optimization and sales cycle evaluation dashboarding to eliminate inefficiencies.</p>
+                    <h3 class="text-lg font-bold text-white">Account Audit & Recovery</h3>
+                    <p class="text-xs text-slate-400 leading-relaxed">Comprehensive health checks, Plan of Action (POA) drafting for suspensions, policy compliance remediation, and Buy Box stabilization.</p>
                   </div>
 
                   <div class="bg-slate-900/60 backdrop-blur border border-slate-800/80 rounded-3xl p-6 space-y-4 hover:border-sky-500/40 transition">
                     <div class="w-12 h-12 rounded-2xl bg-sky-500/10 flex items-center justify-center text-sky-400 font-bold">03</div>
-                    <h3 class="text-lg font-bold text-white">Operations & Logistics</h3>
-                    <p class="text-xs text-slate-400 leading-relaxed">Full-cycle Seller Central backend navigation, inventory health monitoring, dispute handling, and account safety protection.</p>
+                    <h3 class="text-lg font-bold text-white">Supply Chain & Fulfillment</h3>
+                    <p class="text-xs text-slate-400 leading-relaxed">Optimizing FBA/FBN logistics, inbound shipment planning, inventory turnover acceleration, and minimizing storage penalties.</p>
                   </div>
                 </div>
+
+                {/* Value Proposition */}
+                <section class="bg-slate-900/40 border border-slate-800 rounded-3xl p-8 md:p-12 space-y-6">
+                  <h3 class="text-2xl font-bold text-white text-center">Why Work With Me</h3>
+                  <div class="grid md:grid-cols-2 gap-6">
+                    <div class="flex items-start space-x-4">
+                      <div class="p-2 bg-sky-500/10 text-sky-400 rounded-lg font-bold text-sm">✓</div>
+                      <div>
+                        <h4 class="text-sm font-bold text-white">Data-Driven Approach</h4>
+                        <p class="text-xs text-slate-400">Decisions backed by sales velocity metrics, ROAS analytics, and search algorithm alignment.</p>
+                      </div>
+                    </div>
+                    <div class="flex items-start space-x-4">
+                      <div class="p-2 bg-sky-500/10 text-sky-400 rounded-lg font-bold text-sm">✓</div>
+                      <div>
+                        <h4 class="text-sm font-bold text-white">MENA & Global Marketplace Expertise</h4>
+                        <p class="text-xs text-slate-400">Deep operational familiarity with Amazon (US, UAE, KSA, EG) and Noon regional dynamics.</p>
+                      </div>
+                    </div>
+                  </div>
+                </section>
               </div>
             )}
 
             {/* PORTFOLIO TAB */}
             {activeTab === 'portfolio' && (
               <div class="space-y-10 animate-fadeIn">
-                
-                {/* Header Card */}
-                <div class="bg-slate-900/80 border border-slate-800 rounded-3xl p-8 text-center space-y-4 shadow-xl">
-                  <span class="inline-block bg-sky-500/10 text-sky-400 px-4 py-1.5 rounded-full text-xs font-semibold border border-sky-500/20">
-                    Professional Portfolio & Growth Strategy
-                  </span>
-                  <h2 class="text-3xl font-bold text-white">Ahmed Abdel Hameed</h2>
-                  <p class="text-sky-400 font-semibold text-sm">E-Commerce & Digital Marketplace Consultant</p>
-                  <p class="text-slate-400 text-sm max-w-2xl mx-auto">
-                    Comprehensive showcase of rapid growth acceleration, data analytics, full-cycle operations management, and professional training across global e-commerce platforms.
-                  </p>
+                <div class="border-b border-slate-800 pb-6">
+                  <h2 class="text-3xl font-extrabold text-white">Professional Experience</h2>
+                  <p class="text-xs text-slate-400 mt-2">10+ Years of E-Commerce Management, Listing Architecture, and Operations</p>
                 </div>
 
-                {/* Platforms Grid */}
-                <div class="bg-slate-900/60 border border-slate-800 rounded-3xl p-6 space-y-6">
-                  <h3 class="text-xs font-bold text-slate-400 uppercase tracking-widest text-center">Supported Global Platforms & Marketplaces</h3>
-                  <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
-                    <div class="bg-slate-950 border border-slate-800 p-4 rounded-2xl text-center space-y-2 hover:border-sky-500/50 transition">
-                      <span class="text-sm font-bold text-white">Amazon</span>
-                    </div>
-                    <div class="bg-slate-950 border border-slate-800 p-4 rounded-2xl text-center space-y-2 hover:border-sky-500/50 transition">
-                      <span class="text-sm font-bold text-white">eBay</span>
-                    </div>
-                    <div class="bg-slate-950 border border-slate-800 p-4 rounded-2xl text-center space-y-2 hover:border-sky-500/50 transition">
-                      <span class="text-sm font-bold text-white">Noon</span>
-                    </div>
-                    <div class="bg-slate-950 border border-slate-800 p-4 rounded-2xl text-center space-y-2 hover:border-sky-500/50 transition">
-                      <span class="text-sm font-bold text-white">Newegg</span>
-                    </div>
-                    <div class="bg-slate-950 border border-slate-800 p-4 rounded-2xl text-center space-y-2 hover:border-sky-500/50 transition">
-                      <span class="text-sm font-bold text-white">Shopify</span>
-                    </div>
-                    <div class="bg-slate-950 border border-slate-800 p-4 rounded-2xl text-center space-y-2 hover:border-sky-500/50 transition">
-                      <span class="text-sm font-bold text-white">Walmart</span>
-                    </div>
-                    <div class="bg-slate-950 border border-slate-800 p-4 rounded-2xl text-center space-y-2 hover:border-sky-500/50 transition">
-                      <span class="text-sm font-bold text-white">Wix</span>
-                    </div>
-                    <div class="bg-slate-950 border border-slate-800 p-4 rounded-2xl text-center space-y-2 hover:border-sky-500/50 transition">
-                      <span class="text-sm font-bold text-white">Ecwid</span>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Core Pillars */}
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div class="bg-slate-900/60 border border-slate-800 p-6 rounded-3xl space-y-2">
-                    <h4 class="text-sky-400 font-bold text-sm">1. Growth Hacking</h4>
-                    <p class="text-xs text-slate-400 leading-relaxed">Innovative marketing strategies, comprehensive store SEO optimization, and targeted paid campaigns.</p>
-                  </div>
-                  <div class="bg-slate-900/60 border border-slate-800 p-6 rounded-3xl space-y-2">
-                    <h4 class="text-sky-400 font-bold text-sm">2. Data-Driven Insights</h4>
-                    <p class="text-xs text-slate-400 leading-relaxed">Leveraging advanced data analytics to maximize sales performance and make precise marketing decisions.</p>
-                  </div>
-                  <div class="bg-slate-900/60 border border-slate-800 p-6 rounded-3xl space-y-2">
-                    <h4 class="text-sky-400 font-bold text-sm">3. Managing Operation</h4>
-                    <p class="text-xs text-slate-400 leading-relaxed">End-to-end operations management from shipping and collections to customer support and account dispute resolution.</p>
-                  </div>
-                  <div class="bg-slate-900/60 border border-slate-800 p-6 rounded-3xl space-y-2">
-                    <h4 class="text-sky-400 font-bold text-sm">4. Training</h4>
-                    <p class="text-xs text-slate-400 leading-relaxed">Empowering teams and sellers professionally on smart selling mechanics and leveraging platform potentials.</p>
-                  </div>
-                </div>
-
-                {/* Detailed Sections Cards */}
+                {/* Experience Cards */}
                 <div class="space-y-6">
-                  <div class="bg-slate-900/80 border-l-4 border-sky-500 border-y border-r border-slate-800 p-6 rounded-2xl space-y-3">
-                    <h3 class="text-base font-bold text-white">1. Growth Hacking & SEO Optimization</h3>
-                    <p class="text-xs text-slate-400">Store Growth Engineering & Search Visibility across global platforms</p>
-                    <ul class="list-disc pl-5 text-xs text-slate-300 space-y-1.5">
-                      <li><strong>Keyword Engineering:</strong> Implementing advanced SEO strategies across major marketplaces and independent Shopify stores.</li>
-                      <li><strong>Smart Ad Integration:</strong> Bridging marketplace products with targeted paid search campaigns.</li>
-                      <li><strong>Conversion Rate Optimization (CRO):</strong> Restructuring product offers to drive checkout rates.</li>
-                    </ul>
-                  </div>
-
-                  <div class="bg-slate-900/80 border-l-4 border-sky-500 border-y border-r border-slate-800 p-6 rounded-2xl space-y-3">
-                    <h3 class="text-base font-bold text-white">2. Data-Driven Insights</h3>
-                    <p class="text-xs text-slate-400">Advanced Data Analysis and Performance Dashboards</p>
-                    <ul class="list-disc pl-5 text-xs text-slate-300 space-y-1.5">
-                      <li><strong>Core Growth Catalyst:</strong> Transforming raw metrics into profitable strategies.</li>
-                      <li><strong>Sales Cycle Evolution:</strong> Analyzing consumer behavior and retention rates to multiply ROAS.</li>
-                      <li><strong>Performance Dashboards:</strong> Monitoring real-time inventory and sales movement.</li>
-                    </ul>
-                  </div>
-
-                  <div class="bg-slate-900/80 border-l-4 border-sky-500 border-y border-r border-slate-800 p-6 rounded-2xl space-y-3">
-                    <h3 class="text-base font-bold text-white">3. Operations & Account Health</h3>
-                    <p class="text-xs text-slate-400">Professional Operations and Customer Service Management</p>
-                    <div class="grid grid-cols-3 gap-3 my-3">
-                      <div class="bg-slate-950 p-3 rounded-xl text-center">
-                        <div class="text-sky-400 font-bold text-xs">Shipping</div>
-                        <p class="text-[10px] text-slate-400 mt-1">Order lifecycle tracking</p>
-                      </div>
-                      <div class="bg-slate-950 p-3 rounded-xl text-center">
-                        <div class="text-sky-400 font-bold text-xs">Collection</div>
-                        <p class="text-[10px] text-slate-400 mt-1">Cash flow reconciliations</p>
-                      </div>
-                      <div class="bg-slate-950 p-3 rounded-xl text-center">
-                        <div class="text-sky-400 font-bold text-xs">Inventory</div>
-                        <p class="text-[10px] text-slate-400 mt-1">Stock level planning</p>
-                      </div>
+                  <div class="bg-slate-900/60 border border-slate-800 rounded-3xl p-6 space-y-3">
+                    <div class="flex flex-col sm:flex-row justify-between sm:items-center gap-2">
+                      <h3 class="text-base font-bold text-white">Senior E-Commerce & Marketplace Specialist</h3>
+                      <span class="text-xs font-semibold px-3 py-1 rounded-full bg-slate-800 text-sky-400 w-fit">10+ Years Experience</span>
                     </div>
-                    <ul class="list-disc pl-5 text-xs text-slate-300 space-y-1.5">
-                      <li><strong>Customer Support:</strong> Prompt handling of queries and shipping complaints.</li>
-                      <li><strong>Account Health Management:</strong> Immediate action on platform warnings and feedback removal.</li>
-                      <li><strong>Returns & Claims:</strong> Disciplined return policies and efficient reimbursement collections.</li>
-                    </ul>
+                    <p class="text-xs text-slate-300 leading-relaxed">
+                      Leading multi-channel digital strategies across Amazon, Noon, and independent storefronts. Managed catalog indexing, product launches, advertising campaigns, and operational supply chains.
+                    </p>
+                    <div class="flex flex-wrap gap-2 pt-2">
+                      <span class="text-[10px] px-2.5 py-1 bg-slate-800 text-slate-300 rounded-md">Amazon Seller Central</span>
+                      <span class="text-[10px] px-2.5 py-1 bg-slate-800 text-slate-300 rounded-md">Noon Partner Station</span>
+                      <span class="text-[10px] px-2.5 py-1 bg-slate-800 text-slate-300 rounded-md">ROAS Optimization</span>
+                      <span class="text-[10px] px-2.5 py-1 bg-slate-800 text-slate-300 rounded-md">A+ Content</span>
+                    </div>
                   </div>
 
-                  <div class="bg-slate-900/80 border-l-4 border-sky-500 border-y border-r border-slate-800 p-6 rounded-2xl space-y-3">
-                    <h3 class="text-base font-bold text-white">4. Professional Training & Enablement</h3>
-                    <p class="text-xs text-slate-400">Professional Training and Career Development Sessions</p>
-                    <ul class="list-disc pl-5 text-xs text-slate-300 space-y-1.5">
-                      <li><strong>Team & Seller Coaching:</strong> Integrated training programs for teams and new sellers.</li>
-                      <li><strong>Profitable Selling Strategies:</strong> Detailed explanations of marketplace algorithms.</li>
-                      <li><strong>Operational Empowerment:</strong> Transferring practical expertise to ensure independent store management.</li>
-                    </ul>
+                  <div class="bg-slate-900/60 border border-slate-800 rounded-3xl p-6 space-y-3">
+                    <h3 class="text-base font-bold text-white">Catalog Optimization & Technical SEO</h3>
+                    <p class="text-xs text-slate-300 leading-relaxed">
+                      Executed structural optimization for technical hardware listings (e.g., Cisco switches, routers) complying with search ranking algorithms to maximize organic discoverability.
+                    </p>
                   </div>
                 </div>
-
-                {/* Drive Action Buttons */}
-                <div class="bg-slate-900/80 border border-slate-800 p-6 rounded-3xl flex flex-wrap justify-center gap-4 text-center">
-                  <a href="https://drive.google.com/file/d/12RygbneF_PKRfOQHAbSkz55597WedMnC/view" target="_blank" rel="noreferrer" class="inline-flex items-center space-x-2 bg-sky-500 hover:bg-sky-400 text-slate-950 font-bold px-6 py-3 rounded-2xl text-xs transition shadow-lg shadow-sky-500/20">
-                    <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM17 13l-5 5-5-5h3V9h4v4h3z"/></svg>
-                    <span>View Full Portfolio</span>
-                  </a>
-                  <a href="https://drive.google.com/file/d/1NjKqNc6hTZGyIckfbftPDtzaeq0lPZE6/view?usp=sharing" target="_blank" rel="noreferrer" class="inline-flex items-center space-x-2 bg-slate-800 hover:bg-slate-700 text-white font-bold px-6 py-3 rounded-2xl text-xs transition border border-slate-700">
-                    <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM17 13l-5 5-5-5h3V9h4v4h3z"/></svg>
-                    <span>Project Showcase</span>
-                  </a>
-                </div>
-
               </div>
             )}
-
-            {/* Social & Availability Callout */}
-            <div class="mt-16 pt-8 border-t border-slate-900 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
-              <div class="flex items-center space-x-3">
-                <a href={linkedinUrl} target="_blank" rel="noreferrer" class="flex items-center space-x-2 bg-slate-900 hover:bg-sky-600 hover:text-white px-4 py-2 rounded-xl text-xs font-semibold transition border border-slate-800">
-                  <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.25V10.9H6.46M7.86 6.72a1.63 1.63 0 1 0 0 3.26 1.63 1.63 0 0 0 0-3.26Z"/></svg>
-                  <span>Connect on LinkedIn</span>
-                </a>
-                <a href={facebookUrl} target="_blank" rel="noreferrer" class="flex items-center space-x-2 bg-slate-900 hover:bg-sky-600 hover:text-white px-4 py-2 rounded-xl text-xs font-semibold transition border border-slate-800">
-                  <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H7.5v-3H10V9.5C10 7.01 11.49 5.65 13.78 5.65c1.1 0 2.25.2 2.25.2v2.47h-1.27c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.45 3h-2.33v6.8c4.56-.93 8-4.96 8-9.8z"/></svg>
-                  <span>Follow on Facebook</span>
-                </a>
-              </div>
-
-              <div class="inline-flex items-center space-x-2 text-xs font-semibold text-slate-400 bg-slate-900 border border-slate-800 px-4 py-2 rounded-full">
-                <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-                <span>Available for Advisory & Portfolio Audits</span>
-              </div>
-            </div>
           </main>
 
           {/* Footer */}
-          <footer class="border-t border-slate-900 bg-slate-950 py-8 px-6 mt-12">
-            <div class="max-w-5xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-left">
-              <div class="flex items-center space-x-3">
-                <div class="w-7 h-7 rounded-lg bg-sky-500 flex items-center justify-center font-bold text-slate-950 text-xs">
-                  AM
-                </div>
-                <span class="text-xs font-bold tracking-tight text-white">Ahmed Abdel Hameed Advisory</span>
-              </div>
-
-              <p class="text-xs text-slate-500">
-                &copy; {new Date().getFullYear()} Ahmed Abdel Hameed. All rights reserved. Strategic E-Commerce Consulting.
-              </p>
-
-              <div class="text-xs text-slate-400">
-                📧 <a href="mailto:b2rstore@outlook.com" class="hover:text-sky-400">b2rstore@outlook.com</a> | 📞 <a href="tel:+201066551707" class="hover:text-sky-400">+20 1066551707</a>
+          <footer class="border-t border-slate-800/80 bg-slate-950 px-6 py-8">
+            <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+              <p class="text-xs text-slate-500">© 2026 Ahmed Abdel Hameed. All rights reserved.</p>
+              <div class="flex items-center space-x-4">
+                <a href={linkedinUrl} target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-sky-400 text-xs font-semibold transition">
+                  LinkedIn
+                </a>
+                <a href={facebookUrl} target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-sky-400 text-xs font-semibold transition">
+                  Facebook Store
+                </a>
               </div>
             </div>
           </footer>
 
-          {/* Booking Modal */}
+          {/* Booking / Request Consultation Modal */}
           {bookingOpen && (
-            <div class="fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-              <div class="bg-slate-900 border border-slate-800 rounded-3xl p-8 max-w-lg w-full relative shadow-2xl space-y-6">
+            <div class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-sm">
+              <div class="bg-slate-900 border border-slate-800 rounded-3xl p-6 md:p-8 max-w-md w-full space-y-6 shadow-2xl relative">
                 <button 
                   onClick={() => setBookingOpen(false)}
-                  class="absolute top-6 right-6 text-slate-400 hover:text-white transition">
-                  &#x2715;
+                  class="absolute top-4 right-4 text-slate-400 hover:text-white text-lg font-bold">
+                  ✕
                 </button>
-                
-                <div>
-                  <h3 class="text-2xl font-bold text-white mb-1">Request Consultation</h3>
-                  <p class="text-xs text-slate-400">Direct strategic oversight for your marketplace store operations.</p>
+                <div class="space-y-2">
+                  <h3 class="text-xl font-bold text-white">Request Strategy Session</h3>
+                  <p class="text-xs text-slate-400">Fill in your details to discuss your e-commerce growth strategy.</p>
                 </div>
 
-                <form onSubmit={(e) => { e.preventDefault(); alert('Consultation request sent successfully!'); setBookingOpen(false); }} class="space-y-4">
-                  <div>
-                    <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2">Full Name</label>
-                    <input type="text" required placeholder="John Doe" class="w-full bg-slate-950 border border-slate-800 rounded-xl p-3 text-sm text-white focus:border-sky-500 focus:outline-none" />
+                {formSubmitted ? (
+                  <div class="p-4 bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs rounded-xl text-center">
+                    Thank you! Your request has been sent successfully.
                   </div>
-                  <div>
-                    <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2">Business Email</label>
-                    <input type="email" required placeholder="john@company.com" class="w-full bg-slate-950 border border-slate-800 rounded-xl p-3 text-sm text-white focus:border-sky-500 focus:outline-none" />
-                  </div>
-                  <div>
-                    <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2">Marketplace Platforms</label>
-                    <input type="text" placeholder="Amazon, Noon, eBay, etc." class="w-full bg-slate-950 border border-slate-800 rounded-xl p-3 text-sm text-white focus:border-sky-500 focus:outline-none" />
-                  </div>
-                  <div>
-                    <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2">Project Brief / Objectives</label>
-                    <textarea rows="3" placeholder="Describe your catalog scale, primary challenges, or growth goals..." class="w-full bg-slate-950 border border-slate-800 rounded-xl p-3 text-sm text-white focus:border-sky-500 focus:outline-none resize-none"></textarea>
-                  </div>
-                  <button type="submit" class="w-full bg-sky-500 hover:bg-sky-400 text-slate-950 font-bold py-3.5 rounded-xl text-sm transition shadow-lg shadow-sky-500/20">
-                    Submit Strategy Inquiry
-                  </button>
-                </form>
+                ) : (
+                  <form onSubmit={handleFormSubmit} class="space-y-4">
+                    <div>
+                      <label class="block text-xs font-semibold text-slate-300 mb-1">Your Name</label>
+                      <input type="text" required placeholder="John Doe" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3.5 py-2.5 text-xs text-white focus:outline-none focus:border-sky-500" />
+                    </div>
+                    <div>
+                      <label class="block text-xs font-semibold text-slate-300 mb-1">Email Address</label>
+                      <input type="email" required placeholder="name@company.com" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3.5 py-2.5 text-xs text-white focus:outline-none focus:border-sky-500" />
+                    </div>
+                    <div>
+                      <label class="block text-xs font-semibold text-slate-300 mb-1">Project Details / Store Link</label>
+                      <textarea rows="3" required placeholder="Tell me about your business goals..." class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3.5 py-2.5 text-xs text-white focus:outline-none focus:border-sky-500"></textarea>
+                    </div>
+                    <button type="submit" class="w-full bg-sky-500 hover:bg-sky-400 text-slate-950 font-bold py-3 rounded-xl text-xs transition shadow-lg shadow-sky-500/20">
+                      Submit Consultation Request
+                    </button>
+                  </form>
+                )}
               </div>
             </div>
           )}
+
         </div>
       );
     }
 
-    const container = document.getElementById('root');
-    const root = ReactDOM.createRoot(container);
-    root.render(<App />);
+    ReactDOM.createRoot(document.getElementById('root')).render(<App />);
   </script>
 </body>
 </html>
