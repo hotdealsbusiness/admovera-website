@@ -1,536 +1,375 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AdMovera | E-Commerce & Marketplace Growth Strategy</title>
-  <!-- React & Tailwind CDN -->
-  <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
-  <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
-  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <title>Ahmed Abdel Hameed - Advisory & Professional Portfolio</title>
+  <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <style>
-    body { font-family: 'Plus Jakarta Sans', sans-serif; scroll-behavior: smooth; }
-  </style>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            slate: {
+              950: '#020617',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <!-- React & ReactDOM -->
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+  <!-- Babel Standalone for JSX -->
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 </head>
-<body class="bg-slate-950 text-slate-100 antialiased selection:bg-sky-500 selection:text-white">
+<body class="bg-slate-950 text-slate-100 font-sans antialiased min-h-screen selection:bg-sky-500 selection:text-slate-950">
+
   <div id="root"></div>
 
   <script type="text/babel">
     const { useState } = React;
 
     function App() {
-      const [price, setPrice] = useState(45);
-      const [cogs, setCogs] = useState(14);
-      const [fbaFee, setFbaFee] = useState(8.5);
-      const [adSpendPerUnit, setAdSpendPerUnit] = useState(7);
-      const [monthlyUnits, setMonthlyUnits] = useState(1200);
+      const [activeTab, setActiveTab] = useState('consultant');
       const [bookingOpen, setBookingOpen] = useState(false);
-      const [activeCategory, setActiveCategory] = useState('All');
-      const [searchQuery, setSearchQuery] = useState('');
 
-      // Social Links
-      const linkedinUrl = "https://www.linkedin.com/in/admovera";
-      const facebookUrl = "https://www.facebook.com/aa.elhameed";
-
-      const totalCostPerUnit = Number(cogs) + Number(fbaFee) + Number(adSpendPerUnit);
-      const profitPerUnit = Number(price) - totalCostPerUnit;
-      const netMargin = price > 0 ? ((profitPerUnit / price) * 100).toFixed(1) : 0;
-      const totalMonthlyProfit = profitPerUnit * monthlyUnits;
-      const roas = adSpendPerUnit > 0 ? (price / adSpendPerUnit).toFixed(2) : '0';
-
-      const services = [
-        {
-          title: "Amazon Search & Algorithm Strategy",
-          desc: "Comprehensive organic indexing optimization for A9/A10 & COSMO intent architectures to drive non-branded search dominance.",
-          tag: "Algorithm Engine"
-        },
-        {
-          title: "PPC & TACOS Optimization",
-          desc: "Structuring targeted Amazon Sponsored Ads, SBV, and DSP campaigns to maximize ROAS while maintaining healthy ad spend leverage.",
-          tag: "Performance Ads"
-        },
-        {
-          title: "Multi-Channel Store Operations",
-          desc: "Full-lifecycle management across Amazon, Noon, eBay, Walmart, and Shopify with catalog compliance and inventory protection.",
-          tag: "Marketplaces"
-        },
-        {
-          title: "High-Converting Listing Assets",
-          desc: "Mobile-first titles, persuasive bullet hierarchy, A+ Premium visual content, and backend search terms integration.",
-          tag: "Conversion Labs"
-        }
-      ];
-
-      const articles = [
-        {
-          title: "Understanding Amazon COSMO & Rufus AI Search Dynamics",
-          cat: "Amazon SEO",
-          read: "5 min read",
-          desc: "How intent graphs and semantic search are replacing pure exact-match backend keywords in 2026."
-        },
-        {
-          title: "Balancing ACOS vs TACOS for Sustainable Scale",
-          cat: "PPC Strategy",
-          read: "7 min read",
-          desc: "Why aggressive PPC bids without organic conversion tracking burn margin and how to audit ad efficiency."
-        },
-        {
-          title: "Expanding Store Operations: Amazon to Noon & Shopify",
-          cat: "Multi-Channel",
-          read: "6 min read",
-          desc: "Key operational differences and catalog mapping strategies when diversifying beyond single marketplace dependencies."
-        }
-      ];
-
-      const filtered = articles.filter(a => {
-        const matchesCat = activeCategory === 'All' || a.cat === activeCategory;
-        const matchesQuery = a.title.toLowerCase().includes(searchQuery.toLowerCase()) || a.desc.toLowerCase().includes(searchQuery.toLowerCase());
-        return matchesCat && matchesQuery;
-      });
+      const linkedinUrl = "https://www.linkedin.com/in/ahmed-abdel-hameed-b2rstore/";
+      const facebookUrl = "https://www.facebook.com/b2rstore";
 
       return (
-        <div class="min-h-screen flex flex-col bg-slate-950 text-slate-100">
-          {/* Header */}
-          <header class="border-b border-slate-800 bg-slate-900/80 backdrop-blur-md sticky top-0 z-40">
-            <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+        <div class="min-h-screen flex flex-col justify-between">
+          
+          {/* Top Gradient Bar */}
+          <div class="h-1.5 bg-gradient-to-r from-sky-500 via-blue-600 to-emerald-400 w-full"></div>
+
+          {/* Navigation / Tabs Bar */}
+          <header class="sticky top-0 z-40 bg-slate-950/80 backdrop-blur-md border-b border-slate-800/80 px-6 py-4">
+            <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
               <div class="flex items-center space-x-3">
-                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-sky-600 to-blue-500 flex items-center justify-center font-bold text-lg text-white shadow-lg shadow-sky-500/20">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-sky-400 to-blue-600 flex items-center justify-center font-extrabold text-slate-950 shadow-lg shadow-sky-500/20">
                   AM
                 </div>
                 <div>
-                  <span class="text-xl font-bold tracking-tight block leading-none">AdMovera</span>
-                  <span class="text-[10px] uppercase tracking-widest text-sky-400 font-semibold">Consulting Firm</span>
+                  <h1 class="text-sm font-bold tracking-tight text-white">Ahmed Abdel Hameed</h1>
+                  <p class="text-xs text-sky-400 font-medium">E-Commerce & Marketplace Consultant</p>
                 </div>
               </div>
 
-              <nav class="hidden md:flex space-x-8 text-sm font-medium text-slate-300">
-                <a href="#services" class="hover:text-sky-400 transition">Services</a>
-                <a href="#calculator" class="hover:text-sky-400 transition">ROI Calculator</a>
-                <a href="#insights" class="hover:text-sky-400 transition">Insights</a>
-                <a href="#about-us" class="hover:text-sky-400 transition">About Us</a>
-                <a href="#privacy-policy" class="hover:text-sky-400 transition">Privacy Policy</a>
-                <a href="#about" class="hover:text-sky-400 transition">Consultant</a>
-              </nav>
+              {/* Tabs Switcher */}
+              <div class="flex items-center bg-slate-900 p-1.5 rounded-2xl border border-slate-800 shadow-inner">
+                <button
+                  onClick={() => setActiveTab('consultant')}
+                  class={`px-5 py-2 rounded-xl text-xs font-bold transition-all duration-300 ${
+                    activeTab === 'consultant'
+                      ? 'bg-sky-500 text-slate-950 shadow-md shadow-sky-500/25'
+                      : 'text-slate-400 hover:text-white'
+                  }`}
+                >
+                  Advisory & Services
+                </button>
+                <button
+                  onClick={() => setActiveTab('portfolio')}
+                  class={`px-5 py-2 rounded-xl text-xs font-bold transition-all duration-300 ${
+                    activeTab === 'portfolio'
+                      ? 'bg-sky-500 text-slate-950 shadow-md shadow-sky-500/25'
+                      : 'text-slate-400 hover:text-white'
+                  }`}
+                >
+                  Professional Portfolio
+                </button>
+              </div>
 
-              <div class="flex items-center space-x-4">
-                {/* Social Icons Header */}
-                <div class="hidden sm:flex items-center space-x-3 border-r border-slate-800 pr-4">
-                  <a href={linkedinUrl} target="_blank" rel="noreferrer" class="p-2 bg-slate-800/80 hover:bg-sky-600/20 hover:text-sky-400 rounded-lg text-slate-300 transition" title="LinkedIn Profile">
-                    <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.25V10.9H6.46M7.86 6.72a1.63 1.63 0 1 0 0 3.26 1.63 1.63 0 0 0 0-3.26Z"/></svg>
-                  </a>
-                  <a href={facebookUrl} target="_blank" rel="noreferrer" class="p-2 bg-slate-800/80 hover:bg-sky-600/20 hover:text-sky-400 rounded-lg text-slate-300 transition" title="Facebook Profile">
-                    <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H7.5v-3H10V9.5C10 7.01 11.49 5.65 13.78 5.65c1.1 0 2.25.2 2.25.2v2.47h-1.27c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.45 3h-2.33v6.8c4.56-.93 8-4.96 8-9.8z"/></svg>
-                  </a>
-                </div>
-
+              <div class="hidden md:flex items-center space-x-3">
                 <button 
                   onClick={() => setBookingOpen(true)}
-                  class="bg-sky-500 hover:bg-sky-400 text-slate-950 font-bold px-5 py-2.5 rounded-xl text-sm transition shadow-md shadow-sky-500/10">
-                  Book Consultation
+                  class="bg-sky-500 hover:bg-sky-400 text-slate-950 font-bold px-5 py-2.5 rounded-xl text-xs transition shadow-lg shadow-sky-500/20">
+                  Request Consultation
                 </button>
               </div>
             </div>
           </header>
 
-          {/* Hero */}
-          <section class="py-24 px-6 relative overflow-hidden bg-gradient-to-b from-slate-900 via-slate-950 to-slate-950 border-b border-slate-800">
-            <div class="max-w-4xl mx-auto text-center relative z-10">
-              <span class="inline-block bg-sky-500/10 border border-sky-500/20 text-sky-400 text-xs font-bold px-4 py-1.5 rounded-full mb-6">
-                Independent E-Commerce & Marketplace Practice
-              </span>
-              <h1 class="text-4xl sm:text-6xl font-extrabold text-white tracking-tight leading-tight mb-6">
-                Engineering Marketplace Dominance & Profitability
-              </h1>
-              <p class="text-slate-400 text-lg sm:text-xl max-w-3xl mx-auto mb-10 leading-relaxed font-normal">
-                Your ultimate hub for actionable strategies, in-depth guides, and modern insights in E-Commerce, Digital Marketing, and Online Marketplaces.
-                <br/><br/>
-                Whether you are a beginner taking your first steps online, an established business owner looking to scale, or a marketing enthusiast aiming to stay ahead of the curve, AdMovera is built for you.
-              </p>
-              <div class="flex flex-wrap justify-center gap-4">
-                <button 
-                  onClick={() => setBookingOpen(true)}
-                  class="bg-sky-500 hover:bg-sky-400 text-slate-950 font-bold px-8 py-4 rounded-xl text-sm transition shadow-lg shadow-sky-500/20">
-                  Request Portfolio Audit
-                </button>
-                <a 
-                  href="#calculator"
-                  class="bg-slate-900 hover:bg-slate-800 border border-slate-700 text-white font-semibold px-8 py-4 rounded-xl text-sm transition">
-                  Calculate Unit Economics
-                </a>
-              </div>
-            </div>
-          </section>
+          {/* Main Content Area */}
+          <main class="max-w-5xl mx-auto px-6 py-10 w-full flex-grow">
+            
+            {/* CONSULTANT TAB */}
+            {activeTab === 'consultant' && (
+              <div class="space-y-12 animate-fadeIn">
+                {/* Hero Section */}
+                <section class="text-center space-y-6 py-8">
+                  <div class="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full bg-sky-500/10 border border-sky-500/20 text-sky-400 text-xs font-semibold">
+                    <span>Senior E-Commerce Operations & Growth Strategy</span>
+                  </div>
+                  <h2 class="text-4xl md:text-5xl font-extrabold tracking-tight text-white max-w-3xl mx-auto leading-tight">
+                    Scale Your Marketplace Sales with Precision Operations & Data Analytics
+                  </h2>
+                  <p class="text-base text-slate-400 max-w-2xl mx-auto leading-relaxed">
+                    Over 10 years of specialized expertise in managing high-volume sales operations, inventory indexing, and paid ad strategies across Amazon, Noon, and global platforms.
+                  </p>
+                  <div class="flex justify-center gap-4 pt-4">
+                    <button 
+                      onClick={() => setBookingOpen(true)}
+                      class="bg-sky-500 hover:bg-sky-400 text-slate-950 font-bold px-8 py-3.5 rounded-2xl text-sm transition shadow-xl shadow-sky-500/20">
+                      Book a Strategy Session
+                    </button>
+                    <a href="#details" class="bg-slate-900 hover:bg-slate-800 text-slate-200 border border-slate-800 font-semibold px-6 py-3.5 rounded-2xl text-sm transition">
+                      Explore Services
+                    </a>
+                  </div>
+                </section>
 
-          {/* Services */}
-          <section id="services" class="py-20 px-6 max-w-7xl mx-auto">
-            <div class="text-center mb-16">
-              <h2 class="text-3xl font-bold text-white mb-3">Specialized Consultancy Modules</h2>
-              <p class="text-slate-400">Data-driven strategies built for high-margin e-commerce execution.</p>
-            </div>
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {services.map((s, i) => (
-                <div key={i} class="bg-slate-900/60 border border-slate-800 p-6 rounded-2xl hover:border-slate-700 transition">
-                  <span class="text-xs font-bold text-sky-400 bg-sky-500/10 border border-sky-500/20 px-3 py-1 rounded-md inline-block mb-4">
-                    {s.tag}
+                {/* Core Expertise Cards */}
+                <div id="details" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                  <div class="bg-slate-900/60 backdrop-blur border border-slate-800/80 rounded-3xl p-6 space-y-4 hover:border-sky-500/40 transition">
+                    <div class="w-12 h-12 rounded-2xl bg-sky-500/10 flex items-center justify-center text-sky-400 font-bold">01</div>
+                    <h3 class="text-lg font-bold text-white">Growth Hacking & SEO</h3>
+                    <p class="text-xs text-slate-400 leading-relaxed">Advanced keyword indexing optimization, A+ content models, and targeted ad campaigns to maximize organic visibility and Buy Box share.</p>
+                  </div>
+
+                  <div class="bg-slate-900/60 backdrop-blur border border-slate-800/80 rounded-3xl p-6 space-y-4 hover:border-sky-500/40 transition">
+                    <div class="w-12 h-12 rounded-2xl bg-sky-500/10 flex items-center justify-center text-sky-400 font-bold">02</div>
+                    <h3 class="text-lg font-bold text-white">Data-Driven Insights</h3>
+                    <p class="text-xs text-slate-400 leading-relaxed">Rigorous Return on Ad Spend (ROAS) optimization and sales cycle evaluation dashboarding to eliminate inefficiencies.</p>
+                  </div>
+
+                  <div class="bg-slate-900/60 backdrop-blur border border-slate-800/80 rounded-3xl p-6 space-y-4 hover:border-sky-500/40 transition">
+                    <div class="w-12 h-12 rounded-2xl bg-sky-500/10 flex items-center justify-center text-sky-400 font-bold">03</div>
+                    <h3 class="text-lg font-bold text-white">Operations & Logistics</h3>
+                    <p class="text-xs text-slate-400 leading-relaxed">Full-cycle Seller Central backend navigation, inventory health monitoring, dispute handling, and account safety protection.</p>
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {/* PORTFOLIO TAB */}
+            {activeTab === 'portfolio' && (
+              <div class="space-y-10 animate-fadeIn">
+                
+                {/* Header Card */}
+                <div class="bg-slate-900/80 border border-slate-800 rounded-3xl p-8 text-center space-y-4 shadow-xl">
+                  <span class="inline-block bg-sky-500/10 text-sky-400 px-4 py-1.5 rounded-full text-xs font-semibold border border-sky-500/20">
+                    Professional Portfolio & Growth Strategy
                   </span>
-                  <h3 class="font-bold text-lg text-white mb-2">{s.title}</h3>
-                  <p class="text-slate-400 text-sm leading-relaxed">{s.desc}</p>
-                </div>
-              ))}
-            </div>
-          </section>
-
-          {/* ROI Calculator */}
-          <section id="calculator" class="py-20 px-6 bg-slate-900/40 border-y border-slate-800">
-            <div class="max-w-5xl mx-auto">
-              <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold text-white mb-3">Interactive Unit Economics Calculator</h2>
-                <p class="text-slate-400">Simulate selling prices, marketplace fees, and PPC ad spend live.</p>
-              </div>
-
-              <div class="grid md:grid-cols-2 gap-8 bg-slate-900 border border-slate-800 p-8 rounded-3xl shadow-xl">
-                <div class="space-y-5">
-                  <div>
-                    <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2">Selling Price ($)</label>
-                    <input type="number" value={price} onChange={e => setPrice(e.target.value)} class="w-full bg-slate-950 border border-slate-800 rounded-xl p-3 text-white font-bold focus:border-sky-500 focus:outline-none" />
-                  </div>
-                  <div>
-                    <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2">Product COGS ($)</label>
-                    <input type="number" value={cogs} onChange={e => setCogs(e.target.value)} class="w-full bg-slate-950 border border-slate-800 rounded-xl p-3 text-white font-bold focus:border-sky-500 focus:outline-none" />
-                  </div>
-                  <div>
-                    <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2">Platform / FBA Fees ($)</label>
-                    <input type="number" value={fbaFee} onChange={e => setFbaFee(e.target.value)} class="w-full bg-slate-950 border border-slate-800 rounded-xl p-3 text-white font-bold focus:border-sky-500 focus:outline-none" />
-                  </div>
-                  <div>
-                    <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2">Target PPC Ad Spend / Unit ($)</label>
-                    <input type="number" value={adSpendPerUnit} onChange={e => setAdSpendPerUnit(e.target.value)} class="w-full bg-slate-950 border border-slate-800 rounded-xl p-3 text-white font-bold focus:border-sky-500 focus:outline-none" />
-                  </div>
-                  <div>
-                    <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2">Estimated Monthly Volume (Units)</label>
-                    <input type="number" value={monthlyUnits} onChange={e => setMonthlyUnits(e.target.value)} class="w-full bg-slate-950 border border-slate-800 rounded-xl p-3 text-white font-bold focus:border-sky-500 focus:outline-none" />
-                  </div>
-                </div>
-
-                <div class="bg-slate-950 border border-slate-800 rounded-2xl p-6 flex flex-col justify-between">
-                  <div>
-                    <h3 class="text-xs font-bold text-sky-400 uppercase tracking-widest mb-6">Financial Projections</h3>
-                    <div class="space-y-4 text-sm">
-                      <div class="flex justify-between border-b border-slate-800 pb-3">
-                        <span class="text-slate-400">Total Unit Cost</span>
-                        <span class="font-bold text-white">${totalCostPerUnit.toFixed(2)}</span>
-                      </div>
-                      <div class="flex justify-between border-b border-slate-800 pb-3">
-                        <span class="text-slate-400">Net Profit / Unit</span>
-                        <span class={`font-bold ${profitPerUnit >= 0 ? 'text-emerald-400' : 'text-rose-400'}`}>${profitPerUnit.toFixed(2)}</span>
-                      </div>
-                      <div class="flex justify-between border-b border-slate-800 pb-3">
-                        <span class="text-slate-400">Net Margin</span>
-                        <span class="font-bold text-sky-400">{netMargin}%</span>
-                      </div>
-                      <div class="flex justify-between border-b border-slate-800 pb-3">
-                        <span class="text-slate-400">Target ROAS</span>
-                        <span class="font-bold text-sky-400">{roas}x</span>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="pt-6 border-t border-slate-800 text-center">
-                    <span class="text-xs uppercase tracking-wider text-slate-400 block mb-1">Projected Monthly Net Profit</span>
-                    <span class={`text-4xl font-extrabold ${totalMonthlyProfit >= 0 ? 'text-emerald-400' : 'text-rose-400'}`}>
-                      ${totalMonthlyProfit.toLocaleString()}
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          {/* Insights */}
-          <section id="insights" class="py-20 px-6 max-w-7xl mx-auto">
-            <div class="text-center mb-12">
-              <h2 class="text-3xl font-bold text-white mb-3">Consulting Insights & Case Notes</h2>
-              <p class="text-slate-400">Analysis on search algorithms, ad leverage, and marketplace growth.</p>
-            </div>
-
-            <div class="flex flex-col sm:flex-row justify-between items-center gap-4 mb-8">
-              <input 
-                type="text" 
-                placeholder="Search articles..." 
-                value={searchQuery}
-                onChange={e => setSearchQuery(e.target.value)}
-                class="w-full sm:w-72 bg-slate-900 border border-slate-800 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-sky-500"
-              />
-              <div class="flex space-x-2">
-                {['All', 'Amazon SEO', 'PPC Strategy', 'Multi-Channel'].map(cat => (
-                  <button 
-                    key={cat}
-                    onClick={() => setActiveCategory(cat)}
-                    class={`px-3.5 py-1.5 rounded-lg text-xs font-semibold transition ${activeCategory === cat ? 'bg-sky-500 text-slate-950' : 'bg-slate-900 text-slate-400 hover:text-white'}`}>
-                    {cat}
-                  </button>
-                ))}
-              </div>
-            </div>
-
-            <div class="grid md:grid-cols-3 gap-6">
-              {filtered.map((item, idx) => (
-                <div key={idx} class="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 flex flex-col justify-between">
-                  <div>
-                    <div class="flex justify-between text-xs text-slate-500 mb-3">
-                      <span>{item.cat}</span>
-                      <span>{item.read}</span>
-                    </div>
-                    <h3 class="font-bold text-white text-base mb-2">{item.title}</h3>
-                    <p class="text-slate-400 text-sm leading-relaxed mb-4">{item.desc}</p>
-                  </div>
-                  <span class="text-xs font-semibold text-sky-400 hover:text-sky-300 cursor-pointer">Read Full Article &rarr;</span>
-                </div>
-              ))}
-            </div>
-          </section>
-
-          {/* About Us Page Content */}
-          <section id="about-us" class="py-20 px-6 bg-slate-900/40 border-t border-slate-800">
-            <div class="max-w-5xl mx-auto space-y-16">
-              
-              {/* Banner */}
-              <div class="overflow-hidden rounded-3xl border border-slate-800 shadow-2xl">
-                <a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgOmB0Us0BKed6hPZvik7GJYQBDgAdjQ_gXYJQZ6P5GutMLVXbBNCDAwIjPaXgyuKAaH4koQycd3MOo3YxdQRU3aWe2Ksn49VF8jB9XuEsvLwtgqMhxkViS_MDboSO8ebs5mpK9qpEjaGFwq_Sl6ErclricBRL-1Y3as-rshudd3sEuPAZiO4OPKLak2XU/s1169/Admover-%20about%20us.jpg" target="_blank" rel="noreferrer">
-                  <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgOmB0Us0BKed6hPZvik7GJYQBDgAdjQ_gXYJQZ6P5GutMLVXbBNCDAwIjPaXgyuKAaH4koQycd3MOo3YxdQRU3aWe2Ksn49VF8jB9XuEsvLwtgqMhxkViS_MDboSO8ebs5mpK9qpEjaGFwq_Sl6ErclricBRL-1Y3as-rshudd3sEuPAZiO4OPKLak2XU/s1600/Admover-%20about%20us.jpg" alt="Admovera About Us" class="w-full object-cover hover:scale-105 transition duration-500" />
-                </a>
-              </div>
-
-              {/* Welcome Card */}
-              <div class="bg-slate-900 border-t-4 border-t-sky-500 border-x border-b border-slate-800 p-8 sm:p-10 rounded-3xl text-center space-y-4 shadow-xl">
-                <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Welcome to <span class="text-sky-400">Admovera</span>!</h2>
-                <p class="text-slate-300 leading-relaxed max-w-3xl mx-auto text-base sm:text-lg">
-                  Building a successful online brand goes far beyond launching a website or putting products online. We are dedicated to guiding businesses with the best insights, strategies, and guides on Digital Marketing, SEO, Growth Hacking, and E-commerce Marketplace optimization to help them scale successfully.
-                </p>
-                <div class="pt-4 border-t border-slate-800/80">
-                  <p class="text-sky-400 font-semibold text-base sm:text-lg">
-                    We built Admovera to be a reliable roadmap, helping anyone doing business online build, grow, and scale with clear, practical guidance.
+                  <h2 class="text-3xl font-bold text-white">Ahmed Abdel Hameed</h2>
+                  <p class="text-sky-400 font-semibold text-sm">E-Commerce & Digital Marketplace Consultant</p>
+                  <p class="text-slate-400 text-sm max-w-2xl mx-auto">
+                    Comprehensive showcase of rapid growth acceleration, data analytics, full-cycle operations management, and professional training across global e-commerce platforms.
                   </p>
                 </div>
-              </div>
 
-              {/* Challenges Section */}
-              <div class="bg-slate-900/80 border border-slate-800 p-8 sm:p-10 rounded-3xl space-y-6">
-                <div>
-                  <h3 class="text-2xl font-bold text-white mb-2">The Challenges of Selling Online Today</h3>
-                  <p class="text-slate-400 text-sm sm:text-base">Running an online business takes way more than just listing products and waiting for sales. Most online sellers face these exact roadblocks:</p>
-                </div>
-
-                <div class="grid sm:grid-cols-2 gap-4">
-                  <div class="bg-slate-950/80 p-5 rounded-2xl border-l-4 border-sky-500 border-y border-r border-slate-800">
-                    <h4 class="font-bold text-sky-400 text-base mb-1">1. Getting Lost in the Noise</h4>
-                    <p class="text-slate-400 text-sm">Struggling to rank on search engines or marketplace results, leaving products unseen.</p>
-                  </div>
-                  <div class="bg-slate-950/80 p-5 rounded-2xl border-l-4 border-sky-500 border-y border-r border-slate-800">
-                    <h4 class="font-bold text-sky-400 text-base mb-1">2. Low Conversions</h4>
-                    <p class="text-slate-400 text-sm">Getting visitors to your store, but failing to turn those clicks into paying customers.</p>
-                  </div>
-                  <div class="bg-slate-950/80 p-5 rounded-2xl border-l-4 border-sky-500 border-y border-r border-slate-800">
-                    <h4 class="font-bold text-sky-400 text-base mb-1">3. Operational Bottlenecks</h4>
-                    <p class="text-slate-400 text-sm">Dealing with messy inventory, pricing errors, and scaling headaches that eat up your time.</p>
-                  </div>
-                  <div class="bg-slate-950/80 p-5 rounded-2xl border-l-4 border-sky-500 border-y border-r border-slate-800">
-                    <h4 class="font-bold text-sky-400 text-base mb-1">4. Keeping Up with Rules</h4>
-                    <p class="text-slate-400 text-sm">Fearing account health issues or sudden policy changes that put your business at risk.</p>
-                  </div>
-                </div>
-
-                <p class="text-sky-400 font-semibold text-center pt-2">
-                  Admovera breaks down these challenges with actionable guides and proven frameworks.
-                </p>
-              </div>
-
-              {/* Mission & Vision */}
-              <div class="bg-slate-900/80 border border-slate-800 p-8 sm:p-10 rounded-3xl space-y-6">
-                <h3 class="text-2xl font-bold text-white mb-4">Mission and Vision</h3>
-                <div class="grid sm:grid-cols-2 gap-6">
-                  <div class="bg-slate-950/90 p-6 rounded-2xl border border-slate-800 space-y-2">
-                    <h4 class="font-bold text-sky-400 text-lg">Our Mission</h4>
-                    <p class="text-slate-300 text-sm leading-relaxed">
-                      To simplify e-commerce for every online seller by providing the insights, tools, and strategies needed to build a sustainable online business.
-                    </p>
-                  </div>
-                  <div class="bg-slate-950/90 p-6 rounded-2xl border border-slate-800 space-y-2">
-                    <h4 class="font-bold text-sky-400 text-lg">Our Vision</h4>
-                    <p class="text-slate-300 text-sm leading-relaxed">
-                      To be a trusted educational hub for digital entrepreneurs and businesses expanding across global markets.
-                    </p>
+                {/* Platforms Grid */}
+                <div class="bg-slate-900/60 border border-slate-800 rounded-3xl p-6 space-y-6">
+                  <h3 class="text-xs font-bold text-slate-400 uppercase tracking-widest text-center">Supported Global Platforms & Marketplaces</h3>
+                  <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+                    <div class="bg-slate-950 border border-slate-800 p-4 rounded-2xl text-center space-y-2 hover:border-sky-500/50 transition">
+                      <span class="text-sm font-bold text-white">Amazon</span>
+                    </div>
+                    <div class="bg-slate-950 border border-slate-800 p-4 rounded-2xl text-center space-y-2 hover:border-sky-500/50 transition">
+                      <span class="text-sm font-bold text-white">eBay</span>
+                    </div>
+                    <div class="bg-slate-950 border border-slate-800 p-4 rounded-2xl text-center space-y-2 hover:border-sky-500/50 transition">
+                      <span class="text-sm font-bold text-white">Noon</span>
+                    </div>
+                    <div class="bg-slate-950 border border-slate-800 p-4 rounded-2xl text-center space-y-2 hover:border-sky-500/50 transition">
+                      <span class="text-sm font-bold text-white">Newegg</span>
+                    </div>
+                    <div class="bg-slate-950 border border-slate-800 p-4 rounded-2xl text-center space-y-2 hover:border-sky-500/50 transition">
+                      <span class="text-sm font-bold text-white">Shopify</span>
+                    </div>
+                    <div class="bg-slate-950 border border-slate-800 p-4 rounded-2xl text-center space-y-2 hover:border-sky-500/50 transition">
+                      <span class="text-sm font-bold text-white">Walmart</span>
+                    </div>
+                    <div class="bg-slate-950 border border-slate-800 p-4 rounded-2xl text-center space-y-2 hover:border-sky-500/50 transition">
+                      <span class="text-sm font-bold text-white">Wix</span>
+                    </div>
+                    <div class="bg-slate-950 border border-slate-800 p-4 rounded-2xl text-center space-y-2 hover:border-sky-500/50 transition">
+                      <span class="text-sm font-bold text-white">Ecwid</span>
+                    </div>
                   </div>
                 </div>
-              </div>
 
-              {/* Framework & Approach */}
-              <div class="bg-slate-900/80 border border-slate-800 p-8 sm:p-10 rounded-3xl space-y-6">
-                <h3 class="text-2xl font-bold text-white mb-2">Our Framework & Approach</h3>
-                <p class="text-sky-400 font-semibold text-sm sm:text-base mb-6">How We Help You Grow:</p>
+                {/* Core Pillars */}
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div class="bg-slate-900/60 border border-slate-800 p-6 rounded-3xl space-y-2">
+                    <h4 class="text-sky-400 font-bold text-sm">1. Growth Hacking</h4>
+                    <p class="text-xs text-slate-400 leading-relaxed">Innovative marketing strategies, comprehensive store SEO optimization, and targeted paid campaigns.</p>
+                  </div>
+                  <div class="bg-slate-900/60 border border-slate-800 p-6 rounded-3xl space-y-2">
+                    <h4 class="text-sky-400 font-bold text-sm">2. Data-Driven Insights</h4>
+                    <p class="text-xs text-slate-400 leading-relaxed">Leveraging advanced data analytics to maximize sales performance and make precise marketing decisions.</p>
+                  </div>
+                  <div class="bg-slate-900/60 border border-slate-800 p-6 rounded-3xl space-y-2">
+                    <h4 class="text-sky-400 font-bold text-sm">3. Managing Operation</h4>
+                    <p class="text-xs text-slate-400 leading-relaxed">End-to-end operations management from shipping and collections to customer support and account dispute resolution.</p>
+                  </div>
+                  <div class="bg-slate-900/60 border border-slate-800 p-6 rounded-3xl space-y-2">
+                    <h4 class="text-sky-400 font-bold text-sm">4. Training</h4>
+                    <p class="text-xs text-slate-400 leading-relaxed">Empowering teams and sellers professionally on smart selling mechanics and leveraging platform potentials.</p>
+                  </div>
+                </div>
 
+                {/* Detailed Sections Cards */}
                 <div class="space-y-6">
-                  {[
-                    { title: "Building a Strong Foundation", desc: "From getting noticed on search engines to creating a frictionless checkout, we focus on what actually drives sales at every step." },
-                    { title: "Working with the Algorithms", desc: "Whether it's search engines or online marketplaces, we show you how to structure your product data so algorithms highlight your listings organically." },
-                    { title: "Streamlining Backend Operations", desc: "Growth requires stability. We share insights on inventory syncing, smart pricing logic, and clean catalog management to keep your store running smoothly." },
-                    { title: "Focusing on Customer Retention", desc: "A one-time sale is great, but a repeat customer keeps your business alive. We highlight strategies that build long-term trust and recurring revenue." }
-                  ].map((item, idx) => (
-                    <div key={idx} class="flex items-start space-x-4 bg-slate-950/60 p-5 rounded-2xl border border-slate-800">
-                      <div class="w-10 h-10 rounded-full bg-sky-500 text-slate-950 font-bold flex items-center justify-center shrink-0 text-base shadow-md shadow-sky-500/20">
-                        {idx + 1}
+                  <div class="bg-slate-900/80 border-l-4 border-sky-500 border-y border-r border-slate-800 p-6 rounded-2xl space-y-3">
+                    <h3 class="text-base font-bold text-white">1. Growth Hacking & SEO Optimization</h3>
+                    <p class="text-xs text-slate-400">Store Growth Engineering & Search Visibility across global platforms</p>
+                    <ul class="list-disc pl-5 text-xs text-slate-300 space-y-1.5">
+                      <li><strong>Keyword Engineering:</strong> Implementing advanced SEO strategies across major marketplaces and independent Shopify stores.</li>
+                      <li><strong>Smart Ad Integration:</strong> Bridging marketplace products with targeted paid search campaigns.</li>
+                      <li><strong>Conversion Rate Optimization (CRO):</strong> Restructuring product offers to drive checkout rates.</li>
+                    </ul>
+                  </div>
+
+                  <div class="bg-slate-900/80 border-l-4 border-sky-500 border-y border-r border-slate-800 p-6 rounded-2xl space-y-3">
+                    <h3 class="text-base font-bold text-white">2. Data-Driven Insights</h3>
+                    <p class="text-xs text-slate-400">Advanced Data Analysis and Performance Dashboards</p>
+                    <ul class="list-disc pl-5 text-xs text-slate-300 space-y-1.5">
+                      <li><strong>Core Growth Catalyst:</strong> Transforming raw metrics into profitable strategies.</li>
+                      <li><strong>Sales Cycle Evolution:</strong> Analyzing consumer behavior and retention rates to multiply ROAS.</li>
+                      <li><strong>Performance Dashboards:</strong> Monitoring real-time inventory and sales movement.</li>
+                    </ul>
+                  </div>
+
+                  <div class="bg-slate-900/80 border-l-4 border-sky-500 border-y border-r border-slate-800 p-6 rounded-2xl space-y-3">
+                    <h3 class="text-base font-bold text-white">3. Operations & Account Health</h3>
+                    <p class="text-xs text-slate-400">Professional Operations and Customer Service Management</p>
+                    <div class="grid grid-cols-3 gap-3 my-3">
+                      <div class="bg-slate-950 p-3 rounded-xl text-center">
+                        <div class="text-sky-400 font-bold text-xs">Shipping</div>
+                        <p class="text-[10px] text-slate-400 mt-1">Order lifecycle tracking</p>
                       </div>
-                      <div>
-                        <h4 class="font-bold text-white text-base mb-1">{item.title}</h4>
-                        <p class="text-slate-400 text-sm leading-relaxed">{item.desc}</p>
+                      <div class="bg-slate-950 p-3 rounded-xl text-center">
+                        <div class="text-sky-400 font-bold text-xs">Collection</div>
+                        <p class="text-[10px] text-slate-400 mt-1">Cash flow reconciliations</p>
+                      </div>
+                      <div class="bg-slate-950 p-3 rounded-xl text-center">
+                        <div class="text-sky-400 font-bold text-xs">Inventory</div>
+                        <p class="text-[10px] text-slate-400 mt-1">Stock level planning</p>
                       </div>
                     </div>
-                  ))}
+                    <ul class="list-disc pl-5 text-xs text-slate-300 space-y-1.5">
+                      <li><strong>Customer Support:</strong> Prompt handling of queries and shipping complaints.</li>
+                      <li><strong>Account Health Management:</strong> Immediate action on platform warnings and feedback removal.</li>
+                      <li><strong>Returns & Claims:</strong> Disciplined return policies and efficient reimbursement collections.</li>
+                    </ul>
+                  </div>
+
+                  <div class="bg-slate-900/80 border-l-4 border-sky-500 border-y border-r border-slate-800 p-6 rounded-2xl space-y-3">
+                    <h3 class="text-base font-bold text-white">4. Professional Training & Enablement</h3>
+                    <p class="text-xs text-slate-400">Professional Training and Career Development Sessions</p>
+                    <ul class="list-disc pl-5 text-xs text-slate-300 space-y-1.5">
+                      <li><strong>Team & Seller Coaching:</strong> Integrated training programs for teams and new sellers.</li>
+                      <li><strong>Profitable Selling Strategies:</strong> Detailed explanations of marketplace algorithms.</li>
+                      <li><strong>Operational Empowerment:</strong> Transferring practical expertise to ensure independent store management.</li>
+                    </ul>
+                  </div>
                 </div>
+
+                {/* Drive Action Buttons */}
+                <div class="bg-slate-900/80 border border-slate-800 p-6 rounded-3xl flex flex-wrap justify-center gap-4 text-center">
+                  <a href="https://drive.google.com/file/d/12RygbneF_PKRfOQHAbSkz55597WedMnC/view" target="_blank" rel="noreferrer" class="inline-flex items-center space-x-2 bg-sky-500 hover:bg-sky-400 text-slate-950 font-bold px-6 py-3 rounded-2xl text-xs transition shadow-lg shadow-sky-500/20">
+                    <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM17 13l-5 5-5-5h3V9h4v4h3z"/></svg>
+                    <span>View Full Portfolio</span>
+                  </a>
+                  <a href="https://drive.google.com/file/d/1NjKqNc6hTZGyIckfbftPDtzaeq0lPZE6/view?usp=sharing" target="_blank" rel="noreferrer" class="inline-flex items-center space-x-2 bg-slate-800 hover:bg-slate-700 text-white font-bold px-6 py-3 rounded-2xl text-xs transition border border-slate-700">
+                    <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM17 13l-5 5-5-5h3V9h4v4h3z"/></svg>
+                    <span>Project Showcase</span>
+                  </a>
+                </div>
+
               </div>
+            )}
 
-            </div>
-          </section>
-
-          {/* Privacy Policy Section */}
-          <section id="privacy-policy" class="py-20 px-6 bg-slate-950 border-t border-slate-800">
-            <div class="max-w-5xl mx-auto space-y-10">
-              <div class="border-b border-slate-800 pb-6">
-                <span class="text-xs font-bold uppercase tracking-widest text-sky-400 block mb-2">Legal & Trust</span>
-                <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Privacy Policy</h2>
-                <p class="text-slate-400 text-sm mt-2">Last updated: September 2026</p>
-              </div>
-
-              <div class="space-y-8 text-slate-300 leading-relaxed text-sm sm:text-base">
-                <div class="bg-slate-900/60 border border-slate-800 p-6 sm:p-8 rounded-2xl space-y-3">
-                  <h3 class="text-xl font-bold text-white">1. Introduction</h3>
-                  <p class="text-slate-400">
-                    At <strong>AdMovera</strong>, accessible from our online platforms, we prioritize the privacy of our visitors and clients. This Privacy Policy outlines the types of information collected and recorded by AdMovera and how we utilize it to improve our e-commerce consultancy and strategic advisory services.
-                  </p>
-                </div>
-
-                <div class="bg-slate-900/60 border border-slate-800 p-6 sm:p-8 rounded-2xl space-y-3">
-                  <h3 class="text-xl font-bold text-white">2. Information We Collect</h3>
-                  <p class="text-slate-400">
-                    When you interact with our platform, request a consultation, or utilize our ROI tools, we may ask for specific personal details, including:
-                  </p>
-                  <ul class="list-disc list-inside text-slate-400 space-y-2 pt-2">
-                    <li><strong class="text-slate-200">Contact Information:</strong> Name, professional email address, and communication preferences provided through consultation inquiry forms.</li>
-                    <li><strong class="text-slate-200">Business & Marketplace Details:</strong> Platform metrics, seller profile context, and operational parameters voluntarily provided for audit purposes.</li>
-                    <li><strong class="text-slate-200">Technical Log Data:</strong> Browser type, Internet Protocol (IP) addresses, ISP, date/time stamps, referring/exit pages, and click counts for performance analytics.</li>
-                  </ul>
-                </div>
-
-                <div class="bg-slate-900/60 border border-slate-800 p-6 sm:p-8 rounded-2xl space-y-3">
-                  <h3 class="text-xl font-bold text-white">3. How We Use Your Information</h3>
-                  <p class="text-slate-400">We utilize the information collected in several ways, including to:</p>
-                  <ul class="list-disc list-inside text-slate-400 space-y-2 pt-2">
-                    <li>Provide, operate, and maintain our consultancy tools and interactive calculators.</li>
-                    <li>Deliver tailored e-commerce marketplace optimization strategies and account audits.</li>
-                    <li>Communicate directly regarding booked advisory sessions and respond to inquiries.</li>
-                    <li>Analyze user engagement to enhance overall platform functionality and content relevance.</li>
-                    <li>Ensure security, prevent fraudulent activity, and comply with marketplace standards.</li>
-                  </ul>
-                </div>
-
-                <div class="bg-slate-900/60 border border-slate-800 p-6 sm:p-8 rounded-2xl space-y-3">
-                  <h3 class="text-xl font-bold text-white">4. Cookies and Web Technologies</h3>
-                  <p class="text-slate-400">
-                    AdMovera uses standard 'cookies' and localized storage technologies to store information regarding visitor preferences, pages accessed, and user interaction. This data allows us to optimize user experiences by customizing web content based on visitor browser preferences and technical requirements.
-                  </p>
-                </div>
-
-                <div class="bg-slate-900/60 border border-slate-800 p-6 sm:p-8 rounded-2xl space-y-3">
-                  <h3 class="text-xl font-bold text-white">5. Data Protection & Confidentiality</h3>
-                  <p class="text-slate-400">
-                    We maintain strict data protection and confidentiality standards. AdMovera does not sell, rent, or trade client metrics, seller account data, or contact lists to third-party advertisers or brokers under any circumstances.
-                  </p>
-                </div>
-
-                <div class="bg-slate-900/60 border border-slate-800 p-6 sm:p-8 rounded-2xl space-y-3">
-                  <h3 class="text-xl font-bold text-white">6. Contact & Data Requests</h3>
-                  <p class="text-slate-400">
-                    If you have additional questions regarding our Privacy Policy or wish to request data removal, please contact our team directly through our consultation scheduling channel or connect via our official social platforms.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          {/* About Consultant */}
-          <section id="about" class="py-20 px-6 bg-slate-900/60 border-t border-slate-800">
-            <div class="max-w-3xl mx-auto text-center">
-              <h2 class="text-3xl font-bold text-white mb-4">About Ahmed Abdelhameed</h2>
-              <p class="text-slate-400 leading-relaxed text-base mb-8">
-                Independent E-Commerce & Marketplace Consultant with 20 years of commercial sales experience and 10 dedicated years managing multi-channel store lifecycles. Specializing in search indexing optimization (Amazon A9/A10 & COSMO), PPC management, listing creation, and catalog operations for sellers worldwide.
-              </p>
-              
-              {/* Social Buttons in About Section */}
-              <div class="flex justify-center items-center space-x-4 mb-8">
-                <a href={linkedinUrl} target="_blank" rel="noreferrer" class="flex items-center space-x-2 bg-slate-800 hover:bg-sky-600 hover:text-white px-5 py-2.5 rounded-xl text-xs font-semibold transition border border-slate-700">
+            {/* Social & Availability Callout */}
+            <div class="mt-16 pt-8 border-t border-slate-900 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
+              <div class="flex items-center space-x-3">
+                <a href={linkedinUrl} target="_blank" rel="noreferrer" class="flex items-center space-x-2 bg-slate-900 hover:bg-sky-600 hover:text-white px-4 py-2 rounded-xl text-xs font-semibold transition border border-slate-800">
                   <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.25V10.9H6.46M7.86 6.72a1.63 1.63 0 1 0 0 3.26 1.63 1.63 0 0 0 0-3.26Z"/></svg>
-                  <span>LinkedIn Profile</span>
+                  <span>Connect on LinkedIn</span>
                 </a>
-                <a href={facebookUrl} target="_blank" rel="noreferrer" class="flex items-center space-x-2 bg-slate-800 hover:bg-sky-600 hover:text-white px-5 py-2.5 rounded-xl text-xs font-semibold transition border border-slate-700">
+                <a href={facebookUrl} target="_blank" rel="noreferrer" class="flex items-center space-x-2 bg-slate-900 hover:bg-sky-600 hover:text-white px-4 py-2 rounded-xl text-xs font-semibold transition border border-slate-800">
                   <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H7.5v-3H10V9.5C10 7.01 11.49 5.65 13.78 5.65c1.1 0 2.25.2 2.25.2v2.47h-1.27c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.45 3h-2.33v6.8c4.56-.93 8-4.96 8-9.8z"/></svg>
-                  <span>Facebook Profile</span>
+                  <span>Follow on Facebook</span>
                 </a>
               </div>
+
+              <div class="inline-flex items-center space-x-2 text-xs font-semibold text-slate-400 bg-slate-900 border border-slate-800 px-4 py-2 rounded-full">
+                <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                <span>Available for Advisory & Portfolio Audits</span>
+              </div>
             </div>
-          </section>
+          </main>
 
           {/* Footer */}
-          <footer class="bg-slate-950 border-t border-slate-900 py-12 px-6 text-center text-xs text-slate-500">
-            <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
-              <span>&copy; 2026 AdMovera. Independent E-Commerce & Marketplace Strategy Practice. All rights reserved.</span>
-              <div class="flex space-x-6">
-                <a href="#privacy-policy" class="hover:text-sky-400 transition">Privacy Policy</a>
-                <a href="#services" class="hover:text-sky-400 transition">Services</a>
-                <a href="#calculator" class="hover:text-sky-400 transition">ROI Calculator</a>
+          <footer class="border-t border-slate-900 bg-slate-950 py-8 px-6 mt-12">
+            <div class="max-w-5xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-left">
+              <div class="flex items-center space-x-3">
+                <div class="w-7 h-7 rounded-lg bg-sky-500 flex items-center justify-center font-bold text-slate-950 text-xs">
+                  AM
+                </div>
+                <span class="text-xs font-bold tracking-tight text-white">Ahmed Abdel Hameed Advisory</span>
+              </div>
+
+              <p class="text-xs text-slate-500">
+                &copy; {new Date().getFullYear()} Ahmed Abdel Hameed. All rights reserved. Strategic E-Commerce Consulting.
+              </p>
+
+              <div class="text-xs text-slate-400">
+                📧 <a href="mailto:b2rstore@outlook.com" class="hover:text-sky-400">b2rstore@outlook.com</a> | 📞 <a href="tel:+201066551707" class="hover:text-sky-400">+20 1066551707</a>
               </div>
             </div>
           </footer>
 
           {/* Booking Modal */}
           {bookingOpen && (
-            <div class="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/80 backdrop-blur-sm p-4">
-              <div class="bg-slate-900 border border-slate-800 w-full max-w-lg rounded-3xl p-8 relative shadow-2xl">
+            <div class="fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+              <div class="bg-slate-900 border border-slate-800 rounded-3xl p-8 max-w-lg w-full relative shadow-2xl space-y-6">
                 <button 
                   onClick={() => setBookingOpen(false)}
-                  class="absolute top-6 right-6 text-slate-400 hover:text-white font-bold text-lg">
-                  &times;
+                  class="absolute top-6 right-6 text-slate-400 hover:text-white transition">
+                  &#x2715;
                 </button>
-                <h3 class="text-2xl font-bold text-white mb-2">Request Portfolio Audit</h3>
-                <p class="text-slate-400 text-sm mb-6">Fill out your details below to schedule an initial strategic consultation session.</p>
                 
-                <form onSubmit={(e) => { e.preventDefault(); alert('Request submitted successfully!'); setBookingOpen(false); }} class="space-y-4">
+                <div>
+                  <h3 class="text-2xl font-bold text-white mb-1">Request Consultation</h3>
+                  <p class="text-xs text-slate-400">Direct strategic oversight for your marketplace store operations.</p>
+                </div>
+
+                <form onSubmit={(e) => { e.preventDefault(); alert('Consultation request sent successfully!'); setBookingOpen(false); }} class="space-y-4">
                   <div>
-                    <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2">Your Name</label>
-                    <input type="text" required class="w-full bg-slate-950 border border-slate-800 rounded-xl p-3 text-white text-sm focus:outline-none focus:border-sky-500" placeholder="Ahmed Abdelhameed" />
+                    <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2">Full Name</label>
+                    <input type="text" required placeholder="John Doe" class="w-full bg-slate-950 border border-slate-800 rounded-xl p-3 text-sm text-white focus:border-sky-500 focus:outline-none" />
                   </div>
                   <div>
-                    <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2">Professional Email</label>
-                    <input type="email" required class="w-full bg-slate-950 border border-slate-800 rounded-xl p-3 text-white text-sm focus:outline-none focus:border-sky-500" placeholder="name@example.com" />
+                    <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2">Business Email</label>
+                    <input type="email" required placeholder="john@company.com" class="w-full bg-slate-950 border border-slate-800 rounded-xl p-3 text-sm text-white focus:border-sky-500 focus:outline-none" />
                   </div>
                   <div>
-                    <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2">Marketplace / Platform</label>
-                    <input type="text" class="w-full bg-slate-950 border border-slate-800 rounded-xl p-3 text-white text-sm focus:outline-none focus:border-sky-500" placeholder="Amazon, Noon, Shopify, etc." />
+                    <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2">Marketplace Platforms</label>
+                    <input type="text" placeholder="Amazon, Noon, eBay, etc." class="w-full bg-slate-950 border border-slate-800 rounded-xl p-3 text-sm text-white focus:border-sky-500 focus:outline-none" />
                   </div>
-                  <button type="submit" class="w-full bg-sky-500 hover:bg-sky-400 text-slate-950 font-bold p-3.5 rounded-xl text-sm transition shadow-lg shadow-sky-500/10">
-                    Confirm & Submit Request
+                  <div>
+                    <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2">Project Brief / Objectives</label>
+                    <textarea rows="3" placeholder="Describe your catalog scale, primary challenges, or growth goals..." class="w-full bg-slate-950 border border-slate-800 rounded-xl p-3 text-sm text-white focus:border-sky-500 focus:outline-none resize-none"></textarea>
+                  </div>
+                  <button type="submit" class="w-full bg-sky-500 hover:bg-sky-400 text-slate-950 font-bold py-3.5 rounded-xl text-sm transition shadow-lg shadow-sky-500/20">
+                    Submit Strategy Inquiry
                   </button>
                 </form>
               </div>
             </div>
           )}
-
         </div>
       );
     }
 
-    ReactDOM.render(<App />, document.getElementById('root'));
+    const container = document.getElementById('root');
+    const root = ReactDOM.createRoot(container);
+    root.render(<App />);
   </script>
 </body>
 </html>
