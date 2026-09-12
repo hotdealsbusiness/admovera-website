@@ -18,11 +18,16 @@
   <div id="root"></div>
 
   <script type="text/babel">
-    const { useState } = React;
+    const { useState, useEffect } = React;
 
     function App() {
-      // حالة التبويب النشط (الإفتراضي: home)
-      const [activeTab, setActiveTab] = useState('home');
+      // 1. قراءة التبويب الحالي من الـ Hash في الرابط (مثل #services)
+      const getInitialTab = () => {
+        const hash = window.location.hash.replace('#', '');
+        return hash || 'home';
+      };
+
+      const [activeTab, setActiveTab] = useState(getInitialTab);
 
       const [price, setPrice] = useState(45);
       const [cogs, setCogs] = useState(14);
@@ -36,6 +41,23 @@
       // Social Links
       const linkedinUrl = "https://www.linkedin.com/in/admovera";
       const facebookUrl = "https://www.facebook.com/aa.elhameed";
+
+      // 2. تحديث التبويب والـ URL
+      const changeTab = (tabName) => {
+        window.location.hash = tabName;
+        setActiveTab(tabName);
+      };
+
+      // 3. الاستماع لتغيرات الرابط (عند استخدام أزرار Forward/Back في المتصفح)
+      useEffect(() => {
+        const handleHashChange = () => {
+          const currentTab = window.location.hash.replace('#', '') || 'home';
+          setActiveTab(currentTab);
+        };
+
+        window.addEventListener('hashchange', handleHashChange);
+        return () => window.removeEventListener('hashchange', handleHashChange);
+      }, []);
 
       const totalCostPerUnit = Number(cogs) + Number(fbaFee) + Number(adSpendPerUnit);
       const profitPerUnit = Number(price) - totalCostPerUnit;
@@ -98,7 +120,7 @@
           {/* Header */}
           <header class="border-b border-slate-800 bg-slate-900/80 backdrop-blur-md sticky top-0 z-40">
             <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-              <div class="flex items-center space-x-3 cursor-pointer" onClick={() => setActiveTab('home')}>
+              <div class="flex items-center space-x-3 cursor-pointer" onClick={() => changeTab('home')}>
                 <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-sky-600 to-blue-500 flex items-center justify-center font-bold text-lg text-white shadow-lg shadow-sky-500/20">
                   AM
                 </div>
@@ -111,42 +133,42 @@
               {/* Dynamic Navigation Links */}
               <nav class="hidden md:flex space-x-6 text-sm font-medium">
                 <button 
-                  onClick={() => setActiveTab('home')} 
+                  onClick={() => changeTab('home')} 
                   class={`transition ${activeTab === 'home' ? 'text-sky-400 font-bold border-b-2 border-sky-400 pb-1' : 'text-slate-300 hover:text-sky-400'}`}>
                   Home
                 </button>
                 <button 
-                  onClick={() => setActiveTab('services')} 
+                  onClick={() => changeTab('services')} 
                   class={`transition ${activeTab === 'services' ? 'text-sky-400 font-bold border-b-2 border-sky-400 pb-1' : 'text-slate-300 hover:text-sky-400'}`}>
                   Services
                 </button>
                 <button 
-                  onClick={() => setActiveTab('calculator')} 
+                  onClick={() => changeTab('calculator')} 
                   class={`transition ${activeTab === 'calculator' ? 'text-sky-400 font-bold border-b-2 border-sky-400 pb-1' : 'text-slate-300 hover:text-sky-400'}`}>
                   ROI Calculator
                 </button>
                 <button 
-                  onClick={() => setActiveTab('insights')} 
+                  onClick={() => changeTab('insights')} 
                   class={`transition ${activeTab === 'insights' ? 'text-sky-400 font-bold border-b-2 border-sky-400 pb-1' : 'text-slate-300 hover:text-sky-400'}`}>
                   Insights
                 </button>
                 <button 
-                  onClick={() => setActiveTab('about-us')} 
+                  onClick={() => changeTab('about-us')} 
                   class={`transition ${activeTab === 'about-us' ? 'text-sky-400 font-bold border-b-2 border-sky-400 pb-1' : 'text-slate-300 hover:text-sky-400'}`}>
                   About Us
                 </button>
                 <button 
-                  onClick={() => setActiveTab('privacy-policy')} 
+                  onClick={() => changeTab('privacy-policy')} 
                   class={`transition ${activeTab === 'privacy-policy' ? 'text-sky-400 font-bold border-b-2 border-sky-400 pb-1' : 'text-slate-300 hover:text-sky-400'}`}>
                   Privacy Policy
                 </button>
                 <button 
-                  onClick={() => setActiveTab('consultant')} 
+                  onClick={() => changeTab('consultant')} 
                   class={`transition ${activeTab === 'consultant' ? 'text-sky-400 font-bold border-b-2 border-sky-400 pb-1' : 'text-slate-300 hover:text-sky-400'}`}>
                   Consultant
                 </button>
                 <button 
-                  onClick={() => setActiveTab('portfolio')} 
+                  onClick={() => changeTab('portfolio')} 
                   class={`transition ${activeTab === 'portfolio' ? 'text-sky-400 font-bold border-b-2 border-sky-400 pb-1' : 'text-slate-300 hover:text-sky-400'}`}>
                   Portfolio
                 </button>
@@ -171,7 +193,7 @@
             </div>
           </header>
 
-          {/* Main Content Area - Render Active Tab Only */}
+          {/* Main Content Area */}
           <main class="flex-grow">
             
             {/* 1. HOME TAB */}
@@ -191,12 +213,12 @@
                   </p>
                   <div class="flex flex-wrap justify-center gap-4">
                     <button 
-                      onClick={() => setActiveTab('portfolio')}
+                      onClick={() => changeTab('portfolio')}
                       class="bg-sky-500 hover:bg-sky-400 text-slate-950 font-bold px-8 py-4 rounded-xl text-sm transition shadow-lg shadow-sky-500/20">
                       View Full Portfolio
                     </button>
                     <button 
-                      onClick={() => setActiveTab('calculator')}
+                      onClick={() => changeTab('calculator')}
                       class="bg-slate-900 hover:bg-slate-800 border border-slate-700 text-white font-semibold px-8 py-4 rounded-xl text-sm transition">
                       Calculate Unit Economics
                     </button>
@@ -517,7 +539,7 @@
             <div class="flex space-x-6 text-slate-400">
               <a href={linkedinUrl} target="_blank" rel="noreferrer" class="hover:text-sky-400 transition">LinkedIn</a>
               <a href={facebookUrl} target="_blank" rel="noreferrer" class="hover:text-sky-400 transition">Facebook</a>
-              <button onClick={() => setActiveTab('privacy-policy')} class="hover:text-sky-400 transition">Privacy Policy</button>
+              <button onClick={() => changeTab('privacy-policy')} class="hover:text-sky-400 transition">Privacy Policy</button>
             </div>
             <p>&copy; {new Date().getFullYear()} AdMovera. All rights reserved. | E-Commerce Strategy & Advisory</p>
           </footer>
