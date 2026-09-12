@@ -48,9 +48,9 @@
             background-color: var(--card-bg);
             color: var(--primary-color);
             border: 2px solid var(--primary-color);
-            padding: 10px 25px;
+            padding: 10px 30px;
             border-radius: 30px;
-            font-size: 1rem;
+            font-size: 1.05rem;
             font-weight: 700;
             cursor: pointer;
             transition: all 0.3s ease;
@@ -254,7 +254,7 @@
 
         .portfolio-action-card {
             background: var(--card-bg);
-            padding: 30px;
+            padding: 40px 30px;
             border-radius: var(--border-radius);
             text-align: center;
             margin: 30px 0;
@@ -339,10 +339,10 @@
 
     <div class="container">
         
-        <!-- Navigation Switcher Tabs -->
+        <!-- Navigation Switcher Tabs (Consultant & Portfolio) -->
         <div class="nav-tabs-container">
-            <button class="nav-tab active" onclick="switchTab('consultant')">Consultant</button>
-            <button class="nav-tab" onclick="switchTab('portfolio')">Portfolio</button>
+            <button class="nav-tab active" id="btn-consultant" onclick="switchTab('consultant')">Consultant</button>
+            <button class="nav-tab" id="btn-portfolio" onclick="switchTab('portfolio')">Portfolio</button>
         </div>
 
         <!-- Header -->
@@ -356,7 +356,7 @@
             </p>
         </header>
 
-        <!-- TAB 1: CONSULTANT SECTION (Main Content) -->
+        <!-- TAB 1: CONSULTANT SECTION (Contains full site details) -->
         <div id="consultant-tab" class="tab-content active">
 
             <!-- Platforms Section -->
@@ -534,17 +534,17 @@
 
         </div>
 
-        <!-- TAB 2: PORTFOLIO SECTION -->
+        <!-- TAB 2: PORTFOLIO SECTION (Contains portfolio & Google Drive showcases) -->
         <div id="portfolio-tab" class="tab-content">
-            <div class="section-card" style="text-align: center; border-left-color: var(--secondary-color);">
-                <div class="section-title" style="font-size: 1.6rem;">Professional Project Portfolio &amp; Showcases</div>
-                <div class="section-subtitle">Explore direct documentation, verified case studies, and live project credentials</div>
-                <p style="color: var(--text-muted); max-width: 650px; margin: 0 auto 25px auto;">
-                    Access comprehensive records detailing successful marketplace launches, listing optimizations, and structured campaign performance across major global platforms.
+            <div class="section-card" style="border-left-color: var(--secondary-color);">
+                <div class="section-title" style="font-size: 1.5rem;">Professional Project Portfolio &amp; Track Record</div>
+                <div class="section-subtitle">Verified case studies, direct listing documentation, and practical project deliverables</div>
+                <p style="color: var(--text-muted); margin-bottom: 0;">
+                    Access comprehensive records detailing successful marketplace launches, listing optimizations, algorithmic search compliance (A9, A10, COSMO), and multi-channel campaign architectures across global platforms.
                 </p>
             </div>
 
-            <!-- Action Cards: View Full Portfolio & Project Showcase -->
+            <!-- Portfolio Action Cards -->
             <div class="portfolio-action-card">
                 <a href="https://drive.google.com/file/d/12RygbneF_PKRfOQHAbSkz55597WedMnC/view" target="_blank" class="drive-btn">
                     <svg viewBox="0 0 24 24">
@@ -562,7 +562,7 @@
             </div>
         </div>
 
-        <!-- Contact / Footer -->
+        <!-- Contact / Footer (Appears on both tabs) -->
         <div class="contact-card">
             <span class="tag" style="background: rgba(255,255,255,0.2); color: white;">Let's Connect</span>
             <h2>Ready for Your Next Digital Success!</h2>
@@ -576,25 +576,25 @@
 
     </div>
 
-    <!-- Tab Switching Script -->
+    <!-- JavaScript for Tab Switching -->
     <script>
         function switchTab(tabName) {
-            // Hide all tabs
+            // Hide all tab contents
             document.querySelectorAll('.tab-content').forEach(tab => {
                 tab.classList.remove('active');
             });
-            // Remove active class from all buttons
+            // Remove active style from all navigation buttons
             document.querySelectorAll('.nav-tab').forEach(btn => {
                 btn.classList.remove('active');
             });
 
-            // Show selected tab and activate button
+            // Activate chosen tab and button
             if (tabName === 'consultant') {
                 document.getElementById('consultant-tab').classList.add('active');
-                event.currentTarget.classList.add('active');
+                document.getElementById('btn-consultant').classList.add('active');
             } else if (tabName === 'portfolio') {
                 document.getElementById('portfolio-tab').classList.add('active');
-                event.currentTarget.classList.add('active');
+                document.getElementById('btn-portfolio').classList.add('active');
             }
         }
     </script>
