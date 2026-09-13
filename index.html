@@ -48,11 +48,10 @@
       const [activeCategory, setActiveCategory] = useState('All');
       const [searchQuery, setSearchQuery] = useState('');
 
-      // Social Links & Blogger (مع الرابط الجديد)
+      // Social Links & Blogger
       const linkedinUrl = "https://www.linkedin.com/in/admovera";
       const facebookUrl = "https://www.facebook.com/aa.elhameed";
       const bloggerUrl = "https://admovera.blogspot.com/";
-      const bloggerLogoUrl = "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhC2b6vQ0gM5Lh8F5V5x0s6Z1Q3g9J8k7L6m5n4p3q2r1s0t9u8v7w6x5y4z3A2B1C0D9E8F7G6H5I4J3K2L1M0N9O8P7Q6R5S4T3U2V1W0X9Y8Z7/s1600/blogger-logo.png"; 
 
       const changeTab = (tabName) => {
         window.location.hash = tabName;
@@ -152,7 +151,7 @@
               </nav>
 
               <div class="flex items-center space-x-4">
-                {/* Social Icons including Blogger with new link */}
+                {/* Social Icons including Blogger SVG */}
                 <div class="hidden sm:flex items-center space-x-2 border-r border-slate-800 pr-4">
                   <a href={linkedinUrl} target="_blank" rel="noreferrer" class="p-2 bg-slate-800/80 hover:bg-sky-600/20 hover:text-sky-400 rounded-lg text-slate-300 transition" title="LinkedIn Profile">
                     <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.25V10.9H6.46M7.86 6.72a1.63 1.63 0 1 0 0 3.26 1.63 1.63 0 0 0 0-3.26Z"/></svg>
@@ -160,8 +159,11 @@
                   <a href={facebookUrl} target="_blank" rel="noreferrer" class="p-2 bg-slate-800/80 hover:bg-sky-600/20 hover:text-sky-400 rounded-lg text-slate-300 transition" title="Facebook Profile">
                     <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H7.5v-3H10V9.5C10 7.01 11.49 5.65 13.78 5.65c1.1 0 2.25.2 2.25.2v2.47h-1.27c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.45 3h-2.33v6.8c4.56-.93 8-4.96 8-9.8z"/></svg>
                   </a>
-                  <a href={bloggerUrl} target="_blank" rel="noreferrer" class="p-1 bg-slate-800/80 hover:bg-orange-600/20 rounded-lg transition flex items-center justify-center overflow-hidden" title="Blogger Blog">
-                    <img src={bloggerLogoUrl} alt="Google Blogger Logo" class="w-5 h-5 rounded-md object-cover shadow-sm" />
+                  {/* Google Blogger SVG Icon */}
+                  <a href={bloggerUrl} target="_blank" rel="noreferrer" class="p-2 bg-slate-800/80 hover:bg-orange-600/20 hover:text-orange-400 rounded-lg text-slate-300 transition flex items-center justify-center" title="Blogger Blog">
+                    <svg class="w-4 h-4 fill-current text-orange-500" viewBox="0 0 24 24">
+                      <path d="M17.5 2H6.5C4.01 2 2 4.01 2 6.5v11C2 19.99 4.01 22 6.5 22h11c2.49 0 4.5-2.01 4.5-4.5v-11C22 4.01 19.99 2 17.5 2zM9.91 15.35H7.72V8.65h2.19c1.09 0 1.9.33 2.42.99.52.66.78 1.55.78 2.68 0 1.13-.26 2.02-.78 2.68-.52.66-1.33.95-2.42.95zm.51-5.18c-.29-.38-.72-.57-1.29-.57h-.61v3.35h.61c.57 0 1-.19 1.29-.57.29-.38.44-.92.44-1.61 0-.69-.15-1.23-.44-1.6zm6.36 5.18h-2.19V8.65h2.19v6.7z"/>
+                    </svg>
                   </a>
                 </div>
 
