@@ -52,6 +52,7 @@
       const linkedinUrl = "https://www.linkedin.com/in/admovera";
       const facebookUrl = "https://www.facebook.com/aa.elhameed";
       const bloggerUrl = "https://admovera.blogspot.com/";
+      const bloggerLogoUrl = "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjC2b6vQ0gM5Lh8F5V5x0s6Z1Q3g9J8k7L6m5n4p3q2r1s0t9u8v7w6x5y4z3A2B1C0D9E8F7G6H5I4J3K2L1M0N9O8P7Q6R5S4T3U2V1W0X9Y8Z7/s1600/blogger-logo.png"; // رابط لوجو البلوجر الجديد
 
       // 2. تحديث التبويب والـ URL
       const changeTab = (tabName) => {
@@ -181,7 +182,7 @@
               </nav>
 
               <div class="flex items-center space-x-4">
-                {/* Social Icons including Google Blogger */}
+                {/* Social Icons including Google Blogger Custom Logo */}
                 <div class="hidden sm:flex items-center space-x-2 border-r border-slate-800 pr-4">
                   <a href={linkedinUrl} target="_blank" rel="noreferrer" class="p-2 bg-slate-800/80 hover:bg-sky-600/20 hover:text-sky-400 rounded-lg text-slate-300 transition" title="LinkedIn Profile">
                     <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.25V10.9H6.46M7.86 6.72a1.63 1.63 0 1 0 0 3.26 1.63 1.63 0 0 0 0-3.26Z"/></svg>
@@ -189,8 +190,8 @@
                   <a href={facebookUrl} target="_blank" rel="noreferrer" class="p-2 bg-slate-800/80 hover:bg-sky-600/20 hover:text-sky-400 rounded-lg text-slate-300 transition" title="Facebook Profile">
                     <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H7.5v-3H10V9.5C10 7.01 11.49 5.65 13.78 5.65c1.1 0 2.25.2 2.25.2v2.47h-1.27c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.45 3h-2.33v6.8c4.56-.93 8-4.96 8-9.8z"/></svg>
                   </a>
-                  <a href={bloggerUrl} target="_blank" rel="noreferrer" class="p-2 bg-slate-800/80 hover:bg-orange-600/20 hover:text-orange-400 rounded-lg text-slate-300 transition" title="Blogger Blog">
-                    <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-9.5 13.5H7v-2h2.5v2zm0-4H7v-2h2.5v2zm5 4H12v-2h2.5v2zm0-4H12v-5h5.5v5H15z"/></svg>
+                  <a href={bloggerUrl} target="_blank" rel="noreferrer" class="p-1.5 bg-slate-800/80 hover:bg-orange-600/20 rounded-lg transition flex items-center justify-center" title="Blogger Blog">
+                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgOmB0Us0BKed6hPZvik7GJYQBDgAdjQ_gXYJQZ6P5GutMLVXbBNCDAwIjPaXgyuKAaH4koQycd3MOo3YxdQRU3aWe2Ksn49VF8jB9XuEsvLwtgqMhxkViS_MDboSO8ebs5mpK9qpEjaGFwq_Sl6ErclricBRL-1Y3as-rshudd3sEuPAZiO4OPKLak2XU/s1600/Admover-%20about%20us.jpg" alt="Blogger Logo" class="w-5 h-5 rounded object-cover shadow-sm" />
                   </a>
                 </div>
 
@@ -332,7 +333,7 @@
                 <div class="max-w-5xl mx-auto space-y-16">
                   <div class="overflow-hidden rounded-3xl border border-slate-800 shadow-2xl custom-hover-card">
                     <a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgOmB0Us0BKed6hPZvik7GJYQBDgAdjQ_gXYJQZ6P5GutMLVXbBNCDAwIjPaXgyuKAaH4koQycd3MOo3YxdQRU3aWe2Ksn49VF8jB9XuEsvLwtgqMhxkViS_MDboSO8ebs5mpK9qpEjaGFwq_Sl6ErclricBRL-1Y3as-rshudd3sEuPAZiO4OPKLak2XU/s1169/Admover-%20about%20us.jpg" target="_blank">
-                      <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgOmB0Us0BKed6hPZvik7GJYQBDgAdjQ_gXYJQZ6P5GutMLVXbBNCDAwIjPaXgyuKAaH4koQycd3MOo3YxdQRU3aWe2Ksn49VF8jB9XuEsvLwtgqMhxkViS_MDboSO8ebs5mpK9qpEjaGFwq_Sl6ErclricBRL-1Y3as-rshudd3sEuPAZiO4OPKLak2XU/s1600/Admover-%20about%20us.jpg" alt="Admovera About Us" class="w-full object-cover hover:scale-105 transition duration-500" />
+                      <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgOmB0Us0BKed6hPZvik7GJYQBDgAdjQ_gXYJQZ6P5GutMLVXbBNCDAwIjPaXgyuKAaH4koQycd3MOo3YxdQRU3aWe2Ksn49VF8jB9XuEsvLwrgqMhxkViS_MDboSO8ebs5mpK9qpEjaGFwq_Sl6ErclricBRL-1Y3as-rshudd3sEuPAZiO4OPKLak2XU/s1600/Admover-%20about%20us.jpg" alt="Admovera About Us" class="w-full object-cover hover:scale-105 transition duration-500" />
                     </a>
                   </div>
 
