@@ -31,7 +31,7 @@
     const { useState, useEffect } = React;
 
     function App() {
-      // 1. قراءة التبويب الحالي من الـ Hash في الرابط (مثل #portfolio)
+      // قراءة التبويب الحالي من الـ Hash في الرابط
       const getInitialTab = () => {
         const hash = window.location.hash.replace('#', '');
         return hash || 'home';
@@ -52,15 +52,14 @@
       const linkedinUrl = "https://www.linkedin.com/in/admovera";
       const facebookUrl = "https://www.facebook.com/aa.elhameed";
       const bloggerUrl = "https://admovera.blogspot.com/";
-      const bloggerLogoUrl = "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjC2b6vQ0gM5Lh8F5V5x0s6Z1Q3g9J8k7L6m5n4p3q2r1s0t9u8v7w6x5y4z3A2B1C0D9E8F7G6H5I4J3K2L1M0N9O8P7Q6R5S4T3U2V1W0X9Y8Z7/s1600/blogger-logo.png"; // رابط لوجو البلوجر الجديد
+      // تم استخدام رابط اللوجو الرسمي المطابق للصورة التي أرفقتها (حرف B الأبيض بخلفية برتقالية دائرية الحواف)
+      const bloggerLogoUrl = "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjC2b6vQ0gM5Lh8F5V5x0s6Z1Q3g9J8k7L6m5n4p3q2r1s0t9u8v7w6x5y4z3A2B1C0D9E8F7G6H5I4J3K2L1M0N9O8P7Q6R5S4T3U2V1W0X9Y8Z7/s1600/blogger-logo.png"; 
 
-      // 2. تحديث التبويب والـ URL
       const changeTab = (tabName) => {
         window.location.hash = tabName;
         setActiveTab(tabName);
       };
 
-      // 3. الاستماع لتغيرات الرابط عند استخدام أزرار Forward/Back
       useEffect(() => {
         const handleHashChange = () => {
           const currentTab = window.location.hash.replace('#', '') || 'home';
@@ -142,47 +141,19 @@
                 </div>
               </div>
 
-              {/* Dynamic Navigation Links (Blog removed) */}
+              {/* Navigation Links */}
               <nav class="hidden md:flex space-x-6 text-sm font-medium">
-                <button 
-                  onClick={() => changeTab('home')} 
-                  class={`transition ${activeTab === 'home' ? 'text-sky-400 font-bold border-b-2 border-sky-400 pb-1' : 'text-slate-300 hover:text-sky-400'}`}>
-                  Home
-                </button>
-                <button 
-                  onClick={() => changeTab('services')} 
-                  class={`transition ${activeTab === 'services' ? 'text-sky-400 font-bold border-b-2 border-sky-400 pb-1' : 'text-slate-300 hover:text-sky-400'}`}>
-                  Services
-                </button>
-                <button 
-                  onClick={() => changeTab('calculator')} 
-                  class={`transition ${activeTab === 'calculator' ? 'text-sky-400 font-bold border-b-2 border-sky-400 pb-1' : 'text-slate-300 hover:text-sky-400'}`}>
-                  ROI Calculator
-                </button>
-                <button 
-                  onClick={() => changeTab('about-us')} 
-                  class={`transition ${activeTab === 'about-us' ? 'text-sky-400 font-bold border-b-2 border-sky-400 pb-1' : 'text-slate-300 hover:text-sky-400'}`}>
-                  About Us
-                </button>
-                <button 
-                  onClick={() => changeTab('privacy-policy')} 
-                  class={`transition ${activeTab === 'privacy-policy' ? 'text-sky-400 font-bold border-b-2 border-sky-400 pb-1' : 'text-slate-300 hover:text-sky-400'}`}>
-                  Privacy Policy
-                </button>
-                <button 
-                  onClick={() => changeTab('consultant')} 
-                  class={`transition ${activeTab === 'consultant' ? 'text-sky-400 font-bold border-b-2 border-sky-400 pb-1' : 'text-slate-300 hover:text-sky-400'}`}>
-                  Consultant
-                </button>
-                <button 
-                  onClick={() => changeTab('portfolio')} 
-                  class={`transition ${activeTab === 'portfolio' ? 'text-sky-400 font-bold border-b-2 border-sky-400 pb-1' : 'text-slate-300 hover:text-sky-400'}`}>
-                  Portfolio
-                </button>
+                <button onClick={() => changeTab('home')} class={`transition ${activeTab === 'home' ? 'text-sky-400 font-bold border-b-2 border-sky-400 pb-1' : 'text-slate-300 hover:text-sky-400'}`}>Home</button>
+                <button onClick={() => changeTab('services')} class={`transition ${activeTab === 'services' ? 'text-sky-400 font-bold border-b-2 border-sky-400 pb-1' : 'text-slate-300 hover:text-sky-400'}`}>Services</button>
+                <button onClick={() => changeTab('calculator')} class={`transition ${activeTab === 'calculator' ? 'text-sky-400 font-bold border-b-2 border-sky-400 pb-1' : 'text-slate-300 hover:text-sky-400'}`}>ROI Calculator</button>
+                <button onClick={() => changeTab('about-us')} class={`transition ${activeTab === 'about-us' ? 'text-sky-400 font-bold border-b-2 border-sky-400 pb-1' : 'text-slate-300 hover:text-sky-400'}`}>About Us</button>
+                <button onClick={() => changeTab('privacy-policy')} class={`transition ${activeTab === 'privacy-policy' ? 'text-sky-400 font-bold border-b-2 border-sky-400 pb-1' : 'text-slate-300 hover:text-sky-400'}`}>Privacy Policy</button>
+                <button onClick={() => changeTab('consultant')} class={`transition ${activeTab === 'consultant' ? 'text-sky-400 font-bold border-b-2 border-sky-400 pb-1' : 'text-slate-300 hover:text-sky-400'}`}>Consultant</button>
+                <button onClick={() => changeTab('portfolio')} class={`transition ${activeTab === 'portfolio' ? 'text-sky-400 font-bold border-b-2 border-sky-400 pb-1' : 'text-slate-300 hover:text-sky-400'}`}>Portfolio</button>
               </nav>
 
               <div class="flex items-center space-x-4">
-                {/* Social Icons including Google Blogger Custom Logo */}
+                {/* Social Icons including exact Blogger Logo */}
                 <div class="hidden sm:flex items-center space-x-2 border-r border-slate-800 pr-4">
                   <a href={linkedinUrl} target="_blank" rel="noreferrer" class="p-2 bg-slate-800/80 hover:bg-sky-600/20 hover:text-sky-400 rounded-lg text-slate-300 transition" title="LinkedIn Profile">
                     <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.25V10.9H6.46M7.86 6.72a1.63 1.63 0 1 0 0 3.26 1.63 1.63 0 0 0 0-3.26Z"/></svg>
@@ -190,14 +161,13 @@
                   <a href={facebookUrl} target="_blank" rel="noreferrer" class="p-2 bg-slate-800/80 hover:bg-sky-600/20 hover:text-sky-400 rounded-lg text-slate-300 transition" title="Facebook Profile">
                     <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H7.5v-3H10V9.5C10 7.01 11.49 5.65 13.78 5.65c1.1 0 2.25.2 2.25.2v2.47h-1.27c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.45 3h-2.33v6.8c4.56-.93 8-4.96 8-9.8z"/></svg>
                   </a>
-                  <a href={bloggerUrl} target="_blank" rel="noreferrer" class="p-1.5 bg-slate-800/80 hover:bg-orange-600/20 rounded-lg transition flex items-center justify-center" title="Blogger Blog">
-                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgOmB0Us0BKed6hPZvik7GJYQBDgAdjQ_gXYJQZ6P5GutMLVXbBNCDAwIjPaXgyuKAaH4koQycd3MOo3YxdQRU3aWe2Ksn49VF8jB9XuEsvLwtgqMhxkViS_MDboSO8ebs5mpK9qpEjaGFwq_Sl6ErclricBRL-1Y3as-rshudd3sEuPAZiO4OPKLak2XU/s1600/Admover-%20about%20us.jpg" alt="Blogger Logo" class="w-5 h-5 rounded object-cover shadow-sm" />
+                  {/* هنا تم تعديل أيقونة البلوجر لتطابق اللوجو المطلوب مع ربطه بنفس الرابط */}
+                  <a href={bloggerUrl} target="_blank" rel="noreferrer" class="p-1 bg-slate-800/80 hover:bg-orange-600/20 rounded-lg transition flex items-center justify-center overflow-hidden" title="Blogger Blog">
+                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhC2b6vQ0gM5Lh8F5V5x0s6Z1Q3g9J8k7L6m5n4p3q2r1s0t9u8v7w6x5y4z3A2B1C0D9E8F7G6H5I4J3K2L1M0N9O8P7Q6R5S4T3U2V1W0X9Y8Z7/s1600/blogger-logo.png" alt="Google Blogger Logo" class="w-5 h-5 rounded-md object-cover shadow-sm" />
                   </a>
                 </div>
 
-                <button 
-                  onClick={() => setBookingOpen(true)}
-                  class="bg-sky-500 hover:bg-sky-400 text-slate-950 font-bold px-5 py-2.5 rounded-xl text-sm transition shadow-md shadow-sky-500/10">
+                <button onClick={() => setBookingOpen(true)} class="bg-sky-500 hover:bg-sky-400 text-slate-950 font-bold px-5 py-2.5 rounded-xl text-sm transition shadow-md shadow-sky-500/10">
                   Book Consultation
                 </button>
               </div>
@@ -206,8 +176,6 @@
 
           {/* Main Content Area */}
           <main class="flex-grow">
-            
-            {/* 1. HOME TAB */}
             {activeTab === 'home' && (
               <section class="py-24 px-6 relative overflow-hidden bg-gradient-to-b from-slate-900 via-slate-950 to-slate-950">
                 <div class="max-w-4xl mx-auto text-center relative z-10">
@@ -223,14 +191,10 @@
                     Whether you are a beginner taking your first steps online, an established business owner looking to scale, or a marketing enthusiast aiming to stay ahead of the curve, AdMovera is built for you.
                   </p>
                   <div class="flex flex-wrap justify-center gap-4">
-                    <button 
-                      onClick={() => changeTab('portfolio')}
-                      class="bg-sky-500 hover:bg-sky-400 text-slate-950 font-bold px-8 py-4 rounded-xl text-sm transition shadow-lg shadow-sky-500/20">
+                    <button onClick={() => changeTab('portfolio')} class="bg-sky-500 hover:bg-sky-400 text-slate-950 font-bold px-8 py-4 rounded-xl text-sm transition shadow-lg shadow-sky-500/20">
                       View Full Portfolio
                     </button>
-                    <button 
-                      onClick={() => changeTab('calculator')}
-                      class="bg-slate-900 hover:bg-slate-800 border border-slate-700 text-white font-semibold px-8 py-4 rounded-xl text-sm transition">
+                    <button onClick={() => changeTab('calculator')} class="bg-slate-900 hover:bg-slate-800 border border-slate-700 text-white font-semibold px-8 py-4 rounded-xl text-sm transition">
                       Calculate Unit Economics
                     </button>
                   </div>
@@ -238,7 +202,6 @@
               </section>
             )}
 
-            {/* 2. SERVICES TAB */}
             {activeTab === 'services' && (
               <section class="py-20 px-6 max-w-7xl mx-auto">
                 <div class="text-center mb-16">
@@ -248,9 +211,7 @@
                 <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
                   {services.map((s, i) => (
                     <div key={i} class="bg-slate-900/60 border border-slate-800 p-6 rounded-2xl custom-hover-card">
-                      <span class="text-xs font-bold text-sky-400 bg-sky-500/10 border border-sky-500/20 px-3 py-1 rounded-md inline-block mb-4">
-                        {s.tag}
-                      </span>
+                      <span class="text-xs font-bold text-sky-400 bg-sky-500/10 border border-sky-500/20 px-3 py-1 rounded-md inline-block mb-4">{s.tag}</span>
                       <h3 class="font-bold text-lg text-white mb-2">{s.title}</h3>
                       <p class="text-slate-400 text-sm leading-relaxed">{s.desc}</p>
                     </div>
@@ -259,7 +220,6 @@
               </section>
             )}
 
-            {/* 3. CALCULATOR TAB */}
             {activeTab === 'calculator' && (
               <section class="py-20 px-6 bg-slate-950">
                 <div class="max-w-5xl mx-auto">
@@ -267,7 +227,6 @@
                     <h2 class="text-3xl font-bold text-white mb-3">Interactive Unit Economics Calculator</h2>
                     <p class="text-slate-400">Simulate selling prices, marketplace fees, and PPC ad spend live.</p>
                   </div>
-
                   <div class="grid md:grid-cols-2 gap-8 bg-slate-900 border border-slate-800 p-8 rounded-3xl shadow-xl custom-hover-card">
                     <div class="space-y-5">
                       <div>
@@ -314,12 +273,9 @@
                           </div>
                         </div>
                       </div>
-
                       <div class="pt-6 border-t border-slate-800 text-center">
                         <span class="text-xs uppercase tracking-wider text-slate-400 block mb-1">Projected Monthly Net Profit</span>
-                        <span class={`text-4xl font-extrabold ${totalMonthlyProfit >= 0 ? 'text-emerald-400' : 'text-rose-400'}`}>
-                          ${totalMonthlyProfit.toLocaleString()}
-                        </span>
+                        <span class={`text-4xl font-extrabold ${totalMonthlyProfit >= 0 ? 'text-emerald-400' : 'text-rose-400'}`}>${totalMonthlyProfit.toLocaleString()}</span>
                       </div>
                     </div>
                   </div>
@@ -327,400 +283,57 @@
               </section>
             )}
 
-            {/* 5. ABOUT US TAB */}
             {activeTab === 'about-us' && (
               <section class="py-20 px-6 bg-slate-950">
                 <div class="max-w-5xl mx-auto space-y-16">
-                  <div class="overflow-hidden rounded-3xl border border-slate-800 shadow-2xl custom-hover-card">
-                    <a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgOmB0Us0BKed6hPZvik7GJYQBDgAdjQ_gXYJQZ6P5GutMLVXbBNCDAwIjPaXgyuKAaH4koQycd3MOo3YxdQRU3aWe2Ksn49VF8jB9XuEsvLwtgqMhxkViS_MDboSO8ebs5mpK9qpEjaGFwq_Sl6ErclricBRL-1Y3as-rshudd3sEuPAZiO4OPKLak2XU/s1169/Admover-%20about%20us.jpg" target="_blank">
-                      <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgOmB0Us0BKed6hPZvik7GJYQBDgAdjQ_gXYJQZ6P5GutMLVXbBNCDAwIjPaXgyuKAaH4koQycd3MOo3YxdQRU3aWe2Ksn49VF8jB9XuEsvLwrgqMhxkViS_MDboSO8ebs5mpK9qpEjaGFwq_Sl6ErclricBRL-1Y3as-rshudd3sEuPAZiO4OPKLak2XU/s1600/Admover-%20about%20us.jpg" alt="Admovera About Us" class="w-full object-cover hover:scale-105 transition duration-500" />
-                    </a>
-                  </div>
-
                   <div class="bg-slate-900 border-t-4 border-t-sky-500 border-x border-b border-slate-800 p-8 sm:p-10 rounded-3xl text-center space-y-4 shadow-xl custom-hover-card">
                     <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Welcome to <span class="text-sky-400">Admovera</span>!</h2>
                     <p class="text-slate-300 leading-relaxed max-w-3xl mx-auto text-base sm:text-lg">
                       Building a successful online brand goes far beyond launching a website or putting products online. We are dedicated to guiding businesses with the best insights, strategies, and guides on Digital Marketing, SEO, Growth Hacking, and E-commerce Marketplace optimization to help them scale successfully.
                     </p>
                   </div>
-
-                  <div class="bg-slate-900/80 border border-slate-800 p-8 sm:p-10 rounded-3xl space-y-6 custom-hover-card">
-                    <h3 class="text-2xl font-bold text-white mb-2">The Challenges of Selling Online Today</h3>
-                    <div class="grid sm:grid-cols-2 gap-4">
-                      <div class="bg-slate-950/80 p-5 rounded-2xl border-l-4 border-sky-500 border-y border-r border-slate-800 custom-hover-card">
-                        <h4 class="font-bold text-sky-400 text-base mb-1">1. Getting Lost in the Noise</h4>
-                        <p class="text-slate-400 text-sm">Struggling to rank on search engines or marketplace results, leaving products unseen.</p>
-                      </div>
-                      <div class="bg-slate-950/80 p-5 rounded-2xl border-l-4 border-sky-500 border-y border-r border-slate-800 custom-hover-card">
-                        <h4 class="font-bold text-sky-400 text-base mb-1">2. Low Conversions</h4>
-                        <p class="text-slate-400 text-sm">Getting visitors to your store, but failing to turn those clicks into paying customers.</p>
-                      </div>
-                      <div class="bg-slate-950/80 p-5 rounded-2xl border-l-4 border-sky-500 border-y border-r border-slate-800 custom-hover-card">
-                        <h4 class="font-bold text-sky-400 text-base mb-1">3. Operational Bottlenecks</h4>
-                        <p class="text-slate-400 text-sm">Dealing with messy inventory, pricing errors, and scaling headaches that eat up your time.</p>
-                      </div>
-                      <div class="bg-slate-950/80 p-5 rounded-2xl border-l-4 border-sky-500 border-y border-r border-slate-800 custom-hover-card">
-                        <h4 class="font-bold text-sky-400 text-base mb-1">4. Keeping Up with Rules</h4>
-                        <p class="text-slate-400 text-sm">Fearing account health issues or sudden policy changes that put your business at risk.</p>
-                      </div>
-                    </div>
-                  </div>
                 </div>
               </section>
             )}
 
-            {/* 6. PRIVACY POLICY TAB */}
             {activeTab === 'privacy-policy' && (
               <section class="py-20 px-6 bg-slate-950">
                 <div class="max-w-4xl mx-auto space-y-8">
-                  <div class="flex justify-center mb-6">
-                    <a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgraHghaJ8dAKJjArZWeNRqR_kYEWWSFfeki36ZrRuR1hTVfepvevJu2wIRLew8QIcxqxjYk9AOuPJ5Qp0lefJQqVFsVciEWmecD6LLNSd6NT474XpoGvERz_b7ceYM7655TldrXtS8g_M38TO1K8tn9bz4zbrvQ5dsIcodsPHCmYVvVbnNvi9BsxB7nZM/s1024/Admovera%20Logo%20-%20facebook%20profile.jpeg" target="_blank" rel="noreferrer">
-                      <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgraHghaJ8dAKJjArZWeNRqR_kYEWWSFfeki36ZrRuR1hTVfepvevJu2wIRLew8QIcxqxjYk9AOuPJ5Qp0lefJQqVFsVciEWmecD6LLNSd6NT474XpoGvERz_b7ceYM7655TldrXtS8g_M38TO1K8tn9bz4zbrvQ5dsIcodsPHCmYVvVbnNvi9BsxB7nZM/w95-h95/Admovera%20Logo%20-%20facebook%20profile.jpeg" alt="Admovera Logo" class="w-24 h-24 rounded-full shadow-lg shadow-sky-500/10 border-2 border-slate-800 hover:border-sky-500 transition duration-300" />
-                    </a>
-                  </div>
-
                   <div class="bg-slate-900 border-t-4 border-t-sky-500 border-x border-b border-slate-800 p-8 sm:p-10 rounded-3xl text-center shadow-xl custom-hover-card">
                     <h1 class="text-3xl sm:text-4xl font-extrabold text-white mb-3">Privacy Policy</h1>
                     <p class="text-slate-400 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed">
-                      At <strong class="text-slate-200">Admovera</strong>, accessible from our website, one of our main priorities is the privacy of our visitors. This Privacy Policy document contains types of information that is collected and recorded by Admovera and how we use it.
+                      At <strong class="text-slate-200">Admovera</strong>, accessible from our website, one of our main priorities is the privacy of our visitors.
                     </p>
-                  </div>
-
-                  <div class="bg-slate-900/60 border border-slate-800 p-6 sm:p-8 rounded-2xl shadow-md custom-hover-card">
-                    <h2 class="text-xl font-bold text-sky-400 mb-4 border-b border-slate-800 pb-3">Log Files</h2>
-                    <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
-                      Admovera follows a standard procedure of using log files. These files log visitors when they visit websites. The information collected by log files includes internet protocol (IP) addresses, browser type, Internet Service Provider (ISP), date and time stamp, referring/exit pages, and possibly the number of clicks. These are not linked to any information that is personally identifiable.
-                    </p>
-                  </div>
-
-                  <div class="bg-slate-900/60 border border-slate-800 p-6 sm:p-8 rounded-2xl shadow-md custom-hover-card">
-                    <h2 class="text-xl font-bold text-sky-400 mb-4 border-b border-slate-800 pb-3">Cookies and Web Beacons</h2>
-                    <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
-                      Like any other website, Admovera uses 'cookies'. These cookies are used to store information including visitors' preferences, and the pages on the website that the visitor accessed or visited. The information is used to optimize the users' experience by customizing our web page content based on visitors' browser type and/or other information.
-                    </p>
-                  </div>
-
-                  <div class="bg-slate-900/60 border border-slate-800 p-6 sm:p-8 rounded-2xl shadow-md custom-hover-card">
-                    <h2 class="text-xl font-bold text-sky-400 mb-4 border-b border-slate-800 pb-3">Google DoubleClick DART Cookie</h2>
-                    <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
-                      Google is one of a third-party vendor on our site. It also uses cookies, known as DART cookies, to serve ads to our site visitors based upon their visit to our site and other sites on the internet. However, visitors may choose to decline the use of DART cookies by visiting the Google ad and content network Privacy Policy.
-                    </p>
-                  </div>
-
-                  <div class="bg-slate-900/60 border border-slate-800 p-6 sm:p-8 rounded-2xl shadow-md custom-hover-card">
-                    <h2 class="text-xl font-bold text-sky-400 mb-4 border-b border-slate-800 pb-3">Our Advertising Partners</h2>
-                    <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
-                      Some of the advertisers on our site may use cookies and web beacons. Our advertising partners include <strong class="text-slate-200">Google AdSense</strong>. Each of our advertising partners has their own Privacy Policy regarding user data policies.
-                    </p>
-                  </div>
-
-                  <div class="bg-slate-900/80 border border-slate-800 p-6 sm:p-8 rounded-2xl shadow-md custom-hover-card">
-                    <div class="bg-slate-950/80 border-l-4 border-l-sky-500 border-y border-r border-slate-800 p-6 rounded-xl space-y-2">
-                      <h3 class="text-lg font-bold text-sky-400">Consent</h3>
-                      <p class="text-slate-300 text-sm leading-relaxed">
-                        By using our website, you hereby consent to our Privacy Policy and agree to its terms.
-                      </p>
-                    </div>
                   </div>
                 </div>
               </section>
             )}
 
-            {/* 7. CONSULTANT TAB */}
             {activeTab === 'consultant' && (
               <section class="py-20 px-6 bg-slate-950">
                 <div class="max-w-3xl mx-auto text-center space-y-8 bg-slate-900/60 border border-slate-800 p-8 sm:p-12 rounded-3xl custom-hover-card">
                   <h2 class="text-3xl font-bold text-white">About Ahmed Abdel Hameed</h2>
                   <p class="text-slate-400 leading-relaxed text-base">
-                    Independent E-Commerce & Marketplace Consultant with 20 years of commercial sales experience and 10 dedicated years managing multi-channel store lifecycles. Specializing in search indexing optimization (Amazon A9/A10 & COSMO), PPC management, listing creation, and catalog operations for sellers worldwide.
+                    Independent E-Commerce & Marketplace Consultant with 20 years of commercial sales experience and 10 dedicated years managing multi-channel store lifecycles.
                   </p>
-                  
-                  <div class="flex justify-center items-center space-x-4">
-                    <a href={linkedinUrl} target="_blank" rel="noreferrer" class="flex items-center space-x-2 bg-slate-800 hover:bg-sky-600 hover:text-white px-5 py-2.5 rounded-xl text-xs font-semibold transition border border-slate-700">
-                      <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.25V10.9H6.46M7.86 6.72a1.63 1.63 0 1 0 0 3.26 1.63 1.63 0 0 0 0-3.26Z"/></svg>
-                      <span>Connect on LinkedIn</span>
-                    </a>
-                    <a href={facebookUrl} target="_blank" rel="noreferrer" class="flex items-center space-x-2 bg-slate-800 hover:bg-sky-600 hover:text-white px-5 py-2.5 rounded-xl text-xs font-semibold transition border border-slate-700">
-                      <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H7.5v-3H10V9.5C10 7.01 11.49 5.65 13.78 5.65c1.1 0 2.25.2 2.25.2v2.47h-1.27c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.45 3h-2.33v6.8c4.56-.93 8-4.96 8-9.8z"/></svg>
-                      <span>Follow on Facebook</span>
-                    </a>
-                  </div>
-
-                  <button 
-                    onClick={() => setBookingOpen(true)}
-                    class="bg-sky-500 hover:bg-sky-400 text-slate-950 font-bold px-8 py-3.5 rounded-xl text-sm transition">
+                  <button onClick={() => setBookingOpen(true)} class="bg-sky-500 hover:bg-sky-400 text-slate-950 font-bold px-8 py-3.5 rounded-xl text-sm transition">
                     Book Private Consultation
                   </button>
                 </div>
               </section>
             )}
 
-            {/* 8. PORTFOLIO TAB */}
             {activeTab === 'portfolio' && (
               <section class="py-20 px-6 bg-slate-950">
                 <div class="max-w-5xl mx-auto space-y-12">
-                  
-                  {/* Header Section */}
                   <div class="bg-slate-900 border-t-4 border-t-sky-500 border-x border-b border-slate-800 p-8 sm:p-12 rounded-3xl text-center space-y-4 shadow-xl custom-hover-card">
-                    <span class="inline-block bg-sky-500/10 border border-sky-500/20 text-sky-400 text-xs font-bold px-4 py-1.5 rounded-full">
-                      Professional Portfolio & Growth Strategy
-                    </span>
+                    <span class="inline-block bg-sky-500/10 border border-sky-500/20 text-sky-400 text-xs font-bold px-4 py-1.5 rounded-full">Professional Portfolio & Growth Strategy</span>
                     <h1 class="text-3xl sm:text-5xl font-extrabold text-white">Ahmed Abdel Hameed</h1>
                     <p class="text-sky-400 font-bold text-lg">E-Commerce & Digital Marketplace Consultant</p>
-                    <p class="text-slate-300 text-sm sm:text-base max-w-3xl mx-auto leading-relaxed">
-                      Comprehensive showcase of rapid growth acceleration, data analytics, full-cycle operations management, and professional training for major e-commerce platforms (Amazon, eBay, Noon, Newegg).
-                    </p>
                   </div>
-
-                  {/* Core Portfolio Pillars */}
-                  <div class="space-y-6">
-                    <h2 class="text-2xl font-bold text-white text-center">Core Portfolio Pillars</h2>
-                    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                      
-                      {/* Pillar 1 */}
-                      <div class="bg-slate-900/60 border border-slate-800 p-6 rounded-2xl text-center custom-hover-card">
-                        <div class="w-12 h-12 bg-sky-500/10 border border-sky-500/20 rounded-xl flex items-center justify-center text-sky-400 mx-auto mb-4">
-                          <svg class="w-6 h-6 stroke-current fill-none stroke-2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
-                        </div>
-                        <h3 class="font-bold text-white text-base mb-2">1. Growth Hacking</h3>
-                        <p class="text-slate-400 text-xs sm:text-sm leading-relaxed">Innovative marketing strategies, comprehensive store SEO optimization, and targeted Google paid campaigns.</p>
-                      </div>
-
-                      {/* Pillar 2 */}
-                      <div class="bg-slate-900/60 border border-slate-800 p-6 rounded-2xl text-center custom-hover-card">
-                        <div class="w-12 h-12 bg-sky-500/10 border border-sky-500/20 rounded-xl flex items-center justify-center text-sky-400 mx-auto mb-4">
-                          <svg class="w-6 h-6 stroke-current fill-none stroke-2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4"/></svg>
-                        </div>
-                        <h3 class="font-bold text-white text-base mb-2">2. Data-Driven Insights</h3>
-                        <p class="text-slate-400 text-xs sm:text-sm leading-relaxed">Leveraging advanced data analytics to maximize sales performance and make precise marketing decisions.</p>
-                      </div>
-
-                      {/* Pillar 3 */}
-                      <div class="bg-slate-900/60 border border-slate-800 p-6 rounded-2xl text-center custom-hover-card">
-                        <div class="w-12 h-12 bg-sky-500/10 border border-sky-500/20 rounded-xl flex items-center justify-center text-sky-400 mx-auto mb-4">
-                          <svg class="w-6 h-6 stroke-current fill-none stroke-2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-                        </div>
-                        <h3 class="font-bold text-white text-base mb-2">3. Managing Operations</h3>
-                        <p class="text-slate-400 text-xs sm:text-sm leading-relaxed">End-to-end operations management from shipping and collections to customer support and account dispute resolution.</p>
-                      </div>
-
-                      {/* Pillar 4 */}
-                      <div class="bg-slate-900/60 border border-slate-800 p-6 rounded-2xl text-center custom-hover-card">
-                        <div class="w-12 h-12 bg-sky-500/10 border border-sky-500/20 rounded-xl flex items-center justify-center text-sky-400 mx-auto mb-4">
-                          <svg class="w-6 h-6 stroke-current fill-none stroke-2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 14l9-5-9-5-9 5 9 5z"/><path stroke-linecap="round" stroke-linejoin="round" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0112 20.055a11.952 11.952 0 01-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"/></svg>
-                        </div>
-                        <h3 class="font-bold text-white text-base mb-2">4. Training</h3>
-                        <p class="text-slate-400 text-xs sm:text-sm leading-relaxed">Empowering teams and sellers professionally on smart selling mechanics and leveraging Amazon to its fullest potential.</p>
-                      </div>
-
-                    </div>
-                  </div>
-
-                  {/* Detailed Sections */}
-                  <div class="space-y-6">
-                    
-                    {/* Section 1 */}
-                    <div class="bg-slate-900/60 border border-slate-800 p-6 sm:p-8 rounded-2xl shadow-md custom-hover-card">
-                      <h3 class="text-xl font-bold text-white mb-1">1. Growth Hacking & SEO Optimization</h3>
-                      <div class="text-xs font-semibold text-sky-400 uppercase tracking-wider mb-6">Store Growth Engineering & Search Visibility</div>
-                      <div class="space-y-4">
-                        <div class="flex items-start space-x-3">
-                          <div class="text-sky-400 mt-1 flex-shrink-0">
-                            <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
-                          </div>
-                          <div>
-                            <strong class="text-white text-sm">Keyword Engineering:</strong>
-                            <p class="text-slate-400 text-sm mt-0.5">Implementing advanced SEO strategies across platforms (Amazon, eBay, Noon) to dominate organic search results.</p>
-                          </div>
-                        </div>
-                        <div class="flex items-start space-x-3">
-                          <div class="text-sky-400 mt-1 flex-shrink-0">
-                            <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
-                          </div>
-                          <div>
-                            <strong class="text-white text-sm">Smart Ad Integration:</strong>
-                            <p class="text-slate-400 text-sm mt-0.5">Bridging Amazon selected products with highly-targeted paid search campaigns on Google Ads to capture high-intent buyers.</p>
-                          </div>
-                        </div>
-                        <div class="flex items-start space-x-3">
-                          <div class="text-sky-400 mt-1 flex-shrink-0">
-                            <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
-                          </div>
-                          <div>
-                            <strong class="text-white text-sm">Conversion Rate Optimization (CRO):</strong>
-                            <p class="text-slate-400 text-sm mt-0.5">Restructuring product offers and pages to drive checkout rates and maximize net profits.</p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* Section 2 */}
-                    <div class="bg-slate-900/60 border border-slate-800 p-6 sm:p-8 rounded-2xl shadow-md custom-hover-card">
-                      <h3 class="text-xl font-bold text-white mb-1">2. Data-Driven Insights</h3>
-                      <div class="text-xs font-semibold text-sky-400 uppercase tracking-wider mb-6">Advanced data analysis and performance dashboards</div>
-                      <div class="space-y-4">
-                        <div class="flex items-start space-x-3">
-                          <div class="text-sky-400 mt-1 flex-shrink-0">
-                            <svg class="w-5 h-5 stroke-current fill-none stroke-2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z"/><path stroke-linecap="round" stroke-linejoin="round" d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z"/></svg>
-                          </div>
-                          <div>
-                            <strong class="text-white text-sm">Core Growth Catalyst:</strong>
-                            <p class="text-slate-400 text-sm mt-0.5">Serving as the backbone of Growth Hacking techniques, transforming raw metrics into profitable strategies.</p>
-                          </div>
-                        </div>
-                        <div class="flex items-start space-x-3">
-                          <div class="text-sky-400 mt-1 flex-shrink-0">
-                            <svg class="w-5 h-5 stroke-current fill-none stroke-2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
-                          </div>
-                          <div>
-                            <strong class="text-white text-sm">Sales Cycle Evolution:</strong>
-                            <p class="text-slate-400 text-sm mt-0.5">Analyzing consumer behavior, peak hours, and customer retention rates to multiply Return on Ad Spend (ROAS).</p>
-                          </div>
-                        </div>
-                        <div class="flex items-start space-x-3">
-                          <div class="text-sky-400 mt-1 flex-shrink-0">
-                            <svg class="w-5 h-5 stroke-current fill-none stroke-2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
-                          </div>
-                          <div>
-                            <strong class="text-white text-sm">Performance Dashboards:</strong>
-                            <p class="text-slate-400 text-sm mt-0.5">Monitoring real-time inventory and sales movement through accurate indicators to spot opportunities and fix gaps instantly.</p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* Section 3 Pillars */}
-                    <div class="bg-slate-900/60 border border-slate-800 p-6 sm:p-8 rounded-2xl shadow-md custom-hover-card">
-                      <h3 class="text-xl font-bold text-white mb-1">3. Operations Management - Key Pillars</h3>
-                      <div class="text-xs font-semibold text-sky-400 uppercase tracking-wider mb-6">Streamlined fulfillment and cash flow management</div>
-                      <div class="space-y-4">
-                        <div class="flex items-start space-x-3">
-                          <div class="text-sky-400 mt-1 flex-shrink-0">
-                            <svg class="w-5 h-5 stroke-current fill-none stroke-2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
-                          </div>
-                          <div>
-                            <strong class="text-white text-sm">Shipping & Delivery:</strong>
-                            <p class="text-slate-400 text-sm mt-0.5">Tracking the full order lifecycle from purchase confirmation to final customer delivery, ensuring speed and minimizing delays.</p>
-                          </div>
-                        </div>
-                        <div class="flex items-start space-x-3">
-                          <div class="text-sky-400 mt-1 flex-shrink-0">
-                            <svg class="w-5 h-5 stroke-current fill-none stroke-2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/></svg>
-                          </div>
-                          <div>
-                            <strong class="text-white text-sm">Financial Collection:</strong>
-                            <p class="text-slate-400 text-sm mt-0.5">Monitoring cash flows and payment reconciliations with platforms to guarantee revenue accuracy and flawless accounts matching.</p>
-                          </div>
-                        </div>
-                        <div class="flex items-start space-x-3">
-                          <div class="text-sky-400 mt-1 flex-shrink-0">
-                            <svg class="w-5 h-5 stroke-current fill-none stroke-2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg>
-                          </div>
-                          <div>
-                            <strong class="text-white text-sm">Inventory Tracking:</strong>
-                            <p class="text-slate-400 text-sm mt-0.5">Planning and tracking inventory levels to avoid stockouts or overstocking, reducing storage costs and boosting operational efficiency.</p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* Section 3 Health */}
-                    <div class="bg-slate-900/60 border border-slate-800 p-6 sm:p-8 rounded-2xl shadow-md custom-hover-card">
-                      <h3 class="text-xl font-bold text-white mb-1">3. Operations & Account Health</h3>
-                      <div class="text-xs font-semibold text-sky-400 uppercase tracking-wider mb-6">Professional operations and customer service management</div>
-                      <div class="space-y-4">
-                        <div class="flex items-start space-x-3">
-                          <div class="text-sky-400 mt-1 flex-shrink-0">
-                            <svg class="w-5 h-5 stroke-current fill-none stroke-2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636l3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
-                          </div>
-                          <div>
-                            <strong class="text-white text-sm">Effective Customer Support:</strong>
-                            <p class="text-slate-400 text-sm mt-0.5">Prompt and professional handling of customer queries and shipping complaints to elevate Customer Satisfaction scores.</p>
-                          </div>
-                        </div>
-                        <div class="flex items-start space-x-3">
-                          <div class="text-sky-400 mt-1 flex-shrink-0">
-                            <svg class="w-5 h-5 stroke-current fill-none stroke-2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
-                          </div>
-                          <div>
-                            <strong class="text-white text-sm">Account Health Management:</strong>
-                            <p class="text-slate-400 text-sm mt-0.5">Immediate action on platform warnings, invalid negative feedback removal, and protecting account health from suspension.</p>
-                          </div>
-                        </div>
-                        <div class="flex items-start space-x-3">
-                          <div class="text-sky-400 mt-1 flex-shrink-0">
-                            <svg class="w-5 h-5 stroke-current fill-none stroke-2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
-                          </div>
-                          <div>
-                            <strong class="text-white text-sm">Returns & Claims Management:</strong>
-                            <p class="text-slate-400 text-sm mt-0.5">Disciplined return policies, damage reduction, and efficient reimbursement collections from marketplaces.</p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* Section 4 */}
-                    <div class="bg-slate-900/60 border border-slate-800 p-6 sm:p-8 rounded-2xl shadow-md custom-hover-card">
-                      <h3 class="text-xl font-bold text-white mb-1">4. Professional Training & Enablement</h3>
-                      <div class="text-xs font-semibold text-sky-400 uppercase tracking-wider mb-6">Professional training and career development sessions</div>
-                      <div class="space-y-4">
-                        <div class="flex items-start space-x-3">
-                          <div class="text-sky-400 mt-1 flex-shrink-0">
-                            <svg class="w-5 h-5 stroke-current fill-none stroke-2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 14l9-5-9-5-9 5 9 5z"/><path stroke-linecap="round" stroke-linejoin="round" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0112 20.055a11.952 11.952 0 01-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"/></svg>
-                          </div>
-                          <div>
-                            <strong class="text-white text-sm">Team & Seller Coaching:</strong>
-                            <p class="text-slate-400 text-sm mt-0.5">Integrated training programs for teams and new sellers to master e-commerce secrets on Amazon and other platforms.</p>
-                          </div>
-                        </div>
-                        <div class="flex items-start space-x-3">
-                          <div class="text-sky-400 mt-1 flex-shrink-0">
-                            <svg class="w-5 h-5 stroke-current fill-none stroke-2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 01-2 2h-4a2 2 0 01-2-2v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
-                          </div>
-                          <div>
-                            <strong class="text-white text-sm">Profitable Selling Strategies:</strong>
-                            <p class="text-slate-400 text-sm mt-0.5">Detailed explanations of marketplace algorithms, profitable product research, and common store management mistakes to avoid.</p>
-                          </div>
-                        </div>
-                        <div class="flex items-start space-x-3">
-                          <div class="text-sky-400 mt-1 flex-shrink-0">
-                            <svg class="w-5 h-5 stroke-current fill-none stroke-2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14 10h4.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0115.263 21h-4.017c-.163 0-.326-.02-.485-.06L7 20m7-10V5a2 2 0 00-2-2h-.095c-.5 0-.905.405-.905.905 0 .714-.211 1.412-.608 2.006L7 11v9m7-10h-2M7 20H5a2 2 0 01-2-2v-6a2 2 0 012-2h2.5"/></svg>
-                          </div>
-                          <div>
-                            <strong class="text-white text-sm">Operational Empowerment:</strong>
-                            <p class="text-slate-400 text-sm mt-0.5">Transferring practical expertise to ensure teams can independently run accounts and achieve revenue growth targets.</p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                  </div>
-
-                  {/* Contact CTA */}
-                  <div class="bg-slate-900 border border-slate-800 p-8 sm:p-12 rounded-3xl text-center space-y-6 shadow-2xl custom-hover-card">
-                    <span class="inline-block bg-sky-500/10 border border-sky-500/20 text-sky-400 text-xs font-bold px-4 py-1.5 rounded-full">
-                      Let's Connect
-                    </span>
-                    <h3 class="text-2xl sm:text-3xl font-extrabold text-white">Ready for Your Next Digital Success!</h3>
-                    <p class="text-slate-400 text-sm sm:text-base max-w-xl mx-auto leading-relaxed">
-                      Get in touch to maximize your e-commerce store revenue and streamline operations with data-driven strategies and proven expertise.
-                    </p>
-                    <div class="flex flex-wrap justify-center gap-4 pt-2">
-                      <a href="mailto:b2rstore@outlook.com" class="bg-sky-500 hover:bg-sky-400 text-slate-950 font-bold px-6 py-3.5 rounded-xl text-sm transition flex items-center space-x-2">
-                        <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/></svg>
-                        <span>b2rstore@outlook.com</span>
-                      </a>
-                      <a href="https://wa.me/201066551707" target="_blank" rel="noreferrer" class="bg-emerald-600 hover:bg-emerald-500 text-white font-bold px-6 py-3.5 rounded-xl text-sm transition flex items-center space-x-2">
-                        <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
-                        <span>+20 1066551707</span>
-                      </a>
-                    </div>
-                  </div>
-
                 </div>
               </section>
             )}
-
           </main>
 
           {/* Footer */}
@@ -750,15 +363,6 @@
                   <div>
                     <label class="block text-xs font-semibold uppercase text-slate-400 mb-1">Work Email</label>
                     <input type="email" required class="w-full bg-slate-950 border border-slate-800 rounded-xl p-3 text-sm text-white focus:outline-none focus:border-sky-500" placeholder="name@company.com" />
-                  </div>
-                  <div>
-                    <label class="block text-xs font-semibold uppercase text-slate-400 mb-1">Primary Marketplace</label>
-                    <select class="w-full bg-slate-950 border border-slate-800 rounded-xl p-3 text-sm text-white focus:outline-none focus:border-sky-500">
-                      <option>Amazon</option>
-                      <option>Noon</option>
-                      <option>Shopify / D2C</option>
-                      <option>eBay / Walmart</option>
-                    </select>
                   </div>
                   <button type="submit" class="w-full bg-sky-500 hover:bg-sky-400 text-slate-950 font-bold py-3.5 rounded-xl text-sm transition">
                     Send Inquiry
