@@ -96,7 +96,6 @@
       const totalMonthlyProfit = profitPerUnit * monthlyUnits;
       const roas = adSpendPerUnit > 0 ? (price / adSpendPerUnit).toFixed(2) : '0';
 
-      // الخدمات المعدلة بالكامل بناءً على بيانات العرض المحدثة
       const services = [
         {
           id: "amazon-account-management",
@@ -161,15 +160,13 @@
           <header class="border-b border-slate-800 bg-slate-900/80 backdrop-blur-md sticky top-0 z-40">
             <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
               
-              {/* Header Title & Subtitle Without Logo AM */}
-              <div class="flex items-center cursor-pointer" onClick={() => changeTab('home')}>
-                <div>
-                  <span class="text-2xl font-extrabold tracking-tight block leading-none text-white">AdMovera</span>
-                  <span class="text-[10px] uppercase tracking-widest text-sky-400 font-bold mt-1 block">Amazon Service Provider (SPN)</span>
-                </div>
+              {/* Header Title & Subtitle Centered Under Logo */}
+              <div class="flex flex-col items-center justify-center cursor-pointer text-center" onClick={() => changeTab('home')}>
+                <span class="text-2xl font-extrabold tracking-tight block leading-none text-white">AdMovera</span>
+                <span class="text-[9px] uppercase tracking-widest text-sky-400 font-bold mt-1 block text-center">Amazon Service Provider (SPN)</span>
               </div>
 
-              {/* Navigation Links with Hover Dropdown */}
+              {/* Navigation Links with Expanded Hover Dropdown */}
               <nav class="hidden md:flex space-x-6 text-sm font-medium items-center">
                 <button onClick={() => changeTab('home')} class={`transition ${activeTab === 'home' ? 'text-sky-400 font-bold border-b-2 border-sky-400 pb-1' : 'text-slate-300 hover:text-sky-400'}`}>Home</button>
                 
@@ -182,19 +179,19 @@
                     </svg>
                   </button>
 
-                  {/* Dropdown Menu Items */}
-                  <div class="absolute left-0 top-full w-72 bg-slate-900/95 border border-slate-800 backdrop-blur-xl rounded-2xl shadow-2xl p-2 dropdown-enter z-50">
-                    <div class="px-3 py-2 text-[10px] font-bold uppercase tracking-wider text-slate-500 border-b border-slate-800/80 mb-1">
+                  {/* Dropdown Menu Items - Wider Box & Larger Readable Font */}
+                  <div class="absolute left-0 top-full w-96 bg-slate-900/95 border border-slate-800 backdrop-blur-xl rounded-2xl shadow-2xl p-3 dropdown-enter z-50">
+                    <div class="px-3 py-2 text-xs font-extrabold uppercase tracking-widest text-slate-400 border-b border-slate-800/80 mb-2">
                       Our Amazon Solutions
                     </div>
                     {services.map((s) => (
                       <button
                         key={s.id}
                         onClick={() => changeTab('services', s.id)}
-                        class="w-full text-left px-3 py-2.5 rounded-xl text-xs font-semibold text-slate-300 hover:text-sky-400 hover:bg-slate-800/60 transition flex items-center justify-between group/item"
+                        class="w-full text-left px-4 py-3 rounded-xl text-sm font-semibold text-slate-200 hover:text-sky-400 hover:bg-slate-800/80 transition flex items-center justify-between group/item"
                       >
                         <span>{s.shortTitle}</span>
-                        <svg class="w-3.5 h-3.5 opacity-0 group-hover/item:opacity-100 transition-opacity text-sky-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg class="w-4 h-4 opacity-0 group-hover/item:opacity-100 transition-opacity text-sky-400 flex-shrink-0 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
                         </svg>
                       </button>
@@ -266,7 +263,7 @@
                   <p class="text-slate-400 max-w-2xl mx-auto text-sm sm:text-base">Comprehensive, data-driven solutions engineered to maximize revenue, ensure full compliance, and build brand equity on Amazon.</p>
                 </div>
 
-                {/* Grid of Updated Detailed Services with Highlights */}
+                {/* Grid of Detailed Services */}
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                   {services.map((s, index) => (
                     <div id={s.id} key={s.id} class="bg-slate-900/70 border border-slate-800 p-8 rounded-3xl custom-hover-card flex flex-col justify-between relative overflow-hidden">
