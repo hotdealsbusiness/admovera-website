@@ -1,466 +1,288 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AdMovera | Amazon Service Provider (SPN)</title>
-  <!-- React & Tailwind CDN -->
-  <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
-  <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
-  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <style>
-    body { font-family: 'Plus Jakarta Sans', sans-serif; }
-
-    /* تأثير الرفع مع الظل لجميع المربعات والبطاقات */
-    .custom-hover-card {
-      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-    }
-    .custom-hover-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 12px 24px -10px rgba(14, 165, 233, 0.25), 0 8px 16px -6px rgba(0, 0, 0, 0.5);
-      border-color: rgba(56, 189, 248, 0.4) !important;
-    }
-
-    /* أنيميشن ناعم للقائمة المنسدلة */
-    .dropdown-enter {
-      opacity: 0;
-      transform: translateY(10px) scale(0.95);
-      pointer-events: none;
-      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-    .group:hover .dropdown-enter {
-      opacity: 1;
-      transform: translateY(0) scale(1);
-      pointer-events: auto;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admovera | Amazon Service Provider (SPN)</title>
+<meta name="description" content="Admovera helps Amazon sellers recover suspended accounts, fix listing rejections, and stay compliant, then grow sales across Amazon and international marketplaces.">
+<script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#fff;--cream:#fbf7ea;--line:#efe2b4;--gold1:#b8921a;--gold2:#7f5c00;--goldtxt:#8a6500;--ink:#14110a;--muted:#5a5444;--link:#0a6fe0;--ok:#1b7a43;--bad:#b3261e}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{font-family:'Roboto',system-ui,sans-serif;color:var(--ink);background:var(--paper);line-height:1.6}
+button{font:inherit;cursor:pointer}
+:focus-visible{outline:3px solid var(--link);outline-offset:2px}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+.gold{background:linear-gradient(180deg,var(--gold1),var(--gold2));color:#fff;border:1px solid #6d4f00;border-radius:10px;font-weight:700;padding:11px 20px;box-shadow:0 3px 6px rgba(127,92,0,.35),inset 0 1px 0 rgba(255,255,255,.35);text-shadow:0 1px 1px rgba(0,0,0,.3);transition:filter .15s}
+.gold:hover{filter:brightness(1.1)}
+.ghost{background:#fff;color:var(--goldtxt);border:1.5px solid var(--gold1);border-radius:10px;font-weight:700;padding:11px 20px}
+.ghost:hover{background:var(--cream)}
+.card{background:#fff;border:1px solid var(--line);border-radius:16px;box-shadow:0 6px 18px rgba(127,92,0,.08)}
+header{position:sticky;top:0;z-index:30;background:rgba(255,255,255,.96);backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:76px}
+.brand{display:flex;align-items:center;gap:12px;background:none;border:0;text-align:left}
+.brand img{width:52px;height:52px;object-fit:contain}
+.brand b{display:block;font-size:22px;font-weight:900;line-height:1}
+.brand span{font-size:12px;font-weight:700;color:var(--goldtxt)}
+nav{display:flex;gap:8px;align-items:center}
+nav .gold{padding:8px 16px;font-size:14px}
+nav .gold.off{background:#fff;color:var(--ink);border-color:var(--line);box-shadow:none;text-shadow:none}
+nav .gold.off:hover{background:var(--cream)}
+.dd{position:relative}
+.dd-menu{position:absolute;top:100%;left:0;width:340px;padding:8px;opacity:0;pointer-events:none;transform:translateY(6px);transition:.15s}
+.dd:hover .dd-menu,.dd:focus-within .dd-menu{opacity:1;pointer-events:auto;transform:none}
+.dd-menu button{display:block;width:100%;text-align:left;background:none;border:0;padding:10px 12px;border-radius:8px;font-weight:500;color:var(--ink)}
+.dd-menu button:hover{background:var(--cream);color:var(--goldtxt)}
+.right{display:flex;gap:10px;align-items:center}
+.soc{display:flex;gap:6px}
+.soc a{width:36px;height:36px;border-radius:50%;background:#fff;border:1px solid var(--line);box-shadow:0 2px 5px rgba(0,0,0,.08);display:grid;place-items:center;color:var(--ink)}
+.soc svg{width:17px;height:17px;fill:currentColor}
+.burger{display:none;background:#fff;border:1px solid var(--line);border-radius:8px;padding:8px 12px;font-weight:700}
+.mnav{display:none}
+.hero{padding:64px 0 48px;background:linear-gradient(180deg,var(--cream),#fff)}
+.hero .wrap{display:grid;grid-template-columns:1.25fr 1fr;gap:48px;align-items:center}
+.badge{display:inline-block;border:1px solid var(--gold1);color:var(--goldtxt);background:#fff;border-radius:999px;padding:4px 14px;font-size:13px;font-weight:700;margin-bottom:18px}
+h1{font-size:clamp(34px,5vw,56px);line-height:1.08;font-weight:900;letter-spacing:-.02em;margin-bottom:18px}
+.lead{font-size:19px;color:var(--muted);max-width:560px;margin-bottom:28px}
+.cta{display:flex;flex-wrap:wrap;gap:12px}
+.logoCard{padding:28px;text-align:center}
+.logoCard img{width:100%;max-width:340px}
+.logoCard p{font-weight:700;color:var(--goldtxt);margin-top:6px}
+.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:40px}
+.facts div{padding:16px 18px}
+.facts b{display:block;font-size:20px;color:var(--goldtxt)}
+.facts span{font-size:14px;color:var(--muted)}
+section.pg{padding:56px 0}
+h2{font-size:clamp(26px,3.5vw,38px);font-weight:900;letter-spacing:-.01em;margin-bottom:10px}
+.sub{color:var(--muted);max-width:640px;margin-bottom:32px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:22px}
+.svc{padding:26px;border-top:4px solid var(--gold1);display:flex;flex-direction:column;justify-content:space-between;gap:20px}
+.svc h3{font-size:20px;line-height:1.3;margin:8px 0 14px}
+.tag{font-size:13px;font-weight:700;color:var(--goldtxt)}
+.svc li{list-style:none;margin-bottom:12px;font-size:15px}
+.svc li b{display:block}
+.svc li span{color:var(--muted);font-size:14px}
+.calc{display:grid;grid-template-columns:1fr 1fr;gap:24px;padding:28px}
+label{display:block;font-size:14px;font-weight:700;margin:0 0 6px}
+input,select,textarea{width:100%;padding:11px 12px;border:1.5px solid var(--line);border-radius:10px;font:inherit;margin-bottom:14px;background:#fff}
+input:focus,select:focus,textarea:focus{border-color:var(--gold1);outline:none}
+.res{background:var(--cream);border:1px solid var(--line);border-radius:12px;padding:22px}
+.row{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--line)}
+.big{font-size:38px;font-weight:900;text-align:center;margin-top:18px}
+.box{padding:32px;max-width:820px}
+.box p{margin-bottom:14px;color:var(--muted)}
+a.lnk{color:var(--link);font-weight:700;text-decoration:none}
+a.lnk:hover{text-decoration:underline}
+footer{border-top:1px solid var(--line);background:var(--cream);padding:30px 0;font-size:14px;color:var(--muted)}
+footer .wrap{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;align-items:center}
+footer .lk{display:flex;gap:18px;flex-wrap:wrap}
+footer button{background:none;border:0;color:var(--link);font-weight:700}
+.modal{position:fixed;inset:0;background:rgba(20,17,10,.55);display:grid;place-items:center;padding:16px;z-index:50}
+.modal .card{max-width:440px;width:100%;padding:24px}
+.mh{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}
+.x{background:none;border:0;font-size:28px;line-height:1}
+@media(max-width:860px){
+ nav,.soc{display:none}.burger{display:block}
+ .mnav{display:flex;flex-direction:column;gap:8px;padding:0 20px 16px}
+ .hero .wrap{grid-template-columns:1fr}.logoCard{order:-1;max-width:260px;margin:0 auto}
+ .facts,.calc{grid-template-columns:1fr}.right .gold{padding:9px 12px;font-size:13px}
+}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
 </head>
-<body class="bg-slate-950 text-slate-100 antialiased selection:bg-sky-500 selection:text-white">
-  <div id="root"></div>
+<body>
+<div id="root"></div>
+<script type="text/babel">
+const { useState, useEffect } = React;
+const LOGO = "https://blogger.googleusercontent.com/img/a/AVvXsEg75Hra8wqrOu6BLFNBFg42N3y-5yax_vU_5xjZQ1s2ZlbIHs39qU6RDeS2cZ4sXRpa3WP0elI5jUmVZRj2j9YnOu7EEp8T7OHiZsgjTWhVpDIJsUWk-MB5mJ8cX7yLFcb7KxZR3gpqZ18qw58m8_qArJTv5KiXFUpudV5-zAEWXz9MaQIbZ_kafWibc9s=s1184";
+const LINKEDIN = "https://www.linkedin.com/in/admovera";
+const FACEBOOK = "https://www.facebook.com/aa.elhameed";
+const BLOG = "https://admovera.blogspot.com/";
+const UPWORK = "https://www.upwork.com/freelancers/~01dea80752edf481fd?mp_source=share";
 
-  <script type="text/babel">
-    const { useState, useEffect } = React;
+const services = [
+ { id:"amazon-account-management", title:"Amazon Account Management", short:"Account Management", tag:"Operations & health", hl:[
+  ["Comprehensive operations","Complete hands-on management of your day-to-day Seller Central dashboard."],
+  ["Data-driven insights","Regular performance tracking and analytics to unlock new growth opportunities."],
+  ["Account health maintenance","Proactive monitoring to protect account standing and resolve performance notifications."]]},
+ { id:"marketing-advertising", title:"Amazon Marketing & Advertising Optimization", short:"Marketing & Advertising", tag:"PPC & ROAS", hl:[
+  ["Strategic PPC campaigns","Expert setup and continuous management of Sponsored Products, Brands, and Display ads."],
+  ["Profitability focus","Tailored strategies to drive down ACoS and lower TACoS for optimal ROI."],
+  ["Promotions & deals","Creation and management of Lightning Deals, Coupons, and Prime Exclusive Discounts to boost velocity."]]},
+ { id:"compliance", title:"Compliance & Quality Assurance", short:"Compliance", tag:"Audits & quality", hl:[
+  ["Regulatory audits","Thorough pre-listing audits to ensure compliance with marketplace laws and regulations."],
+  ["Labeling & packaging","Clear guidance and verification for packaging, labeling, and hazardous material rules."],
+  ["Global readiness","Quality assurance tailored to Amazon’s standards across various global marketplaces."]]},
+ { id:"ebc-brand-store", title:"Enhanced Brand Content (EBC/A+) & Store Creation", short:"A+ Content & Brand Stores", tag:"Brand identity", hl:[
+  ["High-converting A+ content","Custom visual layouts and persuasive messaging (up to 1,200 words) to enhance product listings."],
+  ["Amazon Brand Store design","Immersive, multi-page store creation that showcases your full product catalog and builds brand loyalty."],
+  ["Conversion optimization","Premium lifestyle imagery and graphics designed to drive higher click-through and conversion rates."]]},
+ { id:"training-mentorship", title:"Amazon Training & Mentorship", short:"Training & Mentorship", tag:"Education & growth", hl:[
+  ["Certified expertise","Guidance delivered by Amazon-certified trainers with deep ecosystem knowledge."],
+  ["Onboarding & operations","Step-by-step training on Seller Central registration, tools, and best operational practices."],
+  ["Policy & growth strategy","Clear explanation of complex Amazon policies and actionable strategies to scale independently."]]}
+];
 
-    function App() {
-      // قراءة التبويب الحالي من الـ Hash في الرابط
-      const getInitialTab = () => {
-        const hash = window.location.hash.replace('#', '');
-        return hash || 'home';
-      };
+const Icon = ({d}) => <svg viewBox="0 0 24 24" aria-hidden="true"><path d={d}/></svg>;
+const IN = "M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.25V10.9H6.46M7.86 6.72a1.63 1.63 0 1 0 0 3.26 1.63 1.63 0 0 0 0-3.26Z";
+const FB = "M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H7.5v-3H10V9.5C10 7.01 11.49 5.65 13.78 5.65c1.1 0 2.25.2 2.25.2v2.47h-1.27c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.45 3h-2.33v6.8c4.56-.93 8-4.96 8-9.8z";
+const BL = "M5 3h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zm4 5v8h4.5a2.5 2.5 0 0 0 2.5-2.5V13a1 1 0 0 0-1-1h-.5V10.5A2.5 2.5 0 0 0 12 8H9z";
 
-      const [activeTab, setActiveTab] = useState(getInitialTab);
+function App(){
+  const tab0 = () => { const h = window.location.hash.replace('#',''); return h === 'consultant' ? 'about-us' : (h || 'home'); };
+  const [tab,setTab] = useState(tab0);
+  const [book,setBook] = useState(false);
+  const [menu,setMenu] = useState(false);
+  const [sent,setSent] = useState(false);
+  const [price,setPrice]=useState(45),[cogs,setCogs]=useState(14),[fba,setFba]=useState(8.5),[ads,setAds]=useState(7),[units,setUnits]=useState(1200);
 
-      const [price, setPrice] = useState(45);
-      const [cogs, setCogs] = useState(14);
-      const [fbaFee, setFbaFee] = useState(8.5);
-      const [adSpendPerUnit, setAdSpendPerUnit] = useState(7);
-      const [monthlyUnits, setMonthlyUnits] = useState(1200);
-      const [bookingOpen, setBookingOpen] = useState(false);
-      const [activeCategory, setActiveCategory] = useState('All');
-      const [searchQuery, setSearchQuery] = useState('');
+  const go = (t,id=null) => {
+    window.location.hash = t; setTab(t); setMenu(false);
+    if(id) setTimeout(()=>{const e=document.getElementById(id); e && e.scrollIntoView({behavior:'smooth',block:'center'});},100); else window.scrollTo(0,0);
+  };
+  useEffect(()=>{ const f=()=>setTab(tab0()); window.addEventListener('hashchange',f); return()=>window.removeEventListener('hashchange',f); },[]);
 
-      // Social Links & Blogger
-      const linkedinUrl = "https://www.linkedin.com/in/admovera";
-      const facebookUrl = "https://www.facebook.com/aa.elhameed";
-      const bloggerUrl = "https://admovera.blogspot.com/";
+  const unitCost = +cogs + +fba + +ads, profit = +price - unitCost;
+  const margin = price>0 ? (profit/price*100).toFixed(1) : 0;
+  const roas = ads>0 ? (price/ads).toFixed(2) : '0';
+  const monthly = profit * units;
 
-      const changeTab = (tabName, serviceId = null) => {
-        window.location.hash = tabName;
-        setActiveTab(tabName);
+  const items = [['home','Home'],['services','Services'],['calculator','ROI Calculator'],['about-us','About'],['portfolio','Portfolio']];
+  const Navbtn = ([k,l]) => <button key={k} className={'gold '+(tab===k?'':'off')} onClick={()=>go(k)}>{l}</button>;
 
-        if (serviceId) {
-          setTimeout(() => {
-            const element = document.getElementById(serviceId);
-            if (element) {
-              element.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            }
-          }, 100);
-        }
-      };
-
-      useEffect(() => {
-        const handleHashChange = () => {
-          const currentTab = window.location.hash.replace('#', '') || 'home';
-          setActiveTab(currentTab);
-        };
-
-        window.addEventListener('hashchange', handleHashChange);
-        return () => window.removeEventListener('hashchange', handleHashChange);
-      }, []);
-
-      const totalCostPerUnit = Number(cogs) + Number(fbaFee) + Number(adSpendPerUnit);
-      const profitPerUnit = Number(price) - totalCostPerUnit;
-      const netMargin = price > 0 ? ((profitPerUnit / price) * 100).toFixed(1) : 0;
-      const totalMonthlyProfit = profitPerUnit * monthlyUnits;
-      const roas = adSpendPerUnit > 0 ? (price / adSpendPerUnit).toFixed(2) : '0';
-
-      const services = [
-        {
-          id: "amazon-account-management",
-          title: "Amazon Account Management",
-          shortTitle: "Amazon Account Management",
-          tag: "Operations & Health",
-          highlights: [
-            { label: "Comprehensive Operations", text: "Complete hands-on management of your day-to-day Seller Central dashboard." },
-            { label: "Data-Driven Insights", text: "Regular performance tracking and analytics to unlock new growth opportunities." },
-            { label: "Account Health Maintenance", text: "Proactive monitoring to protect account standing and resolve performance notifications." }
-          ]
-        },
-        {
-          id: "marketing-advertising",
-          title: "Amazon Marketing & Advertising Optimization",
-          shortTitle: "Marketing & Advertising Optimization",
-          tag: "PPC & ROAS",
-          highlights: [
-            { label: "Strategic PPC Campaigns", text: "Expert setup and continuous management of Sponsored Products, Brands, and Display ads." },
-            { label: "Profitability Focus", text: "Tailored strategies to drive down ACoS and lower TACoS for optimal ROI." },
-            { label: "Promotions & Deals", text: "Creation and management of Lightning Deals, Coupons, and Prime Exclusive Discounts to boost velocity." }
-          ]
-        },
-        {
-          id: "compliance",
-          title: "Compliance & Quality Assurance",
-          shortTitle: "Compliance",
-          tag: "Audits & Quality",
-          highlights: [
-            { label: "Regulatory Audits", text: "Thorough pre-listing audits to ensure compliance with marketplace laws and regulations." },
-            { label: "Labeling & Packaging", text: "Clear guidance and verification for packaging, labeling, and hazardous material rules." },
-            { label: "Global Readiness", text: "Quality assurance tailored to Amazon’s standards across various global marketplaces." }
-          ]
-        },
-        {
-          id: "ebc-brand-store",
-          title: "Enhanced Brand Content (EBC/A+) & Store Creation",
-          shortTitle: "Enhanced Brand Content & Store Creation",
-          tag: "Brand Identity",
-          highlights: [
-            { label: "High-Converting A+ Content", text: "Custom visual layouts and persuasive messaging (up to 1,200 words) to enhance product listings." },
-            { label: "Amazon Brand Store Design", text: "Immersive, multi-page store creation that showcases your full product catalog and builds brand loyalty." },
-            { label: "Conversion Optimization", text: "Premium lifestyle imagery and graphics designed to drive higher click-through and conversion rates." }
-          ]
-        },
-        {
-          id: "training-mentorship",
-          title: "Amazon Training & Mentorship",
-          shortTitle: "Training & Mentorship",
-          tag: "Education & Growth",
-          highlights: [
-            { label: "Certified Expertise", text: "Guidance delivered by Amazon-certified trainers with deep ecosystem knowledge." },
-            { label: "Onboarding & Operations", text: "Step-by-step training on Seller Central registration, tools, and best operational practices." },
-            { label: "Policy & Growth Strategy", text: "Clear explanation of complex Amazon policies and actionable strategies to scale independently." }
-          ]
-        }
-      ];
-
-      return (
-        <div class="min-h-screen flex flex-col bg-slate-950 text-slate-100">
-          {/* Header */}
-          <header class="border-b border-slate-800 bg-slate-900/80 backdrop-blur-md sticky top-0 z-40">
-            <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-              
-              {/* Header Title & Subtitle Centered Under Logo */}
-              <div class="flex flex-col items-center justify-center cursor-pointer text-center" onClick={() => changeTab('home')}>
-                <span class="text-2xl font-extrabold tracking-tight block leading-none text-white">AdMovera</span>
-                <span class="text-[9px] uppercase tracking-widest text-sky-400 font-bold mt-1 block text-center">Amazon Service Provider (SPN)</span>
-              </div>
-
-              {/* Navigation Links with Expanded Hover Dropdown */}
-              <nav class="hidden md:flex space-x-6 text-sm font-medium items-center">
-                <button onClick={() => changeTab('home')} class={`transition ${activeTab === 'home' ? 'text-sky-400 font-bold border-b-2 border-sky-400 pb-1' : 'text-slate-300 hover:text-sky-400'}`}>Home</button>
-                
-                {/* Services Hover Dropdown */}
-                <div class="relative group py-6">
-                  <button onClick={() => changeTab('services')} class={`flex items-center space-x-1 transition ${activeTab === 'services' ? 'text-sky-400 font-bold border-b-2 border-sky-400 pb-1' : 'text-slate-300 hover:text-sky-400'}`}>
-                    <span>Services</span>
-                    <svg class="w-4 h-4 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                    </svg>
-                  </button>
-
-                  {/* Dropdown Menu Items - Wider Box & Larger Readable Font */}
-                  <div class="absolute left-0 top-full w-96 bg-slate-900/95 border border-slate-800 backdrop-blur-xl rounded-2xl shadow-2xl p-3 dropdown-enter z-50">
-                    <div class="px-3 py-2 text-xs font-extrabold uppercase tracking-widest text-slate-400 border-b border-slate-800/80 mb-2">
-                      Our Amazon Solutions
-                    </div>
-                    {services.map((s) => (
-                      <button
-                        key={s.id}
-                        onClick={() => changeTab('services', s.id)}
-                        class="w-full text-left px-4 py-3 rounded-xl text-sm font-semibold text-slate-200 hover:text-sky-400 hover:bg-slate-800/80 transition flex items-center justify-between group/item"
-                      >
-                        <span>{s.shortTitle}</span>
-                        <svg class="w-4 h-4 opacity-0 group-hover/item:opacity-100 transition-opacity text-sky-400 flex-shrink-0 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                        </svg>
-                      </button>
-                    ))}
-                  </div>
-                </div>
-
-                <button onClick={() => changeTab('calculator')} class={`transition ${activeTab === 'calculator' ? 'text-sky-400 font-bold border-b-2 border-sky-400 pb-1' : 'text-slate-300 hover:text-sky-400'}`}>ROI Calculator</button>
-                <button onClick={() => changeTab('about-us')} class={`transition ${activeTab === 'about-us' ? 'text-sky-400 font-bold border-b-2 border-sky-400 pb-1' : 'text-slate-300 hover:text-sky-400'}`}>About Us</button>
-                <button onClick={() => changeTab('privacy-policy')} class={`transition ${activeTab === 'privacy-policy' ? 'text-sky-400 font-bold border-b-2 border-sky-400 pb-1' : 'text-slate-300 hover:text-sky-400'}`}>Privacy Policy</button>
-                <button onClick={() => changeTab('consultant')} class={`transition ${activeTab === 'consultant' ? 'text-sky-400 font-bold border-b-2 border-sky-400 pb-1' : 'text-slate-300 hover:text-sky-400'}`}>Consultant</button>
-                <button onClick={() => changeTab('portfolio')} class={`transition ${activeTab === 'portfolio' ? 'text-sky-400 font-bold border-b-2 border-sky-400 pb-1' : 'text-slate-300 hover:text-sky-400'}`}>Portfolio</button>
-              </nav>
-
-              <div class="flex items-center space-x-4">
-                {/* Social Icons */}
-                <div class="hidden sm:flex items-center space-x-2 border-r border-slate-800 pr-4">
-                  <a href={linkedinUrl} target="_blank" rel="noreferrer" class="p-2 bg-slate-800/80 hover:bg-sky-600/20 hover:text-sky-400 rounded-lg text-slate-300 transition" title="LinkedIn Profile">
-                    <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.25V10.9H6.46M7.86 6.72a1.63 1.63 0 1 0 0 3.26 1.63 1.63 0 0 0 0-3.26Z"/></svg>
-                  </a>
-                  <a href={facebookUrl} target="_blank" rel="noreferrer" class="p-2 bg-slate-800/80 hover:bg-sky-600/20 hover:text-sky-400 rounded-lg text-slate-300 transition" title="Facebook Profile">
-                    <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H7.5v-3H10V9.5C10 7.01 11.49 5.65 13.78 5.65c1.1 0 2.25.2 2.25.2v2.47h-1.27c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.45 3h-2.33v6.8c4.56-.93 8-4.96 8-9.8z"/></svg>
-                  </a>
-                  <a href={bloggerUrl} target="_blank" rel="noreferrer" class="p-2 bg-slate-800/80 hover:bg-orange-600/20 hover:text-orange-400 rounded-lg text-slate-300 transition flex items-center justify-center" title="Blogger Blog">
-                    <svg class="w-4 h-4 fill-current text-orange-500" viewBox="0 0 24 24">
-                      <path d="M17.5 2H6.5C4.01 2 2 4.01 2 6.5v11C2 19.99 4.01 22 6.5 22h11c2.49 0 4.5-2.01 4.5-4.5v-11C22 4.01 19.99 2 17.5 2zM9.91 15.35H7.72V8.65h2.19c1.09 0 1.9.33 2.42.99.52.66.78 1.55.78 2.68 0 1.13-.26 2.02-.78 2.68-.52.66-1.33.95-2.42.95zm.51-5.18c-.29-.38-.72-.57-1.29-.57h-.61v3.35h.61c.57 0 1-.19 1.29-.57.29-.38.44-.92.44-1.61 0-.69-.15-1.23-.44-1.6zm6.36 5.18h-2.19V8.65h2.19v6.7z"/>
-                    </svg>
-                  </a>
-                </div>
-
-                <button onClick={() => setBookingOpen(true)} class="bg-sky-500 hover:bg-sky-400 text-slate-950 font-bold px-5 py-2.5 rounded-xl text-sm transition shadow-md shadow-sky-500/10">
-                  Book Consultation
-                </button>
-              </div>
-            </div>
-          </header>
-
-          {/* Main Content Area */}
-          <main class="flex-grow">
-            {activeTab === 'home' && (
-              <section class="py-24 px-6 relative overflow-hidden bg-gradient-to-b from-slate-900 via-slate-950 to-slate-950">
-                <div class="max-w-4xl mx-auto text-center relative z-10">
-                  <span class="inline-block bg-sky-500/10 border border-sky-500/20 text-sky-400 text-xs font-bold px-4 py-1.5 rounded-full mb-6">
-                    Amazon Service Provider (SPN)
-                  </span>
-                  <h1 class="text-4xl sm:text-6xl font-extrabold text-white tracking-tight leading-tight mb-6">
-                    Engineering Marketplace Dominance & Profitability
-                  </h1>
-                  <p class="text-slate-400 text-lg sm:text-xl max-w-3xl mx-auto mb-10 leading-relaxed font-normal">
-                    We are an all-in-one Amazon E-commerce Service Provider dedicated to helping brands and sellers launch, optimize, and scale their businesses across Amazon marketplaces worldwide.
-                  </p>
-                  <div class="flex flex-wrap justify-center gap-4">
-                    <button onClick={() => changeTab('services')} class="bg-sky-500 hover:bg-sky-400 text-slate-950 font-bold px-8 py-4 rounded-xl text-sm transition shadow-lg shadow-sky-500/20">
-                      Explore Our Services
-                    </button>
-                    <button onClick={() => changeTab('calculator')} class="bg-slate-900 hover:bg-slate-800 border border-slate-700 text-white font-semibold px-8 py-4 rounded-xl text-sm transition">
-                      Calculate Unit Economics
-                    </button>
-                  </div>
-                </div>
-              </section>
-            )}
-
-            {activeTab === 'services' && (
-              <section class="py-20 px-6 max-w-7xl mx-auto">
-                <div class="text-center mb-16">
-                  <span class="text-sky-400 text-xs font-bold uppercase tracking-widest bg-sky-500/10 border border-sky-500/20 px-4 py-1.5 rounded-full inline-block mb-3">Our Core Solutions</span>
-                  <h2 class="text-3xl sm:text-4xl font-extrabold text-white mb-4">Professional Amazon Growth Services</h2>
-                  <p class="text-slate-400 max-w-2xl mx-auto text-sm sm:text-base">Comprehensive, data-driven solutions engineered to maximize revenue, ensure full compliance, and build brand equity on Amazon.</p>
-                </div>
-
-                {/* Grid of Detailed Services */}
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                  {services.map((s, index) => (
-                    <div id={s.id} key={s.id} class="bg-slate-900/70 border border-slate-800 p-8 rounded-3xl custom-hover-card flex flex-col justify-between relative overflow-hidden">
-                      <div class="absolute top-0 right-0 w-32 h-32 bg-sky-500/5 rounded-full blur-2xl -mr-10 -mt-10 pointer-events-none"></div>
-                      <div>
-                        <div class="flex items-center justify-between mb-6">
-                          <span class="text-xs font-bold text-sky-400 bg-sky-500/10 border border-sky-500/20 px-3 py-1 rounded-full">{s.tag}</span>
-                          <span class="text-slate-600 text-xs font-mono font-bold">0{index + 1}</span>
-                        </div>
-                        <h3 class="font-bold text-xl text-white mb-6 leading-snug">{s.title}</h3>
-                        
-                        {/* Highlights List */}
-                        <ul class="space-y-4 mb-8">
-                          {s.highlights.map((h, i) => (
-                            <li key={i} class="flex items-start space-x-3 text-sm">
-                              <div class="mt-1 flex-shrink-0 w-4 h-4 rounded-full bg-sky-500/20 border border-sky-400/40 flex items-center justify-center">
-                                <svg class="w-2.5 h-2.5 text-sky-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7" />
-                                </svg>
-                              </div>
-                              <div class="text-slate-300">
-                                <strong class="text-white font-semibold block mb-0.5">{h.label}</strong>
-                                <span class="text-slate-400 text-xs leading-relaxed block">{h.text}</span>
-                              </div>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-
-                      <button onClick={() => setBookingOpen(true)} class="w-full bg-slate-800/80 hover:bg-sky-500 hover:text-slate-950 text-sky-400 border border-slate-700/80 font-bold py-3 rounded-xl text-xs transition flex items-center justify-center space-x-2 group">
-                        <span>Get Started with {s.shortTitle}</span>
-                        <svg class="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                        </svg>
-                      </button>
-                    </div>
-                  ))}
-                </div>
-              </section>
-            )}
-
-            {activeTab === 'calculator' && (
-              <section class="py-20 px-6 bg-slate-950">
-                <div class="max-w-5xl mx-auto">
-                  <div class="text-center mb-12">
-                    <h2 class="text-3xl font-bold text-white mb-3">Interactive Unit Economics Calculator</h2>
-                    <p class="text-slate-400">Simulate selling prices, marketplace fees, and PPC ad spend live.</p>
-                  </div>
-                  <div class="grid md:grid-cols-2 gap-8 bg-slate-900 border border-slate-800 p-8 rounded-3xl shadow-xl custom-hover-card">
-                    <div class="space-y-5">
-                      <div>
-                        <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2">Selling Price ($)</label>
-                        <input type="number" value={price} onChange={e => setPrice(e.target.value)} class="w-full bg-slate-950 border border-slate-800 rounded-xl p-3 text-white font-bold focus:border-sky-500 focus:outline-none" />
-                      </div>
-                      <div>
-                        <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2">Product COGS ($)</label>
-                        <input type="number" value={cogs} onChange={e => setCogs(e.target.value)} class="w-full bg-slate-950 border border-slate-800 rounded-xl p-3 text-white font-bold focus:border-sky-500 focus:outline-none" />
-                      </div>
-                      <div>
-                        <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2">Platform / FBA Fees ($)</label>
-                        <input type="number" value={fbaFee} onChange={e => setFbaFee(e.target.value)} class="w-full bg-slate-950 border border-slate-800 rounded-xl p-3 text-white font-bold focus:border-sky-500 focus:outline-none" />
-                      </div>
-                      <div>
-                        <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2">Target PPC Ad Spend / Unit ($)</label>
-                        <input type="number" value={adSpendPerUnit} onChange={e => setAdSpendPerUnit(e.target.value)} class="w-full bg-slate-950 border border-slate-800 rounded-xl p-3 text-white font-bold focus:border-sky-500 focus:outline-none" />
-                      </div>
-                      <div>
-                        <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2">Estimated Monthly Volume (Units)</label>
-                        <input type="number" value={monthlyUnits} onChange={e => setMonthlyUnits(e.target.value)} class="w-full bg-slate-950 border border-slate-800 rounded-xl p-3 text-white font-bold focus:border-sky-500 focus:outline-none" />
-                      </div>
-                    </div>
-
-                    <div class="bg-slate-950 border border-slate-800 rounded-2xl p-6 flex flex-col justify-between">
-                      <div>
-                        <h3 class="text-xs font-bold text-sky-400 uppercase tracking-widest mb-6">Financial Projections</h3>
-                        <div class="space-y-4 text-sm">
-                          <div class="flex justify-between border-b border-slate-800 pb-3">
-                            <span class="text-slate-400">Total Unit Cost</span>
-                            <span class="font-bold text-white">${totalCostPerUnit.toFixed(2)}</span>
-                          </div>
-                          <div class="flex justify-between border-b border-slate-800 pb-3">
-                            <span class="text-slate-400">Net Profit / Unit</span>
-                            <span class={`font-bold ${profitPerUnit >= 0 ? 'text-emerald-400' : 'text-rose-400'}`}>${profitPerUnit.toFixed(2)}</span>
-                          </div>
-                          <div class="flex justify-between border-b border-slate-800 pb-3">
-                            <span class="text-slate-400">Net Margin</span>
-                            <span class="font-bold text-sky-400">{netMargin}%</span>
-                          </div>
-                          <div class="flex justify-between border-b border-slate-800 pb-3">
-                            <span class="text-slate-400">Target ROAS</span>
-                            <span class="font-bold text-sky-400">{roas}x</span>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="pt-6 border-t border-slate-800 text-center">
-                        <span class="text-xs uppercase tracking-wider text-slate-400 block mb-1">Projected Monthly Net Profit</span>
-                        <span class={`text-4xl font-extrabold ${totalMonthlyProfit >= 0 ? 'text-emerald-400' : 'text-rose-400'}`}>${totalMonthlyProfit.toLocaleString()}</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </section>
-            )}
-
-            {activeTab === 'about-us' && (
-              <section class="py-20 px-6 bg-slate-950">
-                <div class="max-w-5xl mx-auto space-y-16">
-                  <div class="bg-slate-900 border-t-4 border-t-sky-500 border-x border-b border-slate-800 p-8 sm:p-10 rounded-3xl text-center space-y-4 shadow-xl custom-hover-card">
-                    <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Welcome to <span class="text-sky-400">Admovera</span></h2>
-                    <p class="text-slate-300 leading-relaxed max-w-3xl mx-auto text-base sm:text-lg">
-                      We are an all-in-one Amazon E-commerce Service Provider dedicated to helping brands and sellers launch, optimize, and scale their businesses across Amazon marketplaces worldwide. From daily operational management to high-converting marketing campaigns and regulatory compliance, our team of experts provides end-to-end solutions designed to maximize revenue, improve profitability, and build sustainable brand equity.
-                    </p>
-                  </div>
-                </div>
-              </section>
-            )}
-
-            {activeTab === 'privacy-policy' && (
-              <section class="py-20 px-6 bg-slate-950">
-                <div class="max-w-4xl mx-auto space-y-8">
-                  <div class="bg-slate-900 border-t-4 border-t-sky-500 border-x border-b border-slate-800 p-8 sm:p-10 rounded-3xl text-center shadow-xl custom-hover-card">
-                    <h1 class="text-3xl sm:text-4xl font-extrabold text-white mb-3">Privacy Policy</h1>
-                    <p class="text-slate-400 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed">
-                      At <strong class="text-slate-200">Admovera</strong>, accessible from our website, one of our main priorities is the privacy of our visitors.
-                    </p>
-                  </div>
-                </div>
-              </section>
-            )}
-
-            {activeTab === 'consultant' && (
-              <section class="py-20 px-6 bg-slate-950">
-                <div class="max-w-3xl mx-auto text-center space-y-8 bg-slate-900/60 border border-slate-800 p-8 sm:p-12 rounded-3xl custom-hover-card">
-                  <h2 class="text-3xl font-bold text-white">About Ahmed Abdel Hameed</h2>
-                  <p class="text-slate-400 leading-relaxed text-base">
-                    Independent E-Commerce & Amazon Marketplace Consultant with extensive commercial experience managing Seller Central operations, advertising performance, and compliance lifecycles.
-                  </p>
-                  <button onClick={() => setBookingOpen(true)} class="bg-sky-500 hover:bg-sky-400 text-slate-950 font-bold px-8 py-3.5 rounded-xl text-sm transition">
-                    Book Private Consultation
-                  </button>
-                </div>
-              </section>
-            )}
-
-            {activeTab === 'portfolio' && (
-              <section class="py-20 px-6 bg-slate-950">
-                <div class="max-w-5xl mx-auto space-y-12">
-                  <div class="bg-slate-900 border-t-4 border-t-sky-500 border-x border-b border-slate-800 p-8 sm:p-12 rounded-3xl text-center space-y-4 shadow-xl custom-hover-card">
-                    <span class="inline-block bg-sky-500/10 border border-sky-500/20 text-sky-400 text-xs font-bold px-4 py-1.5 rounded-full">Professional Portfolio & Growth Strategy</span>
-                    <h1 class="text-3xl sm:text-5xl font-extrabold text-white">Ahmed Abdel Hameed</h1>
-                    <p class="text-sky-400 font-bold text-lg">Amazon E-Commerce & Marketplace Consultant</p>
-                  </div>
-                </div>
-              </section>
-            )}
-          </main>
-
-          {/* Footer */}
-          <footer class="py-8 text-center text-xs text-slate-500 border-t border-slate-800 flex flex-col items-center justify-center space-y-4">
-            <div class="flex space-x-6 text-slate-400">
-              <a href={linkedinUrl} target="_blank" rel="noreferrer" class="hover:text-sky-400 transition">LinkedIn</a>
-              <a href={facebookUrl} target="_blank" rel="noreferrer" class="hover:text-sky-400 transition">Facebook</a>
-              <a href={bloggerUrl} target="_blank" rel="noreferrer" class="hover:text-orange-400 transition">Blogger</a>
-              <button onClick={() => changeTab('privacy-policy')} class="hover:text-sky-400 transition">Privacy Policy</button>
-            </div>
-            <p>&copy; {new Date().getFullYear()} AdMovera. All rights reserved. | Amazon Service Provider (SPN)</p>
-          </footer>
-
-          {/* Modal */}
-          {bookingOpen && (
-            <div class="fixed inset-0 bg-slate-950/80 backdrop-blur-md flex items-center justify-center p-4 z-50">
-              <div class="bg-slate-900 border border-slate-800 rounded-2xl max-w-md w-full p-6 shadow-2xl">
-                <div class="flex justify-between items-center mb-6">
-                  <h3 class="font-bold text-white text-lg">Schedule Strategic Consultation</h3>
-                  <button onClick={() => setBookingOpen(false)} class="text-slate-400 hover:text-white font-bold">&times;</button>
-                </div>
-                <form onSubmit={e => { e.preventDefault(); alert('Consultation inquiry sent successfully!'); setBookingOpen(false); }} class="space-y-4">
-                  <div>
-                    <label class="block text-xs font-semibold uppercase text-slate-400 mb-1">Full Name</label>
-                    <input type="text" required class="w-full bg-slate-950 border border-slate-800 rounded-xl p-3 text-sm text-white focus:outline-none focus:border-sky-500" placeholder="Ahmed Abdel Hameed" />
-                  </div>
-                  <div>
-                    <label class="block text-xs font-semibold uppercase text-slate-400 mb-1">Work Email</label>
-                    <input type="email" required class="w-full bg-slate-950 border border-slate-800 rounded-xl p-3 text-sm text-white focus:outline-none focus:border-sky-500" placeholder="name@company.com" />
-                  </div>
-                  <button type="submit" class="w-full bg-sky-500 hover:bg-sky-400 text-slate-950 font-bold py-3.5 rounded-xl text-sm transition">
-                    Send Inquiry
-                  </button>
-                </form>
-              </div>
-            </div>
-          )}
+  return (<>
+  <header><div className="wrap">
+    <div className="bar">
+      <button className="brand" onClick={()=>go('home')} aria-label="Admovera home">
+        <img src={LOGO} alt="Admovera compass logo"/><div><b>Admovera</b><span>Amazon SPN</span></div>
+      </button>
+      <nav aria-label="Main">
+        <button className={'gold '+(tab==='home'?'':'off')} onClick={()=>go('home')}>Home</button>
+        <div className="dd">
+          <button className={'gold '+(tab==='services'?'':'off')} onClick={()=>go('services')}>Services ▾</button>
+          <div className="card dd-menu">{services.map(s=><button key={s.id} onClick={()=>go('services',s.id)}>{s.short}</button>)}</div>
         </div>
-      );
-    }
+        {items.slice(2).map(Navbtn)}
+      </nav>
+      <div className="right">
+        <div className="soc">
+          <a href={LINKEDIN} target="_blank" rel="noreferrer" aria-label="LinkedIn"><Icon d={IN}/></a>
+          <a href={FACEBOOK} target="_blank" rel="noreferrer" aria-label="Facebook"><Icon d={FB}/></a>
+          <a href={BLOG} target="_blank" rel="noreferrer" aria-label="Blog"><Icon d={BL}/></a>
+        </div>
+        <button className="gold" onClick={()=>setBook(true)}>Book consultation</button>
+        <button className="burger" onClick={()=>setMenu(!menu)} aria-expanded={menu}>Menu</button>
+      </div>
+    </div>
+    {menu && <div className="mnav">{items.map(Navbtn)}</div>}
+  </div></header>
 
-    ReactDOM.createRoot(document.getElementById('root')).render(<App />);
-  </script>
+  <main>
+  {tab==='home' && <>
+    <section className="hero"><div className="wrap">
+      <div>
+        <span className="badge">Amazon Service Provider (SPN)</span>
+        <h1>Recover suspended Amazon accounts. Fix listings. Scale profitably.</h1>
+        <p className="lead">Admovera helps Amazon sellers and brands recover suspended accounts, fix listing rejections, and stay compliant, then grow sales across Amazon and international marketplaces.</p>
+        <div className="cta">
+          <button className="gold" onClick={()=>setBook(true)}>Get help with my account</button>
+          <button className="ghost" onClick={()=>go('calculator')}>Free profit calculator</button>
+        </div>
+      </div>
+      <div className="card logoCard"><img src={LOGO} alt="Admovera: Guiding the way"/><p>Amazon SPN</p></div>
+    </div>
+    <div className="wrap facts">
+      <div className="card"><b>Amazon SPN</b><span>Listed Amazon Service Provider</span></div>
+      <div className="card"><b>20 years in sales</b><span>Two decades of traditional sales expertise</span></div>
+      <div className="card"><b>10 years in e-commerce</b><span>End-to-end sales management and operations</span></div>
+    </div></section>
+    <section className="pg"><div className="wrap">
+      <h2>What we fix and grow</h2><p className="sub">Five services, from daily account care to advertising and brand stores.</p>
+      <div className="grid">{services.slice(0,3).map(s=><div key={s.id} className="card svc"><div><span className="tag">{s.tag}</span><h3>{s.title}</h3></div><button className="ghost" onClick={()=>go('services',s.id)}>See details</button></div>)}</div>
+    </div></section>
+  </>}
+
+  {tab==='services' && <section className="pg"><div className="wrap">
+    <h2>Amazon growth services</h2><p className="sub">Data-driven solutions to protect your account, stay compliant, and build brand equity on Amazon.</p>
+    <div className="grid">{services.map(s=>
+      <div id={s.id} key={s.id} className="card svc">
+        <div><span className="tag">{s.tag}</span><h3>{s.title}</h3>
+          <ul>{s.hl.map((h,i)=><li key={i}><b>{h[0]}</b><span>{h[1]}</span></li>)}</ul></div>
+        <button className="gold" onClick={()=>setBook(true)}>Get started</button>
+      </div>)}</div>
+  </div></section>}
+
+  {tab==='calculator' && <section className="pg"><div className="wrap">
+    <h2>Unit economics calculator</h2><p className="sub">Test your selling price, marketplace fees, and ad spend before you scale.</p>
+    <div className="card calc">
+      <div>
+        <label htmlFor="p">Selling price ($)</label><input id="p" type="number" value={price} onChange={e=>setPrice(e.target.value)}/>
+        <label htmlFor="c">Product cost ($)</label><input id="c" type="number" value={cogs} onChange={e=>setCogs(e.target.value)}/>
+        <label htmlFor="f">Platform / FBA fees ($)</label><input id="f" type="number" value={fba} onChange={e=>setFba(e.target.value)}/>
+        <label htmlFor="a">PPC ad spend per unit ($)</label><input id="a" type="number" value={ads} onChange={e=>setAds(e.target.value)}/>
+        <label htmlFor="u">Monthly volume (units)</label><input id="u" type="number" value={units} onChange={e=>setUnits(e.target.value)}/>
+      </div>
+      <div className="res">
+        <div className="row"><span>Total unit cost</span><b>${unitCost.toFixed(2)}</b></div>
+        <div className="row"><span>Net profit per unit</span><b style={{color:profit>=0?'var(--ok)':'var(--bad)'}}>${profit.toFixed(2)}</b></div>
+        <div className="row"><span>Net margin</span><b>{margin}%</b></div>
+        <div className="row"><span>Break-even ROAS</span><b>{roas}x</b></div>
+        <p style={{marginTop:18,fontSize:14,color:'var(--muted)'}}>Projected monthly net profit</p>
+        <div className="big" style={{color:monthly>=0?'var(--ok)':'var(--bad)'}}>${monthly.toLocaleString()}</div>
+      </div>
+    </div>
+  </div></section>}
+
+  {tab==='about-us' && <section className="pg"><div className="wrap"><div className="card box">
+    <h2>About Admovera</h2>
+    <p>Admovera is an Amazon service provider that helps brands and sellers launch, optimize, and scale on Amazon marketplaces worldwide. From daily operations to advertising and compliance, we focus on protecting your account and improving profitability.</p>
+    <h2 style={{fontSize:24,marginTop:24}}>Ahmed Abdel Hameed</h2>
+    <p>Independent e-commerce and marketplace consultant with 20 years in sales and 10 years of end-to-end e-commerce management, covering Seller Central operations, advertising performance, and compliance.</p>
+    <button className="gold" onClick={()=>setBook(true)}>Book a private consultation</button>
+  </div></div></section>}
+
+  {tab==='portfolio' && <section className="pg"><div className="wrap"><div className="card box">
+    <h2>Ahmed Abdel Hameed</h2><p className="sub" style={{marginBottom:14}}>Amazon e-commerce and marketplace consultant</p>
+    <p>Specialized in driving digital revenue, listing optimization, and multi-channel scale strategies across Amazon, Noon, eBay, and Shopify.</p>
+    <a className="lnk" href="https://admovera.blogspot.com/p/ahmed-abdel-hamid-professional.html" target="_blank" rel="noreferrer">View the full portfolio on the blog »</a>
+  </div></div></section>}
+
+  {tab==='privacy-policy' && <section className="pg"><div className="wrap"><div className="card box">
+    <h2>Privacy policy</h2>
+    <p>At Admovera, one of our main priorities is the privacy of our visitors.</p>
+    <a className="lnk" href="https://admovera.blogspot.com/p/privacy-policy_01860821453.html" target="_blank" rel="noreferrer">Read the full policy »</a>
+  </div></div></section>}
+  </main>
+
+  <footer><div className="wrap">
+    <div className="lk">
+      <a className="lnk" href={LINKEDIN} target="_blank" rel="noreferrer">LinkedIn</a>
+      <a className="lnk" href={FACEBOOK} target="_blank" rel="noreferrer">Facebook</a>
+      <a className="lnk" href={UPWORK} target="_blank" rel="noreferrer">Upwork</a>
+      <a className="lnk" href={BLOG} target="_blank" rel="noreferrer">Blog</a>
+      <button onClick={()=>go('privacy-policy')}>Privacy policy</button>
+    </div>
+    <p>© {new Date().getFullYear()} Admovera. All rights reserved. Amazon Service Provider (SPN)</p>
+  </div></footer>
+
+  {book && <div className="modal" role="dialog" aria-modal="true" aria-label="Book a consultation"><div className="card">
+    <div className="mh"><h3>Book a consultation</h3><button className="x" onClick={()=>{setBook(false);setSent(false);}} aria-label="Close">&times;</button></div>
+    {sent ? <p>Thanks, your inquiry was sent. We will reply by email.</p> :
+    <form onSubmit={e=>{e.preventDefault();setSent(true);}}>
+      <label htmlFor="n">Full name</label><input id="n" required/>
+      <label htmlFor="e">Email</label><input id="e" type="email" required placeholder="name@company.com"/>
+      <label htmlFor="t">What do you need help with?</label>
+      <select id="t"><option>Account suspension / Plan of Action</option><option>Listing rejection</option><option>Compliance</option><option>Advertising (PPC)</option><option>Growth strategy</option></select>
+      <button className="gold" type="submit" style={{width:'100%'}}>Send inquiry</button>
+    </form>}
+  </div></div>}
+  </>);
+}
+ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+</script>
 </body>
 </html>
