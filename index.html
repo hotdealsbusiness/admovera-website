@@ -779,15 +779,20 @@ function App(){
   const [sent,setSent] = useState(false);
   const [busy,setBusy] = useState(false);
   const [err,setErr] = useState(false);
+  const [fallback,setFallback] = useState('');
+  const MAIL = 'admovera.spn@gmail.com';
   const submit = async e => {
     e.preventDefault(); setBusy(true); setErr(false);
     const body = Object.fromEntries(new FormData(e.target).entries());
-    body._subject = 'Admovera inquiry: ' + body.topic; body._template = 'table'; body._captcha = 'false';
+    const subject = 'Admovera inquiry: ' + body.topic;
+    setFallback('mailto:' + MAIL + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent('Name: ' + body.name + '\nEmail: ' + body.email + '\n\n' + body.message));
+    body._subject = subject; body._template = 'table'; body._captcha = 'false';
     try {
-      const r = await fetch('https://formsubmit.co/ajax/admovera.spn@gmail.com',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(body)});
+      const r = await fetch('https://formsubmit.co/ajax/' + MAIL, {method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(body)});
       const j = await r.json();
-      if (r.ok && String(j.success) === 'true') setSent(true); else setErr(true);
-    } catch (x) { setErr(true); }
+      if (r.ok && String(j.success) === 'true') setSent(true);
+      else { console.warn('FormSubmit response:', j); setErr(true); }
+    } catch (x) { console.warn(x); setErr(true); }
     setBusy(false);
   };
   const [price,setPrice]=useState(45),[cogs,setCogs]=useState(14),[fba,setFba]=useState(8.5),[ads,setAds]=useState(7),[units,setUnits]=useState(1200);
@@ -932,7 +937,7 @@ function App(){
       <select id="t" name="topic"><option>Account suspension / Plan of Action</option><option>Listing rejection</option><option>Compliance</option><option>Account management</option><option>Advertising (PPC)</option><option>Growth strategy</option><option>Other</option></select>
       <label htmlFor="m">Message</label><textarea id="m" name="message" placeholder="Tell us briefly about your case"/>
       <input type="text" name="_honey" style={{display:'none'}} tabIndex="-1" autoComplete="off"/>
-      {err && <p className="err" role="alert">We could not send your message. Please try again or email <a className="lnk" href="mailto:amazon.spn@gmail.com">amazon.spn@gmail.com</a>.</p>}
+      {err && <p className="err" role="alert">We could not send your message automatically. <a className="lnk" href={fallback}>Send it by email instead</a> or write to <a className="lnk" href={'mailto:' + MAIL}>{MAIL}</a>.</p>}
       <button className="gold" type="submit" disabled={busy} style={{width:'100%'}}>{busy?'Sending...':'Send inquiry'}</button>
     </form>}
   </div></div>}
