@@ -983,6 +983,8 @@ dialog.spn::backdrop{background:rgba(20,17,10,.55)}
  .spn-step::before{width:36px;height:36px;font-size:16px}
  .spn-foot div,.spn-foot .gold,.spn-foot .ghost{width:100%}
 }
+/* Find us on SPN: keep all three hero buttons on one row on desktop */
+@media(min-width:1000px){.hero .wrap:not(.facts){grid-template-columns:1.6fr 1fr}}
 </style>
 
 <dialog class="spn" id="spn-guide" aria-labelledby="spn-title">
@@ -1095,7 +1097,7 @@ dialog.spn::backdrop{background:rgba(20,17,10,.55)}
     if (!cta || cta.querySelector('[data-spn-open]')) return;
     var b = document.createElement('button');
     b.type = 'button';
-    b.className = 'ghost spn-open';
+    b.className = 'gold spn-open';
     b.setAttribute('data-spn-open', '');
     b.innerHTML = '<i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>Find us on SPN';
     b.addEventListener('click', openGuide);
