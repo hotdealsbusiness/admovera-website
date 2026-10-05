@@ -697,7 +697,7 @@ function Results({go}){
 }
 function CaseList({go}){
   return <section className="pg"><div className="wrap">
-    <h2>Case studies</h2><p className="sub">Real results from real marketplace stores. Explore the case study to view full data, charts, and proven strategies.</p>
+    <h2>Case studies</h2><p className="sub">A selection of real work from our marketplace stores. Explore the cases to see full data, charts, and actions.</p>
     <div className="grid">{CASES.map(c=><div key={c.id} className="card svc">
       <div><span className="tag">{c.tag}</span><h3>{c.name}</h3><p style={{color:'var(--muted)',marginBottom:14}}>{c.line}</p>
         <div className="kpis">{c.stats.map((t,i)=><div key={i}><b>{t[0]}</b><span>{t[1]}</span></div>)}</div></div>
