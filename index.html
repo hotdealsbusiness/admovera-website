@@ -784,7 +784,7 @@ function App(){
     const body = Object.fromEntries(new FormData(e.target).entries());
     body._subject = 'Admovera inquiry: ' + body.topic; body._template = 'table'; body._captcha = 'false';
     try {
-      const r = await fetch('https://formsubmit.co/ajax/amazon.spn@gmail.com',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(body)});
+      const r = await fetch('https://formsubmit.co/ajax/admovera.spn@gmail.com',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(body)});
       const j = await r.json();
       if (r.ok && String(j.success) === 'true') setSent(true); else setErr(true);
     } catch (x) { setErr(true); }
