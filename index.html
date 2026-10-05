@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Admovera | Amazon Service Provider (SPN)</title>
 <meta name="description" content="Admovera helps Amazon sellers recover suspended accounts, fix listing rejections, and stay compliant, then grow sales across Amazon and international marketplaces.">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
 <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
 <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
 <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -28,8 +29,12 @@ header{position:sticky;top:0;z-index:30;background:rgba(255,255,255,.96);backdro
 .brand img{width:52px;height:52px;object-fit:contain}
 .brand b{display:block;font-size:22px;font-weight:900;line-height:1}
 .brand span{font-size:12px;font-weight:700;color:var(--goldtxt)}
-nav{display:flex;gap:8px;align-items:center}
-nav .gold{padding:8px 16px;font-size:14px}
+nav{display:flex;gap:6px;align-items:center;flex:1;justify-content:center}
+header .wrap{max-width:1360px}
+nav .gold,nav a.gold,.right>.gold{white-space:nowrap}
+a.gold{text-decoration:none;display:inline-block;line-height:1.6}
+.right>.gold{padding:10px 20px}
+nav .gold{padding:9px 13px;font-size:14px}
 nav .gold.off{background:#fff;color:var(--ink);border-color:var(--line);box-shadow:none;text-shadow:none}
 nav .gold.off:hover{background:var(--cream)}
 .dd{position:relative}
@@ -43,6 +48,9 @@ nav .gold.off:hover{background:var(--cream)}
 .soc svg{width:17px;height:17px;fill:currentColor}
 .burger{display:none;background:#fff;border:1px solid var(--line);border-radius:8px;padding:8px 12px;font-weight:700}
 .mnav{display:none}
+.mnav .gold,.mnav a.gold{text-align:center}
+form textarea{resize:vertical;min-height:90px}
+.err{color:var(--bad);font-size:14px;margin:0 0 12px}
 .hero{padding:64px 0 48px;background:linear-gradient(180deg,var(--cream),#fff)}
 .hero .wrap{display:grid;grid-template-columns:1.25fr 1fr;gap:48px;align-items:center}
 .badge{display:inline-block;border:1px solid var(--gold1);color:var(--goldtxt);background:#fff;border-radius:999px;padding:4px 14px;font-size:13px;font-weight:700;margin-bottom:18px}
@@ -85,17 +93,482 @@ footer button{background:none;border:0;color:var(--link);font-weight:700}
 .modal .card{max-width:440px;width:100%;padding:24px}
 .mh{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}
 .x{background:none;border:0;font-size:28px;line-height:1}
+@media(max-width:1280px){nav,.soc{display:none}.burger{display:block}.mnav{display:flex;flex-direction:column;gap:8px;padding:0 20px 16px}}
 @media(max-width:860px){
- nav,.soc{display:none}.burger{display:block}
- .mnav{display:flex;flex-direction:column;gap:8px;padding:0 20px 16px}
  .hero .wrap{grid-template-columns:1fr}.logoCard{order:-1;max-width:260px;margin:0 auto}
  .facts,.calc{grid-template-columns:1fr}.right .gold{padding:9px 12px;font-size:13px}
 }
 @media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+
+a.ghost{text-decoration:none;display:inline-block}
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.chip{background:#fff;border:1px solid var(--line);border-radius:999px;padding:8px 18px;font-weight:700;font-size:14px;color:var(--goldtxt)}
+.chip:hover{background:var(--cream);border-color:var(--gold1)}
+.alt{background:var(--cream)}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:22px}
+.rs{padding:26px;display:flex;flex-direction:column;gap:16px}
+.rs h3{font-size:20px;line-height:1.3}
+.rs h4{font-size:13px;color:var(--muted);text-transform:uppercase;letter-spacing:.05em}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(100px,1fr));gap:10px}
+.kpis div{background:var(--cream);border:1px solid var(--line);border-radius:12px;padding:12px}
+.kpis b{display:block;font-size:22px;font-weight:900;color:var(--goldtxt);line-height:1.15}
+.kpis span{font-size:13px;color:var(--muted)}
+.donut{display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+.donut svg{width:150px;height:150px;flex:none}
+.donut .dv{font-size:17px;font-weight:900;fill:var(--ink)}
+.donut .ds{font-size:8px;fill:var(--muted)}
+.donut ul{list-style:none;padding:0;font-size:14px;display:grid;gap:6px}
+.donut li{display:flex;align-items:center;gap:8px}
+.donut li i{width:12px;height:12px;border-radius:3px;display:inline-block}
+.bars{display:grid;gap:12px}
+.bl{display:flex;justify-content:space-between;gap:10px;font-size:14px;margin-bottom:4px}
+.bt{height:10px;border-radius:999px;background:#f1e9cc;overflow:hidden}
+.bf{height:100%;border-radius:999px}
+.ins{font-size:14.5px;color:var(--muted);border-left:3px solid var(--gold1);padding-left:12px}
+.ins b{color:var(--goldtxt)}
+.hero2{padding:34px 28px;text-align:center;border-left:5px solid var(--gold1);background:var(--cream)}
+.hero2 p{max-width:760px;margin:10px auto 0;color:var(--muted)}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-top:16px}
+.tiles div{background:var(--cream);border:1px solid var(--line);border-left:4px solid var(--gold1);border-radius:10px;padding:16px}
+.tiles h4{color:var(--goldtxt);margin-bottom:6px}
+.tiles p{font-size:14px;color:var(--muted)}
+.who{display:flex;gap:26px;align-items:flex-start;flex-wrap:wrap}
+.who img{width:190px;height:190px;object-fit:cover;border-radius:12px;border:3px solid #fef3c7}
+.abc{padding:28px;margin-top:22px}
+.abc h2{font-size:24px;margin-bottom:6px}
+.fq{padding:30px;border-top:3px solid var(--gold1)}
+.tc{padding:24px;display:flex;flex-direction:column;justify-content:space-between;gap:16px;border-top:3px solid var(--gold1)}
+.tq{color:var(--muted);font-size:15px}
+.au{display:flex;align-items:center;gap:12px;border-top:2px solid #fef3c7;padding-top:14px;margin-top:14px}
+.tc .au{margin-top:0}
+.au span{font-size:13px;color:var(--goldtxt);font-weight:500}
+.av{flex:none;width:40px;height:40px;border-radius:50%;background:var(--gold1);color:#fff;display:grid;place-items:center;font-weight:700}
 </style>
 </head>
 <body>
 <div id="root"></div>
+<template id="tpl-case-hotdeals"><style>#adm-cs{--gold:#b8860b;--gold2:#d4a72c;--green:#2f6b3a;--ink:#0f172a;--text:#334155;--muted:#64748b;--cream:#fdfbf7;--soft:#faf8f2;--line:#e6dec5;--r:12px;color:var(--text) !important;font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif !important;max-width:920px !important;margin:10px auto 25px !important;display:block !important;direction:ltr !important;text-align:left !important}
+#adm-cs *{box-sizing:border-box !important;margin:0;padding:0}#adm-cs *:not(i){font-family:inherit !important}
+#adm-cs i.fa-solid,#adm-cs i.fa-solid::before{font-family:"Font Awesome 6 Free" !important;font-weight:900 !important;font-style:normal !important}#adm-cs i.fa-brands,#adm-cs i.fa-brands::before{font-family:"Font Awesome 6 Brands" !important;font-weight:400 !important;font-style:normal !important}
+#adm-cs h1,#adm-cs h2,#adm-cs h3,#adm-cs h4{line-height:1.3 !important;background:none !important}#adm-cs p{line-height:1.65 !important}
+#adm-cs .hd{background:var(--cream) !important;border:1px solid var(--line) !important;border-left:5px solid var(--gold) !important;border-radius:var(--r) !important;padding:36px 26px !important;margin-bottom:20px !important;text-align:center !important}
+#adm-cs .bg{display:inline-block !important;background:#fef3c7 !important;color:#92400e !important;border:1px solid #fde68a !important;border-radius:50px !important;padding:6px 18px !important;margin-bottom:14px !important;font-size:.85rem !important;font-weight:700 !important}
+#adm-cs h1{font-size:2rem !important;font-weight:800 !important;color:var(--ink) !important;margin-bottom:10px !important}#adm-cs h1 span{color:var(--gold) !important}
+#adm-cs .in{max-width:740px !important;margin:0 auto !important;font-size:.98rem !important;color:var(--muted) !important}
+#adm-cs .g{display:grid !important;gap:16px !important;margin-bottom:10px !important}#adm-cs .g4{grid-template-columns:repeat(auto-fit,minmax(190px,1fr)) !important}#adm-cs .g3{grid-template-columns:repeat(auto-fit,minmax(250px,1fr)) !important}#adm-cs .g2{grid-template-columns:repeat(auto-fit,minmax(300px,1fr)) !important}
+#adm-cs .fa{background:#fff !important;border:1px solid var(--line) !important;border-radius:10px !important;padding:13px 16px !important}#adm-cs .fa small{display:block !important;font-size:.72rem !important;font-weight:700 !important;letter-spacing:.06em !important;text-transform:uppercase !important;color:var(--muted) !important}#adm-cs .fa b{display:block !important;font-size:.95rem !important;color:var(--ink) !important;margin-top:3px !important}
+#adm-cs .kp{background:#fff !important;border:1px solid var(--line) !important;border-top:3px solid var(--green) !important;border-radius:10px !important;padding:22px 14px !important;text-align:center !important}#adm-cs .kp b{display:block !important;font-size:2rem !important;font-weight:800 !important;color:var(--green) !important}#adm-cs .kp span{display:block !important;font-size:.84rem !important;color:var(--muted) !important;margin-top:4px !important}
+#adm-cs .st{text-align:center !important;font-size:1.5rem !important;font-weight:800 !important;color:var(--gold) !important;margin:42px 0 8px !important}#adm-cs .st::after{content:'' !important;display:block !important;width:40px !important;height:3px !important;background:var(--gold) !important;border-radius:2px !important;margin:8px auto 0 !important}#adm-cs .ss{text-align:center !important;font-size:.92rem !important;color:var(--muted) !important;max-width:700px !important;margin:0 auto 22px !important}
+#adm-cs .cd{background:#fff !important;border:1px solid var(--line) !important;border-top:3px solid var(--gold) !important;border-radius:var(--r) !important;padding:24px !important;margin-bottom:18px !important}#adm-cs .cd h3{font-size:1.1rem !important;font-weight:700 !important;color:var(--ink) !important;margin-bottom:4px !important}#adm-cs .cd h3 i{color:var(--gold) !important;margin-right:8px !important}#adm-cs .sb{font-size:.85rem !important;font-weight:600 !important;color:#92400e !important;margin-bottom:14px !important}#adm-cs .cd p{font-size:.92rem !important;color:var(--muted) !important}
+#adm-cs .ins{margin-top:14px !important;padding:12px 14px !important;background:var(--soft) !important;border-left:4px solid var(--green) !important;border-radius:8px !important;font-size:.9rem !important;color:var(--text) !important}#adm-cs .ins b{color:var(--green) !important}
+#adm-cs .fl{display:grid !important;grid-template-columns:repeat(auto-fit,minmax(190px,1fr)) !important;gap:14px !important}#adm-cs .fs{background:var(--soft) !important;border:1px solid var(--line) !important;border-top:4px solid var(--gold) !important;border-radius:10px !important;padding:16px !important}#adm-cs .fs h4{font-size:1rem !important;color:var(--ink) !important;margin-bottom:6px !important}#adm-cs .fs h4 i{color:var(--gold) !important;margin-right:8px !important}#adm-cs .fs p{font-size:.86rem !important;color:var(--muted) !important}
+#adm-cs .br{margin-bottom:12px !important}#adm-cs .br .t{display:flex !important;justify-content:space-between !important;gap:10px !important;font-size:.86rem !important;color:var(--ink) !important;margin-bottom:4px !important}#adm-cs .br .t em{font-style:normal !important;color:var(--muted) !important;text-align:right !important}#adm-cs .tk{position:relative !important;height:12px !important;background:#f1ece0 !important;border-radius:99px !important;overflow:hidden !important}#adm-cs .fi{height:100% !important;background:linear-gradient(90deg,#8a6500,var(--gold2)) !important;border-radius:99px !important}#adm-cs .fi.gr{background:linear-gradient(90deg,#1f4d2b,#4a9a5c) !important}
+#adm-cs .mk{position:absolute !important;top:-2px !important;bottom:-2px !important;width:3px !important;background:#92400e !important}
+#adm-cs .sk{display:flex !important;height:26px !important;border-radius:8px !important;overflow:hidden !important;margin:6px 0 12px !important}#adm-cs .sk div{height:100% !important}
+#adm-cs .c1{background:#8a6500 !important}#adm-cs .c2{background:#b8860b !important}#adm-cs .c3{background:#e0b84a !important}#adm-cs .c4{background:#f0d68a !important}#adm-cs .c5{background:#cbd5e1 !important}#adm-cs .c6{background:#94a3b8 !important}#adm-cs .c7{background:#4a9a5c !important}#adm-cs .c8{background:#92400e !important}
+#adm-cs .lg{display:flex !important;flex-wrap:wrap !important;gap:6px 16px !important;font-size:.82rem !important;color:var(--muted) !important}#adm-cs .lg span{display:inline-flex !important;align-items:center !important;gap:6px !important}#adm-cs .lg span::before{content:'' !important;width:11px !important;height:11px !important;border-radius:3px !important;background:var(--k) !important}#adm-cs .lg b{color:var(--ink) !important;font-weight:600 !important}
+#adm-cs .dw{display:flex !important;align-items:center !important;gap:22px !important;flex-wrap:wrap !important}#adm-cs .dn{position:relative !important;width:140px !important;height:140px !important;border-radius:50% !important;flex-shrink:0 !important}#adm-cs .dn::after{content:'' !important;position:absolute !important;inset:28px !important;background:#fff !important;border-radius:50% !important}#adm-cs .dn b{position:absolute !important;inset:0 !important;display:flex !important;align-items:center !important;justify-content:center !important;z-index:2 !important;font-size:1.05rem !important;color:var(--ink) !important}
+#adm-cs .sv{overflow-x:auto !important;-webkit-overflow-scrolling:touch !important}#adm-cs .sv svg{display:block !important;width:100% !important;min-width:520px !important;height:auto !important}
+#adm-cs .nt{font-size:.78rem !important;color:var(--muted) !important;text-align:center !important;margin-top:10px !important}
+#adm-cs .bt{display:inline-flex !important;align-items:center !important;justify-content:center !important;gap:10px !important;padding:12px 24px !important;border-radius:30px !important;text-decoration:none !important;font-weight:600 !important;font-size:.95rem !important;color:#fff !important;background:var(--gold) !important;border:1px solid var(--gold) !important}#adm-cs .bt:hover{background:#92400e !important;border-color:#92400e !important}#adm-cs .bw{background:#059669 !important;border-color:#059669 !important}#adm-cs .bo{background:#fff !important;color:#92400e !important}
+#adm-cs .ct{background:#fff !important;border:1px solid var(--line) !important;border-top:3px solid var(--gold) !important;border-radius:var(--r) !important;padding:35px 25px !important;margin-top:36px !important;text-align:center !important}#adm-cs .ct h3{font-size:1.4rem !important;color:var(--ink) !important;margin-bottom:10px !important}#adm-cs .ct p{max-width:600px !important;margin:0 auto 24px !important;font-size:.92rem !important;color:var(--muted) !important}#adm-cs .cb{display:flex !important;flex-wrap:wrap !important;justify-content:center !important;gap:14px !important}
+#adm-cs .fs .big{display:block !important;font-size:1.6rem !important;font-weight:800 !important;color:var(--green) !important;margin:2px 0 4px !important}#adm-cs .ir{display:grid !important;grid-template-columns:1fr 1fr !important;gap:14px !important;padding:12px 0 !important;border-bottom:1px dashed var(--line) !important}#adm-cs .ir:last-of-type{border-bottom:0 !important}#adm-cs .ir small{display:block !important;font-size:.7rem !important;font-weight:700 !important;letter-spacing:.06em !important;text-transform:uppercase !important;color:var(--gold) !important;margin-bottom:2px !important}#adm-cs .ir p{font-size:.9rem !important;color:var(--text) !important}
+@media(max-width:600px){#adm-cs .ir{grid-template-columns:1fr !important;gap:8px !important}#adm-cs h1{font-size:1.6rem !important}#adm-cs .cd{padding:18px !important}#adm-cs .cb{flex-direction:column !important}#adm-cs .cb .bt{width:100% !important}}</style>
+
+<div id="adm-cs">
+
+<div class="hd">
+<div class="bg">Case Study · Electronics · USA</div>
+<h1>Turning Marketplace Data into <span>Sales Growth</span> and Account Protection</h1>
+<p class="in">How listing optimization, error correction, and data analysis helped Hot Deals 4 Less grow sales, defend pricing, and catch risks to account health before they became problems.</p>
+</div>
+
+<div class="g g4">
+<div class="fa"><small>Client</small><b>Hot Deals 4 Less</b></div>
+<div class="fa"><small>Category</small><b>Electronics &amp; IT hardware</b></div>
+<div class="fa"><small>Scope</small><b>20 sales channels</b></div>
+<div class="fa"><small>Focus</small><b>Listings, sales &amp; account health</b></div>
+</div>
+
+<h2 class="st">Results at a Glance</h2>
+<div class="g g4">
+<div class="kp"><b>$2.64M</b><span>Sales tracked and analyzed</span></div>
+<div class="kp"><b>59.8%</b><span>of monitored Amazon US items hold the Buy Box or are sole seller</span></div>
+<div class="kp"><b>97.7%</b><span>of 5,852 audited listings were error-free</span></div>
+<div class="kp"><b>0.48%</b><span>order defect rate, under Amazon's 1% target</span></div>
+</div>
+
+<h2 class="st">The Data Framework</h2>
+<p class="ss">Every decision followed the same loop, from raw marketplace data to a specific action.</p>
+<div class="fl">
+<div class="fs"><h4><i class="fa-solid fa-database"></i>1. Collect</h4><p>Order feeds, pricing sheets, listing status, rank reports, and account dashboards across all channels.</p></div>
+<div class="fs"><h4><i class="fa-solid fa-eye"></i>2. Monitor</h4><p>Daily checks on listings, Buy Box position, stock, and account metrics.</p></div>
+<div class="fs"><h4><i class="fa-solid fa-magnifying-glass-chart"></i>3. Analyze</h4><p>Sales by channel and SKU, price gaps, defect types, and customer-experience health.</p></div>
+<div class="fs"><h4><i class="fa-solid fa-bolt"></i>4. Act</h4><p>Correct listings, adjust prices, reserve stock, and shift effort to what converts.</p></div>
+</div>
+
+<h2 class="st">Part 1: Listing Optimization &amp; Error Correction</h2>
+<p class="ss">Listings are where traffic turns into orders. They were created, checked, and fixed with data so that every product stayed visible, accurate, and ready to sell.</p>
+
+<div class="g g3">
+<div class="fs"><h4><i class="fa-solid fa-pen-nib"></i>Creation &amp; SEO</h4><p>New and existing listings were written with SEO-rich, customer-focused titles and descriptions, including Japanese-language content for Amazon Japan.</p></div>
+<div class="fs"><h4><i class="fa-solid fa-store"></i>Platform-Specific Tuning</h4><p>eBay detail pages were tuned for Best Match, and Newegg listings were rebuilt with clear, benefit-led bullets. Each platform's search logic was respected.</p></div>
+<div class="fs"><h4><i class="fa-solid fa-screwdriver-wrench"></i>Error Detection &amp; Correction</h4><p>Every published list was reviewed in a monitoring sheet. Errors were logged with evidence, then corrected or deleted, and the list was re-checked.</p></div>
+</div>
+
+<div class="cd">
+<h3><i class="fa-solid fa-arrow-trend-up"></i>How Listing Quality Supports Sales</h3>
+<div class="sb">Four conditions a listing must meet before it can sell, and where the data stands</div>
+<div class="fl">
+<div class="fs"><h4>1. Findable</h4><span class="big">SEO</span><p>Keyword-led titles and descriptions help shoppers find the product in marketplace search.</p></div>
+<div class="fs"><h4>2. Convincing</h4><span class="big">98.4%</span><p>of 956 Amazon listings rated Excellent for customer-experience health.</p></div>
+<div class="fs"><h4>3. Eligible</h4><span class="big">97.7%</span><p>of 5,852 audited listings were error-free, and only 1 of 169 monitored items was suppressed.</p></div>
+<div class="fs"><h4>4. Competitive</h4><span class="big">59.8%</span><p>of 169 monitored Amazon US items hold the Buy Box or are the only seller.</p></div>
+</div>
+<div class="ins"><b>Insight:</b> A listing with an error can be suppressed, rejected, or mismatched with what the customer expects, and it stops earning sales until it is fixed. Finding and correcting those errors early protects revenue and keeps the catalog working for every channel.</div>
+</div>
+
+<h2 class="st">Part 2: Growing Sales with Data</h2>
+
+<div class="cd">
+<h3><i class="fa-solid fa-chart-line"></i>Where the Sales Come From</h3>
+<div class="sb">Share of $2,644,984.58 by channel, with cumulative share</div>
+<div class="sv"><svg viewBox="0 0 600 270" role="img" aria-label="Pareto chart of sales share by channel">
+<g stroke="#e6dec5" stroke-width="1"><line x1="30" y1="220" x2="590" y2="220"/><line x1="30" y1="125" x2="590" y2="125" stroke-dasharray="4 4"/><line x1="30" y1="30" x2="590" y2="30" stroke-dasharray="4 4"/></g>
+<g fill="#64748b" font-size="10"><text x="4" y="224">0%</text><text x="4" y="129">50%</text><text x="0" y="34">100%</text></g>
+<g fill="#b8860b"><rect x="33" y="132.4" width="34" height="87.6" rx="3"/><rect x="89" y="166.9" width="34" height="53.1" rx="3"/><rect x="145" y="203.3" width="34" height="16.7" rx="3"/><rect x="201" y="210.6" width="34" height="9.4" rx="3"/><rect x="257" y="214.5" width="34" height="5.5" rx="3"/><rect x="313" y="214.6" width="34" height="5.4" rx="3"/><rect x="369" y="217.2" width="34" height="2.8" rx="3"/><rect x="425" y="217.7" width="34" height="2.3" rx="3"/><rect x="481" y="218.3" width="34" height="1.7" rx="3"/><rect x="537" y="214.5" width="34" height="5.5" rx="3"/></g>
+<polyline points="50,132.4 106,79.2 162,62.5 218,53.2 274,47.7 330,42.4 386,39.5 442,37.2 498,35.5 554,30" fill="none" stroke="#2f6b3a" stroke-width="2.5"/>
+<g fill="#2f6b3a"><circle cx="50" cy="132.4" r="4"/><circle cx="106" cy="79.2" r="4"/><circle cx="162" cy="62.5" r="4"/><circle cx="218" cy="53.2" r="4"/><circle cx="274" cy="47.7" r="4"/><circle cx="330" cy="42.4" r="4"/><circle cx="386" cy="39.5" r="4"/><circle cx="442" cy="37.2" r="4"/><circle cx="498" cy="35.5" r="4"/><circle cx="554" cy="30" r="4"/></g>
+<g fill="#0f172a" font-size="10.5" font-weight="700" text-anchor="middle"><text x="50" y="124">46.1%</text><text x="106" y="70">74.1%</text><text x="162" y="53">82.9%</text><text x="554" y="21">100%</text></g>
+<g fill="#334155" font-size="10.5" text-anchor="middle"><text x="50" y="238">Amazon US</text><text x="106" y="238">Newegg</text><text x="162" y="238">Newegg CA</text><text x="218" y="238">Amazon CA</text><text x="274" y="238">Amazon AU</text><text x="330" y="238">Amazon MX</text><text x="386" y="238">Amazon KSA</text><text x="442" y="238">Newegg B2B</text><text x="498" y="238">Amazon JP</text><text x="554" y="238">11 others</text></g>
+<g font-size="10.5" fill="#64748b"><rect x="190" y="252" width="12" height="10" rx="2" fill="#b8860b"/><text x="208" y="261">Channel share</text><line x1="300" y1="257" x2="322" y2="257" stroke="#2f6b3a" stroke-width="2.5"/><text x="328" y="261">Cumulative share</text></g></svg></div>
+<div class="ins"><b>Insight:</b> Amazon US and Newegg deliver 74.1% of sales, so Buy Box, pricing, and stock accuracy there matter most. The remaining 18 channels add reach and reduce dependence on any single marketplace.</div>
+</div>
+
+<div class="g g2">
+<div class="cd">
+<h3><i class="fa-solid fa-chart-pie"></i>Marketplace Mix</h3>
+<div class="sb">Share of $2.64M</div>
+<div class="dw"><div class="dn" style="background:conic-gradient(#b8860b 0 61.2%,#92400e 61.2% 99.2%,#cbd5e1 99.2% 100%)"><b>$2.64M</b></div>
+<div class="lg" style="flex-direction:column !important"><span style="--k:#b8860b">Amazon, 13 marketplaces <b>$1.62M · 61.2%</b></span><span style="--k:#92400e">Newegg, 3 sites <b>$1.00M · 38.0%</b></span><span style="--k:#cbd5e1">Walmart, eBay, Shopify <b>$20.5K · 0.8%</b></span></div></div>
+</div>
+<div class="cd">
+<h3><i class="fa-brands fa-amazon"></i>Buy Box &amp; Rank Position</h3>
+<div class="sb">169 monitored active items, Amazon US</div>
+<div class="sk"><div class="c1" style="width:44.97%"></div><div class="c2" style="width:14.79%"></div><div class="c3" style="width:24.85%"></div><div class="c4" style="width:4.14%"></div><div class="c5" style="width:10.65%"></div><div class="c6" style="width:.59%"></div></div>
+<div class="lg"><span style="--k:#8a6500">Buy Box <b>76</b></span><span style="--k:#b8860b">Only seller <b>25</b></span><span style="--k:#e0b84a">Rank 2 <b>42</b></span><span style="--k:#f0d68a">Rank 3 <b>7</b></span><span style="--k:#cbd5e1">Below 3 <b>18</b></span><span style="--k:#94a3b8">Suppressed <b>1</b></span></div>
+</div>
+</div>
+
+<div class="cd">
+<h3><i class="fa-solid fa-tags"></i>Pricing Intelligence per SKU</h3>
+<div class="sb">Our price vs. the lowest competitor, with rank and Buy Box status</div>
+<p>Each SKU was benchmarked against competitors, and the report flagged price-loss items, items where we owned the Buy Box, and items where we were the only seller. Where the position allowed, prices were restored to regular business pricing instead of being left discounted. 42 items sitting at rank 2 and 18 below rank 3 became the priority list for review.</p>
+<div class="ins"><b>Insight:</b> 101 of 169 items (59.8%) already held the Buy Box or had no competing seller, so effort went to the 67 items that did not.</div>
+</div>
+
+<div class="cd">
+<h3><i class="fa-solid fa-ranking-star"></i>Item-Level Impact: Top 5 SKUs by Sales</h3>
+<div class="sb">The top 20 SKUs generated $259,850.61 from 1,173 orders</div>
+<div class="br"><div class="t"><span>Crucial CT2K16G4SFD824A · memory</span><em>$42.2K · 550 orders</em></div><div class="tk"><div class="fi" style="width:100%"></div></div></div>
+<div class="br"><div class="t"><span>Crucial CT2000P3PSSD8 · SSD</span><em>$42.0K · 302 orders</em></div><div class="tk"><div class="fi" style="width:99.6%"></div></div></div>
+<div class="br"><div class="t"><span>Mushkin MKNSSDHC16TB · SSD</span><em>$18.7K · 6 orders</em></div><div class="tk"><div class="fi" style="width:44.3%"></div></div></div>
+<div class="br"><div class="t"><span>Tripp Lite SMART3000RM2UL · UPS</span><em>$17.6K · 2 orders</em></div><div class="tk"><div class="fi" style="width:41.8%"></div></div></div>
+<div class="br"><div class="t"><span>APC SMTL1000RM2UC · UPS</span><em>$16.7K · 6 orders</em></div><div class="tk"><div class="fi" style="width:39.7%"></div></div></div>
+<div class="ins"><b>Insight:</b> Two profiles drive revenue. Memory and SSD win on order volume, while UPS units earn $2.9K to $8.8K per order. Each profile needs different pricing, stock depth, and risk controls.</div>
+</div>
+
+<h2 class="st">Part 3: Reducing Account-Health Risk</h2>
+
+<div class="g g2">
+<div class="cd">
+<h3><i class="fa-solid fa-clipboard-check"></i>Listing Quality Audit</h3>
+<div class="sb">5,852 Amazon listings in the monitoring sample</div>
+<div class="dw"><div class="dn" style="background:conic-gradient(#2f6b3a 0 97.7%,#e0b84a 97.7% 99.6%,#92400e 99.6% 100%)"><b>97.7%</b></div>
+<div class="lg" style="flex-direction:column !important"><span style="--k:#2f6b3a">Error-free <b>5,716</b></span><span style="--k:#e0b84a">Error detected <b>113 · 1.9%</b></span><span style="--k:#92400e">Major error <b>23 · 0.4%</b></span></div></div>
+</div>
+<div class="cd">
+<h3><i class="fa-solid fa-face-smile"></i>Customer-Experience Health</h3>
+<div class="sb">956 Amazon listings</div>
+<div class="sk"><div class="c7" style="width:98.43%"></div><div class="c4" style="width:.1%"></div><div class="c8" style="width:1.47%"></div></div>
+<div class="lg"><span style="--k:#4a9a5c">Excellent <b>941 · 98.4%</b></span><span style="--k:#f0d68a">Fair <b>1</b></span><span style="--k:#92400e">Very poor <b>14</b></span></div>
+<p style="margin-top:12px !important">The report surfaces the 14 very-poor listings so they can be reviewed first.</p>
+</div>
+</div>
+
+<div class="cd">
+<h3><i class="fa-solid fa-heart-pulse"></i>Account Health vs. Amazon Targets</h3>
+<div class="sb">Amazon US · bar shows how much of each limit is used</div>
+<div class="br"><div class="t"><span>Order defect rate · target under 1%</span><em>0.48% · 48% of limit</em></div><div class="tk"><div class="fi gr" style="width:48%"></div></div></div>
+<div class="br"><div class="t"><span>Late shipment rate · target under 4%</span><em>0.08% · 2% of limit</em></div><div class="tk"><div class="fi gr" style="width:2%"></div></div></div>
+<div class="br"><div class="t"><span>Cancellation rate · target under 2.5%</span><em>0.00% · 0% of limit</em></div><div class="tk"><div class="fi gr" style="width:0.5%"></div></div></div>
+<div class="br"><div class="t"><span>Valid tracking rate · target over 95%</span><em>99.58%</em></div><div class="tk"><div class="fi gr" style="width:99.58%"></div><div class="mk" style="left:95%"></div></div></div>
+<div class="ins"><b>Insight:</b> The 0.48% defect rate is driven mainly by A-to-z claims (0.43%, 9 orders), with negative feedback at 0.05% and no chargebacks. That points to fulfillment and expectation issues as the area to watch. No new policy issues were detected.</div>
+</div>
+
+<div class="cd">
+<h3><i class="fa-solid fa-shield-halved"></i>Controls That Prevent Problems</h3>
+<div class="sb">Where data was used to stop risk early</div>
+<p><b style="color:#0f172a">Price validation.</b> Selling prices were checked against supplier source prices and margin targets, so price errors were flagged before they turned into losses or cancellations.</p>
+<p style="margin-top:10px !important"><b style="color:#0f172a">Order and cost monitoring.</b> Order feeds recorded each order's source, reservation, cost changes, and out-of-stock or limited-quantity notes before fulfillment.</p>
+<p style="margin-top:10px !important"><b style="color:#0f172a">Overselling prevention.</b> For a fast-selling UPS model, 88 units were reserved across four purchase orders and quantity was switched off on every platform while payment confirmation was pending. Management then set the rule: order against confirmed sales, keep a reserve of 10, and use a restock alert.</p>
+<div class="ins"><b>Insight:</b> Overselling is a direct threat to cancellation rate and seller rating. Reserving stock first and publishing quantity second keeps growth and account health aligned.</div>
+</div>
+
+<h2 class="st">From Insights to Store Growth</h2>
+<p class="ss">Each finding in the data led to a specific action that helped the store perform better and scale with more control.</p>
+<div class="cd">
+<div class="ir"><div><small>Data showed</small><p>74.1% of sales come from Amazon US and Newegg.</p></div><div><small>We did</small><p>Prioritized listing quality, stock accuracy, and pricing on those two channels first.</p></div></div>
+<div class="ir"><div><small>Data showed</small><p>136 of 5,852 audited listings had errors, including 23 major ones.</p></div><div><small>We did</small><p>Corrected or removed them and kept monitoring so new errors were caught early.</p></div></div>
+<div class="ir"><div><small>Data showed</small><p>42 items at rank 2 and 18 below rank 3 on Amazon US.</p></div><div><small>We did</small><p>Reviewed price gaps and listing content on those items to win back the Buy Box.</p></div></div>
+<div class="ir"><div><small>Data showed</small><p>Memory and SSD sell on volume, while UPS units sell on ticket size.</p></div><div><small>We did</small><p>Set separate stock, pricing, and reserve rules for each profile.</p></div></div>
+<div class="ir"><div><small>Data showed</small><p>A-to-z claims made up 0.43% of the 0.48% defect rate.</p></div><div><small>We did</small><p>Marked listing accuracy and delivery expectations as the next review area.</p></div></div>
+<div class="ir"><div><small>Data showed</small><p>A fast-selling UPS model outran confirmed supply.</p></div><div><small>We did</small><p>Reserved 88 units, switched off quantity, then ordered against confirmed sales.</p></div></div>
+</div>
+
+<h2 class="st">Key Takeaways</h2>
+<div class="g g3">
+<div class="fs"><h4>Fix listings before scaling</h4><p>Accurate, searchable, error-free listings are the base that every sale depends on.</p></div>
+<div class="fs"><h4>Know where sales concentrate</h4><p>Two channels drive 74.1% of revenue, so they get the tightest controls.</p></div>
+<div class="fs"><h4>Measure health continuously</h4><p>Defect, shipping, and listing metrics are reviewed against targets, not after a warning.</p></div>
+</div>
+<p class="nt">Figures come from the client's internal sales, pricing, and account reports for the periods covered. They show the scale of the work and do not guarantee future results.</p>
+
+<div class="ct">
+<div class="bg">Let's Connect</div>
+<h3>Want Your Marketplace Data Working for You?</h3>
+<p>Tell us about your catalog, platforms, and goals, and we will reply within 48 hours with a clear next step.</p>
+<div class="cb">
+<a class="bt" href="https://admovera.blogspot.com/p/contact-us_01375087148.html"><i class="fa-solid fa-envelope"></i> Contact Us</a>
+<a class="bt bw" href="https://wa.me/201066551707" rel="noopener" target="_blank"><i class="fa-brands fa-whatsapp"></i> Chat on WhatsApp</a>
+<a class="bt bo" href="#services">View Services</a>
+</div>
+</div>
+
+</div></template>
+<template id="tpl-case-justsalma"><style>#adm-cs{--gold:#b8860b;--gold2:#d4a72c;--green:#2f6b3a;--ink:#0f172a;--text:#334155;--muted:#64748b;--cream:#fdfbf7;--soft:#faf8f2;--line:#e6dec5;--r:12px;color:var(--text) !important;font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif !important;max-width:920px !important;margin:10px auto 25px !important;display:block !important;direction:ltr !important;text-align:left !important}
+#adm-cs *{box-sizing:border-box !important;margin:0;padding:0}#adm-cs *:not(i){font-family:inherit !important}
+#adm-cs i.fa-solid,#adm-cs i.fa-solid::before{font-family:"Font Awesome 6 Free" !important;font-weight:900 !important;font-style:normal !important}#adm-cs i.fa-brands,#adm-cs i.fa-brands::before{font-family:"Font Awesome 6 Brands" !important;font-weight:400 !important;font-style:normal !important}
+#adm-cs h1,#adm-cs h2,#adm-cs h3,#adm-cs h4{line-height:1.3 !important;background:none !important}#adm-cs p{line-height:1.65 !important}
+#adm-cs .hd{background:var(--cream) !important;border:1px solid var(--line) !important;border-left:5px solid var(--gold) !important;border-radius:var(--r) !important;padding:36px 26px !important;margin-bottom:20px !important;text-align:center !important}
+#adm-cs .bg{display:inline-block !important;background:#fef3c7 !important;color:#92400e !important;border:1px solid #fde68a !important;border-radius:50px !important;padding:6px 18px !important;margin-bottom:14px !important;font-size:.85rem !important;font-weight:700 !important}
+#adm-cs h1{font-size:2rem !important;font-weight:800 !important;color:var(--ink) !important;margin-bottom:10px !important}#adm-cs h1 span{color:var(--gold) !important}
+#adm-cs .in{max-width:740px !important;margin:0 auto !important;font-size:.98rem !important;color:var(--muted) !important}
+#adm-cs .g{display:grid !important;gap:16px !important;margin-bottom:10px !important}#adm-cs .g4{grid-template-columns:repeat(auto-fit,minmax(190px,1fr)) !important}#adm-cs .g3{grid-template-columns:repeat(auto-fit,minmax(250px,1fr)) !important}#adm-cs .g2{grid-template-columns:repeat(auto-fit,minmax(300px,1fr)) !important}
+#adm-cs .fa{background:#fff !important;border:1px solid var(--line) !important;border-radius:10px !important;padding:13px 16px !important}#adm-cs .fa small{display:block !important;font-size:.72rem !important;font-weight:700 !important;letter-spacing:.06em !important;text-transform:uppercase !important;color:var(--muted) !important}#adm-cs .fa b{display:block !important;font-size:.95rem !important;color:var(--ink) !important;margin-top:3px !important}
+#adm-cs .kp{background:#fff !important;border:1px solid var(--line) !important;border-top:3px solid var(--green) !important;border-radius:10px !important;padding:22px 14px !important;text-align:center !important}#adm-cs .kp b{display:block !important;font-size:2rem !important;font-weight:800 !important;color:var(--green) !important}#adm-cs .kp span{display:block !important;font-size:.84rem !important;color:var(--muted) !important;margin-top:4px !important}
+#adm-cs .st{text-align:center !important;font-size:1.5rem !important;font-weight:800 !important;color:var(--gold) !important;margin:42px 0 8px !important}#adm-cs .st::after{content:'' !important;display:block !important;width:40px !important;height:3px !important;background:var(--gold) !important;border-radius:2px !important;margin:8px auto 0 !important}#adm-cs .ss{text-align:center !important;font-size:.92rem !important;color:var(--muted) !important;max-width:700px !important;margin:0 auto 22px !important}
+#adm-cs .cd{background:#fff !important;border:1px solid var(--line) !important;border-top:3px solid var(--gold) !important;border-radius:var(--r) !important;padding:24px !important;margin-bottom:18px !important}#adm-cs .cd h3{font-size:1.1rem !important;font-weight:700 !important;color:var(--ink) !important;margin-bottom:4px !important}#adm-cs .cd h3 i{color:var(--gold) !important;margin-right:8px !important}#adm-cs .sb{font-size:.85rem !important;font-weight:600 !important;color:#92400e !important;margin-bottom:14px !important}#adm-cs .cd p{font-size:.92rem !important;color:var(--muted) !important}
+#adm-cs .ins{margin-top:14px !important;padding:12px 14px !important;background:var(--soft) !important;border-left:4px solid var(--green) !important;border-radius:8px !important;font-size:.9rem !important;color:var(--text) !important}#adm-cs .ins b{color:var(--green) !important}
+#adm-cs .fl{display:grid !important;grid-template-columns:repeat(auto-fit,minmax(190px,1fr)) !important;gap:14px !important}#adm-cs .fs{background:var(--soft) !important;border:1px solid var(--line) !important;border-top:4px solid var(--gold) !important;border-radius:10px !important;padding:16px !important}#adm-cs .fs h4{font-size:1rem !important;color:var(--ink) !important;margin-bottom:6px !important}#adm-cs .fs h4 i{color:var(--gold) !important;margin-right:8px !important}#adm-cs .fs p{font-size:.86rem !important;color:var(--muted) !important}
+#adm-cs .br{margin-bottom:12px !important}#adm-cs .br .t{display:flex !important;justify-content:space-between !important;gap:10px !important;font-size:.86rem !important;color:var(--ink) !important;margin-bottom:4px !important}#adm-cs .br .t em{font-style:normal !important;color:var(--muted) !important;text-align:right !important}#adm-cs .tk{position:relative !important;height:12px !important;background:#f1ece0 !important;border-radius:99px !important;overflow:hidden !important}#adm-cs .fi{height:100% !important;background:linear-gradient(90deg,#8a6500,var(--gold2)) !important;border-radius:99px !important}#adm-cs .fi.gr{background:linear-gradient(90deg,#1f4d2b,#4a9a5c) !important}
+#adm-cs .mk{position:absolute !important;top:-2px !important;bottom:-2px !important;width:3px !important;background:#92400e !important}
+#adm-cs .sk{display:flex !important;height:26px !important;border-radius:8px !important;overflow:hidden !important;margin:6px 0 12px !important}#adm-cs .sk div{height:100% !important}
+#adm-cs .c1{background:#8a6500 !important}#adm-cs .c2{background:#b8860b !important}#adm-cs .c3{background:#e0b84a !important}#adm-cs .c4{background:#f0d68a !important}#adm-cs .c5{background:#cbd5e1 !important}#adm-cs .c6{background:#94a3b8 !important}#adm-cs .c7{background:#4a9a5c !important}#adm-cs .c8{background:#92400e !important}
+#adm-cs .lg{display:flex !important;flex-wrap:wrap !important;gap:6px 16px !important;font-size:.82rem !important;color:var(--muted) !important}#adm-cs .lg span{display:inline-flex !important;align-items:center !important;gap:6px !important}#adm-cs .lg span::before{content:'' !important;width:11px !important;height:11px !important;border-radius:3px !important;background:var(--k) !important}#adm-cs .lg b{color:var(--ink) !important;font-weight:600 !important}
+#adm-cs .dw{display:flex !important;align-items:center !important;gap:22px !important;flex-wrap:wrap !important}#adm-cs .dn{position:relative !important;width:140px !important;height:140px !important;border-radius:50% !important;flex-shrink:0 !important}#adm-cs .dn::after{content:'' !important;position:absolute !important;inset:28px !important;background:#fff !important;border-radius:50% !important}#adm-cs .dn b{position:absolute !important;inset:0 !important;display:flex !important;align-items:center !important;justify-content:center !important;z-index:2 !important;font-size:1.05rem !important;color:var(--ink) !important}
+#adm-cs .sv{overflow-x:auto !important;-webkit-overflow-scrolling:touch !important}#adm-cs .sv svg{display:block !important;width:100% !important;min-width:520px !important;height:auto !important}
+#adm-cs .nt{font-size:.78rem !important;color:var(--muted) !important;text-align:center !important;margin-top:10px !important}
+#adm-cs .bt{display:inline-flex !important;align-items:center !important;justify-content:center !important;gap:10px !important;padding:12px 24px !important;border-radius:30px !important;text-decoration:none !important;font-weight:600 !important;font-size:.95rem !important;color:#fff !important;background:var(--gold) !important;border:1px solid var(--gold) !important}#adm-cs .bt:hover{background:#92400e !important;border-color:#92400e !important}#adm-cs .bw{background:#059669 !important;border-color:#059669 !important}#adm-cs .bo{background:#fff !important;color:#92400e !important}
+#adm-cs .ct{background:#fff !important;border:1px solid var(--line) !important;border-top:3px solid var(--gold) !important;border-radius:var(--r) !important;padding:35px 25px !important;margin-top:36px !important;text-align:center !important}#adm-cs .ct h3{font-size:1.4rem !important;color:var(--ink) !important;margin-bottom:10px !important}#adm-cs .ct p{max-width:600px !important;margin:0 auto 24px !important;font-size:.92rem !important;color:var(--muted) !important}#adm-cs .cb{display:flex !important;flex-wrap:wrap !important;justify-content:center !important;gap:14px !important}
+#adm-cs .fs .big{display:block !important;font-size:1.6rem !important;font-weight:800 !important;color:var(--green) !important;margin:2px 0 4px !important}#adm-cs .ir{display:grid !important;grid-template-columns:1fr 1fr !important;gap:14px !important;padding:12px 0 !important;border-bottom:1px dashed var(--line) !important}#adm-cs .ir:last-of-type{border-bottom:0 !important}#adm-cs .ir small{display:block !important;font-size:.7rem !important;font-weight:700 !important;letter-spacing:.06em !important;text-transform:uppercase !important;color:var(--gold) !important;margin-bottom:2px !important}#adm-cs .ir p{font-size:.9rem !important;color:var(--text) !important}
+@media(max-width:600px){#adm-cs .ir{grid-template-columns:1fr !important;gap:8px !important}#adm-cs h1{font-size:1.6rem !important}#adm-cs .cd{padding:18px !important}#adm-cs .cb{flex-direction:column !important}#adm-cs .cb .bt{width:100% !important}}#adm-cs .sc{display:flex !important;justify-content:space-between !important;font-size:.72rem !important;color:var(--muted) !important;margin-top:5px !important}#adm-cs .ck{display:flex !important;flex-wrap:wrap !important;gap:8px !important}#adm-cs .ck span{background:#eef6f0 !important;border:1px solid #cfe3d4 !important;color:#1f4d2b !important;border-radius:99px !important;padding:5px 12px !important;font-size:.8rem !important;font-weight:600 !important}#adm-cs .ck span::before{content:"\2713  " !important}
+#adm-cs .tli{position:relative !important;padding:0 0 18px 26px !important;border-left:2px solid var(--line) !important;margin-left:8px !important}#adm-cs .tli:last-child{padding-bottom:0 !important}#adm-cs .tli::before{content:'' !important;position:absolute !important;left:-7px !important;top:3px !important;width:12px !important;height:12px !important;border-radius:50% !important;background:var(--gold) !important}#adm-cs .tli span{display:block !important;font-size:.75rem !important;font-weight:700 !important;color:#92400e !important}#adm-cs .tli b{display:block !important;color:var(--ink) !important;font-size:.93rem !important}#adm-cs .tli p{font-size:.86rem !important;color:var(--muted) !important}
+#adm-cs .gt{display:flex !important;align-items:center !important;gap:14px !important;background:var(--soft) !important;border:1px solid var(--line) !important;border-left:4px solid var(--gold) !important;border-radius:10px !important;padding:14px 16px !important;margin-top:14px !important}#adm-cs .gt i{font-size:1.6rem !important;color:var(--gold) !important}#adm-cs .gt b{display:block !important;color:var(--ink) !important;font-size:.95rem !important}#adm-cs .gt span{font-size:.82rem !important;color:var(--muted) !important}#adm-cs .shot img{display:block !important;width:100% !important;height:auto !important;border:1px solid var(--line) !important;border-radius:10px !important;margin-top:14px !important}
+</style>
+
+<div id="adm-cs">
+
+<div class="hd">
+<div class="bg">Case Study · Accessories &amp; Adornments · Egypt</div>
+<h1>From Zero to <span>Organic Sales</span>: Building the JustSalma Store on Amazon Egypt</h1>
+<p class="in">How a brand-new private-label store reached EGP 286K in ordered sales with no advertising spend, a healthy account, and a clean compliance record.</p>
+</div>
+
+<div class="g g4">
+<div class="fa"><small>Client</small><b>JustSalma</b></div>
+<div class="fa"><small>Marketplace</small><b>Amazon.eg · Egypt</b></div>
+<div class="fa"><small>Category</small><b>Accessories &amp; Adornments</b></div>
+<div class="fa"><small>Role</small><b>Built from scratch · ongoing management</b></div>
+</div>
+
+<h2 class="st">Results at a Glance</h2>
+<div class="g g4">
+<div class="kp"><b>EGP 286K</b><span>Ordered product sales, 1 Feb to 5 Oct 2026</span></div>
+<div class="kp"><b>473</b><span>Units ordered across 451 order items</span></div>
+<div class="kp"><b>EGP 0</b><span>Advertising spend. Sales come from organic search</span></div>
+<div class="kp"><b>204</b><span>Account Health Rating, rated Healthy, with zero policy violations</span></div>
+</div>
+
+<h2 class="st">The Starting Point</h2>
+<div class="cd">
+<p>JustSalma began with no brand history on Amazon, no listings, and no sales. Its seller page simply read &ldquo;Just launched, no feedback yet.&rdquo; The client also asked for growth without paid advertising, so every sale had to come from listings that rank on their own. That meant the store had to be built right the first time: approved brand, clean catalog, compliant listings, and a healthy account from day one.</p>
+</div>
+
+<h2 class="st">What We Built</h2>
+<div class="g g3">
+<div class="fs"><h4><i class="fa-solid fa-store"></i>Store &amp; Private-Label Brand</h4><p>Set up the seller account and registered JustSalma as a private-label brand in Amazon's system.</p></div>
+<div class="fs"><h4><i class="fa-solid fa-pen-nib"></i>Search-Ready Listings</h4><p>Created listings that follow Amazon's current search and content guidelines, from titles to images to delivery options.</p></div>
+<div class="fs"><h4><i class="fa-solid fa-file-circle-check"></i>Compliance &amp; Approvals</h4><p>Resolved approval and listing-creation errors, secured the GTIN exemption, and got a reviewed listing cleared to stay live.</p></div>
+<div class="fs"><h4><i class="fa-solid fa-rotate-left"></i>Lost &amp; Returned Inventory</h4><p>Filed SAFE-T claims for goods not returned in original condition and won the reimbursements.</p></div>
+<div class="fs"><h4><i class="fa-solid fa-heart-pulse"></i>Account Health</h4><p>Monitored every defect, delivery, and policy metric to keep the account free of violations.</p></div>
+<div class="fs"><h4><i class="fa-solid fa-comments"></i>Customer Care</h4><p>Answered buyer questions quickly and backed each reply with tracking evidence.</p></div>
+<div class="fs"><h4><i class="fa-solid fa-images"></i>A+ Content &amp; Brand Story</h4><p>Designed branded A+ pages that tell the JustSalma story and showcase the collection.</p></div>
+<div class="fs"><h4><i class="fa-solid fa-tags"></i>Price &amp; Order Management</h4><p>Tracked prices, fees, payments, and returns on every order to protect margin and cash flow.</p></div>
+</div>
+
+<h2 class="st">The Numbers</h2>
+
+<div class="cd">
+<h3><i class="fa-solid fa-seedling"></i>From Zero to EGP 286K</h3>
+<div class="sb">Ordered product sales for the same date range, one year apart</div>
+<div class="br"><div class="t"><span>1 Feb to 5 Oct 2025 (before launch)</span><em>EGP 0 · 0 units</em></div><div class="tk"><div class="fi" style="width:.5%"></div></div></div>
+<div class="br"><div class="t"><span>1 Feb to 5 Oct 2026</span><em>EGP 286,439.47 · 473 units</em></div><div class="tk"><div class="fi gr" style="width:100%"></div></div></div>
+<div class="g g4" style="margin-top:16px !important">
+<div class="kp"><b>451</b><span>Total order items</span></div>
+<div class="kp"><b>EGP 635</b><span>Average sales per order item</span></div>
+<div class="kp"><b>12,217</b><span>Sessions in the conversion report</span></div>
+<div class="kp"><b>~3.7%</b><span>Order items per session (451 ÷ 12,217, approx.)</span></div>
+</div>
+<div class="ins"><b>Insight:</b> Sales arrived steadily across the period from organic traffic alone. A single order item averages one unit (1.05), so growth came from more buyers, not larger baskets.</div>
+</div>
+
+<div class="cd">
+<h3><i class="fa-solid fa-magnifying-glass"></i>Organic Search Presence</h3>
+<div class="sb">Listings ranking on their own, with no paid placement</div>
+<div class="sk"><div class="c2" style="width:80%"></div><div class="c5" style="width:20%"></div></div>
+<div class="lg"><span style="--k:#b8860b">JustSalma listings <b>4 of 5 visible results</b></span><span style="--k:#cbd5e1">Other seller <b>1 of 5</b></span></div>
+<p style="margin-top:12px !important">In the captured Arabic search results for a copper bracelet-and-ring set, four of the five visible organic results were JustSalma listings, and the featured listing holds the #1 Best Seller badge in Novelty Bracelets.</p>
+<p style="margin-top:12px !important"><a class="bt bo" href="https://www.amazon.eg/dp/B0GKX4ZVSZ" rel="noopener" target="_blank"><i class="fa-brands fa-amazon"></i> View the Live Listing</a></p>
+<div class="ins"><b>Insight:</b> The listing was built around how buyers search: a keyword-rich title covering product type, material, and features, a full seven-image gallery, a competitive price with promotion eligibility, and delivery and trust options such as free delivery, cash on delivery, and 30-day returns.</div>
+</div>
+
+<h2 class="st">Content, Reach &amp; Pricing</h2>
+
+<div class="cd">
+<h3><i class="fa-solid fa-images"></i>A+ Content &amp; Brand Story</h3>
+<div class="sb">Enhanced content on the product detail page</div>
+<p>We designed A+ Content that opens with the JustSalma brand header and a short brand story, then presents the collection in a four-module row, each pairing a lifestyle photo with a benefit-led description for both men and women.</p>
+<div class="g g4" style="margin-top:14px !important">
+<div class="fs"><h4>Engraved Copper Rings</h4><p>Lightweight, durable, and gift-ready.</p></div>
+<div class="fs"><h4>Copper Flower Set</h4><p>Brass bracelet and ring with a luxury stone.</p></div>
+<div class="fs"><h4>Bracelet &amp; Ring Set</h4><p>Free-size ensemble for any occasion.</p></div>
+<div class="fs"><h4>Pharaonic Falcon Necklace</h4><p>Handcrafted piece that carries Egyptian heritage.</p></div>
+</div>
+<!-- Optional: upload the A+ image to Blogger, then uncomment and paste its URL
+<div class="shot"><img onerror="this.style.display='none'" src="PASTE-APLUS-IMAGE-URL" alt="JustSalma A+ Content: brand story and copper jewellery collection" loading="lazy"></div> -->
+<div class="ins"><b>Insight:</b> A+ Content turns a standard listing into a branded page, shows the full range in one place, and encourages shoppers to cross-browse the store.</div>
+</div>
+
+<div class="cd">
+<h3><i class="fa-brands fa-google"></i>Amazon Promotes the Listing on Google</h3>
+<div class="sb">Sponsored products on Google Shopping</div>
+<p>For the Arabic search &ldquo;copper bracelet&rdquo;, Amazon features the JustSalma Pharaonic Egyptian copper bracelet in its own Google Shopping &ldquo;Sponsored products&rdquo; row, next to listings from Temu and Jumia.</p>
+<div class="gt"><i class="fa-brands fa-amazon"></i><div><b>JustSalma Copper Bracelet Pharaonic Egyptian Adjustable</b><span>EGP 349.99 · Amazon.eg · Google Shopping, Sponsored products</span></div></div>
+<div class="ins"><b>Insight:</b> A complete, well-optimized listing qualifies for off-Amazon exposure. Google shoppers reach the product page directly, adding a traffic source on top of organic Amazon search without ad spend from the store.</div>
+</div>
+
+<div class="cd">
+<h3><i class="fa-solid fa-scale-balanced"></i>Price Management: What Each Price Point Keeps</h3>
+<div class="sb">Share of the sale price left after Amazon referral and shipping fees, before product cost</div>
+<div class="br"><div class="t"><span>EGP 299.99</span><em>60.7% kept · fees 39.3%</em></div><div class="tk"><div class="fi gr" style="width:60.7%"></div></div></div>
+<div class="br"><div class="t"><span>EGP 399.99</span><em>63.4% kept · fees 36.6%</em></div><div class="tk"><div class="fi gr" style="width:63.4%"></div></div></div>
+<div class="br"><div class="t"><span>EGP 599.99</span><em>68.4% kept · fees 31.6%</em></div><div class="tk"><div class="fi gr" style="width:68.4%"></div></div></div>
+<div class="br"><div class="t"><span>EGP 699.99</span><em>69.8% kept · fees 30.2%</em></div><div class="tk"><div class="fi gr" style="width:69.8%"></div></div></div>
+<div class="ins"><b>Insight:</b> A fixed shipping fee of about EGP 53 to 60 per order weighs more on lower prices. That is why price points and two-piece bundles (EGP 1,199.98) were reviewed against fees, so margin stays visible on every order.</div>
+</div>
+
+<div class="g g2">
+<div class="cd">
+<h3><i class="fa-solid fa-credit-card"></i>Payment Mix</h3>
+<div class="sb">22 orders, 6 to 23 Feb 2026</div>
+<div class="dw"><div class="dn" style="background:conic-gradient(#b8860b 0 54.5%,#92400e 54.5% 100%)"><b>22</b></div>
+<div class="lg" style="flex-direction:column !important"><span style="--k:#b8860b">Card (Visa) <b>12 · 54.5%</b></span><span style="--k:#92400e">Cash on delivery <b>10 · 45.5%</b></span></div></div>
+<p style="margin-top:12px !important">Cash-on-delivery orders carry a EGP 12 fee added to the order total, tracked separately on each order.</p>
+</div>
+<div class="cd">
+<h3><i class="fa-solid fa-clipboard-list"></i>Order Status Tracking</h3>
+<div class="sb">Same sample of 22 orders</div>
+<div class="sk"><div class="c7" style="width:77.3%"></div><div class="c8" style="width:22.7%"></div></div>
+<div class="lg"><span style="--k:#4a9a5c">Delivered and paid <b>17 · 77.3%</b></span><span style="--k:#92400e">Returned or refunded <b>5 · 22.7%</b></span></div>
+<p style="margin-top:12px !important">Returns and refunds are logged with return date, refund date, and notes.</p>
+</div>
+</div>
+<div class="ins" style="margin-bottom:18px !important"><b>Order management:</b> Each order records its price, fees, payment method, status, delivery or return date, and refund date. That keeps payouts reconcilable and surfaces returns early, so claims can be filed for goods that come back unsellable, as in the two SAFE-T reimbursements below.</div>
+
+<h2 class="st">Account Health &amp; Recovery</h2>
+
+<div class="g g2">
+<div class="cd">
+<h3><i class="fa-solid fa-shield-halved"></i>Account Health Rating</h3>
+<div class="sb">204 on a 0 to 1,000 scale · Healthy</div>
+<div class="tk" style="height:16px !important"><div class="fi gr" style="width:20.4%"></div><div class="mk" style="left:10%"></div><div class="mk" style="left:20%"></div></div>
+<div class="sc"><span>0</span><span>100</span><span>200</span><span>1000</span></div>
+<p style="margin-top:12px !important">All 10 policy-violation categories show zero, including intellectual property, product authenticity, product condition, listing policy, and regulatory compliance.</p>
+</div>
+<div class="cd">
+<h3><i class="fa-solid fa-circle-check"></i>Policy Categories at Zero</h3>
+<div class="sb">10 of 10 categories clear</div>
+<div class="ck"><span>IP violations</span><span>IP complaints</span><span>Authenticity</span><span>Product condition</span><span>Food &amp; safety</span><span>Listing policy</span><span>Restricted products</span><span>Review policy</span><span>Other policy</span><span>Regulatory</span></div>
+</div>
+</div>
+
+<div class="cd">
+<h3><i class="fa-solid fa-heart-pulse"></i>Performance Against Amazon Targets</h3>
+<div class="sb">Bars show how much of each limit is used</div>
+<div class="br"><div class="t"><span>Order defect rate · target under 1%</span><em>0% · 0 of 105 orders</em></div><div class="tk"><div class="fi gr" style="width:.5%"></div></div></div>
+<div class="br"><div class="t"><span>Late dispatch rate · target under 4%</span><em>0% · 0 of 45 orders</em></div><div class="tk"><div class="fi gr" style="width:.5%"></div></div></div>
+<div class="br"><div class="t"><span>Pre-fulfilment cancellation · target under 2.5%</span><em>0% · 0 of 10 orders</em></div><div class="tk"><div class="fi gr" style="width:.5%"></div></div></div>
+<div class="br"><div class="t"><span>Valid tracking rate · target over 95%</span><em>100% · 50 of 50 shipments</em></div><div class="tk"><div class="fi gr" style="width:100%"></div><div class="mk" style="left:95%"></div></div></div>
+<div class="ins"><b>Insight:</b> Negative feedback, A-to-z claims, and chargebacks all sit at 0%, so there is no defect driver to fix. Tracking every shipment is what keeps the valid tracking rate at 100%.</div>
+</div>
+
+<div class="cd">
+<h3><i class="fa-solid fa-coins"></i>Inventory Recovery with SAFE-T Claims</h3>
+<div class="sb">Claims for goods not received in original condition</div>
+<div class="br"><div class="t"><span>Claim 1 · copper therapy bracelet and ring</span><em>EGP 489.62 granted</em></div><div class="tk"><div class="fi gr" style="width:100%"></div></div></div>
+<div class="br"><div class="t"><span>Claim 2 · engraved bracelet and ring set</span><em>EGP 489.62 granted</em></div><div class="tk"><div class="fi gr" style="width:100%"></div></div></div>
+<div class="ins"><b>Insight:</b> Both claims were reimbursed in full, EGP 979.24 in total, and granted within about three days of filing (26 to 29 August 2026).</div>
+</div>
+
+<h2 class="st">Compliance Milestones</h2>
+<div class="g g4">
+<div class="fs"><h4>Catalogue Authorisation</h4><span class="big">30 Sep</span><p>Approved for the JustSalma category, so products can be listed.</p></div>
+<div class="fs"><h4>Brand Approval</h4><span class="big">1 Oct</span><p>JustSalma brand approved as a private label.</p></div>
+<div class="fs"><h4>Error 5461 Resolved</h4><span class="big">GTIN</span><p>New ASINs enabled for the brand and bracelet category, with a GTIN exemption added.</p></div>
+<div class="fs"><h4>Listing Review Cleared</h4><span class="big">Live</span><p>After review, Amazon confirmed the item may continue to be offered.</p></div>
+</div>
+
+<div class="cd" style="margin-top:18px !important">
+<h3><i class="fa-solid fa-timeline"></i>Operations Timeline</h3>
+<div class="sb">Dated events from the store's records</div>
+<div class="tli"><span>From 6 Feb 2026</span><b>Order feed tracking begins</b><p>Every order is logged with fees, payment method, status, and refund dates.</p></div>
+<div class="tli"><span>26 to 29 Aug 2026</span><b>Two SAFE-T claims filed and granted</b><p>EGP 979.24 reimbursed in about three days.</p></div>
+<div class="tli"><span>18 Sep 2026</span><b>Customer query answered in 1 hour 42 minutes</b><p>A delivery question was answered with tracking evidence and marked resolved the same day.</p></div>
+<div class="tli"><span>30 Sep to 1 Oct 2026</span><b>Catalogue Authorisation and brand approved</b><p>The private-label brand became fully approved on the platform.</p></div>
+<div class="tli"><span>5 Oct 2026</span><b>EGP 286,439.47 in ordered sales</b><p>The sales dashboard snapshot, with the store still in active growth.</p></div>
+</div>
+
+<h2 class="st">Key Takeaways</h2>
+<div class="g g3">
+<div class="fs"><h4>Build it right first</h4><p>Approved brand, clean catalog, and compliant listings make organic growth possible without ads.</p></div>
+<div class="fs"><h4>Protect the account</h4><p>Zero violations and 100% valid tracking keep every listing eligible to sell.</p></div>
+<div class="fs"><h4>Recover what is owed</h4><p>Well-documented SAFE-T claims turn lost or returned goods into reimbursements.</p></div>
+</div>
+<p class="nt">Figures come from the client's Amazon Seller Central reports for the periods shown. They show the scale of the work and do not guarantee future results.</p>
+
+<div class="ct">
+<div class="bg">Let's Connect</div>
+<h3>Launching a Store on Amazon?</h3>
+<p>Tell us about your brand, category, and goals, and we will reply within 48 hours with a clear next step.</p>
+<div class="cb">
+<a class="bt" href="https://admovera.blogspot.com/p/contact-us_01375087148.html"><i class="fa-solid fa-envelope"></i> Contact Us</a>
+<a class="bt bw" href="https://wa.me/201066551707" rel="noopener" target="_blank"><i class="fa-brands fa-whatsapp"></i> Chat on WhatsApp</a>
+<a class="bt bo" href="#services">View Services</a>
+</div>
+</div>
+
+</div></template>
 <script type="text/babel">
 const { useState, useEffect } = React;
 const LOGO = "https://blogger.googleusercontent.com/img/a/AVvXsEg75Hra8wqrOu6BLFNBFg42N3y-5yax_vU_5xjZQ1s2ZlbIHs39qU6RDeS2cZ4sXRpa3WP0elI5jUmVZRj2j9YnOu7EEp8T7OHiZsgjTWhVpDIJsUWk-MB5mJ8cX7yLFcb7KxZR3gpqZ18qw58m8_qArJTv5KiXFUpudV5-zAEWXz9MaQIbZ_kafWibc9s=s1184";
@@ -132,27 +605,167 @@ const IN = "M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2
 const FB = "M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H7.5v-3H10V9.5C10 7.01 11.49 5.65 13.78 5.65c1.1 0 2.25.2 2.25.2v2.47h-1.27c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.45 3h-2.33v6.8c4.56-.93 8-4.96 8-9.8z";
 const BL = "M5 3h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zm4 5v8h4.5a2.5 2.5 0 0 0 2.5-2.5V13a1 1 0 0 0-1-1h-.5V10.5A2.5 2.5 0 0 0 12 8H9z";
 
+
+const CASES=[
+ {id:'hotdeals',name:'Hot Deals 4 Less',tag:'Electronics · USA · 20 sales channels',line:'Listing optimization, pricing intelligence and account protection across 20 channels.',stats:[['$2.64M','Sales analyzed'],['97.7%','Error-free listings'],['0.48%','Order defect rate']]},
+ {id:'justsalma',name:'JustSalma',tag:'Accessories · Amazon Egypt · Built from zero',line:'A new private-label store taken to EGP 286K in organic sales with zero ad spend.',stats:[['EGP 286K','Organic sales'],['EGP 0','Ad spend'],['204','Healthy account']]}
+];
+const tpl=id=>{const e=document.getElementById(id);return e?e.innerHTML:'';};
+function Donut({parts,center,sub}){
+  let acc=0;const R=48,C=2*Math.PI*R;
+  return <div className="donut"><svg viewBox="0 0 120 120" role="img" aria-label={sub}>
+    <circle cx="60" cy="60" r={R} fill="none" stroke="#f1e9cc" strokeWidth="16"/>
+    {parts.map((p,i)=>{const d=p.v/100*C;const off=-acc/100*C;acc+=p.v;return <circle key={i} cx="60" cy="60" r={R} fill="none" stroke={p.c} strokeWidth="16" strokeDasharray={d+' '+(C-d)} strokeDashoffset={off} transform="rotate(-90 60 60)"/>;})}
+    <text x="60" y="60" textAnchor="middle" className="dv">{center}</text><text x="60" y="73" textAnchor="middle" className="ds">{sub}</text></svg>
+    <ul>{parts.map((p,i)=><li key={i}><i style={{background:p.c}}/>{p.l} <b>{p.v}%</b></li>)}</ul></div>;
+}
+function Bars({rows}){return <div className="bars">{rows.map((r,i)=><div key={i}><div className="bl"><span>{r[0]}</span><b>{r[2]}</b></div><div className="bt"><div className="bf" style={{width:r[1]+'%',background:r[3]||'var(--gold1)'}}/></div></div>)}</div>;}
+function Results({go}){
+  return <section className="pg alt"><div className="wrap">
+    <h2>Proven results from real marketplace work</h2>
+    <p className="sub">Excerpts from client case studies, shown without company names. Figures come from the clients' own sales and Seller Central reports.</p>
+    <div className="grid2">
+      <div className="card rs">
+        <span className="tag">Electronics retailer · USA · 20 sales channels</span>
+        <h3>Data-driven listings, pricing and account protection</h3>
+        <div className="kpis"><div><b>$2.64M</b><span>sales tracked and analyzed</span></div><div><b>5,852</b><span>listings audited</span></div></div>
+        <h4>Where the sales come from</h4>
+        <Donut center="$2.64M" sub="total sales" parts={[{v:61.2,c:'#b8921a',l:'Amazon (13 marketplaces)'},{v:38,c:'#7f5c00',l:'Newegg (3 sites)'},{v:0.8,c:'#d9c98d',l:'Other channels'}]}/>
+        <h4>Listing quality audit</h4>
+        <Donut center="97.7%" sub="error-free" parts={[{v:97.7,c:'#1b7a43',l:'Error-free'},{v:2.3,c:'#d9c98d',l:'Errors detected'}]}/>
+        <h4>Account health: share of Amazon limit used</h4>
+        <Bars rows={[['Order defect rate (limit 1%)',48,'0.48%','#1b7a43'],['Late shipment (limit 4%)',2,'0.08%','#1b7a43'],['Cancellation (limit 2.5%)',0,'0.00%','#1b7a43']]}/>
+        <p className="ins"><b>Insight</b> Two channels delivered 74.1% of sales, so Buy Box, pricing, and stock accuracy there matter most.</p>
+        <p className="ins"><b>Insight</b> Overselling is a direct threat to cancellation rate and seller rating. Reserving stock first and publishing quantity second keeps growth and account health aligned.</p>
+        <button className="gold" onClick={()=>go('case-hotdeals')}>Read the full case study</button>
+      </div>
+      <div className="card rs">
+        <span className="tag">Private-label accessories brand · Amazon Egypt</span>
+        <h3>From zero to organic sales with a clean account</h3>
+        <div className="kpis"><div><b>EGP 286K</b><span>ordered sales, no ads</span></div><div><b>473</b><span>units ordered</span></div><div><b>204</b><span>account health, Healthy</span></div></div>
+        <h4>Ordered sales, same period one year apart</h4>
+        <Bars rows={[['Feb to Oct 2025 (before launch)',0,'EGP 0'],['Feb to Oct 2026',100,'EGP 286K','#1b7a43']]}/>
+        <h4>Share of the sale price kept after fees</h4>
+        <Bars rows={[['EGP 299.99',60.7,'60.7%'],['EGP 399.99',63.4,'63.4%'],['EGP 599.99',68.4,'68.4%'],['EGP 699.99',69.8,'69.8%']]}/>
+        <h4>Account health</h4>
+        <Bars rows={[['Policy categories at zero',100,'10 of 10','#1b7a43'],['Valid tracking rate',100,'100%','#1b7a43'],['Order defect rate',0,'0%','#1b7a43']]}/>
+        <p className="ins"><b>Insight</b> Sales arrived steadily from organic traffic alone, so growth came from more buyers, not larger baskets.</p>
+        <p className="ins"><b>Insight</b> Two SAFE-T claims were reimbursed in full, EGP 979.24 in total, within about three days of filing.</p>
+        <button className="gold" onClick={()=>go('case-justsalma')}>Read the full case study</button>
+      </div>
+    </div>
+  </div></section>;
+}
+function CaseList({go}){
+  return <section className="pg"><div className="wrap">
+    <h2>Case studies</h2><p className="sub">Real work from real marketplace stores. Open a case to see the full data, charts and actions.</p>
+    <div className="grid">{CASES.map(c=><div key={c.id} className="card svc">
+      <div><span className="tag">{c.tag}</span><h3>{c.name}</h3><p style={{color:'var(--muted)',marginBottom:14}}>{c.line}</p>
+        <div className="kpis">{c.stats.map((t,i)=><div key={i}><b>{t[0]}</b><span>{t[1]}</span></div>)}</div></div>
+      <button className="gold" onClick={()=>go('case-'+c.id)}>Open case study</button></div>)}</div>
+  </div></section>;
+}
+function CaseView({id,go}){
+  const html=tpl('tpl-case-'+id);
+  if(!html) return <section className="pg"><div className="wrap"><button className="ghost" onClick={()=>go('case-studies')}>All case studies</button></div></section>;
+  return <section className="pg"><div className="wrap">
+    <button className="ghost" onClick={()=>go('case-studies')}>&larr; All case studies</button>
+    <div dangerouslySetInnerHTML={{__html:html}}/></div></section>;
+}
+function About({go,setBook}){
+  const ch=[['Getting Lost in the Noise','Products that do not rank in marketplace or search results stay invisible to buyers.'],['Low Conversions','Traffic reaches the store, but weak listings and offers fail to turn clicks into orders.'],['Operational Bottlenecks','Inventory mistakes, pricing errors, and scaling problems consume time and margin.'],['Keeping Up with Rules','Policy changes and account health issues can put an entire business at risk.']];
+  const fw=[['Build a Strong Foundation','From search visibility to a smooth checkout, we focus on the steps that actually drive sales.'],['Work with the Algorithms','Whether it is a search engine or a marketplace, we show you how to structure product data so your listings get surfaced organically.'],['Streamline Backend Operations','Growth needs stability. We cover inventory syncing, pricing logic, and clean catalog management.'],['Focus on Customer Retention','A repeat customer is worth more than a one-time sale. We share strategies that build long-term trust and recurring revenue.']];
+  const tp=[['Amazon Ads','how to prepare listings and structure campaigns before spending on PPC.'],['Listing optimization','titles, bullet points, backend search terms, and A+ content.'],['E-commerce strategy','planning, positioning, and avoiding costly early mistakes.'],['Operations and account health','inventory, pricing, returns, and policy compliance.']];
+  return <section className="pg"><div className="wrap" style={{maxWidth:920}}>
+    <div className="card hero2"><span className="badge">About Admovera</span><h1 style={{fontSize:'clamp(28px,4vw,40px)'}}>Practical E-Commerce Guidance for <span style={{color:'var(--goldtxt)'}}>Marketplace Sellers</span></h1>
+      <p>Admovera is a resource for online sellers and brands growing on Amazon, Noon, eBay, Walmart, Etsy, and Shopify. You will find clear, hands-on guides on listing optimization, advertising, store operations, and e-commerce strategy.</p>
+      <p><b style={{color:'var(--goldtxt)'}}>The goal is simple: help you make better decisions before you spend money on products, ads, or inventory.</b></p></div>
+    <div className="card abc"><h2>Who Is Behind Admovera</h2><div className="who">
+      <img src="https://blogger.googleusercontent.com/img/a/AVvXsEitcXnqQxh0uzEjXz27nH8sfkKdtQRqdI3kfn5hPhQ9HQ9WNlObWgQwi0r3MVvZanNVMsNgkKzeZDQeGFM1NRANBerXFR9GiX-gNS745Yo73lLWpAg8eYofz7cKXxvIoFy0sIB_7Ml119cbCIfAtvtlygvdnqnjPs8y8w2XgHLJx7vV4ZKDU7FjBryjGqE" alt="Ahmed Abdel Hameed, E-Commerce and Marketplace Consultant"/>
+      <div style={{flex:1,minWidth:240}}><h3>Ahmed Abdel Hameed</h3><p style={{color:'var(--goldtxt)',fontWeight:700,marginBottom:10}}>Independent E-Commerce &amp; Marketplace Consultant</p>
+        <p style={{color:'var(--muted)',marginBottom:10}}>I bring 20 years in sales, including 10 years of hands-on e-commerce sales management and operations. My work covers listing SEO, marketplace advertising, catalog and inventory management, and account health.</p>
+        <p style={{color:'var(--muted)',marginBottom:14}}>I started Admovera to share what I learn from real marketplace work in a clear, practical format that sellers can apply right away.</p>
+        <div className="cta"><a className="ghost" href="https://www.linkedin.com/in/admovera" target="_blank" rel="noreferrer">LinkedIn</a><a className="ghost" href="https://www.upwork.com/freelancers/~01dea80752edf481fd?mp_source=share" target="_blank" rel="noreferrer">Upwork</a><button className="ghost" onClick={()=>go('portfolio')}>Portfolio</button></div></div></div></div>
+    <div className="card abc"><h2>The Challenges of Selling Online Today</h2><p style={{color:'var(--muted)'}}>Running an online business takes far more than listing products and waiting for sales. Most sellers run into the same four problems:</p>
+      <div className="tiles">{ch.map((c,i)=><div key={i}><h4>{i+1}. {c[0]}</h4><p>{c[1]}</p></div>)}</div>
+      <p className="ins" style={{marginTop:16}}><b>Each guide on Admovera is built around one of these problems, with steps you can apply to your own store.</b></p></div>
+    <div className="card abc"><h2>What You Will Find Here</h2><div className="tiles">{tp.map((t,i)=><div key={i}><p><b>{t[0]}:</b> {t[1]}</p></div>)}</div>
+      <p style={{marginTop:14,color:'var(--muted)'}}>Start with the <a className="lnk" href="https://admovera.blogspot.com/search/label/Amazon%20Ads%20for%20%20Beginner" target="_blank" rel="noreferrer">Amazon Ads guides</a> or the <a className="lnk" href="https://admovera.blogspot.com/search/label/E-Commerce%20Strategy" target="_blank" rel="noreferrer">E-Commerce Strategy articles</a>.</p></div>
+    <div className="card abc"><h2>Mission and Vision</h2><div className="tiles"><div><h4>Our Mission</h4><p>To make e-commerce clearer for online sellers by sharing practical strategies they can use to build a sustainable business.</p></div><div><h4>Our Vision</h4><p>To become a trusted reference for sellers and brands growing across global marketplaces.</p></div></div></div>
+    <div className="card abc"><h2>Our Framework &amp; Approach</h2><div className="tiles">{fw.map((f,i)=><div key={i}><h4>{i+1}. {f[0]}</h4><p>{f[1]}</p></div>)}</div></div>
+    <div className="card abc"><h2>Editorial Transparency</h2><p style={{color:'var(--muted)',fontSize:14.5}}>Admovera content is written for educational purposes. Marketplace rules and algorithms change often, so always check the official platform documentation before making business decisions. This site may display advertising, and its use of cookies and data is explained in the <button style={{background:'none',border:0,color:'var(--link)',fontWeight:700,padding:0}} onClick={()=>go('privacy-policy')}>Privacy Policy</button>.</p></div>
+    <div className="card hero2" style={{marginTop:22}}><h2>Need Help With Your Marketplace Store?</h2><p>Explore the consulting services or review my portfolio to see how I can support your growth.</p>
+      <div className="cta" style={{justifyContent:'center',marginTop:16}}><button className="gold" onClick={()=>go('services')}>View Services</button><button className="ghost" onClick={()=>go('portfolio')}>See Portfolio</button><button className="ghost" onClick={()=>setBook(true)}>Contact Me</button></div></div>
+  </div></section>;
+}
+
+const FEAT={n:'Amr Sami',r:'Amazon Seller',p:["My journey on Amazon started with several challenges, and I faced some issues due to my limited knowledge of Amazon policies. I suffered significant financial losses, and inventory worth nearly 50,000 was held.","While searching for a solution, I had the opportunity to meet Mr. Ahmed Abdelhamid. He stood out for his professionalism, integrity, and willingness to help and provide sincere advice.","With his guidance, I was able to start over and gain a much better understanding of Amazon policies and account management. Ahmed is truly knowledgeable in all aspects of Amazon accounts and always offers continuous support and valuable advice.","Thank you, Mr. Ahmed, for your support and guidance."]};
+const TESTI=[
+ ['Justsalma','Handcrafted Jewelry Brand',"Admovera provided end-to-end catalog optimization and structured backend keyword setups. Our handcrafted jewelry listings saw immediate indexation and conversion growth."],
+ ['Senfineco','Oman & UAE Marketplaces',"Outstanding technical precision in managing automotive lubricant and spark plug listings. Fully compliant with Amazon's latest search algorithm updates."],
+ ['Hot Deals 4 Less','USA Marketplace',"Handled complex multi-channel catalog issues and flat file variation troubleshooting seamlessly on Amazon US. Highly reliable e-commerce consulting."],
+ ['Liquid Draft','KSA Marketplace',"Strategic listing copy and SEO execution tailored for the Saudi market. Admovera helped streamline our catalog lifecycle and operational metrics."],
+ ['Wafa MED','KSA Marketplace',"Professional management of medical and healthcare category attributes. Precise backend search terms and listing optimization."],
+ ['Gear 4 Less','USA Marketplace',"Excellent store management, buy-box strategies, and promotion management. Our account health and listings remain in top condition."],
+ ['Zee Store','E-commerce Retail',"Deep expertise in Amazon seller central workflows, listing cleanup, and PPC efficiency. A true growth partner for marketplace operations."],
+ ['GFM Egypt','Egypt Marketplace',"Comprehensive multi-channel e-commerce support. From listing creation to Amazon Easy Ship / FBA logistics optimization."]
+];
+const Who=({n,r})=><div className="au"><div className="av">{n[0]}</div><div><b>{n}</b><br/><span>{r}</span></div></div>;
+const TCard=({t})=><div className="card tc"><p className="tq">“{t[2]}”</p><Who n={t[0]} r={t[1]}/></div>;
+function Testimonials({go,setBook}){
+  return <section className="pg"><div className="wrap" style={{maxWidth:960}}>
+    <div className="card hero2"><span className="badge">Client Testimonials</span><h1 style={{fontSize:'clamp(28px,4vw,40px)'}}>Clients &amp; Brands <span style={{color:'var(--goldtxt)'}}>I've Worked With</span></h1>
+      <p>Trusted by marketplace sellers, automotive brands, and e-commerce stores across the GCC, the US, and Egypt.</p></div>
+    <div className="card fq" style={{marginTop:24}}><span className="badge">Featured Story</span>
+      {FEAT.p.map((x,i)=><p key={i} style={{margin:'0 0 12px',color:'var(--muted)'}}>{x}</p>)}<Who n={FEAT.n} r={FEAT.r}/></div>
+    <h2 style={{textAlign:'center',margin:'38px 0 22px'}}>What Brands Say</h2>
+    <div className="grid">{TESTI.map((t,i)=><TCard key={i} t={t}/>)}</div>
+    <div className="card hero2" style={{marginTop:38}}><h2>Want Similar Results for Your Store?</h2><p>Tell me about your store and your goals, and we can discuss the best next step.</p>
+      <div className="cta" style={{justifyContent:'center',marginTop:16}}><button className="gold" onClick={()=>setBook(true)}>Contact Me</button><button className="ghost" onClick={()=>go('services')}>View Services</button><button className="ghost" onClick={()=>go('portfolio')}>See Portfolio</button></div></div>
+  </div></section>;
+}
+function TestiHome({go}){
+  return <section className="pg"><div className="wrap">
+    <h2>What clients say</h2><p className="sub">Sellers and brands across the GCC, the US, and Egypt.</p>
+    <div className="card fq" style={{marginBottom:22}}><p style={{fontSize:19,margin:0,color:'var(--ink)'}}>“With his guidance, I was able to start over and gain a much better understanding of Amazon policies and account management.”</p><Who n={FEAT.n} r={FEAT.r}/></div>
+    <div className="grid">{[TESTI[0],TESTI[2],TESTI[5]].map((t,i)=><TCard key={i} t={t}/>)}</div>
+    <div style={{marginTop:22}}><button className="gold" onClick={()=>go('testimonials')}>Read all testimonials</button></div>
+  </div></section>;
+}
 function App(){
   const tab0 = () => { const h = window.location.hash.replace('#',''); return h === 'consultant' ? 'about-us' : (h || 'home'); };
   const [tab,setTab] = useState(tab0);
   const [book,setBook] = useState(false);
   const [menu,setMenu] = useState(false);
   const [sent,setSent] = useState(false);
+  const [busy,setBusy] = useState(false);
+  const [err,setErr] = useState(false);
+  const submit = async e => {
+    e.preventDefault(); setBusy(true); setErr(false);
+    const body = Object.fromEntries(new FormData(e.target).entries());
+    body._subject = 'Admovera inquiry: ' + body.topic; body._template = 'table'; body._captcha = 'false';
+    try {
+      const r = await fetch('https://formsubmit.co/ajax/amazon.spn@gmail.com',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(body)});
+      const j = await r.json();
+      if (r.ok && String(j.success) === 'true') setSent(true); else setErr(true);
+    } catch (x) { setErr(true); }
+    setBusy(false);
+  };
   const [price,setPrice]=useState(45),[cogs,setCogs]=useState(14),[fba,setFba]=useState(8.5),[ads,setAds]=useState(7),[units,setUnits]=useState(1200);
 
   const go = (t,id=null) => {
     window.location.hash = t; setTab(t); setMenu(false);
     if(id) setTimeout(()=>{const e=document.getElementById(id); e && e.scrollIntoView({behavior:'smooth',block:'center'});},100); else window.scrollTo(0,0);
   };
-  useEffect(()=>{ const f=()=>setTab(tab0()); window.addEventListener('hashchange',f); return()=>window.removeEventListener('hashchange',f); },[]);
+  useEffect(()=>{ const f=()=>{setTab(tab0());window.scrollTo(0,0);}; window.addEventListener('hashchange',f); return()=>window.removeEventListener('hashchange',f); },[]);
 
   const unitCost = +cogs + +fba + +ads, profit = +price - unitCost;
   const margin = price>0 ? (profit/price*100).toFixed(1) : 0;
   const roas = ads>0 ? (price/ads).toFixed(2) : '0';
   const monthly = profit * units;
 
-  const items = [['home','Home'],['services','Services'],['calculator','ROI Calculator'],['about-us','About'],['portfolio','Portfolio']];
-  const Navbtn = ([k,l]) => <button key={k} className={'gold '+(tab===k?'':'off')} onClick={()=>go(k)}>{l}</button>;
+  const items = [['home','Home'],['services','Services'],['case-studies','Case Studies'],['calculator','ROI Calculator'],['about-us','About'],['portfolio','Portfolio'],['testimonials','Testimonials']];
+  const Navbtn = ([k,l]) => <button key={k} className={'gold '+((tab===k||(k==='case-studies'&&tab.indexOf('case-')===0))?'':'off')} onClick={()=>go(k)}>{l}</button>;
 
   return (<>
   <header><div className="wrap">
@@ -167,18 +780,18 @@ function App(){
           <div className="card dd-menu">{services.map(s=><button key={s.id} onClick={()=>go('services',s.id)}>{s.short}</button>)}</div>
         </div>
         {items.slice(2).map(Navbtn)}
+        <a className="gold off" href={BLOG} target="_blank" rel="noreferrer">Blog</a>
       </nav>
       <div className="right">
         <div className="soc">
           <a href={LINKEDIN} target="_blank" rel="noreferrer" aria-label="LinkedIn"><Icon d={IN}/></a>
           <a href={FACEBOOK} target="_blank" rel="noreferrer" aria-label="Facebook"><Icon d={FB}/></a>
-          <a href={BLOG} target="_blank" rel="noreferrer" aria-label="Blog"><Icon d={BL}/></a>
         </div>
         <button className="gold" onClick={()=>setBook(true)}>Book consultation</button>
         <button className="burger" onClick={()=>setMenu(!menu)} aria-expanded={menu}>Menu</button>
       </div>
     </div>
-    {menu && <div className="mnav">{items.map(Navbtn)}</div>}
+    {menu && <div className="mnav">{items.map(Navbtn)}<a className="gold off" href={BLOG} target="_blank" rel="noreferrer">Blog</a></div>}
   </div></header>
 
   <main>
@@ -192,18 +805,21 @@ function App(){
           <button className="gold" onClick={()=>setBook(true)}>Get help with my account</button>
           <button className="ghost" onClick={()=>go('calculator')}>Free profit calculator</button>
         </div>
+        <div className="chips">{[['Compliance','compliance'],['Protection','amazon-account-management'],['Optimization','ebc-brand-store'],['Promotions','marketing-advertising'],['Operations','amazon-account-management'],['Training','training-mentorship']].map(c=><button key={c[0]} className="chip" onClick={()=>go('services',c[1])}>{c[0]}</button>)}</div>
       </div>
       <div className="card logoCard"><img src={LOGO} alt="Admovera: Guiding the way"/><p>Amazon SPN</p></div>
     </div>
     <div className="wrap facts">
       <div className="card"><b>Amazon SPN</b><span>Listed Amazon Service Provider</span></div>
-      <div className="card"><b>20 years in sales</b><span>Two decades of traditional sales expertise</span></div>
-      <div className="card"><b>10 years in e-commerce</b><span>End-to-end sales management and operations</span></div>
+      <div className="card"><b>+20 years in sales</b><span>Two decades of traditional sales expertise</span></div>
+      <div className="card"><b>+10 years in e-commerce</b><span>End-to-end sales management and operations</span></div>
     </div></section>
     <section className="pg"><div className="wrap">
       <h2>What we fix and grow</h2><p className="sub">Five services, from daily account care to advertising and brand stores.</p>
       <div className="grid">{services.slice(0,3).map(s=><div key={s.id} className="card svc"><div><span className="tag">{s.tag}</span><h3>{s.title}</h3></div><button className="ghost" onClick={()=>go('services',s.id)}>See details</button></div>)}</div>
     </div></section>
+    <Results go={go}/>
+    <TestiHome go={go}/>
   </>}
 
   {tab==='services' && <section className="pg"><div className="wrap">
@@ -237,13 +853,11 @@ function App(){
     </div>
   </div></section>}
 
-  {tab==='about-us' && <section className="pg"><div className="wrap"><div className="card box">
-    <h2>About Admovera</h2>
-    <p>Admovera is an Amazon service provider that helps brands and sellers launch, optimize, and scale on Amazon marketplaces worldwide. From daily operations to advertising and compliance, we focus on protecting your account and improving profitability.</p>
-    <h2 style={{fontSize:24,marginTop:24}}>Ahmed Abdel Hameed</h2>
-    <p>Independent e-commerce and marketplace consultant with 20 years in sales and 10 years of end-to-end e-commerce management, covering Seller Central operations, advertising performance, and compliance.</p>
-    <button className="gold" onClick={()=>setBook(true)}>Book a private consultation</button>
-  </div></div></section>}
+  {tab==='about-us' && <About go={go} setBook={setBook}/>}
+  {tab==='testimonials' && <Testimonials go={go} setBook={setBook}/>}
+
+  {tab==='case-studies' && <CaseList go={go}/>}
+  {tab.indexOf('case-')===0 && tab!=='case-studies' && <CaseView id={tab.slice(5)} go={go}/>}
 
   {tab==='portfolio' && <section className="pg"><div className="wrap"><div className="card box">
     <h2>Ahmed Abdel Hameed</h2><p className="sub" style={{marginBottom:14}}>Amazon e-commerce and marketplace consultant</p>
@@ -270,14 +884,17 @@ function App(){
   </div></footer>
 
   {book && <div className="modal" role="dialog" aria-modal="true" aria-label="Book a consultation"><div className="card">
-    <div className="mh"><h3>Book a consultation</h3><button className="x" onClick={()=>{setBook(false);setSent(false);}} aria-label="Close">&times;</button></div>
+    <div className="mh"><h3>Book a consultation</h3><button className="x" onClick={()=>{setBook(false);setSent(false);setErr(false);}} aria-label="Close">&times;</button></div>
     {sent ? <p>Thanks, your inquiry was sent. We will reply by email.</p> :
-    <form onSubmit={e=>{e.preventDefault();setSent(true);}}>
-      <label htmlFor="n">Full name</label><input id="n" required/>
-      <label htmlFor="e">Email</label><input id="e" type="email" required placeholder="name@company.com"/>
+    <form onSubmit={submit}>
+      <label htmlFor="n">Full name</label><input id="n" name="name" required/>
+      <label htmlFor="e">Email</label><input id="e" name="email" type="email" required placeholder="name@company.com"/>
       <label htmlFor="t">What do you need help with?</label>
-      <select id="t"><option>Account suspension / Plan of Action</option><option>Listing rejection</option><option>Compliance</option><option>Advertising (PPC)</option><option>Growth strategy</option></select>
-      <button className="gold" type="submit" style={{width:'100%'}}>Send inquiry</button>
+      <select id="t" name="topic"><option>Account suspension / Plan of Action</option><option>Listing rejection</option><option>Compliance</option><option>Account management</option><option>Advertising (PPC)</option><option>Growth strategy</option><option>Other</option></select>
+      <label htmlFor="m">Message</label><textarea id="m" name="message" placeholder="Tell us briefly about your case"/>
+      <input type="text" name="_honey" style={{display:'none'}} tabIndex="-1" autoComplete="off"/>
+      {err && <p className="err" role="alert">We could not send your message. Please try again or email <a className="lnk" href="mailto:amazon.spn@gmail.com">amazon.spn@gmail.com</a>.</p>}
+      <button className="gold" type="submit" disabled={busy} style={{width:'100%'}}>{busy?'Sending...':'Send inquiry'}</button>
     </form>}
   </div></div>}
   </>);
