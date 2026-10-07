@@ -191,6 +191,28 @@ img,svg{max-width:100%}
 
 .hero .wrap.facts{grid-template-columns:repeat(3,1fr);gap:14px;align-items:stretch}
 @media(max-width:860px){.hero .wrap.facts{grid-template-columns:1fr}}
+/* ===== Admovera: elegant hover lift on all boxes (gold identity) ===== */
+:root{--lift-ease:cubic-bezier(.22,.8,.26,1);--lift-glow:0 20px 40px rgba(127,92,0,.20),0 4px 10px rgba(127,92,0,.10)}
+.card:not(.calc),.chip,.tiles div,.kpis div,.hero2,.res,.soc a,
+#adm-cs .cd,#adm-cs .fs,#adm-cs .fa,#adm-cs .kp,#adm-cs .mini,#adm-cs .step,#adm-cs .gt{
+ transition:transform .34s var(--lift-ease),box-shadow .34s var(--lift-ease),border-color .25s ease,background-color .25s ease;will-change:transform}
+@media (hover:hover) and (pointer:fine){
+ .card:not(.calc):hover,.card:not(.calc):has(:focus-visible){transform:translateY(-8px);border-color:var(--gold1);box-shadow:var(--lift-glow)}
+ .facts .card:hover{transform:translateY(-5px)}
+ .logoCard:hover{transform:translateY(-6px)}
+ .chip:hover{transform:translateY(-3px);box-shadow:0 10px 18px rgba(127,92,0,.16)}
+ .tiles div:hover,.kpis div:hover,.res:hover{transform:translateY(-4px);border-color:var(--gold1);box-shadow:0 12px 24px rgba(127,92,0,.14)}
+ .hero2:hover{transform:translateY(-4px);box-shadow:var(--lift-glow)}
+ .soc a:hover{transform:translateY(-3px);border-color:var(--gold1);box-shadow:0 8px 14px rgba(127,92,0,.18)}
+ #adm-cs .cd:hover,#adm-cs .fs:hover,#adm-cs .fa:hover,#adm-cs .kp:hover,#adm-cs .mini:hover,#adm-cs .step:hover,#adm-cs .gt:hover{transform:translateY(-5px);box-shadow:0 16px 32px rgba(184,134,11,.20),0 3px 8px rgba(184,134,11,.10) !important}
+ .modal .card:hover,dialog.spn .card:hover{transform:none;border-color:var(--line);box-shadow:0 6px 18px rgba(127,92,0,.08)}
+}
+@media (hover:none){
+ .card:not(.calc):active,.chip:active{transform:translateY(-3px);box-shadow:0 10px 22px rgba(127,92,0,.16)}
+}
+@media (prefers-reduced-motion:reduce){
+ .card:hover,.chip:hover,.tiles div:hover,.kpis div:hover,.hero2:hover,.res:hover,.soc a:hover,#adm-cs .cd:hover,#adm-cs .fs:hover,#adm-cs .fa:hover,#adm-cs .kp:hover,#adm-cs .mini:hover,#adm-cs .step:hover{transform:none !important}
+}
 </style>
 </head>
 <body>
