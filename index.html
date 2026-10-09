@@ -638,6 +638,276 @@ img,svg{max-width:100%}
 </div>
 
 </div></template>
+<template id="tpl-case-css"><style>#adm-cs{--gold:#b8860b;--gold2:#d4a72c;--green:#2f6b3a;--ink:#0f172a;--text:#334155;--muted:#64748b;--cream:#fdfbf7;--soft:#faf8f2;--line:#e6dec5;--r:12px;color:var(--text) !important;font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif !important;max-width:920px !important;margin:10px auto 25px !important;display:block !important;direction:ltr !important;text-align:left !important}
+#adm-cs *{box-sizing:border-box !important;margin:0;padding:0}#adm-cs *:not(i){font-family:inherit !important}
+#adm-cs i.fa-solid,#adm-cs i.fa-solid::before{font-family:"Font Awesome 6 Free" !important;font-weight:900 !important;font-style:normal !important}#adm-cs i.fa-brands,#adm-cs i.fa-brands::before{font-family:"Font Awesome 6 Brands" !important;font-weight:400 !important;font-style:normal !important}
+#adm-cs h1,#adm-cs h2,#adm-cs h3,#adm-cs h4{line-height:1.3 !important;background:none !important}#adm-cs p{line-height:1.65 !important}
+#adm-cs .hd{background:var(--cream) !important;border:1px solid var(--line) !important;border-left:5px solid var(--gold) !important;border-radius:var(--r) !important;padding:36px 26px !important;margin-bottom:20px !important;text-align:center !important}
+#adm-cs .bg{display:inline-block !important;background:#fef3c7 !important;color:#92400e !important;border:1px solid #fde68a !important;border-radius:50px !important;padding:6px 18px !important;margin-bottom:14px !important;font-size:.85rem !important;font-weight:700 !important}
+#adm-cs h1{font-size:2rem !important;font-weight:800 !important;color:var(--ink) !important;margin-bottom:10px !important}#adm-cs h1 span{color:var(--gold) !important}
+#adm-cs .in{max-width:740px !important;margin:0 auto !important;font-size:.98rem !important;color:var(--muted) !important}
+#adm-cs .g{display:grid !important;gap:16px !important;margin-bottom:10px !important}#adm-cs .g4{grid-template-columns:repeat(auto-fit,minmax(190px,1fr)) !important}#adm-cs .g3{grid-template-columns:repeat(auto-fit,minmax(250px,1fr)) !important}#adm-cs .g2{grid-template-columns:repeat(auto-fit,minmax(300px,1fr)) !important}
+#adm-cs .fa{background:#fff !important;border:1px solid var(--line) !important;border-radius:10px !important;padding:13px 16px !important}#adm-cs .fa small{display:block !important;font-size:.72rem !important;font-weight:700 !important;letter-spacing:.06em !important;text-transform:uppercase !important;color:var(--muted) !important}#adm-cs .fa b{display:block !important;font-size:.95rem !important;color:var(--ink) !important;margin-top:3px !important}
+#adm-cs .kp{background:#fff !important;border:1px solid var(--line) !important;border-top:3px solid var(--green) !important;border-radius:10px !important;padding:22px 14px !important;text-align:center !important}#adm-cs .kp b{display:block !important;font-size:2rem !important;font-weight:800 !important;color:var(--green) !important}#adm-cs .kp span{display:block !important;font-size:.84rem !important;color:var(--muted) !important;margin-top:4px !important}
+#adm-cs .st{text-align:center !important;font-size:1.5rem !important;font-weight:800 !important;color:var(--gold) !important;margin:42px 0 8px !important}#adm-cs .st::after{content:'' !important;display:block !important;width:40px !important;height:3px !important;background:var(--gold) !important;border-radius:2px !important;margin:8px auto 0 !important}#adm-cs .ss{text-align:center !important;font-size:.92rem !important;color:var(--muted) !important;max-width:700px !important;margin:0 auto 22px !important}
+#adm-cs .cd{background:#fff !important;border:1px solid var(--line) !important;border-top:3px solid var(--gold) !important;border-radius:var(--r) !important;padding:24px !important;margin-bottom:18px !important}#adm-cs .cd h3{font-size:1.1rem !important;font-weight:700 !important;color:var(--ink) !important;margin-bottom:4px !important}#adm-cs .cd h3 i{color:var(--gold) !important;margin-right:8px !important}#adm-cs .sb{font-size:.85rem !important;font-weight:600 !important;color:#92400e !important;margin-bottom:14px !important}#adm-cs .cd p{font-size:.92rem !important;color:var(--muted) !important}
+#adm-cs .ins{margin-top:14px !important;padding:12px 14px !important;background:var(--soft) !important;border-left:4px solid var(--green) !important;border-radius:8px !important;font-size:.9rem !important;color:var(--text) !important}#adm-cs .ins b{color:var(--green) !important}
+#adm-cs .fl{display:grid !important;grid-template-columns:repeat(auto-fit,minmax(190px,1fr)) !important;gap:14px !important}#adm-cs .fs{background:var(--soft) !important;border:1px solid var(--line) !important;border-top:4px solid var(--gold) !important;border-radius:10px !important;padding:16px !important}#adm-cs .fs h4{font-size:1rem !important;color:var(--ink) !important;margin-bottom:6px !important}#adm-cs .fs h4 i{color:var(--gold) !important;margin-right:8px !important}#adm-cs .fs p{font-size:.86rem !important;color:var(--muted) !important}
+#adm-cs .br{margin-bottom:12px !important}#adm-cs .br .t{display:flex !important;justify-content:space-between !important;gap:10px !important;font-size:.86rem !important;color:var(--ink) !important;margin-bottom:4px !important}#adm-cs .br .t em{font-style:normal !important;color:var(--muted) !important;text-align:right !important}#adm-cs .tk{position:relative !important;height:12px !important;background:#f1ece0 !important;border-radius:99px !important;overflow:hidden !important}#adm-cs .fi{height:100% !important;background:linear-gradient(90deg,#8a6500,var(--gold2)) !important;border-radius:99px !important}#adm-cs .fi.gr{background:linear-gradient(90deg,#1f4d2b,#4a9a5c) !important}
+#adm-cs .mk{position:absolute !important;top:-2px !important;bottom:-2px !important;width:3px !important;background:#92400e !important}
+#adm-cs .sk{display:flex !important;height:26px !important;border-radius:8px !important;overflow:hidden !important;margin:6px 0 12px !important}#adm-cs .sk div{height:100% !important}
+#adm-cs .c1{background:#8a6500 !important}#adm-cs .c2{background:#b8860b !important}#adm-cs .c3{background:#e0b84a !important}#adm-cs .c4{background:#f0d68a !important}#adm-cs .c5{background:#cbd5e1 !important}#adm-cs .c6{background:#94a3b8 !important}#adm-cs .c7{background:#4a9a5c !important}#adm-cs .c8{background:#92400e !important}
+#adm-cs .lg{display:flex !important;flex-wrap:wrap !important;gap:6px 16px !important;font-size:.82rem !important;color:var(--muted) !important}#adm-cs .lg span{display:inline-flex !important;align-items:center !important;gap:6px !important}#adm-cs .lg span::before{content:'' !important;width:11px !important;height:11px !important;border-radius:3px !important;background:var(--k) !important}#adm-cs .lg b{color:var(--ink) !important;font-weight:600 !important}
+#adm-cs .dw{display:flex !important;align-items:center !important;gap:22px !important;flex-wrap:wrap !important}#adm-cs .dn{position:relative !important;width:140px !important;height:140px !important;border-radius:50% !important;flex-shrink:0 !important}#adm-cs .dn::after{content:'' !important;position:absolute !important;inset:28px !important;background:#fff !important;border-radius:50% !important}#adm-cs .dn b{position:absolute !important;inset:0 !important;display:flex !important;align-items:center !important;justify-content:center !important;z-index:2 !important;font-size:1.05rem !important;color:var(--ink) !important}
+#adm-cs .sv{overflow-x:auto !important;-webkit-overflow-scrolling:touch !important}#adm-cs .sv svg{display:block !important;width:100% !important;min-width:520px !important;height:auto !important}
+#adm-cs .nt{font-size:.78rem !important;color:var(--muted) !important;text-align:center !important;margin-top:10px !important}
+#adm-cs .bt{display:inline-flex !important;align-items:center !important;justify-content:center !important;gap:10px !important;padding:12px 24px !important;border-radius:30px !important;text-decoration:none !important;font-weight:600 !important;font-size:.95rem !important;color:#fff !important;background:var(--gold) !important;border:1px solid var(--gold) !important}#adm-cs .bt:hover{background:#92400e !important;border-color:#92400e !important}#adm-cs .bw{background:#059669 !important;border-color:#059669 !important}#adm-cs .bo{background:#fff !important;color:#92400e !important}
+#adm-cs .ct{background:#fff !important;border:1px solid var(--line) !important;border-top:3px solid var(--gold) !important;border-radius:var(--r) !important;padding:35px 25px !important;margin-top:36px !important;text-align:center !important}#adm-cs .ct h3{font-size:1.4rem !important;color:var(--ink) !important;margin-bottom:10px !important}#adm-cs .ct p{max-width:600px !important;margin:0 auto 24px !important;font-size:.92rem !important;color:var(--muted) !important}#adm-cs .cb{display:flex !important;flex-wrap:wrap !important;justify-content:center !important;gap:14px !important}
+#adm-cs .fs .big{display:block !important;font-size:1.6rem !important;font-weight:800 !important;color:var(--green) !important;margin:2px 0 4px !important}#adm-cs .ir{display:grid !important;grid-template-columns:1fr 1fr !important;gap:14px !important;padding:12px 0 !important;border-bottom:1px dashed var(--line) !important}#adm-cs .ir:last-of-type{border-bottom:0 !important}#adm-cs .ir small{display:block !important;font-size:.7rem !important;font-weight:700 !important;letter-spacing:.06em !important;text-transform:uppercase !important;color:var(--gold) !important;margin-bottom:2px !important}#adm-cs .ir p{font-size:.9rem !important;color:var(--text) !important}
+@media(max-width:600px){#adm-cs .ir{grid-template-columns:1fr !important;gap:8px !important}#adm-cs h1{font-size:1.6rem !important}#adm-cs .cd{padding:18px !important}#adm-cs .cb{flex-direction:column !important}#adm-cs .cb .bt{width:100% !important}}#adm-cs .sc{display:flex !important;justify-content:space-between !important;font-size:.72rem !important;color:var(--muted) !important;margin-top:5px !important}#adm-cs .ck{display:flex !important;flex-wrap:wrap !important;gap:8px !important}#adm-cs .ck span{background:#eef6f0 !important;border:1px solid #cfe3d4 !important;color:#1f4d2b !important;border-radius:99px !important;padding:5px 12px !important;font-size:.8rem !important;font-weight:600 !important}#adm-cs .ck span::before{content:"\2713  " !important}
+#adm-cs .tli{position:relative !important;padding:0 0 18px 26px !important;border-left:2px solid var(--line) !important;margin-left:8px !important}#adm-cs .tli:last-child{padding-bottom:0 !important}#adm-cs .tli::before{content:'' !important;position:absolute !important;left:-7px !important;top:3px !important;width:12px !important;height:12px !important;border-radius:50% !important;background:var(--gold) !important}#adm-cs .tli span{display:block !important;font-size:.75rem !important;font-weight:700 !important;color:#92400e !important}#adm-cs .tli b{display:block !important;color:var(--ink) !important;font-size:.93rem !important}#adm-cs .tli p{font-size:.86rem !important;color:var(--muted) !important}
+#adm-cs .gt{display:flex !important;align-items:center !important;gap:14px !important;background:var(--soft) !important;border:1px solid var(--line) !important;border-left:4px solid var(--gold) !important;border-radius:10px !important;padding:14px 16px !important;margin-top:14px !important}#adm-cs .gt i{font-size:1.6rem !important;color:var(--gold) !important}#adm-cs .gt b{display:block !important;color:var(--ink) !important;font-size:.95rem !important}#adm-cs .gt span{font-size:.82rem !important;color:var(--muted) !important}#adm-cs .shot img{display:block !important;width:100% !important;height:auto !important;border:1px solid var(--line) !important;border-radius:10px !important;margin-top:14px !important}
+#adm-cs .ck.bad span{background:#fbeceb !important;border-color:#f0c4c0 !important;color:#8f1d14 !important}#adm-cs .ck.bad span::before{content:"\2715  " !important}#adm-cs .ck+.ck{margin-top:8px !important}#adm-cs .lb{font-size:.75rem !important;font-weight:700 !important;letter-spacing:.06em !important;text-transform:uppercase !important;color:var(--muted) !important;margin:12px 0 6px !important}</style></template>
+<template id="tpl-case-gfm"><div id="adm-cs">
+<div class="hd">
+<div class="bg">Case Study · Training · Egypt</div>
+<h1>Training a Trading Company's Team to <span>Sell on Amazon</span></h1>
+<p class="in">A five-day in-house program that took GFM's staff from Amazon basics to a working understanding of the platform, product pages, selling models, logistics, and search.</p>
+</div>
+<div class="g g4">
+<div class="fa"><small>Client</small><b>GFM Egypt</b></div>
+<div class="fa"><small>Industry</small><b>Electrical tools &amp; supplies</b></div>
+<div class="fa"><small>Format</small><b>5-day in-house training</b></div>
+<div class="fa"><small>Audience</small><b>Company staff</b></div>
+</div>
+<h2 class="st">Results at a Glance</h2>
+<div class="g g4">
+<div class="kp"><b>5 days</b><span>Specialized training program</span></div>
+<div class="kp"><b>5</b><span>Core modules, from platform basics to Amazon SEO</span></div>
+<div class="kp"><b>Aug 2026</b><span>Training certificate issued by the client</span></div>
+<div class="kp"><b>Signed</b><span>Client confirmation of the trainer's performance</span></div>
+</div>
+<h2 class="st">The Starting Point</h2>
+<div class="cd"><p>GFM Egypt is an established company that trades in electrical tools and supplies. Before selling on Amazon, its team needed to understand how the platform works, what it expects from sellers, and how a product page earns visibility, so that decisions are made with knowledge instead of trial and error.</p></div>
+<h2 class="st">What We Taught</h2>
+<p class="ss">Five modules, each built around a question the team would face on day one of selling.</p>
+<div class="fl">
+<div class="fs"><h4><i class="fa-solid fa-sitemap"></i>1. Platform &amp; Dynamics</h4><p>Amazon's main goal and a plain-language explanation of the principles behind its algorithms.</p></div>
+<div class="fs"><h4><i class="fa-solid fa-file-lines"></i>2. Product Detail Page</h4><p>The core pillars and essentials for building a professional product page.</p></div>
+<div class="fs"><h4><i class="fa-solid fa-store"></i>3. Selling Models</h4><p>The different forms and models of selling available inside Amazon.</p></div>
+<div class="fs"><h4><i class="fa-solid fa-truck-fast"></i>4. Logistics &amp; Shipping</h4><p>A detailed look at the shipping methods and systems available to sellers.</p></div>
+<div class="fs"><h4><i class="fa-solid fa-magnifying-glass"></i>5. Amazon SEO</h4><p>How Amazon search works and how to raise product visibility in the results.</p></div>
+</div>
+<h2 class="st">From Knowledge to Action</h2>
+<div class="cd">
+<div class="ir"><div><small>The team learned</small><p>How Amazon's algorithms work.</p></div><div><small>So they can</small><p>Judge why a product ranks, or does not.</p></div></div>
+<div class="ir"><div><small>The team learned</small><p>The pillars of a professional product page.</p></div><div><small>So they can</small><p>Plan and review a listing before it goes live.</p></div></div>
+<div class="ir"><div><small>The team learned</small><p>The selling models Amazon offers.</p></div><div><small>So they can</small><p>Choose the model that fits the company's products and cash flow.</p></div></div>
+<div class="ir"><div><small>The team learned</small><p>Shipping methods and logistics systems.</p></div><div><small>So they can</small><p>Compare fulfillment options before committing stock.</p></div></div>
+<div class="ir"><div><small>The team learned</small><p>Amazon SEO.</p></div><div><small>So they can</small><p>Write titles and content that help products appear in search.</p></div></div>
+<div class="ins"><b>Client confirmation:</b> GFM's written certificate states that the trainer showed excellent, professional performance in delivering the information, training the team, and helping it understand and absorb how the platform works.</div>
+</div>
+<h2 class="st">Key Takeaways</h2>
+<div class="g g3">
+<div class="fs"><h4>Teach the why first</h4><p>Teams that understand Amazon's goal and algorithms make better listing and pricing decisions.</p></div>
+<div class="fs"><h4>Cover the whole journey</h4><p>From the product page to shipping and search, every step affects whether a product sells.</p></div>
+<div class="fs"><h4>Train the team, not one person</h4><p>A shared understanding keeps operations running when roles change.</p></div>
+</div>
+<p class="nt">Content is based on the training certificate issued by the client. It describes the scope of the program and does not guarantee future sales results.</p>
+<div class="ct">
+<div class="bg">Let's Connect</div>
+<h3>Want Your Team Trained on Amazon?</h3>
+<p>Tell us about your brand, category, and goals, and we will reply within 48 hours with a clear next step.</p>
+<div class="cb">
+<a class="bt" href="https://mentor.admovera.com/p/contact-us_01375087148.html"><i class="fa-solid fa-envelope"></i> Contact Us</a>
+<a class="bt bw" href="https://wa.me/201066551707" rel="noopener" target="_blank"><i class="fa-brands fa-whatsapp"></i> Chat on WhatsApp</a>
+<a class="bt bo" href="#services">View Services</a>
+</div>
+</div>
+</div></template>
+<template id="tpl-case-chemifarm"><div id="adm-cs">
+<div class="hd">
+<div class="bg">Case Study · Compliance · Dietary Supplements</div>
+<h1>Why Four Supplement ASINs Were Rejected, and How to <span>Fix Them</span></h1>
+<p class="in">A compliance analysis of four rejected dietary-supplement ASINs, the five root causes behind the rejections, and a resubmission plan built around Amazon's documentation rules.</p>
+</div>
+<div class="g g4">
+<div class="fa"><small>Client</small><b>Chemi Farm</b></div>
+<div class="fa"><small>Category</small><b>Dietary supplements (gated)</b></div>
+<div class="fa"><small>Scope</small><b>4 rejected ASINs</b></div>
+<div class="fa"><small>Service</small><b>Compliance &amp; Quality Assurance</b></div>
+</div>
+<h2 class="st">Results at a Glance</h2>
+<div class="g g4">
+<div class="kp"><b>4</b><span>ASINs rejected by Amazon</span></div>
+<div class="kp"><b>5</b><span>Root causes identified</span></div>
+<div class="kp"><b>3 of 5</b><span>causes are legal and document gaps, not design</span></div>
+<div class="kp"><b>100%</b><span>match required between pack, certificate, and invoices</span></div>
+</div>
+<h2 class="st">The Situation</h2>
+<div class="cd"><p>Dietary supplements are a gated category. Amazon requires the printed pack, the food-safety certificate, and a supply chain proven by tax invoices to match each other completely, and it allows no variation in flavor names or health claims. Four ASINs were rejected, and repeated resubmissions kept being declined. Our review looked past the rejection messages to the account setup behind them.</p></div>
+<h2 class="st">Why the ASINs Were Rejected</h2>
+<div class="cd">
+<h3><i class="fa-solid fa-chart-simple"></i>Root Causes by Type</h3>
+<div class="sb">Five causes found in the review</div>
+<div class="sk"><div class="c1" style="width:60%"></div><div class="c3" style="width:20%"></div><div class="c5" style="width:20%"></div></div>
+<div class="lg"><span style="--k:#8a6500">Legal &amp; ownership <b>3 · 60%</b></span><span style="--k:#e0b84a">Catalog data <b>1 · 20%</b></span><span style="--k:#cbd5e1">Claims &amp; packaging <b>1 · 20%</b></span></div>
+</div>
+<h2 class="st">Findings and Proposed Fixes</h2>
+<div class="cd">
+<!-- Add per-ASIN details here if needed: product name, rejection message -->
+<div class="ir"><div><small>Finding</small><p><b>1. Brand not registered.</b> The brand is not registered in the commercial register or in Amazon Brand Registry, so the account loses automatic product verification.</p></div><div><small>Proposed fix</small><p>Register the trademark officially, enroll it in Brand Registry, and use the registered brand on every listing.</p></div></div>
+<div class="ir"><div><small>Finding</small><p><b>2. Ownership conflict.</b> The food-safety (NFSA) certificate is issued to the manufacturer, while the seller account belongs to a different entity, so Amazon treats the document as not owned by the account.</p></div><div><small>Proposed fix</small><p>Align the entities: list under the certificate holder, or add formal authorization that links the account owner to the certificate holder.</p></div></div>
+<div class="ir"><div><small>Finding</small><p><b>3. Broken chain of custody.</b> There is no toll-manufacturing agreement or official tax supply invoice proving the direct commercial link between manufacturer and account owner.</p></div><div><small>Proposed fix</small><p>Sign a toll-manufacturing agreement and issue tax invoices for every batch supplied.</p></div></div>
+<div class="ir"><div><small>Finding</small><p><b>4. Backend data mismatch.</b> The manufacturer name in the catalog's backend data conflicts with the brand printed on the front of the pack.</p></div><div><small>Proposed fix</small><p>Make the brand and manufacturer attributes match the packaging exactly, across all four ASINs.</p></div></div>
+<div class="ir"><div><small>Finding</small><p><b>5. Claims and packaging design.</b> Some images and designs carry health claims and dose levels that Amazon bans, such as blood-sugar regulation and high concentrations, and show 3D renders instead of real photos.</p></div><div><small>Proposed fix</small><p>Remove the prohibited claims, keep wording compliant, and replace renders with real photos of the final pack.</p></div></div>
+<div class="ins"><b>Insight:</b> Most causes were legal and document gaps, so editing images alone would not have cleared the rejections.</div>
+</div>
+<h2 class="st">What Is at Stake</h2>
+<div class="cd">
+<p>Leaving the conflict in the catalog while resubmitting repeatedly exposes the account to Amazon's periodic automated compliance sweeps. The effect would not stop at the rejected products: live listings could be suppressed, or the whole account suspended.</p>
+<div class="lb">Violations the account risks</div>
+<div class="ck bad"><span>Entity and brand mismatch</span><span>Chain of custody unverified</span><span>Listing suppression</span><span>Account suspension</span></div>
+</div>
+<h2 class="st">Proposed Resubmission Plan</h2>
+<div class="cd">
+<div class="tli"><span>Step 1 · Pause</span><b>Stop repeated submissions</b><p>Hold new attempts until the dossier is consistent, to avoid triggering compliance sweeps.</p></div>
+<div class="tli"><span>Step 2 · Legalize</span><b>Register the brand and sign the agreements</b><p>Complete the trademark, Brand Registry enrollment, and the toll-manufacturing agreement.</p></div>
+<div class="tli"><span>Step 3 · Document</span><b>Build the proof of custody</b><p>Collect the NFSA certificate, authorization letters, and tax invoices linking manufacturer and account owner.</p></div>
+<div class="tli"><span>Step 4 · Align</span><b>Match every data point</b><p>Make brand, manufacturer, flavors, and claims identical across pack, backend data, and images, using real photos.</p></div>
+<div class="tli"><span>Step 5 · Resubmit</span><b>Submit all four ASINs together</b><p>File the complete, consistent dossier in one clean submission.</p></div>
+</div>
+<p class="nt">This plan prepares a complete and accurate case. The final decision remains with Amazon, and approval cannot be guaranteed.</p>
+<div class="ct">
+<div class="bg">Let's Connect</div>
+<h3>Facing Rejected Listings or a Compliance Gap?</h3>
+<p>Tell us about your brand, category, and goals, and we will reply within 48 hours with a clear next step.</p>
+<div class="cb">
+<a class="bt" href="https://mentor.admovera.com/p/contact-us_01375087148.html"><i class="fa-solid fa-envelope"></i> Contact Us</a>
+<a class="bt bw" href="https://wa.me/201066551707" rel="noopener" target="_blank"><i class="fa-brands fa-whatsapp"></i> Chat on WhatsApp</a>
+<a class="bt bo" href="#services">View Services</a>
+</div>
+</div>
+</div></template>
+<template id="tpl-case-liquiddraft"><div id="adm-cs">
+<div class="hd">
+<div class="bg">Case Study · Policy Clarification · Saudi Arabia</div>
+<h1>Getting Food Products <span>Launch-Ready</span> on Amazon Saudi Arabia</h1>
+<p class="in">Pre-launch policy guidance for a food and beverage brand: label requirements, listing structure, and Brand Registry setup, explained in direct conversations with the client team.</p>
+</div>
+<div class="g g4">
+<div class="fa"><small>Client</small><b>Liquid Draft</b></div>
+<div class="fa"><small>Category</small><b>Food &amp; beverage products</b></div>
+<div class="fa"><small>Marketplace</small><b>Amazon Saudi Arabia</b></div>
+<div class="fa"><small>Service</small><b>Policy clarification &amp; Brand Registry</b></div>
+</div>
+<h2 class="st">Results at a Glance</h2>
+<div class="g g4">
+<div class="kp"><b>3</b><span>Label gaps found before launch</span></div>
+<div class="kp"><b>6</b><span>Label data points the packs must carry</span></div>
+<div class="kp"><b>1</b><span>Compliant reference listing used as a model</span></div>
+<div class="kp"><b>Set up</b><span>Brand registered and followed up in Brand Registry</span></div>
+</div>
+<h2 class="st">The Starting Point</h2>
+<div class="cd"><p>Liquid Draft wanted to start selling food products on Amazon Saudi Arabia, but its packs had not been designed with Amazon's food requirements in mind. Before spending on inventory, ads, or new packaging, the team needed to know exactly what Amazon would accept.</p></div>
+<h2 class="st">What We Clarified</h2>
+<div class="cd">
+<h3><i class="fa-solid fa-tag"></i>Label Requirements for Food Products</h3>
+<div class="sb">What the current packs lacked, and what the redesign must include</div>
+<div class="lb">Missing on the current packs</div>
+<div class="ck bad"><span>Registration numbers</span><span>Barcode</span><span>Ingredients</span></div>
+<div class="lb">Required for the redesign</div>
+<div class="ck"><span>Manufacturer name</span><span>Country of origin</span><span>Health or food-authority approvals</span></div>
+<div class="ins"><b>Insight:</b> These details must appear on the pack itself. Finding the gaps before printing saves a full packaging reprint after a rejection.</div>
+</div>
+<h2 class="st">How the Guidance Worked</h2>
+<div class="cd">
+<div class="tli"><span>Step 1 · Review</span><b>Compare the packs with Amazon's requirements</b><p>We reviewed the pack designs and flagged every missing detail.</p></div>
+<div class="tli"><span>Step 2 · Explain</span><b>Say exactly what data to print and where it comes from</b><p>The client team asked where to obtain the registration numbers, barcode, manufacturer details, and approvals, and we answered each one.</p></div>
+<div class="tli"><span>Step 3 · Show a model</span><b>Use a compliant listing as a reference</b><p>We shared an existing listing from a Saudi manufacturer as a model for labeling.</p></div>
+<div class="tli"><span>Step 4 · Build for search</span><b>Structure the listing for current algorithms</b><p>Listings must be built to Amazon's latest search logic so the system indexes them and shows them in results.</p></div>
+<div class="tli"><span>Step 5 · Register</span><b>Set up the brand in Brand Registry</b><p>We registered the brand and followed it up through the period.</p></div>
+</div>
+<h2 class="st">A Catalog Lesson</h2>
+<div class="cd">
+<h3><i class="fa-solid fa-triangle-exclamation"></i>An Active Brand Does Not Override Catalog Conflicts</h3>
+<div class="sb">Listing error 8541</div>
+<p>Even with an active brand, creating a listing can fail with error 8541 when the product already exists in Amazon's catalog under different data. The answer is to reconcile your data with the existing catalog record, or escalate the case to Seller Support, rather than retrying with new data.</p>
+</div>
+<h2 class="st">Key Takeaways</h2>
+<div class="g g3">
+<div class="fs"><h4>Clarify before you print</h4><p>Packaging data is the most expensive thing to fix after launch.</p></div>
+<div class="fs"><h4>Use a real model</h4><p>A compliant listing from the same market shows exactly what Amazon expects.</p></div>
+<div class="fs"><h4>Check the catalog early</h4><p>Existing catalog records can block a new listing even when the brand is registered.</p></div>
+</div>
+<p class="nt">Based on the policy-clarification conversations with the client. Amazon policies change often, so always confirm requirements in Seller Central.</p>
+<div class="ct">
+<div class="bg">Let's Connect</div>
+<h3>Launching Food Products on Amazon?</h3>
+<p>Tell us about your brand, category, and goals, and we will reply within 48 hours with a clear next step.</p>
+<div class="cb">
+<a class="bt" href="https://mentor.admovera.com/p/contact-us_01375087148.html"><i class="fa-solid fa-envelope"></i> Contact Us</a>
+<a class="bt bw" href="https://wa.me/201066551707" rel="noopener" target="_blank"><i class="fa-brands fa-whatsapp"></i> Chat on WhatsApp</a>
+<a class="bt bo" href="#services">View Services</a>
+</div>
+</div>
+</div></template>
+<template id="tpl-case-senfineco"><div id="adm-cs">
+<div class="hd">
+<div class="bg">Case Study · Policy Clarification · Amazon UAE</div>
+<h1>Launching Automotive Oils on <span>Amazon UAE</span> with a Clean Brand Registry Setup</h1>
+<p class="in">Policy guidance for lubricants and spark plugs on Amazon UAE, plus Brand Registry registration and a safe route for handing brand ownership to the client.</p>
+</div>
+<div class="g g4">
+<div class="fa"><small>Client</small><b>Senfineco · Oman</b></div>
+<div class="fa"><small>Category</small><b>Automotive oils &amp; spark plugs</b></div>
+<div class="fa"><small>Marketplace</small><b>Amazon UAE</b></div>
+<div class="fa"><small>Service</small><b>Policy clarification &amp; Brand Registry</b></div>
+</div>
+<h2 class="st">Results at a Glance</h2>
+<div class="g g4">
+<div class="kp"><b>UAE</b><span>Target marketplace for the launch</span></div>
+<div class="kp"><b>2</b><span>Product lines: lubricants and spark plugs</span></div>
+<div class="kp"><b>Registered</b><span>Brand in Amazon Brand Registry</span></div>
+<div class="kp"><b>2 roles</b><span>Primary Administrator and Rights Owner for the owner</span></div>
+</div>
+<h2 class="st">The Starting Point</h2>
+<div class="cd"><p>Motor oils usually trigger Amazon's dangerous-goods review, which asks for a Safety Data Sheet (SDS) or an exemption sheet, and the document must match the listing's product and brand names. For a new brand entering Amazon UAE, these rules and the brand setup had to be settled before stock was sent.</p></div>
+<h2 class="st">Policy Checklist Before Launch</h2>
+<div class="cd">
+<h3><i class="fa-solid fa-clipboard-check"></i>What Had to Be Settled First</h3>
+<div class="sb">Items checked before any inventory was sent</div>
+<div class="ck"><span>Brand in Brand Registry</span><span>Dangerous-goods classification</span><span>SDS or exemption sheet</span><span>SDS names match the listing</span><span>Valid GTIN or exemption</span><span>Accurate specs on label and listing</span></div>
+<div class="ins"><b>Insight:</b> Differences between documents and the live listing are among the most common reasons for rejection, so every name and specification is matched before submission.</div>
+</div>
+<h2 class="st">Brand Registry: Ownership Handover</h2>
+<p class="ss">Setting up a brand quickly is easy. Handing it over cleanly takes a plan.</p>
+<div class="fl">
+<div class="fs"><h4><i class="fa-solid fa-id-card"></i>1. Register</h4><p>The brand was registered through our account during the initial setup, so the launch was not delayed.</p></div>
+<div class="fs"><h4><i class="fa-solid fa-magnifying-glass"></i>2. Discover</h4><p>The brand owner later found the registration under our account and asked to manage it directly. Its own registration attempt was canceled because the brand was already registered.</p></div>
+<div class="fs"><h4><i class="fa-solid fa-key"></i>3. Hand Over</h4><p>The route is Brand Registry User Permissions: add the owner's account as Primary Administrator and Rights Owner, with no support case needed.</p></div>
+</div>
+<div class="cd" style="margin-top:16px !important">
+<div class="ins" style="margin-top:0 !important"><b>Insight:</b> Registering a client's brand under an agent account is fast, but it blocks the owner's own application as a duplicate. Agree the handover plan at the start, and document who holds each role.</div>
+</div>
+<h2 class="st">Key Takeaways</h2>
+<div class="g g3">
+<div class="fs"><h4>Check safety paperwork early</h4><p>Lubricants need dangerous-goods documents before stock ships.</p></div>
+<div class="fs"><h4>Match every name</h4><p>SDS, label, and listing must agree on product and brand names.</p></div>
+<div class="fs"><h4>Plan the brand handover</h4><p>Define Brand Registry roles at the start, so ownership transfers without a case.</p></div>
+</div>
+<p class="nt">Based on the Brand Registry and policy conversations with the client. Marketplace requirements change, so confirm current rules in Seller Central before launching.</p>
+<div class="ct">
+<div class="bg">Let's Connect</div>
+<h3>Launching a Brand on Amazon UAE?</h3>
+<p>Tell us about your brand, category, and goals, and we will reply within 48 hours with a clear next step.</p>
+<div class="cb">
+<a class="bt" href="https://mentor.admovera.com/p/contact-us_01375087148.html"><i class="fa-solid fa-envelope"></i> Contact Us</a>
+<a class="bt bw" href="https://wa.me/201066551707" rel="noopener" target="_blank"><i class="fa-brands fa-whatsapp"></i> Chat on WhatsApp</a>
+<a class="bt bo" href="#services">View Services</a>
+</div>
+</div>
+</div></template>
 <script type="text/babel">
 const { useState, useEffect } = React;
 const LOGO = "https://blogger.googleusercontent.com/img/a/AVvXsEg75Hra8wqrOu6BLFNBFg42N3y-5yax_vU_5xjZQ1s2ZlbIHs39qU6RDeS2cZ4sXRpa3WP0elI5jUmVZRj2j9YnOu7EEp8T7OHiZsgjTWhVpDIJsUWk-MB5mJ8cX7yLFcb7KxZR3gpqZ18qw58m8_qArJTv5KiXFUpudV5-zAEWXz9MaQIbZ_kafWibc9s=s1184";
@@ -677,7 +947,11 @@ const BL = "M5 3h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2
 
 const CASES=[
  {id:'hotdeals',name:'Hot Deals 4 Less',tag:'Electronics · USA · 20 sales channels',line:'Listing optimization, pricing intelligence and account protection across 20 channels.',stats:[['$2.64M','Sales analyzed'],['97.7%','Error-free listings'],['0.48%','Order defect rate']]},
- {id:'justsalma',name:'JustSalma',tag:'Accessories · Amazon Egypt · Built from zero',line:'A new private-label store taken to EGP 290K in organic sales with zero ad spend.',stats:[['EGP 290K','Organic sales'],['EGP 0','Ad spend'],['204','Healthy account']]}
+ {id:'justsalma',name:'JustSalma',tag:'Accessories · Amazon Egypt · Built from zero',line:'A new private-label store taken to EGP 290K in organic sales with zero ad spend.',stats:[['EGP 290K','Organic sales'],['EGP 0','Ad spend'],['204','Healthy account']]},
+ {id:'gfm',name:'GFM Egypt',tag:'Training · Electrical tools · Egypt',line:'A 5-day in-house program that taught a trading company how Amazon works, from algorithms to SEO.',stats:[['5 days','Training program'],['5','Core modules'],['Aug 2026','Certificate issued']]},
+ {id:'chemifarm',name:'Chemi Farm',tag:'Compliance · Dietary supplements · Amazon',line:'Root-cause analysis of 4 rejected supplement ASINs and a compliant resubmission plan.',stats:[['4','ASINs rejected'],['5','Root causes found'],['100%','Document match needed']]},
+ {id:'liquiddraft',name:'Liquid Draft',tag:'Policy clarification · Food products · Amazon KSA',line:'Pre-launch policy guidance and Brand Registry setup for a food and beverage brand in Saudi Arabia.',stats:[['3','Label gaps found'],['6','Label data points'],['KSA','Marketplace']]},
+ {id:'senfineco',name:'Senfineco',tag:'Policy clarification · Automotive oils · Amazon UAE',line:'Launch policies for automotive lubricants and a clean Brand Registry ownership handover.',stats:[['UAE','Marketplace'],['2','Product lines'],['Registered','Brand status']]}
 ];
 const tpl=id=>{const e=document.getElementById(id);return e?e.innerHTML:'';};
 function Donut({parts,center,sub}){
@@ -735,7 +1009,7 @@ function CaseList({go}){
   </div></section>;
 }
 function CaseView({id,go}){
-  const html=tpl('tpl-case-'+id);
+  const raw=tpl('tpl-case-'+id);const html=raw&&raw.indexOf('<style')<0?tpl('tpl-case-css')+raw:raw;
   if(!html) return <section className="pg"><div className="wrap"><button className="ghost" onClick={()=>go('case-studies')}>All case studies</button></div></section>;
   return <section className="pg"><div className="wrap">
     <button className="ghost" onClick={()=>go('case-studies')}>&larr; All case studies</button>
