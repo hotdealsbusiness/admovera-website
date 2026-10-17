@@ -213,6 +213,55 @@ img,svg{max-width:100%}
 @media (prefers-reduced-motion:reduce){
  .card:hover,.chip:hover,.tiles div:hover,.kpis div:hover,.hero2:hover,.res:hover,.soc a:hover,#adm-cs .cd:hover,#adm-cs .fs:hover,#adm-cs .fa:hover,#adm-cs .kp:hover,#adm-cs .mini:hover,#adm-cs .step:hover{transform:none !important}
 }
+
+/* ================= Admovera redesign (Oct 2026) ================= */
+/* Top menu: plain text links, gold line under the current page.
+   "Book consultation" stays the only gold button. */
+nav .gold,nav a.gold{background:none !important;border:0 !important;box-shadow:none !important;text-shadow:none !important;color:var(--ink) !important;font-weight:600;padding:8px 12px !important;border-radius:8px;position:relative}
+nav .gold:hover,nav a.gold:hover{background:var(--cream) !important;filter:none}
+nav .gold:not(.off){color:var(--goldtxt) !important}
+nav .gold:not(.off)::after{content:"";position:absolute;left:12px;right:12px;bottom:2px;height:2px;border-radius:2px;background:var(--gold1)}
+/* Mobile menu: same idea, as a list */
+.mnav a.gold{background:none !important;border:0 !important;box-shadow:none !important;text-shadow:none !important;color:var(--ink) !important;text-align:left !important;font-weight:600;border-radius:10px}
+.mnav a.gold:not(.off){color:var(--goldtxt) !important;background:var(--cream) !important;box-shadow:inset 3px 0 0 var(--gold1) !important}
+.mnav .mrow a.gold{border:1px solid var(--line) !important;text-align:center !important}
+
+/* Hero proof card */
+.proof{padding:26px 26px 22px;display:flex;flex-direction:column;gap:14px}
+.proof-badge{display:inline-flex;align-items:center;gap:10px;align-self:flex-start;font-size:13px;font-weight:700;color:var(--goldtxt);background:var(--cream);border:1px solid var(--line);border-radius:999px;padding:5px 14px 5px 6px}
+.proof-badge img{width:28px;height:28px;border-radius:50%;object-fit:contain;background:#fff}
+.proof-row{display:flex;flex-direction:column;gap:2px;padding-top:14px;border-top:1px solid var(--line)}
+.proof-row b{font-size:28px;font-weight:900;color:var(--goldtxt);line-height:1.15}
+.proof-row span{font-size:14px;color:var(--muted);line-height:1.45}
+.proof-row span strong{color:var(--ink)}
+.proof .lnk,.home-svc .lnk{color:var(--goldtxt) !important}
+.proof .lnk{align-self:flex-start;font-weight:700;text-decoration:none;margin-top:4px}
+
+/* Trust strip under the hero */
+.wrap.trust{display:flex;flex-wrap:wrap;justify-content:center;gap:10px 28px;margin-top:36px;padding-top:16px;padding-bottom:16px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);font-weight:700;color:var(--ink);font-size:15px}
+.wrap.trust span{white-space:nowrap}
+
+/* "Find us on SPN" as a text link */
+.cta .spn-link{background:none;border:0;padding:11px 6px;font-weight:700;color:var(--goldtxt);text-decoration:underline;text-underline-offset:4px;cursor:pointer}
+.cta .spn-link:hover{color:var(--ink)}
+
+/* Home services: six cards with one line each */
+.home-svc{gap:14px}
+.home-svc h3{margin:8px 0 8px}
+.home-svc p{color:var(--muted);font-size:15px;margin:0}
+.home-svc .lnk{font-weight:700;text-decoration:none;align-self:flex-start}
+
+/* Services page: no empty indent in the lists */
+.svc ul{padding:0;margin:0}
+
+/* Mobile: message first, lighter hero */
+@media(max-width:640px){
+  .proof{padding:20px}
+  .proof-row b{font-size:24px}
+  .hero .chips{display:none}
+  .cta .spn-link{width:100%;text-align:center}
+  .wrap.trust{flex-direction:column;align-items:flex-start;gap:6px;margin-top:24px}
+}
 </style>
 </head>
 <body>
@@ -917,28 +966,28 @@ const BLOG = "https://mentor.admovera.com/";
 const UPWORK = "https://www.upwork.com/freelancers/~01dea80752edf481fd?mp_source=share";
 
 const services = [
- { id:"amazon-account-management", title:"Amazon Account Management", short:"Account Management", tag:"Operations & health", hl:[
+ { id:"amazon-account-management", sum:"Daily Seller Central care that keeps your account healthy and growing.", title:"Amazon Account Management", short:"Account Management", tag:"Operations & health", hl:[
   ["Comprehensive operations","Complete hands-on management of your day-to-day Seller Central dashboard."],
   ["Data-driven insights","Regular performance tracking and analytics to unlock new growth opportunities."],
   ["Account health maintenance","Proactive monitoring to protect account standing and resolve performance notifications."]]},
- { id:"marketing-advertising", title:"Amazon Marketing & Advertising Optimization", short:"Marketing & Advertising", tag:"PPC & ROAS", hl:[
+ { id:"marketing-advertising", sum:"PPC campaigns and deals built to lower ACoS and grow profit.", title:"Amazon Marketing & Advertising Optimization", short:"Marketing & Advertising", tag:"PPC & ROAS", hl:[
   ["Strategic PPC campaigns","Expert setup and continuous management of Sponsored Products, Brands, and Display ads."],
   ["Profitability focus","Tailored strategies to drive down ACoS and lower TACoS for optimal ROI."],
   ["Promotions & deals","Creation and management of Lightning Deals, Coupons, and Prime Exclusive Discounts to boost velocity."]]},
- { id:"compliance", title:"Compliance & Quality Assurance", short:"Compliance", tag:"Audits & quality", hl:[
+ { id:"compliance", sum:"Pre-listing audits and labeling checks that prevent rejections.", title:"Compliance & Quality Assurance", short:"Compliance", tag:"Audits & quality", hl:[
   ["Regulatory audits","Thorough pre-listing audits to ensure compliance with marketplace laws and regulations."],
   ["Labeling & packaging","Clear guidance and verification for packaging, labeling, and hazardous material rules."],
   ["Global readiness","Quality assurance tailored to Amazon’s standards across various global marketplaces."]]},
- { id:"brand-registry-protection", title:"Brand Registry & Protection", short:"Brand Protection", tag:"Brand protection", hl:[
+ { id:"brand-registry-protection", sum:"Brand Registry, IP complaints, and protection from hijackers.", title:"Brand Registry & Protection", short:"Brand Protection", tag:"Brand protection", hl:[
   ["Brand Registry setup","Enrolling trademarks in Amazon Brand Registry and handling marketplace verification."],
   ["IP complaint handling","Responding to trademark, copyright, and authenticity complaints with official documentation."],
   ["Hijacker & counterfeit reporting","Identifying unauthorized sellers, preparing Cease & Desist notices, and filing IP violation reports."],
   ["Project Zero & Transparency","Setting up Amazon's automated brand protection tools and Transparency codes."]]},
- { id:"ebc-brand-store", title:"Enhanced Brand Content (EBC/A+) & Store Creation", short:"A+ Content & Brand Stores", tag:"Brand identity", hl:[
+ { id:"ebc-brand-store", sum:"A+ content and Brand Stores that turn visits into sales.", title:"Enhanced Brand Content (EBC/A+) & Store Creation", short:"A+ Content & Brand Stores", tag:"Brand identity", hl:[
   ["High-converting A+ content","Custom visual layouts and persuasive messaging (up to 1,200 words) to enhance product listings."],
   ["Amazon Brand Store design","Immersive, multi-page store creation that showcases your full product catalog and builds brand loyalty."],
   ["Conversion optimization","Premium lifestyle imagery and graphics designed to drive higher click-through and conversion rates."]]},
- { id:"training-mentorship", title:"Amazon Training & Mentorship", short:"Training & Mentorship", tag:"Education & growth", hl:[
+ { id:"training-mentorship", sum:"Hands-on training so your team can run Amazon with confidence.", title:"Amazon Training & Mentorship", short:"Training & Mentorship", tag:"Education & growth", hl:[
   ["Certified expertise","Guidance delivered by Amazon-certified trainers with deep ecosystem knowledge."],
   ["Onboarding & operations","Step-by-step training on Seller Central registration, tools, and best operational practices."],
   ["Policy & growth strategy","Clear explanation of complex Amazon policies and actionable strategies to scale independently."]]}
@@ -1229,18 +1278,25 @@ function App(){
           <button className="gold" onClick={()=>setBook(true)}>Get help with my account</button>
           <button className="ghost" onClick={()=>go('calculator')}>Free profit calculator</button>
         </div>
-        <div className="chips">{[['Compliance','compliance'],['Protection','brand-registry-protection'],['Optimization','ebc-brand-store'],['Promotions','marketing-advertising'],['Operations','amazon-account-management'],['Training','training-mentorship']].map(c=><button key={c[0]} className="chip" onClick={()=>go('services',c[1])}>{c[0]}</button>)}</div>
       </div>
-      <div className="card logoCard"><img src={LOGO} alt="Admovera: Guiding the way"/><p>Amazon SPN</p></div>
+      {/* Proof card: real numbers from the case studies (edit the numbers here) */}
+      <div className="card proof">
+        <span className="proof-badge"><img src={LOGO} alt=""/>Amazon SPN listed provider</span>
+        <div className="proof-row"><b>$2.64M</b><span>sales tracked and analyzed for one client</span></div>
+        <div className="proof-row"><b>97.7%</b><span>error-free listings across 5,852 audited</span></div>
+        <div className="proof-row"><b>EGP 290K</b><span>organic sales from a <strong>brand-new store</strong> launched from zero, with no ad spend</span></div>
+        <a className="lnk" href="/case-studies">See the case studies &rarr;</a>
+      </div>
     </div>
-    <div className="wrap facts">
-      <div className="card"><b>Amazon SPN</b><span>Listed Amazon Service Provider</span></div>
-      <div className="card"><b>+20 years in sales</b><span>Two decades of traditional sales expertise</span></div>
-      <div className="card"><b>+10 years in e-commerce</b><span>End-to-end sales management and operations</span></div>
+    {/* Trust strip (edit the experience lines here) */}
+    <div className="wrap trust">
+      <span>&#10003; Amazon SPN listed</span>
+      <span>&#10003; 20+ years in sales</span>
+      <span>&#10003; 10+ years in e-commerce</span>
     </div></section>
     <section className="pg"><div className="wrap">
       <h2>What we fix and grow</h2><p className="sub">Six services, from daily account care and brand protection to advertising and brand stores.</p>
-      <div className="grid">{services.slice(0,3).map(s=><div key={s.id} className="card svc"><div><span className="tag">{s.tag}</span><h3>{s.title}</h3></div><button className="ghost" onClick={()=>go('services',s.id)}>See details</button></div>)}</div>
+      <div className="grid">{services.map(s=><div key={s.id} className="card svc home-svc"><div><span className="tag">{s.tag}</span><h3>{s.title}</h3><p>{s.sum}</p></div><a className="lnk" href={'/services/'+s.id}>See details &rarr;</a></div>)}</div>
     </div></section>
     <Results go={go}/>
     <TestiHome go={go}/>
@@ -1303,6 +1359,8 @@ function App(){
       <a className="lnk" href={FACEBOOK} target="_blank" rel="noreferrer">Facebook</a>
       <a className="lnk" href={UPWORK} target="_blank" rel="noreferrer">Upwork</a>
       <a className="lnk" href={BLOG} target="_blank" rel="noreferrer">Blog</a>
+      <a className="lnk" href="mailto:admovera.spn@gmail.com">admovera.spn@gmail.com</a>
+      <a className="lnk" href="https://wa.me/201066551707" target="_blank" rel="noreferrer">WhatsApp</a>
       <button onClick={()=>go('privacy-policy')}>Privacy policy</button>
     </div>
     <p>© {new Date().getFullYear()} Admovera. All rights reserved. Amazon Service Provider (SPN)</p>
@@ -1480,7 +1538,7 @@ dialog.spn::backdrop{background:rgba(20,17,10,.55)}
     if (!cta || cta.querySelector('[data-spn-open]')) return;
     var b = document.createElement('button');
     b.type = 'button';
-    b.className = 'gold spn-open';
+    b.className = 'spn-link spn-open';
     b.setAttribute('data-spn-open', '');
     b.innerHTML = '<i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>Find us on SPN';
     b.addEventListener('click', openGuide);
