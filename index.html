@@ -1141,6 +1141,7 @@ const APP_FEATURES = [
   ['AWD','Amazon Warehousing and Distribution','View AWD inventory and follow AWD inbound shipments and replenishment to FBA, next to your FBA stock.'],
   ['Orders','Orders, sales and stockout alerts','Daily sales and order status in one dashboard, with alerts for products at risk of running out of stock.'],
   ['Profit','Profit per ASIN','Settlement and fee data turned into net profit per ASIN after Amazon fees, plus payout reconciliation.'],
+  ['Brand Analytics','Brand Analytics search insights','For brand owners enrolled in Amazon Brand Registry: see which search terms drive impressions, clicks and purchases for your own ASINs using Amazon Brand Analytics reports (Search Query Performance, Search Terms, Market Basket Analysis and Repeat Purchase), then use them to improve listing keywords and focus advertising spend. Reports are shown only to the brand owner who authorized the app. They are never shared, combined across sellers or used to benefit other sellers.'],
   ['Health','Account health monitoring','Account health and performance metrics with alerts for policy or performance issues before they affect sales.'],
   ['Reviews','Automated review requests','Sends Amazon\'s own "Request a Review" message for eligible orders inside the allowed time window, using only Amazon\'s Solicitations templates.'],
   ['Messages','Buyer messaging','Sends permitted order-related messages, such as delivery confirmations or product usage instructions, through Amazon\'s messaging service and within Amazon\'s communication guidelines.'],
@@ -1158,7 +1159,7 @@ function SellerApp({go,quote}){
     <div>
       <span className="badge">Amazon Selling Partner API application</span>
       <h1>{APP_NAME}: run your Amazon account from one dashboard.</h1>
-      <p className="lead">A web application for Amazon sellers that connects to Seller Central through Amazon's Selling Partner API (SP-API). Manage listings in bulk, protect your pricing, plan FBA and AWD inventory, track profit per ASIN and watch account health, with your authorization and under your control.</p>
+      <p className="lead">A web application for Amazon sellers that connects to Seller Central through Amazon's Selling Partner API (SP-API). Manage listings in bulk, protect your pricing, plan FBA and AWD inventory, track profit per ASIN, find the search terms that convert with Brand Analytics, and watch account health, with your authorization and under your control.</p>
       <div className="cta">
         <button className="gold" onClick={quote}>Request a quote</button>
         <a className="ghost" href="#app-pricing" onClick={e=>{e.preventDefault();document.getElementById('app-pricing').scrollIntoView({behavior:'smooth'});}}>See pricing</a>
@@ -1166,7 +1167,7 @@ function SellerApp({go,quote}){
     </div>
     <div className="card proof">
       <span className="proof-badge"><img src={LOGO} alt=""/>{APP_NAME}</span>
-      <div className="proof-row"><b>10</b><span>modules covering listings, pricing, inventory, finance and account health</span></div>
+      <div className="proof-row"><b>{APP_FEATURES.length}</b><span>modules covering listings, pricing, inventory, finance, brand analytics and account health</span></div>
       <div className="proof-row"><b>OAuth</b><span>secure authorization through Amazon. Revoke it any time</span></div>
       <div className="proof-row"><b>{APP_LAUNCH}</b><span>planned listing on the Amazon Selling Partner Appstore. Early access by request</span></div>
     </div>
@@ -1190,7 +1191,7 @@ function SellerApp({go,quote}){
       <ul>
         <li>The number of Amazon marketplaces connected</li>
         <li>The number of active SKUs</li>
-        <li>The modules you choose (listings, pricing, inventory, profit, account health, review requests, messaging)</li>
+        <li>The modules you choose (listings, pricing, inventory, profit, brand analytics, account health, review requests, messaging)</li>
         <li>Whether you add Admovera managed services on top of the app</li>
       </ul>
       <p>Send your details and we reply by email with a written quote. There is no charge to request a quote, and no payment is taken on this website.</p>
@@ -1391,7 +1392,7 @@ function App(){
       <div className="card box">
         <span className="tag">New: Amazon SP-API app</span>
         <h2 style={{marginTop:8}}>{APP_NAME}</h2>
-        <p>Our web application for Amazon sellers: bulk listing management, pricing insights with price limits you control, FBA and AWD inventory planning, profit per ASIN and account health alerts, connected securely through Amazon's Selling Partner API.</p>
+        <p>Our web application for Amazon sellers: bulk listing management, pricing insights with price limits you control, FBA and AWD inventory planning, profit per ASIN, Brand Analytics search insights and account health alerts, connected securely through Amazon's Selling Partner API.</p>
         <div className="cta"><button className="gold" onClick={()=>go('app')}>Explore the app</button><button className="ghost" onClick={quote}>Request a quote</button></div>
       </div>
     </div></section>
@@ -1452,7 +1453,7 @@ function App(){
     <h3 id="amazon-data" style={{marginTop:28}}>Amazon seller data ({APP_NAME})</h3>
     <p>This section explains how we handle data that Amazon sellers make available to us when they authorize {APP_NAME} through Amazon's Selling Partner API.</p>
     <ul>
-      <li><b>What we access.</b> Only the data needed for the features a seller uses: listings and catalog data, prices and offers for the seller's own products, inventory and shipment data, order status, financial and fee data, and account performance data.</li>
+      <li><b>What we access.</b> Only the data needed for the features a seller uses: listings and catalog data, prices and offers for the seller's own products, inventory and shipment data, order status, financial and fee data, account performance data, and, for brand owners enrolled in Brand Registry, Brand Analytics reports for their own brand.</li>
       <li><b>Buyer information.</b> We do not request, store or use buyer personal information such as names, addresses, emails or phone numbers.</li>
       <li><b>How we use it.</b> Only to provide the app's features to the seller who authorized it. We do not sell Amazon data, share it with third parties, or use it for advertising or to build products that compete with the seller.</li>
       <li><b>Security.</b> Data is encrypted in transit (TLS) and at rest. Access is limited to authorized staff based on their role, with multi-factor authentication. Credentials are stored in secure secret storage and never in source code.</li>
