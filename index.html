@@ -1129,12 +1129,98 @@ function TestiHome({go}){
     <div style={{marginTop:22}}><button className="gold" onClick={()=>go('testimonials')}>Read all testimonials</button></div>
   </div></section>;
 }
+/* ===== Admovera Seller Hub: the SP-API application page (/app) =====
+   Edit the app name, features, pricing note and launch date here. */
+const APP_NAME = 'Admovera Seller Hub';
+const APP_LAUNCH = 'Q1 2027';
+const APP_QUOTE = 'Admovera Seller Hub (app): request a quote';
+const APP_FEATURES = [
+  ['Listings','Bulk listing management','Create and bulk-edit titles, bullet points, descriptions, images, attributes and A+ content from one place. Find suppressed or inactive listings, see the exact issue Amazon reports, and fix them faster.'],
+  ['Pricing','Pricing insights and guarded price updates','See competitive prices, Featured Offer (Buy Box) status and offer counts for your ASINs, estimate Amazon fees before you change a price, and get alerts when your price stops being competitive. Price changes are only applied inside the minimum and maximum limits you set, and you can review every suggestion first.'],
+  ['FBA','FBA inventory and inbound shipments','Track FBA stock levels, get restock recommendations based on sales velocity, and create and follow inbound shipments to Amazon fulfillment centers.'],
+  ['AWD','Amazon Warehousing and Distribution','View AWD inventory and follow AWD inbound shipments and replenishment to FBA, next to your FBA stock.'],
+  ['Orders','Orders, sales and stockout alerts','Daily sales and order status in one dashboard, with alerts for products at risk of running out of stock.'],
+  ['Profit','Profit per ASIN','Settlement and fee data turned into net profit per ASIN after Amazon fees, plus payout reconciliation.'],
+  ['Health','Account health monitoring','Account health and performance metrics with alerts for policy or performance issues before they affect sales.'],
+  ['Reviews','Automated review requests','Sends Amazon\'s own "Request a Review" message for eligible orders inside the allowed time window, using only Amazon\'s Solicitations templates.'],
+  ['Messages','Buyer messaging','Sends permitted order-related messages, such as delivery confirmations or product usage instructions, through Amazon\'s messaging service and within Amazon\'s communication guidelines.'],
+  ['Compliance','Sustainability certifications','View and submit product sustainability certifications for eligible products.']
+];
+function SellerApp({go,quote}){
+  const steps=[
+    ['Request access','Send a quote request. We confirm your marketplaces, number of SKUs and the modules you need.'],
+    ['Authorize the app','You sign in to Seller Central and authorize '+APP_NAME+' through Amazon\'s official authorization page. We never ask for your Seller Central password.'],
+    ['Choose your rules','Pick the modules you want, set price limits, restock thresholds and alerts.'],
+    ['Work from one dashboard','Listings, pricing, inventory, profit and account health in one place. You can revoke access at any time from Seller Central.']
+  ];
+  return <>
+  <section className="hero"><div className="wrap">
+    <div>
+      <span className="badge">Amazon Selling Partner API application</span>
+      <h1>{APP_NAME}: run your Amazon account from one dashboard.</h1>
+      <p className="lead">A web application for Amazon sellers that connects to Seller Central through Amazon's Selling Partner API (SP-API). Manage listings in bulk, protect your pricing, plan FBA and AWD inventory, track profit per ASIN and watch account health, with your authorization and under your control.</p>
+      <div className="cta">
+        <button className="gold" onClick={quote}>Request a quote</button>
+        <a className="ghost" href="#app-pricing" onClick={e=>{e.preventDefault();document.getElementById('app-pricing').scrollIntoView({behavior:'smooth'});}}>See pricing</a>
+      </div>
+    </div>
+    <div className="card proof">
+      <span className="proof-badge"><img src={LOGO} alt=""/>{APP_NAME}</span>
+      <div className="proof-row"><b>10</b><span>modules covering listings, pricing, inventory, finance and account health</span></div>
+      <div className="proof-row"><b>OAuth</b><span>secure authorization through Amazon. Revoke it any time</span></div>
+      <div className="proof-row"><b>{APP_LAUNCH}</b><span>planned listing on the Amazon Selling Partner Appstore. Early access by request</span></div>
+    </div>
+  </div></section>
+
+  <section className="pg"><div className="wrap">
+    <h2>Features</h2><p className="sub">Each module uses only the SP-API data it needs to do its job.</p>
+    <div className="grid">{APP_FEATURES.map((f,i)=><div key={i} className="card svc"><div><span className="tag">{f[0]}</span><h3>{f[1]}</h3><p>{f[2]}</p></div></div>)}</div>
+  </div></section>
+
+  <section className="pg"><div className="wrap">
+    <h2>How it works</h2><p className="sub">From request to your first dashboard.</p>
+    <div className="grid">{steps.map((s,i)=><div key={i} className="card svc"><div><span className="tag">Step {i+1}</span><h3>{s[0]}</h3><p>{s[1]}</p></div></div>)}</div>
+  </div></section>
+
+  <section className="pg" id="app-pricing"><div className="wrap">
+    <h2>Pricing</h2><p className="sub">Quote-based pricing, so you only pay for the modules and marketplaces you use.</p>
+    <div className="card box">
+      <h3>Request a quote</h3>
+      <p>Your price depends on:</p>
+      <ul>
+        <li>The number of Amazon marketplaces connected</li>
+        <li>The number of active SKUs</li>
+        <li>The modules you choose (listings, pricing, inventory, profit, account health, review requests, messaging)</li>
+        <li>Whether you add Admovera managed services on top of the app</li>
+      </ul>
+      <p>Send your details and we reply by email with a written quote. There is no charge to request a quote, and no payment is taken on this website.</p>
+      <div className="cta"><button className="gold" onClick={quote}>Request a quote</button></div>
+    </div>
+  </div></section>
+
+  <section className="pg"><div className="wrap">
+    <h2>Your data and security</h2>
+    <div className="card box">
+      <ul>
+        <li>We access only the data of sellers who authorize {APP_NAME}, and only for the features they use.</li>
+        <li>We do not request or store buyer personal information (names, addresses or phone numbers).</li>
+        <li>Data is encrypted in transit and at rest, and access is limited to staff who need it.</li>
+        <li>We never sell or share Amazon data with third parties.</li>
+        <li>You can revoke access at any time in Seller Central. We then delete your data as described in our privacy policy.</li>
+      </ul>
+      <a className="lnk" href="/privacy-policy">Read the privacy policy &rarr;</a>
+    </div>
+    <p style={{fontSize:12,color:'var(--muted)',marginTop:14}}>{APP_NAME} is developed by Admovera, an independent company. Amazon, Seller Central and the Selling Partner API are trademarks of Amazon.com, Inc. or its affiliates. Admovera is not owned by or acting on behalf of Amazon.</p>
+  </div></section>
+  </>;
+}
 /* ===== Page links (clean URLs) =====
    Left: page key used in the code. Right: the address people see.
    To rename an address, change only the text on the right. */
 const PATHS = {
   'home':'/',
   'services':'/services',
+  'app':'/app',
   'case-studies':'/case-studies',
   'calculator':'/calculator',
   'about-us':'/about',
@@ -1146,6 +1232,7 @@ const PATHS = {
 const TITLES = {
   'home':'Admovera | Amazon Service Provider (SPN)',
   'services':'Amazon Services | Admovera',
+  'app':'Admovera Seller Hub: Amazon SP-API App | Admovera',
   'case-studies':'Case Studies | Admovera',
   'calculator':'ROI Calculator | Admovera',
   'about-us':'About | Admovera',
@@ -1189,6 +1276,8 @@ function App(){
   const isSvc = t => t==='services' || t.indexOf('services/')===0;
   const [tab,setTab] = useState(tab0);
   const [book,setBook] = useState(false);
+  const [topic,setTopic] = useState('');
+  const quote = () => { setTopic(APP_QUOTE); setBook(true); };
   const [menu,setMenu] = useState(false);
   const [sent,setSent] = useState(false);
   const [busy,setBusy] = useState(false);
@@ -1237,7 +1326,7 @@ function App(){
   const roas = ads>0 ? (price/ads).toFixed(2) : '0';
   const monthly = profit * units;
 
-  const items = [['home','Home'],['services','Services'],['case-studies','Case Studies'],['calculator','ROI Calculator'],['about-us','About'],['portfolio','Portfolio'],['testimonials','Testimonials']];
+  const items = [['home','Home'],['services','Services'],['app','Seller App'],['case-studies','Case Studies'],['calculator','ROI Calculator'],['about-us','About'],['portfolio','Portfolio'],['testimonials','Testimonials']];
   const Navbtn = ([k,l]) => <Link key={k} to={k} className={'gold '+((tab===k||(k==='services'&&isSvc(tab))||(k==='case-studies'&&tab.indexOf('case-')===0))?'':'off')}>{l}</Link>;
 
   return (<>
@@ -1298,9 +1387,19 @@ function App(){
       <h2>What we fix and grow</h2><p className="sub">Six services, from daily account care and brand protection to advertising and brand stores.</p>
       <div className="grid">{services.map(s=><div key={s.id} className="card svc home-svc"><div><span className="tag">{s.tag}</span><h3>{s.title}</h3><p>{s.sum}</p></div><a className="lnk" href={'/services/'+s.id}>See details &rarr;</a></div>)}</div>
     </div></section>
+    <section className="pg"><div className="wrap">
+      <div className="card box">
+        <span className="tag">New: Amazon SP-API app</span>
+        <h2 style={{marginTop:8}}>{APP_NAME}</h2>
+        <p>Our web application for Amazon sellers: bulk listing management, pricing insights with price limits you control, FBA and AWD inventory planning, profit per ASIN and account health alerts, connected securely through Amazon's Selling Partner API.</p>
+        <div className="cta"><button className="gold" onClick={()=>go('app')}>Explore the app</button><button className="ghost" onClick={quote}>Request a quote</button></div>
+      </div>
+    </div></section>
     <Results go={go}/>
     <TestiHome go={go}/>
   </>}
+
+  {tab==='app' && <SellerApp go={go} quote={quote}/>}
 
   {isSvc(tab) && (()=>{ const one = services.find(s=>'services/'+s.id===tab); const list = one ? [one] : services; return <section className="pg"><div className="wrap">
     {one ? <><button className="ghost" onClick={()=>go('services')} style={{marginBottom:16}}>&larr; All services</button></>
@@ -1350,6 +1449,17 @@ function App(){
     <h2>Privacy policy</h2>
     <p>At Admovera, one of our main priorities is the privacy of our visitors.</p>
     <a className="lnk" href="https://mentor.admovera.com/p/privacy-policy_01860821453.html" target="_blank" rel="noreferrer">Read the full policy »</a>
+    <h3 id="amazon-data" style={{marginTop:28}}>Amazon seller data ({APP_NAME})</h3>
+    <p>This section explains how we handle data that Amazon sellers make available to us when they authorize {APP_NAME} through Amazon's Selling Partner API.</p>
+    <ul>
+      <li><b>What we access.</b> Only the data needed for the features a seller uses: listings and catalog data, prices and offers for the seller's own products, inventory and shipment data, order status, financial and fee data, and account performance data.</li>
+      <li><b>Buyer information.</b> We do not request, store or use buyer personal information such as names, addresses, emails or phone numbers.</li>
+      <li><b>How we use it.</b> Only to provide the app's features to the seller who authorized it. We do not sell Amazon data, share it with third parties, or use it for advertising or to build products that compete with the seller.</li>
+      <li><b>Security.</b> Data is encrypted in transit (TLS) and at rest. Access is limited to authorized staff based on their role, with multi-factor authentication. Credentials are stored in secure secret storage and never in source code.</li>
+      <li><b>Retention and deletion.</b> We keep data only as long as needed to provide the service. When a seller revokes access in Seller Central or closes their account with us, we delete their Amazon data within 30 days, unless the law requires us to keep it longer.</li>
+      <li><b>Security incidents.</b> If a security incident involves Amazon information, we notify Amazon (security@amazon.com) and affected sellers within 24 hours of detection.</li>
+      <li><b>Contact.</b> Questions or deletion requests: <a className="lnk" href="mailto:support@admovera.com">support@admovera.com</a>.</li>
+    </ul>
   </div></div></section>}
   </main>
 
@@ -1361,6 +1471,7 @@ function App(){
       <a className="lnk" href={BLOG} target="_blank" rel="noreferrer">Blog</a>
       <a className="lnk" href="mailto:support@admovera.com">support@admovera.com</a>
       <a className="lnk" href="https://wa.me/201066551707" target="_blank" rel="noreferrer">WhatsApp</a>
+      <button onClick={()=>go('app')}>Seller App</button>
       <button onClick={()=>go('privacy-policy')}>Privacy policy</button>
     </div>
     <p>© {new Date().getFullYear()} Admovera. All rights reserved. Amazon Service Provider (SPN)</p>
@@ -1369,13 +1480,13 @@ function App(){
   </div></footer>
 
   {book && <div className="modal" role="dialog" aria-modal="true" aria-label="Book a consultation"><div className="card">
-    <div className="mh"><h3>Book a consultation</h3><button className="x" onClick={()=>{setBook(false);setSent(false);setErr(false);}} aria-label="Close">&times;</button></div>
+    <div className="mh"><h3>Book a consultation</h3><button className="x" onClick={()=>{setBook(false);setSent(false);setErr(false);setTopic('');}} aria-label="Close">&times;</button></div>
     {sent ? <p>Thanks, your inquiry was sent. We will reply by email.</p> :
     <form onSubmit={submit}>
       <label htmlFor="n">Full name</label><input id="n" name="name" required/>
       <label htmlFor="e">Email</label><input id="e" name="email" type="email" required placeholder="name@company.com"/>
       <label htmlFor="t">What do you need help with?</label>
-      <select id="t" name="topic"><option>Account suspension / Plan of Action</option><option>Listing rejection</option><option>Compliance</option><option>Brand Registry / IP protection</option><option>Account management</option><option>Advertising (PPC)</option><option>Growth strategy</option><option>Other</option></select>
+      <select id="t" name="topic" defaultValue={topic||'Account suspension / Plan of Action'}><option>{APP_QUOTE}</option><option>Account suspension / Plan of Action</option><option>Listing rejection</option><option>Compliance</option><option>Brand Registry / IP protection</option><option>Account management</option><option>Advertising (PPC)</option><option>Growth strategy</option><option>Other</option></select>
       <label htmlFor="m">Message</label><textarea id="m" name="message" placeholder="Tell us briefly about your case"/>
       <input type="text" name="_honey" style={{display:'none'}} tabIndex="-1" autoComplete="off"/>
       {err && <p className="err" role="alert">We could not send your message automatically. <a className="lnk" href={fallback}>Send it by email instead</a> or write to <a className="lnk" href={'mailto:' + MAIL}>{MAIL}</a>.</p>}
