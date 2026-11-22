@@ -1132,14 +1132,14 @@ function TestiHome({go}){
 /* ===== Admovera Seller Hub: the SP-API application page (/app) =====
    Edit the app name, features, pricing note and launch date here. */
 const APP_NAME = 'Admovera Seller Hub';
-const APP_LAUNCH = 'Q1 2027';
+const APP_LAUNCH = 'Q1 2027'; const APP_LIVE = ['FBA','Orders'];
 const APP_QUOTE = 'Admovera Seller Hub (app): request a quote';
 const APP_FEATURES = [
   ['Listings','Bulk listing management','Create and bulk-edit titles, bullet points, descriptions, images, attributes and A+ content from one place. Find suppressed or inactive listings, see the exact issue Amazon reports, and fix them faster.'],
   ['Pricing','Pricing insights and guarded price updates','See competitive prices, Featured Offer (Buy Box) status and offer counts for your ASINs, estimate Amazon fees before you change a price, and get alerts when your price stops being competitive. Price changes are only applied inside the minimum and maximum limits you set, and you can review every suggestion first.'],
-  ['FBA','FBA inventory and inbound shipments','Track FBA stock levels, get restock recommendations based on sales velocity, and create and follow inbound shipments to Amazon fulfillment centers.'],
+  ['FBA','FBA inventory and inbound shipments','Track FBA stock levels today. Restock recommendations based on sales velocity and inbound shipment creation are coming soon.'],
   ['AWD','Amazon Warehousing and Distribution','View AWD inventory and follow AWD inbound shipments and replenishment to FBA, next to your FBA stock.'],
-  ['Orders','Orders, sales and stockout alerts','Daily sales and order status in one dashboard, with alerts for products at risk of running out of stock.'],
+  ['Orders','Orders, sales and stockout alerts','Daily sales and order status in one dashboard, with low-stock and out-of-stock flags. Email alerts are coming soon.'],
   ['Profit','Profit per ASIN','Settlement and fee data turned into net profit per ASIN after Amazon fees, plus payout reconciliation.'],
   ['Brand Analytics','Brand Analytics search insights','For brand owners enrolled in Amazon Brand Registry: see which search terms drive impressions, clicks and purchases for your own ASINs using Amazon Brand Analytics reports (Search Query Performance, Search Terms, Market Basket Analysis and Repeat Purchase), then use them to improve listing keywords and focus advertising spend. Reports are shown only to the brand owner who authorized the app. They are never shared, combined across sellers or used to benefit other sellers.'],
   ['Health','Account health monitoring','Account health and performance metrics with alerts for policy or performance issues before they affect sales.'],
@@ -1159,23 +1159,23 @@ function SellerApp({go,quote}){
     <div>
       <span className="badge">Amazon Selling Partner API application</span>
       <h1>{APP_NAME}: run your Amazon account from one dashboard.</h1>
-      <p className="lead">A web application for Amazon sellers that connects to Seller Central through Amazon's Selling Partner API (SP-API). Manage listings in bulk, protect your pricing, plan FBA and AWD inventory, track profit per ASIN, find the search terms that convert with Brand Analytics, and watch account health, with your authorization and under your control.</p>
+      <p className="lead">A web application for Amazon sellers that connects to Seller Central through Amazon's Selling Partner API (SP-API), with your authorization and under your control. Today it shows your orders, sales and FBA stock with low-stock flags in one dashboard. More modules (listings, pricing, profit per ASIN, account health and more) are rolling out in stages.</p>
       <div className="cta">
         <button className="gold" onClick={quote}>Request a quote</button>
-        <a className="ghost" href="#app-pricing" onClick={e=>{e.preventDefault();document.getElementById('app-pricing').scrollIntoView({behavior:'smooth'});}}>See pricing</a>
+        <a className="ghost" href="https://app.admovera.com/demo" target="_blank" rel="noopener">View live demo</a> <a className="ghost" href="#app-pricing" onClick={e=>{e.preventDefault();document.getElementById('app-pricing').scrollIntoView({behavior:'smooth'});}}>See pricing</a>
       </div>
     </div>
     <div className="card proof">
       <span className="proof-badge"><img src={LOGO} alt=""/>{APP_NAME}</span>
-      <div className="proof-row"><b>{APP_FEATURES.length}</b><span>modules covering listings, pricing, inventory, finance, brand analytics and account health</span></div>
+      <div className="proof-row"><b>{APP_FEATURES.filter(f=>APP_LIVE.includes(f[0])).length} live</b><span>of {APP_FEATURES.length} planned modules. The rest are coming soon, across listings, pricing, inventory, finance, brand analytics and account health</span></div>
       <div className="proof-row"><b>OAuth</b><span>secure authorization through Amazon. Revoke it any time</span></div>
       <div className="proof-row"><b>{APP_LAUNCH}</b><span>planned listing on the Amazon Selling Partner Appstore. Early access by request</span></div>
     </div>
   </div></section>
 
   <section className="pg"><div className="wrap">
-    <h2>Features</h2><p className="sub">Each module uses only the SP-API data it needs to do its job.</p>
-    <div className="grid">{APP_FEATURES.map((f,i)=><div key={i} className="card svc"><div><span className="tag">{f[0]}</span><h3>{f[1]}</h3><p>{f[2]}</p></div></div>)}</div>
+    <h2>Features</h2><p className="sub">Each module uses only the SP-API data it needs to do its job. Modules marked Coming soon are in development and are enabled only once the matching Amazon permission is available.</p>
+    <div className="grid">{APP_FEATURES.map((f,i)=><div key={i} className="card svc"><div><span className="tag">{f[0]}</span> {(()=>{const on=APP_LIVE.includes(f[0]);return <span style={{marginLeft:8,fontSize:11,fontWeight:600,padding:'2px 8px',borderRadius:99,background:on?'#d1fae5':'rgba(128,128,128,.18)',color:on?'#065f46':'var(--muted)'}}>{on?'Available now':'Coming soon'}</span>;})()}<h3>{f[1]}</h3><p>{f[2]}</p></div></div>)}</div>
   </div></section>
 
   <section className="pg"><div className="wrap">
